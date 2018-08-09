@@ -1,0 +1,42 @@
+{
+  "name": "cpd-event-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node --presets=latest",
+    "start": "nodemon --exec npm run babel-node -- ./app.js"
+  },
+  "babel": {
+    "presets": [
+      "latest"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meksikann/cpd-bot.git"
+  },
+  "author": "meksikann@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meksikann/cpd-bot/issues"
+  },
+  "homepage": "https://github.com/meksikann/cpd-bot#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "botbuilder": "^3.15.0",
+    "dotenv": "^5.0.1",
+    "http-status-codes": "^1.3.0",
+    "keymirror": "^0.1.1",
+    "mongoist": "^1.7.2",
+    "restify": "^7.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.18.3"
+  }
+}

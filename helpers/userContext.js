@@ -12,11 +12,24 @@ async function getNextAction(userId, text) {
     }
 }
 
-async function setActionDone(data) {
+async function notifyBotBrainActionDone(data) {
     try {
-        const res = await axios.post(config.rasaContinueUrl,{"body":data});
+        const res = await axios.post(config.rasaContinueUrl, {
+            "executed_action":data.executed_action,
+            "events": data.events || []
+        });
 
+        console.log('received data from notifyToContinue', res.data);
         return res.data;
+    } catch(err) {
+        console.error(err);
+        return;
+    }
+}
+
+async function notifyBotBrainToRespond(data) {
+    try {
+       //TODO: !
     } catch(err) {
         console.error(err);
         return;
@@ -25,4 +38,4 @@ async function setActionDone(data) {
 
 
 
-export {getNextAction, setActionDone}
+export {getNextAction, notifyBotBrainActionDone, notifyBotBrainToRespond}

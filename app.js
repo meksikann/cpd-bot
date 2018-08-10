@@ -4,14 +4,14 @@ require('dotenv').config();
 
 import restify from 'restify';
 import HttpStatus from 'http-status-codes'
-import {messages} from './constants/messages';
+import {generalConstants} from './constants/general';
 import {botCreate} from './bot.js';
 
 let server = restify.createServer();
 
 //setup server
 server.listen(8282, () => {
-    console.log(`${server.name} ${messages.serverResponseMessages.listening} ${server.url}`);
+    console.log(`${server.name} ${generalConstants.serverResponseMessages.listening} ${server.url}`);
 });
 
 //create chat connector appId and appPassword are not needed when test on local bot-framework emulator

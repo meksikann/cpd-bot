@@ -1,8 +1,9 @@
-let keyMirror = require('keymirror');
 
 const generalConstants = {
-
+    serverResponseMessages: {
+        listening: "listening on"
+    },
 };
 
 
-export default  generalConstants;
+export {generalConstants} ;

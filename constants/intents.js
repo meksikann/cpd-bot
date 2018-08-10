@@ -1,9 +1,7 @@
 let keyMirror = require('keymirror');
 
+// intents to do some action
 const intents = {
-    'utter_greet': null,
-    'utter_appreciation': null,
-    'utter_farewell': null,
     'help': null,
 };
 

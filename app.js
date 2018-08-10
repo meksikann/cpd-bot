@@ -1,5 +1,6 @@
+//setup builder global variable
+global.builder = require('botbuilder');
 require('dotenv').config();
-const builder = require('botbuilder');
 
 import restify from 'restify';
 import HttpStatus from 'http-status-codes'
@@ -7,7 +8,6 @@ import {messages} from './constants/messages';
 import {botCreate} from './bot.js';
 
 let server = restify.createServer();
-
 
 //setup server
 server.listen(8282, () => {

@@ -1,25 +1,19 @@
-function getFormatedTodos(todos) {
-    let todosResponse = '';
+import {messages} from "../constants/messages";
+const fs = require('fs');
 
-    todos.forEach(todo => {
-        let item = todo.isDone ? `- ~~${todo.title}~~<br/>` : `- ${todo.title}<br/>`;
+function createHeroCard(session) {
+    var image64 = new Buffer(fs.readFileSync('assets/img/lay-bot.jpeg').toString("base64"));
 
-        todosResponse += item;
-    });
-
-    return todosResponse;
+    return new builder.HeroCard(session)
+        .title(messages.heroCard.title)
+        .subtitle(messages.heroCard.subtitle)
+        .text(messages.heroCard.text)
+        .images([
+            builder.CardImage.create(session, "data:image/jpeg;base64," + image64)
+        ])
+        .buttons([
+            builder.CardAction.openUrl(session, process.env.BOT_MANUAL || '', messages.heroCard.buttonLabel)
+        ]);
 }
 
-function getNumberedTodos(todos) {
-    let todosResponse = '';
-
-    todos.forEach((todo, index) => {
-        let item = `${index + 1}) ${todo.title}<br/>`;
-
-        todosResponse += item;
-    });
-
-    return todosResponse;
-}
-
-export { getFormatedTodos, getNumberedTodos };
+export {createHeroCard};

@@ -1,10 +1,7 @@
 import {messages} from './constants/messages';
+import {createHeroCard} from './helpers/format-messages';
 import intents from './constants/intents';
-
-global.builder = require('botbuilder');
-require('dotenv').config();
-const axios = require('axios');
-const fs = require('fs');
+import {getNextAction} from './helpers/userContext';
 
 function botCreate(connector) {
 
@@ -13,15 +10,34 @@ function botCreate(connector) {
         function (session) {
             session.send(messages.defaultmessage);
         }
-    ])
+    ]);
+
+    // use rasa-core server *************
+    bot.use({
+        botbuilder: async (session, next) => {
+            //TODO: use RASA_CORE here -------------------------------------
+            const nextActionData = await getNextAction(session.message.user.id || 'default-user',session.message.text);
+
+            if(nextActionData) {
+                console.log('manage dialog deppending from data received from RASA-CORE');
+                console.log(nextActionData.next_action);
+
+
+                // session.beginDialog(intents.utter_greet);
+
+            } else {
+                next();
+            }
+        }
+    });
 
     /**********************************************************************
      * ******************** dialogs ***************************************
      * ********************************************************************/
 
-    bot.dialog(intents.Greeting, [
+    /* shows help card*/
+    bot.dialog(intents.help, [
         (session) => {
-            // session.send(messages.greetingFirstTime);
             const card = createHeroCard(session);
             // attach the card to the reply message
             const msg = new builder.Message(session).addAttachment(card);
@@ -34,21 +50,14 @@ function botCreate(connector) {
         }
     );
 
+    /* greeting message*/
+    bot.dialog(intents.utter_greet, [
+        (session) => {
+            session.endDialog(messages.greetingFirstTime);
+        }
+    ]);
 }
 
-function createHeroCard(session) {
-    var image64 = new Buffer(fs.readFileSync('assets/img/lay-bot.jpeg').toString("base64"));
 
-    return new builder.HeroCard(session)
-        .title(messages.heroCard.title)
-        .subtitle(messages.heroCard.subtitle)
-        .text(messages.heroCard.text)
-        .images([
-            builder.CardImage.create(session, "data:image/jpeg;base64,"+image64)
-        ])
-        .buttons([
-            builder.CardAction.openUrl(session, process.env.BOT_MANUAL || '', messages.heroCard.buttonLabel)
-        ]);
-}
 
 export {botCreate}

@@ -1,27 +1,28 @@
-import {getUserContext, setUserContext} from './database-queries';
-import generalConstants from '../constants/general';
+const axios = require('axios');
+import config from '../config';
 
-async function getUserContextInfo(userId) {
+async function getNextAction(userId, text) {
     try {
-        return await getUserContext(userId);
+        const res = await axios.post(config.rasaParseUrl,{"query":text});
+
+        return res.data;
     } catch(err) {
         console.error(err);
+        return;
     }
 }
 
-async function setUserContextInfo(opts) {
-    const {userId, lastUserIntent} = opts;
-    let contextToSave = {
-        lastUserIntent,
-        userId
-    };
-
+async function setActionDone(data) {
     try {
-        return await setUserContext(userId, contextToSave);
+        const res = await axios.post(config.rasaContinueUrl,{"body":data});
+
+        return res.data;
     } catch(err) {
-        return console.error(err);
+        console.error(err);
+        return;
     }
 }
 
 
-export {getUserContextInfo, setUserContextInfo}
+
+export {getNextAction, setActionDone}

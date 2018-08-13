@@ -27,15 +27,4 @@ async function notifyBotBrainActionDone(data) {
     }
 }
 
-async function notifyBotBrainToRespond(data) {
-    try {
-       //TODO: !
-    } catch(err) {
-        console.error(err);
-        return;
-    }
-}
-
-
-
-export {getNextAction, notifyBotBrainActionDone, notifyBotBrainToRespond}
+export {getNextAction, notifyBotBrainActionDone}

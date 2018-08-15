@@ -1,5 +1,5 @@
 const axios = require('axios');
-import config from '../config';
+import config from '../config/index';
 
 async function getNextAction(userId, text) {
     try {

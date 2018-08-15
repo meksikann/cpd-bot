@@ -20,3 +20,6 @@ start app run:
 ```bash
 npm start
 ```
+
+******************************** run with docker *********************
+sudo docker run --name cpd-bot -p 8282:8282 -d --network host cpd-bot

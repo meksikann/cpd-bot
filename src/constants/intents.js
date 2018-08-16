@@ -1,7 +1,7 @@
 let keyMirror = require('keymirror');
 
-// intents to do some action
-const intents = {
+// actionIntents to do some action
+const actionIntents = {
     'help': null,
     'action_listen': null,
     'action_create_event': null,
@@ -9,4 +9,4 @@ const intents = {
     'action_update_event': null
 };
 
-export default keyMirror(intents);
+export default keyMirror(actionIntents);

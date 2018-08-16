@@ -1,3 +1,5 @@
+import {logInfo} from "../utils/logger";
+
 const say = require('say');
 
 function botSayInFestival(opts) {
@@ -10,7 +12,7 @@ function botSayInFestival(opts) {
         'voice_rab_diphone'
     ];
 
-    console.log('enable speech: ', process.env.ENABLE_SPEECH);
+    logInfo('enable speech: ', process.env.ENABLE_SPEECH);
 
     // use speech synthesis if enabled ********************************
     if(process.env.ENABLE_SPEECH == 1) {

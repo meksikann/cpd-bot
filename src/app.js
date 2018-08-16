@@ -1,4 +1,6 @@
 //setup builder global variable
+import {logInfo} from "./utils/logger";
+
 global.builder = require('botbuilder');
 require('dotenv').config();
 
@@ -11,7 +13,7 @@ let server = restify.createServer();
 
 //setup server
 server.listen(8282, () => {
-    console.log(`${server.name} ${generalConstants.serverResponseMessages.listening} ${server.url}`);
+    logInfo(`${server.name} ${generalConstants.serverResponseMessages.listening} ${server.url}`);
 });
 
 //create chat connector appId and appPassword are not needed when test on local bot-framework emulator

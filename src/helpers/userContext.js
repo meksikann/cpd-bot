@@ -1,10 +1,14 @@
+import {logInfo} from "../utils/logger";
+
 const axios = require('axios');
 import config from '../config/index';
 
 async function getNextAction(userId, text) {
     try {
-        const res = await axios.post(config.rasaParseUrl,{"query":text});
-
+        const res = await axios.post(config.rasaParseUrl,{
+            "query":text
+        });
+        logInfo('received data from getNextAction', res.data);
         return res.data;
     } catch(err) {
         console.error(err);
@@ -19,7 +23,7 @@ async function notifyBotBrainActionDone(data) {
             "events": data.events || []
         });
 
-        console.log('received data from notifyToContinue', res.data);
+        logInfo('received data from notifyToContinue', res.data);
         return res.data;
     } catch(err) {
         console.error(err);

@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "babel-node": "babel-node --presets=latest",
-    "start": "nodemon --exec npm run babel-node -- ./src/app.js",
+    "babel-node": "babel-node --presets=latest ",
+    "start": "nodemon --exec npm run babel-node -- ./src/app.js ",
+    "debug": "babel-node -- ./src/app.js $NODE_DEBUG_OPTION ./src/app.js",
     "build": "babel src -d dist",
     "serve": "node dist/app.js"
   },

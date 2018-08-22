@@ -3,6 +3,7 @@ import {createHeroCard} from './helpers/format-messages';
 import actionIntents from './constants/intents';
 import {getNextAction, notifyBotBrainActionDone} from './helpers/userContext';
 import {logInfo} from './utils/logger';
+import {processActionIntent} from './helpers/actionProcessor';
 
 function botCreate(connector) {
 
@@ -54,7 +55,10 @@ function botCreate(connector) {
  * else pass to default bot answer
 * */
 async function processNextAction(session, nextActionData, next) {
-    let data = {};
+    let data = {
+        userId: session.message.user.id || 'default-user'
+    };
+    logInfo(nextActionData);
 
     // set bot to listen to user - no other actions required
     if (nextActionData.next_action == actionIntents.action_listen) {
@@ -74,11 +78,14 @@ async function processNextAction(session, nextActionData, next) {
 
     // perform next bot action
     if (actionIntents[nextActionData.next_action]) {
+        console.log('++++++++++++++++++++++++++++++++++here');
         // do intent action process
+        const nextActionPerform = nextActionData.next_action;
         const processResult = await processActionIntent(nextActionData);
 
         if (processResult.success) {
-            data.executed_action = nextActionData.next_action;
+            console.log('++++++++++++++++++++++++++++++++++here2 in success');
+            data.executed_action = nextActionPerform;
 
             const nextActionData = await notifyBotBrainActionDone(data);
             return processNextAction(session, nextActionData, next);

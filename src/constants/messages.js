@@ -12,8 +12,12 @@ let messages = {
     bot_response: {
         /* ************************* rasa-core utter messages *********************************************************/
         utter_thank: 'glad to help you',
-        utter_bye: 'bye',
+        utter_bye: `Bye bye my friend...Don't hesitate to ping me if U need something.`,
         utter_greet: 'Hey, how are you today?',
+        utter_how_can_help: 'How can I help?',
+        utter_on_it: "I'm on it.",
+        utter_ask_event_name: `What's event name?`,
+        utter_event_saved: 'Event saved',
         /* ************************* custom ***************************************************************************/
         defaultmessage: 'default dialog goes here...Man!!....It means that you or bot screwed up conversation...:)',
         greeting: 'Hey, how can I help you?',

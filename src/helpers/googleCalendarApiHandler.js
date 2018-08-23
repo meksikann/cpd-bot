@@ -9,7 +9,7 @@ const googleCalendarApiHandler = () => {
     const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
     const TOKEN_PATH = 'token.json';
 
-    
+
     function getEvents() {
         logInfo('In googleCalendarApiHandler: get all events');
     }

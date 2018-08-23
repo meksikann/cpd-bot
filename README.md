@@ -16,6 +16,8 @@ BOT_MANUAL=<URL_TO_MANUAL>>
 npm install
 ```
 
+3.1 Place credentials.json file (with google api creds) into src/helpers folder
+
 4. start dev
 ``
 npm start

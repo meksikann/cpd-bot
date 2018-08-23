@@ -16,7 +16,7 @@ function botCreate(connector) {
 
     bot.use({
         botbuilder: async (session, next) => {
-            // use rasa-core server to predict next action *************
+            //use rasa-core server to predict next action *************
             const nextActionData = await getNextAction(session.message.user.id || 'default-user', session.message.text);
 
             if (nextActionData) {

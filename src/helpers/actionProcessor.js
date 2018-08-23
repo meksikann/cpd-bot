@@ -1,6 +1,6 @@
 import actionIntents from "../constants/intents";
 import {logInfo} from "../utils/logger";
-import googleCalendarApiHandler from './googleCalendarApiHandler';
+import {getGoogleCalendarEvents} from './googleCalendarApiHandler';
 
 //process custom action
 async function processActionIntent(nextActionData, session) {
@@ -46,7 +46,7 @@ async function processActionIntent(nextActionData, session) {
 }
 
 async function showEvents() {
-    let events = await googleCalendarApiHandler.getEvents();
+    let events = await getGoogleCalendarEvents();
     console.log('got all events HURA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', events);
     return events;
 }

@@ -14,9 +14,9 @@ function botCreate(connector) {
         }
     ]);
 
-    // use rasa-core server *************
     bot.use({
         botbuilder: async (session, next) => {
+            // use rasa-core server to predict next action *************
             const nextActionData = await getNextAction(session.message.user.id || 'default-user', session.message.text);
 
             if (nextActionData) {
@@ -34,7 +34,7 @@ function botCreate(connector) {
      * ********************************************************************/
 
     /* shows help card*/
-    bot.dialog(actionIntents.help, [
+    bot.dialog(actionIntents.action_help, [
         (session) => {
             const card = createHeroCard(session);
             // attach the card to the reply message
@@ -43,11 +43,14 @@ function botCreate(connector) {
             session.send(msg);
             session.endDialog();
         }
-    ]).triggerAction({
-            matches: /^help$/i
-        }
-    );
+    ]);
+
+    /**********************************************************************
+     * ******************** end dialogs ***********************************
+     * ********************************************************************/
 }
+
+
 
 /*
 * method to make response deppending on data received from NLU processor.
@@ -62,8 +65,7 @@ async function processNextAction(session, nextActionData, next) {
 
     // set bot to listen to user - no other actions required
     if (nextActionData.next_action == actionIntents.action_listen) {
-        logInfo('LOG: action listen');
-        return;
+        return logInfo('LOG: action listen');
     }
 
     //if next_action is simple response (utter) message - shoot it!
@@ -78,13 +80,11 @@ async function processNextAction(session, nextActionData, next) {
 
     // perform next bot action
     if (actionIntents[nextActionData.next_action]) {
-        console.log('++++++++++++++++++++++++++++++++++here');
         // do intent action process
         const nextActionPerform = nextActionData.next_action;
-        const processResult = await processActionIntent(nextActionData);
+        const processResult = await processActionIntent(nextActionData, session);
 
         if (processResult.success) {
-            console.log('++++++++++++++++++++++++++++++++++here2 in success');
             data.executed_action = nextActionPerform;
 
             const nextActionData = await notifyBotBrainActionDone(data);

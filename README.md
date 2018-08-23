@@ -1,4 +1,4 @@
-# cpd-bot
+# cpd-event-bot
 bot for manage user events in google-calendar
 (bot build on node.js requasts to brain made in RASA-CORE)
 
@@ -11,15 +11,30 @@ MicrosoftAppPassword=<YOUR_MS_PASSWORD>>
 BOT_MANUAL=<URL_TO_MANUAL>>
 ```
 
-3. npm install
-4. npm start
-5. start RASA-CORE server on python hosted on same host
-
-start app run:
-
-```bash
-npm start
+3. install dependencies
+```
+npm install
 ```
 
-******************************** run with docker *********************
+4. start dev
+``
+npm start
+``
+or Build prod:
+``
+npm build
+``
+start prod 
+``npm serve``
+5. start RASA-CORE server on python hosted on same host
+
+**_TODO need to make it work with rasa-core docker container_**
+
+******************* run with docker *********************
+```
 sudo docker run --name cpd-bot -p 8282:8282 -d --network host cpd-bot
+```
+
+NOTE:
+google api used to manege calendar events
+https://developers.google.com/calendar/overview

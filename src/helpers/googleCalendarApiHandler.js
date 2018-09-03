@@ -1,5 +1,6 @@
 import {logInfo} from "../utils/logger";
-const fs = require('fs');
+import {readFileSync} from "../utils/fileSys";
+
 const path = require('path');
 const readline = require('readline');
 const {google} = require('googleapis');
@@ -13,54 +14,45 @@ const daysOffCalendarId = 'eliftech.com_92gsu525ed2rrfotqfcd23vnk4@group.calenda
 const conferanceRoomOffCalendarId = 'eliftech.com_opr4uacf9vnofoacil689vpbh8@group.calendar.google.com';
 const myCalendarId = 'primary';
 
-function getGoogleCalendarEvents() {
+async function getGoogleCalendarEvents() {
     logInfo('In googleCalendarApiHandler: get all events');
 
-    //list daysOff
-    return performAction(listEvents, daysOffCalendarId)
+    let content = await readFileSync(`${currentPath}/../creds/credentials.json`);
+    // Authorize a client with credentials, then call the Google Calendar API.
+    const oAuth2Client = await authorize(JSON.parse(content));
+    const events = await listEvents(oAuth2Client, myCalendarId);
+
+    return events;
 }
 
 function createGoogleCalendarEvent() {
     logInfo('In googleCalendarApiHandler: create vent');
 }
 
-function performAction(performCallback, calendarId) {
-    // Load client secrets from a local file.
-    fs.readFile(`${currentPath}/../creds/credentials.json`, (err, content) => {
-        if (err) return console.log('Error loading client secret file:', err);
-        // Authorize a client with credentials, then call the Google Calendar API.
-        authorize(JSON.parse(content),calendarId, performCallback);
-    });
-}
 
 /**
  * Lists the next 10 events on the user's primary calendar.
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-function listEvents(auth, calendarId) {
+async function listEvents(auth, calendarId) {
     const calendar = google.calendar({version: 'v3', auth});
 
-    calendar.events.list({
-        calendarId: calendarId,
-        timeMin: (new Date()).toISOString(),
-        maxResults: 10,
-        singleEvents: true,
-        orderBy: 'startTime',
-    }, (err, res) => {
-        if (err) return console.log('The API returned an error: ' + err);
-        const events = res.data.items;
-        if (events.length) {
-            console.log('Upcoming 10 events:');
-            events.map((event, i) => {
-                const start = event.start.dateTime || event.start.date;
-                console.log(`${start} - ${event.summary}`);
-            });
-        } else {
-            console.log('No upcoming events found.');
-        }
+    return new Promise((resolve, reject) => {
+        calendar.events.list({
+            calendarId: calendarId,
+            timeMin: (new Date()).toISOString(),
+            maxResults: 10,
+            singleEvents: true,
+            orderBy: 'startTime',
+        }, (err, res) => {
+            if (err) {
+                reject('The API returned an error: ' + err);
+                return;
+            }
 
-        return events;
-    });
+            resolve(res.data.items);
+        })
+    })
 }
 
 /**
@@ -69,18 +61,15 @@ function listEvents(auth, calendarId) {
  * @param {Object} credentials The authorization client credentials.
  * @param {function} callback The callback to call with the authorized client.
  */
-function authorize(credentials, calendarId, callback) {
+async function authorize(credentials) {
     const {client_secret, client_id, redirect_uris} = credentials.installed;
     const oAuth2Client = new google.auth.OAuth2(
         client_id, client_secret, redirect_uris[0]);
 
-    fs.readFile(`${currentPath}/../creds/${TOKEN_PATH}`, (err, token) => {
-        if (err) {
-            return console.error(err);
-        }
-        oAuth2Client.setCredentials(JSON.parse(token));
-        callback(oAuth2Client, calendarId);
-    });
+    const token = await readFileSync(`${currentPath}/../creds/${TOKEN_PATH}`);
+    oAuth2Client.setCredentials(JSON.parse(token));
+
+    return oAuth2Client;
 }
 
 /**

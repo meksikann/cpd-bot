@@ -15,5 +15,18 @@ function createHeroCard(session) {
             builder.CardAction.openUrl(session, process.env.BOT_MANUAL || '', messages.heroCard.buttonLabel)
         ]);
 }
+ function formatEvents(events) {
+    let formattedEvents = '';
 
-export {createHeroCard};
+    if(events && events.length) {
+        events.forEach((event, i) => {
+            const start = event.start.dateTime || event.start.date;
+            formattedEvents += `${start} - ${event.summary} <br/>`;
+        });
+    } else {
+        formattedEvents = 'Calendar is empty';
+    }
+
+     return formattedEvents;
+ }
+export {createHeroCard, formatEvents};

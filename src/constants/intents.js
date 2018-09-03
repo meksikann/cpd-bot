@@ -6,7 +6,7 @@ const actionIntents = {
     'action_create_event': null,
     'action_remove_event': null,
     'action_update_event': null,
-    'action_show_events': null,
+    'action_show_my_events': null,
     'action_help': null
 };
 

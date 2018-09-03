@@ -1,6 +1,7 @@
 import actionIntents from "../constants/intents";
 import {logInfo} from "../utils/logger";
 import {getGoogleCalendarEvents} from './googleCalendarApiHandler';
+import  {formatEvents} from "../helpers/format-messages";
 
 //process custom action
 async function processActionIntent(nextActionData, session) {
@@ -25,10 +26,12 @@ async function processActionIntent(nextActionData, session) {
                 logInfo('performing action_remove_event ...');
                 result.success = true;
                 break;
-            case actionIntents.action_show_events:
+            case actionIntents.action_show_my_events:
                 logInfo('performing action_show_events ...');
                 result.data = await showEvents();
                 result.success = true;
+
+                session.send(formatEvents(result.data));
                 break;
             case actionIntents.action_help:
                 logInfo('performing action_help ...');

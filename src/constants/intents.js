@@ -7,7 +7,8 @@ const actionIntents = {
     'action_remove_event': null,
     'action_update_event': null,
     'action_show_my_events': null,
-    'action_help': null
+    'action_help': null,
+    'action_check_room_available': null,
 };
 
 export default keyMirror(actionIntents);

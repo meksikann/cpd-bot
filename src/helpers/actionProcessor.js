@@ -37,6 +37,15 @@ async function processActionIntent(nextActionData, session) {
                 logInfo('performing action_help ...');
                 session.beginDialog(actionIntents.action_help);
                 break;
+            case actionIntents.action_check_room_available:
+                const queryData = {
+                    roomName: nextActionData.tracker.slots.room_name,
+                    time: nextActionData.tracker.slots.time
+                };
+                logInfo('performing action_check_room_available ...');
+                result.events = await checkRoomAvailable(queryData);
+                result.success = true;
+                break;
             default:
                 logInfo('performing default action ...');
                 result.success = false;
@@ -50,8 +59,14 @@ async function processActionIntent(nextActionData, session) {
 
 async function showEvents() {
     let events = await getGoogleCalendarEvents();
-    console.log('got all events HURA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', events);
     return events;
+}
+
+async function checkRoomAvailable(queryData) {
+    //TODO: make check room available API----------------->
+    logInfo('Checking if room available...', queryData);
+
+    return [{"event": "slot", "name": "is_room_available", "value": "True"}];
 }
 
 export {processActionIntent}

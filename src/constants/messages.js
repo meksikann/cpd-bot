@@ -18,6 +18,9 @@ let messages = {
         utter_on_it: "I'm on it.",
         utter_ask_event_name: `What's event name?`,
         utter_event_saved: 'Event saved',
+        utter_ask_room_name: 'tell me room name which is interesting for you?',
+        utter_room_is_free: 'room is free',
+        utter_room_is_busy: 'room is busy',
         /* ************************* custom ***************************************************************************/
         defaultmessage: 'default dialog goes here...Man!!....It means that you or bot screwed up conversation...:)',
         greeting: 'Hey, how can I help you?',

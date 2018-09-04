@@ -86,6 +86,7 @@ async function processNextAction(session, nextActionData, next) {
 
         if (processResult.success) {
             data.executed_action = nextActionPerform;
+            data.events = processResult.events;
 
             const nextActionData = await notifyBotBrainActionDone(data);
             return processNextAction(session, nextActionData, next);

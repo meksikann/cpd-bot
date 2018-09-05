@@ -14,13 +14,13 @@ const daysOffCalendarId = 'eliftech.com_92gsu525ed2rrfotqfcd23vnk4@group.calenda
 const conferanceRoomOffCalendarId = 'eliftech.com_opr4uacf9vnofoacil689vpbh8@group.calendar.google.com';
 const myCalendarId = 'primary';
 
-async function getGoogleCalendarEvents() {
+async function getGoogleCalendarEvents(calendarId, startTime, endTime) {
     logInfo('In googleCalendarApiHandler: get all events');
 
     let content = await readFileSync(`${currentPath}/../creds/credentials.json`);
     // Authorize a client with credentials, then call the Google Calendar API.
     const oAuth2Client = await authorize(JSON.parse(content));
-    const events = await listEvents(oAuth2Client, myCalendarId);
+    const events = await listEvents(oAuth2Client, calendarId || myCalendarId, startTime, endTime);
 
     return events;
 }
@@ -34,13 +34,14 @@ function createGoogleCalendarEvent() {
  * Lists the next 10 events on the user's primary calendar.
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-async function listEvents(auth, calendarId) {
+async function listEvents(auth, calendarId, startTime, endTime) {
     const calendar = google.calendar({version: 'v3', auth});
 
     return new Promise((resolve, reject) => {
         calendar.events.list({
             calendarId: calendarId,
-            timeMin: (new Date()).toISOString(),
+            timeMin: (startTime || new Date().toISOString()),
+            timeMax: endTime,
             maxResults: 10,
             singleEvents: true,
             orderBy: 'startTime',

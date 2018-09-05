@@ -1,8 +1,10 @@
 import actionIntents from "../constants/intents";
+import {generalConstants} from '../constants/general';
 import {logInfo} from "../utils/logger";
 import {getGoogleCalendarEvents} from './googleCalendarApiHandler';
 import  {formatEvents} from "../helpers/format-messages";
-
+import {isPlainObject} from 'lodash';
+import {getMilisecondsFromminutes, getDateISOString} from './general';
 //process custom action
 async function processActionIntent(nextActionData, session) {
     let result = {
@@ -43,7 +45,7 @@ async function processActionIntent(nextActionData, session) {
                     time: nextActionData.tracker.slots.time
                 };
                 logInfo('performing action_check_room_available ...');
-                result.events = await checkRoomAvailable(queryData);
+                result.events = await checkCpecifiedRoomAvailable(queryData);
                 result.success = true;
                 break;
             default:
@@ -62,11 +64,50 @@ async function showEvents() {
     return events;
 }
 
-async function checkRoomAvailable(queryData) {
-    //TODO: make check room available API----------------->
-    logInfo('Checking if room available...', queryData);
 
-    return [{"event": "slot", "name": "is_room_available", "value": "True"}];
+async function checkCpecifiedRoomAvailable(queryData) {
+    const time = queryData.time;
+    const minDurationAvailableMilisec = getMilisecondsFromminutes(generalConstants.minDurationAvailableMin);
+
+    let result = [];
+    let startTime;
+    let endTime;
+    let calendarId = queryData.roomName;
+    let events;
+
+    logInfo(`Checking if room available, room name: ${queryData.roomName}, and time: ${queryData.time}`);
+    //RASA-core can return  Time slot as string or as Object(from:'', to: '') manage handle exact time or time range.
+
+    if(time) {
+        if(isPlainObject(time)) {
+            console.log('stage 1');
+            startTime = time.from || new Date().toISOString();
+            endTime = time.to || getDateISOString(startTime, minDurationAvailableMilisec);
+        } else {
+            console.log('stage 2');
+            startTime = time;
+            endTime = getDateISOString(startTime, minDurationAvailableMilisec);
+        }
+    } else {
+        console.log('stage 3');
+        startTime = new Date().toISOString();
+        endTime = getDateISOString(startTime, minDurationAvailableMilisec);
+    }
+
+    console.log('start time ------>', startTime);
+    console.log('end time  ------>', endTime);
+
+    //events = await getGoogleCalendarEvents(calendarId, startTime, endTime);
+
+    // if there are event on requested time - send room is busy, else - send room is free
+    if(events && events.length) {
+        result = [{"event": "slot", "name": "is_room_available", "value": "False"}];
+    } else {
+        result = [{"event": "slot", "name": "is_room_available", "value": "True"}];
+    }
+
+    return result;
 }
+
 
 export {processActionIntent}

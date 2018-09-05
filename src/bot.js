@@ -61,7 +61,7 @@ async function processNextAction(session, nextActionData, next) {
     let data = {
         userId: session.message.user.id || 'default-user'
     };
-    logInfo(nextActionData);
+    logInfo('Process next action: ',nextActionData);
 
     // set bot to listen to user - no other actions required
     if (nextActionData.next_action == actionIntents.action_listen) {

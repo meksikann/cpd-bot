@@ -23,5 +23,9 @@ function logInfo(data, ...rest) {
     }
 }
 
+function logError(err) {
+    logger.log('error', err);
+}
 
-export {logInfo}
+
+export {logInfo, logError }

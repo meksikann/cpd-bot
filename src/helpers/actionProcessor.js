@@ -1,6 +1,6 @@
 import actionIntents from "../constants/intents";
 import {generalConstants} from '../constants/general';
-import {logInfo} from "../utils/logger";
+import {logInfo, logError} from "../utils/logger";
 import {getGoogleCalendarEvents} from './googleCalendarApiHandler';
 import {formatEvents} from "../helpers/format-messages";
 import {isPlainObject} from 'lodash';
@@ -59,7 +59,7 @@ async function processActionIntent(nextActionData, session) {
                 result.success = false;
         }
     } catch (e) {
-        console.error(e);
+        logError(e);
     }
 
     return result;

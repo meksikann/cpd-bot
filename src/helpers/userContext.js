@@ -1,4 +1,4 @@
-import {logInfo} from "../utils/logger";
+import {logInfo, logError} from "../utils/logger";
 
 const axios = require('axios');
 import config from '../config/index';
@@ -11,7 +11,7 @@ async function getNextAction(userId, text) {
         logInfo('received data from getNextAction', res.data);
         return res.data;
     } catch(err) {
-        console.error(err);
+        logError(err);
         return;
     }
 }
@@ -26,7 +26,7 @@ async function notifyBotBrainActionDone(data) {
         logInfo('Notified executed action == ', data);
         return res.data;
     } catch(err) {
-        console.error(err);
+        logError(err);
         return;
     }
 }

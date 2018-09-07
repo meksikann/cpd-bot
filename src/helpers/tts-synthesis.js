@@ -1,4 +1,4 @@
-import {logInfo} from "../utils/logger";
+import {logInfo, logError} from "../utils/logger";
 
 const say = require('say');
 
@@ -27,7 +27,7 @@ function botSayInFestival(opts) {
         } else {
             say.speak(message, voices[1], null, (err) => {
                 if(err) {
-                    return console.error(err);
+                    return logError(err);
                 }
             });
         }

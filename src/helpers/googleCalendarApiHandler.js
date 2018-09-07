@@ -1,4 +1,4 @@
-import {logInfo} from "../utils/logger";
+import {logInfo, logError} from "../utils/logger";
 import {readFileSync} from "../utils/fileSys";
 
 const path = require('path');

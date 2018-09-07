@@ -9,11 +9,6 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 const TOKEN_PATH = 'token.json';
 const currentPath = path.dirname(__filename);
 
-/*    *********available calendars ids**********/
-const daysOffCalendarId = 'eliftech.com_92gsu525ed2rrfotqfcd23vnk4@group.calendar.google.com';
-const conferanceRoomOffCalendarId = 'eliftech.com_opr4uacf9vnofoacil689vpbh8@group.calendar.google.com';
-const myCalendarId = 'primary';
-
 async function getGoogleCalendarEvents(calendarId, startTime, endTime) {
     logInfo('In googleCalendarApiHandler: get all events');
 
@@ -40,7 +35,7 @@ async function listEvents(auth, calendarId, startTime, endTime) {
     return new Promise((resolve, reject) => {
         calendar.events.list({
             calendarId: calendarId,
-            timeMin: (startTime || new Date().toISOString()),
+            timeMin: startTime || new Date().toISOString(),
             timeMax: endTime,
             maxResults: 10,
             singleEvents: true,

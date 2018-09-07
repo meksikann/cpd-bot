@@ -29,6 +29,10 @@ npm build
 start prod 
 ``npm serve``
 5. start RASA-CORE server on python hosted on same host
+6. start duckling ``sudo docker run -p 8000:8000 rasa/duckling
+``
+7. if use ngrok ``./ngrok http 8282 -host-header="localhost:8282"
+``
 
 **_TODO need to make it work with rasa-core docker container_**
 

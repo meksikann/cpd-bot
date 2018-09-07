@@ -1,10 +1,27 @@
+const winston = require('winston');
+
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.simple(),
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: 'rasa-bot.log' })
+    ]
+});
 
 function logInfo(data, ...rest) {
     if(process.env.LOGS == 1) {
-        typeof data == 'object' ?
-            console.log('LOG INFO: \n',data,`\n  =====================================================>,Date: ${new Date()}`)
-            : console.log(`LOG INFO: \n${data} \n  ${rest.length ? JSON.stringify(rest) : ''}  \n=========================================>,Date: ${new Date()}`);
+        const message = typeof data == 'object' ?
+            `
+            ${data},
+             =====================================================>,Date: ${new Date()}`
+            : `${data}
+             ${rest.length ? JSON.stringify(rest) : ''}
+             =========================================>,Date: ${new Date()}`;
+
+        logger.log('info', message);
     }
 }
+
 
 export {logInfo}

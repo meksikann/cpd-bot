@@ -2,9 +2,15 @@ import actionIntents from "../constants/intents";
 import {generalConstants} from '../constants/general';
 import {logInfo} from "../utils/logger";
 import {getGoogleCalendarEvents} from './googleCalendarApiHandler';
-import  {formatEvents} from "../helpers/format-messages";
+import {formatEvents} from "../helpers/format-messages";
 import {isPlainObject} from 'lodash';
-import {getMilisecondsFromminutes, getDateISOString} from './general';
+import {getDateISOString} from './general';
+
+/*    *********available calendars ids**********/
+const daysOffCalendarId = 'eliftech.com_92gsu525ed2rrfotqfcd23vnk4@group.calendar.google.com';
+const conferanceRoomOffCalendarId = 'eliftech.com_opr4uacf9vnofoacil689vpbh8@group.calendar.google.com';
+const myCalendarId = 'primary';
+
 //process custom action
 async function processActionIntent(nextActionData, session) {
     let result = {
@@ -12,7 +18,7 @@ async function processActionIntent(nextActionData, session) {
     };
 
     try {
-        switch(nextActionData.next_action) {
+        switch (nextActionData.next_action) {
             case actionIntents.action_create_event:
                 //TODO: make IntentAction processor ----------------------------------------------------
                 logInfo('performing action_create_event ...');
@@ -67,43 +73,46 @@ async function showEvents() {
 
 async function checkCpecifiedRoomAvailable(queryData) {
     const time = queryData.time;
-    const minDurationAvailableMilisec = getMilisecondsFromminutes(generalConstants.minDurationAvailableMin);
-
     let result = [];
     let startTime;
     let endTime;
-    let calendarId = queryData.roomName;
+    // let calendarId = queryData.roomName; TODO: make chose which calendarID to pass
+    let calendarId = myCalendarId;
     let events;
 
     logInfo(`Checking if room available, room name: ${queryData.roomName}, and time: ${queryData.time}`);
     //RASA-core can return  Time slot as string or as Object(from:'', to: '') manage handle exact time or time range.
 
-    if(time) {
-        if(isPlainObject(time)) {
+    if (time) {
+        if (isPlainObject(time)) {
             console.log('stage 1');
             startTime = time.from || new Date().toISOString();
-            endTime = time.to || getDateISOString(startTime, minDurationAvailableMilisec);
+            endTime = time.to || getDateISOString(startTime, generalConstants.minDurationAvailableMin);
         } else {
             console.log('stage 2');
             startTime = time;
-            endTime = getDateISOString(startTime, minDurationAvailableMilisec);
+            endTime = getDateISOString(startTime, generalConstants.minDurationAvailableMin);
         }
     } else {
         console.log('stage 3');
         startTime = new Date().toISOString();
-        endTime = getDateISOString(startTime, minDurationAvailableMilisec);
+        endTime = getDateISOString(startTime, generalConstants.minDurationAvailableMin);
     }
 
-    console.log('start time ------>', startTime);
-    console.log('end time  ------>', endTime);
+    events = await getGoogleCalendarEvents(calendarId, startTime, endTime);
 
-    //events = await getGoogleCalendarEvents(calendarId, startTime, endTime);
-
+    console.log(events);
     // if there are event on requested time - send room is busy, else - send room is free
-    if(events && events.length) {
-        result = [{"event": "slot", "name": "is_room_available", "value": "False"}];
+    if (events && events.length) {
+        result = [
+            {"event": "slot", "name": "is_room_available", "value": false},
+            {"event": "slot", "name": "time", "value": startTime},
+        ];
     } else {
-        result = [{"event": "slot", "name": "is_room_available", "value": "True"}];
+        result = [
+            {"event": "slot", "name": "is_room_available", "value": true},
+            {"event": "slot", "name": "time", "value": startTime},
+        ];
     }
 
     return result;

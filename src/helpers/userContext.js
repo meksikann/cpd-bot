@@ -23,7 +23,7 @@ async function notifyBotBrainActionDone(data) {
             "events": data.events || []
         });
 
-        logInfo('Notified executed action == ', data.executed_action);
+        logInfo('Notified executed action == ', data);
         return res.data;
     } catch(err) {
         console.error(err);

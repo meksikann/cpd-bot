@@ -9,6 +9,7 @@ bot for manage user events in google-calendar
 MicrosoftAppId=<YOUR_MS_ID>
 MicrosoftAppPassword=<YOUR_MS_PASSWORD>>
 BOT_MANUAL=<URL_TO_MANUAL>>
+NODE_ENV=development
 ```
 
 3. install dependencies

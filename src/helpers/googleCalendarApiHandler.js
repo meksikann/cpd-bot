@@ -15,7 +15,7 @@ async function getGoogleCalendarEvents(calendarId, startTime, endTime) {
     let content = await readFileSync(`${currentPath}/../creds/credentials.json`);
     // Authorize a client with credentials, then call the Google Calendar API.
     const oAuth2Client = await authorize(JSON.parse(content));
-    const events = await listEvents(oAuth2Client, calendarId || myCalendarId, startTime, endTime);
+    const events = await listEvents(oAuth2Client, calendarId, startTime, endTime);
 
     return events;
 }

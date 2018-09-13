@@ -13,6 +13,8 @@ async function processActionIntent(nextActionData, session) {
         success: false
     };
 
+    let queryData;
+
     try {
         switch (nextActionData.next_action) {
             case actionIntents.action_create_event:
@@ -42,7 +44,7 @@ async function processActionIntent(nextActionData, session) {
                 session.beginDialog(actionIntents.action_help);
                 break;
             case actionIntents.action_check_room_available:
-                const queryData = {
+                queryData = {
                     roomName: nextActionData.tracker.slots.room_name,
                     time: nextActionData.tracker.slots.time
                 };
@@ -51,9 +53,18 @@ async function processActionIntent(nextActionData, session) {
                 result.success = true;
                 break;
             case actionIntents.action_check_room_exists:
+                queryData = {
+                    roomName: nextActionData.tracker.slots.room_name,
+                    time: nextActionData.tracker.slots.time
+                };
                 logInfo('performing action_check_room_exists ...');
                 result.events = checkCpecifiedRoomExists(queryData);
                 result.success = true;
+                break;
+            case actionIntents.action_get_room_free_slots:
+                logInfo('performing action_get_room_free_slots ...');
+                result.success = true;
+                break;
 
             default:
                 logInfo('performing default action ...');

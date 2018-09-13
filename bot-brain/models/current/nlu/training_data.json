@@ -398,6 +398,18 @@
         "text": "small conferance"
       }, 
       {
+        "entities": [
+          {
+            "start": 10, 
+            "end": 19, 
+            "value": "small one", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "how about small one?"
+      }, 
+      {
         "text": "hello can you show me my events please ?", 
         "intent": "show_my_events"
       }, 
@@ -602,6 +614,34 @@
         "intent": "check_room_available"
       }, 
       {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 21, 
+            "value": "first room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "what about first room"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 4, 
+            "end": 26, 
+            "value": "second conference room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "and second conference room?"
+      }, 
+      {
+        "text": "wanna know if room is free", 
+        "intent": "check_room_available"
+      }, 
+      {
         "text": "frfreveve frfrferr rvfvfvbfg", 
         "intent": "None"
       }, 
@@ -612,6 +652,122 @@
       {
         "text": "fnrnf33233232", 
         "intent": "None"
+      }, 
+      {
+        "text": "are you sure?", 
+        "intent": "are_you_sure"
+      }, 
+      {
+        "text": "really?", 
+        "intent": "are_you_sure"
+      }, 
+      {
+        "text": "is it", 
+        "intent": "are_you_sure"
+      }, 
+      {
+        "text": "you sure it's not", 
+        "intent": "are_you_sure"
+      }, 
+      {
+        "text": "interesting you have no doubt in it?", 
+        "intent": "are_you_sure"
+      }, 
+      {
+        "text": "when it's free?", 
+        "intent": "get_room_free_slots"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 5, 
+            "end": 14, 
+            "value": "main room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "get_room_free_slots", 
+        "text": "when main room available"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 21, 
+            "end": 43, 
+            "value": "second conference room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "get_room_free_slots", 
+        "text": "tell me at what time second conference room is free"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 24, 
+            "end": 33, 
+            "value": "main room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "get_room_free_slots", 
+        "text": "at what time I can take main room?"
+      }, 
+      {
+        "text": "when I can take it", 
+        "intent": "get_room_free_slots"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 14, 
+            "end": 34, 
+            "value": "main conference room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "get_room_free_slots", 
+        "text": "I want to use main conference room. when I can do it?"
+      }, 
+      {
+        "text": "the closest free time", 
+        "intent": "get_room_free_slots"
+      }, 
+      {
+        "text": "when free?", 
+        "intent": "get_room_free_slots"
+      }, 
+      {
+        "text": "when the room will be unoccupied?", 
+        "intent": "get_room_free_slots"
+      }, 
+      {
+        "text": "what is the closest time for the room to be free?", 
+        "intent": "get_room_free_slots"
+      }, 
+      {
+        "text": "At what tme the room can be booked?", 
+        "intent": "get_room_free_slots"
+      }, 
+      {
+        "text": "What time the room will be available?", 
+        "intent": "get_room_free_slots"
+      }, 
+      {
+        "text": "Can I get info when the room is free?", 
+        "intent": "get_room_free_slots"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 5, 
+            "end": 14, 
+            "value": "main room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "get_room_free_slots", 
+        "text": "when main room is free?"
       }
     ], 
     "entity_synonyms": [
@@ -622,21 +778,23 @@
           "main hall", 
           "main conference room", 
           "the big one", 
-          "big hallmake train-nlu", 
           "main room", 
           "room one", 
+          "main one", 
           "room 1", 
-          "main one"
+          "big hall"
         ], 
         "value": "first conference room"
       }, 
       {
         "synonyms": [
-          "second hall", 
           "small conference hall", 
           "room two", 
           "second room", 
+          "second one", 
+          "second hall", 
           "small room", 
+          "small one", 
           "room 2"
         ], 
         "value": "second conference room"

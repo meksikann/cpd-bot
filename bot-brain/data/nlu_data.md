@@ -88,6 +88,8 @@
 - [small hall](room_name)
 - [small room](room_name)
 - [small conferance](room_name)
+- how about [small one](room_name)?
+
 
 ## intent: show_my_events
 - hello can you show me my events please ?
@@ -117,16 +119,43 @@
 - is conference room free?
 - are conference rooms available in an hour?
 - hey tell me if negotiation rooms are busy now. thanks
+- what about [first room](room_name)
+- and [second conference room](room_name)?
+- wanna know if room is free
 
 ## intent: None
 - frfreveve frfrferr rvfvfvbfg
 - bullshit
 - fnrnf33233232
 
+
+## intent: are_you_sure
+- are you sure?
+- really?
+- is it
+- you sure it's not
+- interesting you have no doubt in it?
+
+## intent: get_room_free_slots
+- when it's free?
+- when [main room](room_name) available
+- tell me at what time [second conference room](room_name) is free
+- at what time I can take [main room](room_name)?
+- when I can take it
+- I want to use [main conference room](room_name). when I can do it?
+- the closest free time
+- when free?
+- when the room will be unoccupied?
+- what is the closest time for the room to be free?
+- At what tme the room can be booked?
+- What time the room will be available?
+- Can I get info when the room is free?
+- when [main room](room_name) is free?
+
 ## synonym:first conference room
 - room one
 - room 1
-- big hallmake train-nlu
+- big hall
 - main conference room
 - first room
 - first hall
@@ -142,3 +171,5 @@
 - small room
 - small conference hall
 - room two
+- small one
+- second one

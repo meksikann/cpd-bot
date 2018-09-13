@@ -12,11 +12,14 @@ action_names:
 - utter_room_is_busy
 - utter_fallback
 - utter_room_not_exists
+- utter_sure
+- utter_show_free_slots
 - action_create_event
 - action_remove_event
 - action_show_my_events
 - action_check_room_available
 - action_check_room_exists
+- action_get_room_free_slots
 actions:
 - utter_greet
 - utter_thank
@@ -30,27 +33,44 @@ actions:
 - utter_room_is_busy
 - utter_fallback
 - utter_room_not_exists
+- utter_sure
+- utter_show_free_slots
 - actions.CreateEvent
 - actions.RemoveEvent
 - actions.ShowMyEvents
 - actions.CheckRoomAvailable
 - actions.CheckRoomExists
+- actions.GetRoomFreeSlots
 config:
   store_entities_as_slots: true
 entities:
 - event_name
 - room_name
 intents:
-- greet
-- thank
-- bye
-- deny
-- affirm
-- create_event
-- remove_event
-- inform
-- show_my_events
-- check_room_available
+- are_you_sure:
+    use_entities: true
+- deny:
+    use_entities: true
+- thank:
+    use_entities: true
+- affirm:
+    use_entities: true
+- get_room_free_slots:
+    use_entities: true
+- show_my_events:
+    use_entities: true
+- inform:
+    use_entities: true
+- greet:
+    use_entities: true
+- remove_event:
+    use_entities: true
+- bye:
+    use_entities: true
+- check_room_available:
+    use_entities: true
+- create_event:
+    use_entities: true
 slots:
   event_name:
     initial_value: null
@@ -64,6 +84,9 @@ slots:
   room_name:
     initial_value: null
     type: rasa_core.slots.TextSlot
+  rooms_free_slots:
+    initial_value: []
+    type: rasa_core.slots.ListSlot
   time:
     initial_value: null
     type: rasa_core.slots.TextSlot
@@ -90,6 +113,9 @@ templates:
   - text: room is free
   utter_room_not_exists:
   - text: room not exists
+  utter_show_free_slots:
+  - text: the {room_name} is free/busy at (todo:make sure real bot receive free time)
+  utter_sure:
+  - text: yeah pal, i'm sure
   utter_thank:
   - text: You're welcome!
-topics: []

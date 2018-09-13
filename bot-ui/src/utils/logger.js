@@ -19,7 +19,10 @@ function logInfo(data, ...rest) {
              ${rest.length ? JSON.stringify(rest) : ''}
              =========================================>,Date: ${new Date()}`;
 
-        logger.log('info', message);
+        logger.log({
+            level: 'info',
+            message: message
+        });
     }
 }
 

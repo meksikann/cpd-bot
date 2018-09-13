@@ -11,7 +11,7 @@ function getDateISOString(time, duration) {
 //choose which calendar ID user wants to use.
 function getCalendarId(roomName) {
     logInfo('process.env.NODE_ENV ', process.env.NODE_ENV);
-    logInfo('Choose calendar id.Rood name: ', roomName);
+    logInfo('Choose calendar id.Room name: ', roomName);
     let id;
     let calendarConfig  = process.env.NODE_ENV == 'production' ? config.productionCalendarIds :
         config.developmentCalendarIds;

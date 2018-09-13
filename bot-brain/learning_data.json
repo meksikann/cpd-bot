@@ -1,5 +1,17 @@
 {
-  "is_room_available":  true,
+  "is_room_available":  false,
   "time": "2018-09-12T13:00:00.000+03:00",
-  "is_room_exists": true
+  "is_room_exists": true,
+  "rooms_free_slots": [
+    {
+      "room_name": "first conference room",
+      "room_id":"myid.com_os8ir3jmid199q9l0@group.calendar.google.com",
+      "free_slots": [
+        {
+          "start": "2018-09-12T13:00:00.000+03:00",
+          "end": "2018-09-12T13:30:00.000+03:00"
+        }
+      ]
+    }
+  ]
 }

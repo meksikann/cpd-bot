@@ -10,6 +10,8 @@ intents:
   - inform
   - show_my_events
   - check_room_available
+  - are_you_sure
+  - get_room_free_slots
 
 entities:
   - event_name
@@ -28,6 +30,9 @@ slots:
   is_room_exists:
     type: bool
     initial_value: False
+  rooms_free_slots:
+    type: list
+    initial_value: []
 
 templates:
   # templates the bot should respond with
@@ -55,6 +60,10 @@ templates:
     - "sorry, I did not get you..."
   utter_room_not_exists:
     - "room not exists"
+  utter_sure:
+    - "yeah pal, i'm sure"
+  utter_show_free_slots:
+    - 'the {room_name} is free/busy at (todo:make sure real bot receive free time)'
 actions:
   # all the utter actions from the templates, plus any custom actions
   - utter_greet
@@ -69,8 +78,11 @@ actions:
   - utter_room_is_busy
   - utter_fallback
   - utter_room_not_exists
+  - utter_sure
+  - utter_show_free_slots
   - actions.CreateEvent
   - actions.RemoveEvent
   - actions.ShowMyEvents
   - actions.CheckRoomAvailable
   - actions.CheckRoomExists
+  - actions.GetRoomFreeSlots

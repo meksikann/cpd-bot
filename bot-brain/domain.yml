@@ -1,0 +1,76 @@
+intents:
+  # add your intents
+  - greet
+  - thank
+  - bye
+  - deny
+  - affirm
+  - create_event
+  - remove_event
+  - inform
+  - show_my_events
+  - check_room_available
+
+entities:
+  - event_name
+  - room_name
+
+slots:
+  event_name:
+    type: text
+  room_name:
+    type: text
+  time:
+    type: text
+  is_room_available:
+    type: bool
+    initial_value: False
+  is_room_exists:
+    type: bool
+    initial_value: False
+
+templates:
+  # templates the bot should respond with
+  utter_greet:
+    - "Hey, how can I help you?"
+  utter_thank:
+    - "You're welcome!"
+  utter_bye:
+    - "Goodbye"
+  utter_how_can_help:
+    - "how can i helps"
+  utter_on_it:
+    - "I am on it"
+  utter_ask_event_name:
+    - "what is event name"
+  utter_event_saved:
+    - "event saved"
+  utter_ask_room_name:
+    - "what is room name"
+  utter_room_is_free:
+    - "room is free"
+  utter_room_is_busy:
+    - "room is busy"
+  utter_fallback:
+    - "sorry, I did not get you..."
+  utter_room_not_exists:
+    - "room not exists"
+actions:
+  # all the utter actions from the templates, plus any custom actions
+  - utter_greet
+  - utter_thank
+  - utter_bye
+  - utter_how_can_help
+  - utter_on_it
+  - utter_ask_event_name
+  - utter_event_saved
+  - utter_ask_room_name
+  - utter_room_is_free
+  - utter_room_is_busy
+  - utter_fallback
+  - utter_room_not_exists
+  - actions.CreateEvent
+  - actions.RemoveEvent
+  - actions.ShowMyEvents
+  - actions.CheckRoomAvailable
+  - actions.CheckRoomExists

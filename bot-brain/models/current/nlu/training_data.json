@@ -1,0 +1,647 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "Bye", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "Goodbye", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "See you later", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "Bye bot", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "Goodbye friend", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "bye", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "bye for now", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "catch you later", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "gotta go", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "See you", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "goodnight", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "have a nice day", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "i'm off", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "see you later alligator", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "we'll speak soon", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "Hi", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Hey", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Hi bot", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Hey bot", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Hello", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Good morning", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi again", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi folks", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi Mister", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi pal!", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi there", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "greetings", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hello everybody", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hello is anybody there", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hello robot", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Thanks", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "Thank you", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "Thank you so much", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "Thanks bot", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "Thanks for that", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "cheers", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "cheers bro", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "ok thanks!", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "perfect thank you", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "thanks a bunch for everything", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "thanks for the help", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "thanks a lot", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "amazing, thanks", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "cool, thanks", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "cool thank you", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "no", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "definitely not", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "never", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "absolutely not", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "i don't think so", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "i'm afraid not", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no sir", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no ma'am", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no way", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no sorry", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "No, not really.", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "nah not for me", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "nah", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no and no again", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no go", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "create new event", 
+        "intent": "create_event"
+      }, 
+      {
+        "text": "add new task into calendar", 
+        "intent": "create_event"
+      }, 
+      {
+        "text": "set new item to my calendar", 
+        "intent": "create_event"
+      }, 
+      {
+        "text": "add new item in scheduler", 
+        "intent": "create_event"
+      }, 
+      {
+        "text": "update calendar - add task", 
+        "intent": "create_event"
+      }, 
+      {
+        "text": "I want to add some event to the calendar", 
+        "intent": "create_event"
+      }, 
+      {
+        "text": "please create item for me", 
+        "intent": "create_event"
+      }, 
+      {
+        "text": "could you add item into calendar?", 
+        "intent": "create_event"
+      }, 
+      {
+        "text": "hey man how are you? I want to set some event", 
+        "intent": "create_event"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 23, 
+            "end": 48, 
+            "value": "choose hotel in kamyanets", 
+            "entity": "event_name"
+          }
+        ], 
+        "intent": "create_event", 
+        "text": "I want you to schedule choose hotel in kamyanets it for 1 p.m"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 28, 
+            "end": 42, 
+            "value": "do bot testing", 
+            "entity": "event_name"
+          }
+        ], 
+        "intent": "create_event", 
+        "text": "Hey set calendar for me for do bot testing"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 5, 
+            "end": 16, 
+            "value": "second hall", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "it's second hall"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 4, 
+            "end": 12, 
+            "value": "main one", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "the main one"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 18, 
+            "end": 40, 
+            "value": "second conference hall", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "I want to know if second conference hall is available"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 13, 
+            "end": 19, 
+            "value": "room 2", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "it's name is room 2"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 19, 
+            "end": 27, 
+            "value": "room two", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "tell me info about room two"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 10, 
+            "value": "small hall", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "small hall"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 10, 
+            "value": "small room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "small room"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 16, 
+            "value": "small conferance", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "small conferance"
+      }, 
+      {
+        "text": "hello can you show me my events please ?", 
+        "intent": "show_my_events"
+      }, 
+      {
+        "text": "events?", 
+        "intent": "show_my_events"
+      }, 
+      {
+        "text": "any stuff for me", 
+        "intent": "show_my_events"
+      }, 
+      {
+        "text": "show me my tasks", 
+        "intent": "show_my_events"
+      }, 
+      {
+        "text": "list events", 
+        "intent": "show_my_events"
+      }, 
+      {
+        "text": "list me please my todos", 
+        "intent": "show_my_events"
+      }, 
+      {
+        "text": "I want to see my events from calendar", 
+        "intent": "show_my_events"
+      }, 
+      {
+        "text": "review my events", 
+        "intent": "show_my_events"
+      }, 
+      {
+        "text": "is it available?", 
+        "intent": "check_room_available"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 3, 
+            "end": 14, 
+            "value": "second hall", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "is second hall free?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 32, 
+            "value": "first conference room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "tell me if first conference room is free at 1pm"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 17, 
+            "end": 18, 
+            "value": "2", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "I am curious if  2 is empty in an hour"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 36, 
+            "end": 44, 
+            "value": "big hall", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "would  you be so king to ping me if big hall is free now?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 20, 
+            "end": 30, 
+            "value": "first room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "Has anyone occupied first room at 5 o'clock"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 14, 
+            "end": 34, 
+            "value": "main conference room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "Can I book a  main conference room today?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 35, 
+            "end": 45, 
+            "value": "first room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "Is there an available spot for the first room"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 18, 
+            "end": 31, 
+            "value": "room number 1", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "Could I reserve a room number 1 for one hour"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 3, 
+            "end": 13, 
+            "value": "small room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "is small room available now?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 13, 
+            "end": 35, 
+            "value": "second conference room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "I wanna take second conference room"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 20, 
+            "value": "main room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "show me if main room available in an hour?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 35, 
+            "end": 44, 
+            "value": "main room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "would you be so king to ping me if main room is free now?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 11, 
+            "value": "the big one", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "the big one"
+      }, 
+      {
+        "text": "is conference room free?", 
+        "intent": "check_room_available"
+      }, 
+      {
+        "text": "are conference rooms available in an hour?", 
+        "intent": "check_room_available"
+      }, 
+      {
+        "text": "hey tell me if negotiation rooms are busy now. thanks", 
+        "intent": "check_room_available"
+      }, 
+      {
+        "text": "frfreveve frfrferr rvfvfvbfg", 
+        "intent": "None"
+      }, 
+      {
+        "text": "bullshit", 
+        "intent": "None"
+      }, 
+      {
+        "text": "fnrnf33233232", 
+        "intent": "None"
+      }
+    ], 
+    "entity_synonyms": [
+      {
+        "synonyms": [
+          "first room", 
+          "first hall", 
+          "main hall", 
+          "main conference room", 
+          "the big one", 
+          "big hallmake train-nlu", 
+          "main room", 
+          "room one", 
+          "room 1", 
+          "main one"
+        ], 
+        "value": "first conference room"
+      }, 
+      {
+        "synonyms": [
+          "second hall", 
+          "small conference hall", 
+          "room two", 
+          "second room", 
+          "small room", 
+          "room 2"
+        ], 
+        "value": "second conference room"
+      }
+    ], 
+    "regex_features": []
+  }
+}

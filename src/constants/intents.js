@@ -9,6 +9,7 @@ const actionIntents = {
     'action_show_my_events': null,
     'action_help': null,
     'action_check_room_available': null,
+    'action_check_room_exists': null
 };
 
 export default keyMirror(actionIntents);

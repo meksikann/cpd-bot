@@ -23,8 +23,6 @@ function getCalendarId(roomName) {
         case 'second conference room':
             id = calendarConfig.secondRoom;
             break;
-        default:
-            return ;
     }
 
     return id;

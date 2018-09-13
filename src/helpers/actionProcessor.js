@@ -50,6 +50,11 @@ async function processActionIntent(nextActionData, session) {
                 result.events = await checkCpecifiedRoomAvailable(queryData);
                 result.success = true;
                 break;
+            case actionIntents.action_check_room_exists:
+                logInfo('performing action_check_room_exists ...');
+                result.events = checkCpecifiedRoomExists(queryData);
+                result.success = true;
+
             default:
                 logInfo('performing default action ...');
                 result.success = false;
@@ -64,6 +69,23 @@ async function processActionIntent(nextActionData, session) {
 async function showEvents() {
     let events = await getGoogleCalendarEvents();
     return events;
+}
+
+function checkCpecifiedRoomExists(queryData) {
+    let result = [];
+    let exists = getCalendarId(queryData.roomName);
+
+    if (exists) {
+        result = [
+            {"event": "slot", "name": "is_room_exists", "value": true},
+        ];
+    } else {
+        result = [
+            {"event": "slot", "name": "is_room_exists", "value": false},
+        ];
+    }
+
+    return result;
 }
 
 async function checkCpecifiedRoomAvailable(queryData) {

@@ -410,6 +410,42 @@
         "text": "how about small one?"
       }, 
       {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 11, 
+            "value": "the big one", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "the big one"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 21, 
+            "value": "first room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "what about first room"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 4, 
+            "end": 26, 
+            "value": "second conference room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "and second conference room?"
+      }, 
+      {
         "text": "hello can you show me my events please ?", 
         "intent": "show_my_events"
       }, 
@@ -440,10 +476,6 @@
       {
         "text": "review my events", 
         "intent": "show_my_events"
-      }, 
-      {
-        "text": "is it available?", 
-        "intent": "check_room_available"
       }, 
       {
         "entities": [
@@ -520,18 +552,6 @@
       {
         "entities": [
           {
-            "start": 35, 
-            "end": 45, 
-            "value": "first room", 
-            "entity": "room_name"
-          }
-        ], 
-        "intent": "check_room_available", 
-        "text": "Is there an available spot for the first room"
-      }, 
-      {
-        "entities": [
-          {
             "start": 18, 
             "end": 31, 
             "value": "room number 1", 
@@ -590,18 +610,6 @@
         "text": "would you be so king to ping me if main room is free now?"
       }, 
       {
-        "entities": [
-          {
-            "start": 0, 
-            "end": 11, 
-            "value": "the big one", 
-            "entity": "room_name"
-          }
-        ], 
-        "intent": "check_room_available", 
-        "text": "the big one"
-      }, 
-      {
         "text": "is conference room free?", 
         "intent": "check_room_available"
       }, 
@@ -614,64 +622,12 @@
         "intent": "check_room_available"
       }, 
       {
-        "entities": [
-          {
-            "start": 11, 
-            "end": 21, 
-            "value": "first room", 
-            "entity": "room_name"
-          }
-        ], 
-        "intent": "check_room_available", 
-        "text": "what about first room"
-      }, 
-      {
-        "entities": [
-          {
-            "start": 4, 
-            "end": 26, 
-            "value": "second conference room", 
-            "entity": "room_name"
-          }
-        ], 
-        "intent": "check_room_available", 
-        "text": "and second conference room?"
-      }, 
-      {
         "text": "wanna know if room is free", 
         "intent": "check_room_available"
       }, 
       {
-        "text": "frfreveve frfrferr rvfvfvbfg", 
-        "intent": "None"
-      }, 
-      {
-        "text": "bullshit", 
-        "intent": "None"
-      }, 
-      {
-        "text": "fnrnf33233232", 
-        "intent": "None"
-      }, 
-      {
-        "text": "are you sure?", 
-        "intent": "are_you_sure"
-      }, 
-      {
-        "text": "really?", 
-        "intent": "are_you_sure"
-      }, 
-      {
-        "text": "is it", 
-        "intent": "are_you_sure"
-      }, 
-      {
-        "text": "you sure it's not", 
-        "intent": "are_you_sure"
-      }, 
-      {
-        "text": "interesting you have no doubt in it?", 
-        "intent": "are_you_sure"
+        "text": "is it available?", 
+        "intent": "get_room_free_slots"
       }, 
       {
         "text": "when it's free?", 
@@ -768,6 +724,90 @@
         ], 
         "intent": "get_room_free_slots", 
         "text": "when main room is free?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 16, 
+            "end": 25, 
+            "value": "main room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "get_room_free_slots", 
+        "text": "wanna know when main room is free?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 13, 
+            "end": 23, 
+            "value": "small room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "get_room_free_slots", 
+        "text": "tell me when small room is available"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 35, 
+            "end": 45, 
+            "value": "first room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "get_room_free_slots", 
+        "text": "Is there an available spot for the first room"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 18, 
+            "end": 28, 
+            "value": "small room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "get_room_free_slots", 
+        "text": "I am curious when small room is available?"
+      }, 
+      {
+        "text": "hey. I want to know free space for rooms", 
+        "intent": "get_room_free_slots"
+      }, 
+      {
+        "text": "frfreveve frfrferr rvfvfvbfg", 
+        "intent": "None"
+      }, 
+      {
+        "text": "bullshit", 
+        "intent": "None"
+      }, 
+      {
+        "text": "fnrnf33233232", 
+        "intent": "None"
+      }, 
+      {
+        "text": "are you sure?", 
+        "intent": "are_you_sure"
+      }, 
+      {
+        "text": "really?", 
+        "intent": "are_you_sure"
+      }, 
+      {
+        "text": "is it", 
+        "intent": "are_you_sure"
+      }, 
+      {
+        "text": "you sure it's not", 
+        "intent": "are_you_sure"
+      }, 
+      {
+        "text": "interesting you have no doubt in it?", 
+        "intent": "are_you_sure"
       }
     ], 
     "entity_synonyms": [

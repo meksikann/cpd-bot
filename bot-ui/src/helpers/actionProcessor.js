@@ -1,10 +1,10 @@
 import actionIntents from "../constants/intents";
 import {generalConstants} from '../constants/general';
 import {logInfo, logError} from "../utils/logger";
-import {getGoogleCalendarEvents} from './googleCalendarApiHandler';
+import {getGoogleCalendarEvents, getFreeBusySlots} from './googleCalendarApiHandler';
 import {formatEvents} from "../helpers/format-messages";
 import {isPlainObject} from 'lodash';
-import {getDateISOString, getCalendarId} from './general';
+import {getDateISOString, getCalendarId, aggregateCalendarIds} from './general';
 
 
 //process custom action
@@ -63,6 +63,11 @@ async function processActionIntent(nextActionData, session) {
                 break;
             case actionIntents.action_get_room_free_slots:
                 logInfo('performing action_get_room_free_slots ...');
+                queryData = {
+                    roomName: nextActionData.tracker.slots.room_name,
+                    time: nextActionData.tracker.slots.time
+                };
+                result.events = generateFreeSlots(queryData);
                 result.success = true;
                 break;
 
@@ -114,14 +119,14 @@ async function checkCpecifiedRoomAvailable(queryData) {
     if (time) {
         if (isPlainObject(time)) {
             startTime = time.from || new Date().toISOString();
-            endTime = time.to || getDateISOString(startTime, generalConstants.minDurationAvailableMin);
+            endTime = time.to || getDateISOString(startTime, generalConstants.minDurationAvailableMin, 'minutes', true);
         } else {
             startTime = time;
-            endTime = getDateISOString(startTime, generalConstants.minDurationAvailableMin);
+            endTime = getDateISOString(startTime, generalConstants.minDurationAvailableMin, 'minutes', true);
         }
     } else {
         startTime = new Date().toISOString();
-        endTime = getDateISOString(startTime, generalConstants.minDurationAvailableMin);
+        endTime = getDateISOString(startTime, generalConstants.minDurationAvailableMin, 'minutes', true);
     }
 
     events = await getGoogleCalendarEvents(calendarId, startTime, endTime);
@@ -141,6 +146,26 @@ async function checkCpecifiedRoomAvailable(queryData) {
     }
 
     return result;
+}
+
+async function generateFreeSlots(queryData) {
+    logInfo('generate free slots. Room names: ',queryData.roomName);
+    const roomName = queryData.roomName;
+    const shouldAdd = true;
+    const minutesRange = 180;
+
+    const calendarsIds = aggregateCalendarIds(roomName);
+    const startTime = getDateISOString(queryData.time || new Date().toISOString(), minutesRange, 'minutes',
+        !shouldAdd);
+    const endTime = getDateISOString(queryData.time || new Date().toISOString(), minutesRange, 'minutes',
+        shouldAdd);
+
+    console.log('timmmmmmmmmmmmmmmmm================================S', startTime);
+    console.log('timmmmmmmmmmmmmmmmm================================E', endTime);
+
+    const slotsData = await getFreeBusySlots(calendarsIds, startTime, endTime);
+
+    console.log('received freebusy slots====================>', slotsData);
 }
 
 

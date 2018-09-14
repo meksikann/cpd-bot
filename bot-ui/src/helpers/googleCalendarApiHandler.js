@@ -20,6 +20,44 @@ async function getGoogleCalendarEvents(calendarId, startTime, endTime) {
     return events;
 }
 
+async function getFreeBusySlots(calendarsIds, startTime, endTime) {
+    logInfo('In googleCalendarApiHandler: get freebusy slots');
+
+    let content = await readFileSync(`${currentPath}/../creds/credentials.json`);
+    // Authorize a client with credentials, then call the Google Calendar API.
+    const oAuth2Client = await authorize(JSON.parse(content));
+    const slots = await getFreeBusyCalendars(oAuth2Client, calendarsIds, startTime, endTime);
+
+    return slots;
+}
+
+async function getFreeBusyCalendars(auth, calendarsIds, startTime, endTime) {
+    const calendar = google.calendar({version: 'v3', auth});
+
+    console.log('timmmmmmmmmmmmmmmmm================================S2', startTime);
+    console.log('timmmmmmmmmmmmmmmmm================================E2', endTime);
+
+    const check = {
+        resource: {
+            auth: auth,
+            timeMax: endTime,
+            timeMin: startTime,
+            items: calendarsIds,
+        }
+    };
+
+    return new Promise((resolve, reject) => {
+        calendar.freebusy.query(check, (err, res) => {
+            if (err) {
+                reject('The API returned an error: ' + err);
+                return;
+            }
+
+            resolve(res.data.calendars);
+        })
+    })
+}
+
 function createGoogleCalendarEvent() {
     logInfo('In googleCalendarApiHandler: create vent');
 }
@@ -100,4 +138,4 @@ async function authorize(credentials) {
 // }
 
 
-export {getGoogleCalendarEvents};
+export {getGoogleCalendarEvents, getFreeBusySlots};

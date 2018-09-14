@@ -57,6 +57,8 @@ intents:
     use_entities: true
 - get_room_free_slots:
     use_entities: true
+- None:
+    use_entities: true
 - show_my_events:
     use_entities: true
 - inform:

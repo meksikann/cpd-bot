@@ -3,8 +3,15 @@ import config from "../config";
 
 var moment = require('moment');
 
-function getDateISOString(time, duration) {
-    return moment(time).add(duration, 'minutes').format();
+let calendarsIds = process.env.NODE_ENV == 'production' ? config.productionCalendarIds :
+    config.developmentCalendarIds;
+
+function getDateISOString(time, duration, unit, isAdd) {
+    if (isAdd) {
+        return moment(time).add(duration, unit).format();
+    }
+
+    return moment(time).subtract(duration, unit).format();
 }
 
 
@@ -13,19 +20,42 @@ function getCalendarId(roomName) {
     logInfo('process.env.NODE_ENV ', process.env.NODE_ENV);
     logInfo('Choose calendar id.Room name: ', roomName);
     let id;
-    let calendarConfig  = process.env.NODE_ENV == 'production' ? config.productionCalendarIds :
-        config.developmentCalendarIds;
 
     switch (roomName) {
         case 'first conference room':
-            id = calendarConfig.mainRoom;
+            id = calendarsIds.mainRoom;
             break;
         case 'second conference room':
-            id = calendarConfig.secondRoom;
+            id = calendarsIds.secondRoom;
             break;
     }
 
     return id;
 }
 
-export { getDateISOString, getCalendarId }
+function aggregateCalendarIds(roomName) {
+    let items = [];
+
+    //if room name defined find aggregate data for specified room, else aggregate data for all existing rooms;
+    if (roomName) {
+        const id = getCalendarId(roomName);
+        if (id) {
+            items.push({
+                "id": id
+            })
+        }
+
+        return items;
+    }
+
+    for (const [key, value] of Object.entries(calendarsIds)) {
+        logInfo(`generated freebusy* data for ${key} calendar `);
+        items.push({
+            "id": value
+        })
+    }
+
+    return items;
+}
+
+export {getDateISOString, getCalendarId, aggregateCalendarIds}

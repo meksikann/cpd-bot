@@ -12,6 +12,7 @@ intents:
   - check_room_available
   - are_you_sure
   - get_room_free_slots
+  - None
 
 entities:
   - event_name

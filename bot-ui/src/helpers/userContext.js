@@ -9,6 +9,7 @@ async function getNextAction(userId, text) {
             "query":text
         });
         logInfo('received data from getNextAction', res.data);
+        logInfo('received data from getNextAction intent is: ', res.data.tracker.latest_message.intent.name || 'No intent');
         return res.data;
     } catch(err) {
         logError(err);

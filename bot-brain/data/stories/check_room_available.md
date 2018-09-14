@@ -222,14 +222,59 @@
 * thank
     - utter_thank
 
-## Generated Story 8368002419989898846
+## Generated Story 6676576239903334564
 * greet
     - utter_greet
     - utter_how_can_help
-* check_room_available{"room_name": "first conference room"}
+* get_room_free_slots{"room_name": "first conference room"}
     - slot{"room_name": "first conference room"}
     - action_check_room_exists
     - slot{"is_room_exists": true}
     - action_get_room_free_slots
-    - slot{"rooms_free_slots": [{"room_name": "first conference room", "room_id": "myid.com_os8ir3jmid199q9l0@group.calendar.google.com", "free_slots": [{"start": "2018-09-12T13:00:00.000+03:00", "end": "2018-09-12T13:30:00.000+03:00"}]}]}
+    - slot{"rooms_free_slots": [{"room_id": "myid.com_os8ir3jmid199q9l0@group.calendar.google.com", "room_name": "first conference room", "free_slots": [{"start": "2018-09-12T13:00:00.000+03:00", "end": "2018-09-12T13:30:00.02100+03:00"}]}]}
     - utter_show_free_slots
+* get_room_free_slots{"room_name": "second conferance room"}
+    - slot{"room_name": "second conferance room"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_get_room_free_slots
+    - slot{"rooms_free_slots": [{"room_id": "myid.com_os8ir3jmid199q9l0@group.calendar.google.com", "room_name": "first conference room", "free_slots": [{"start": "2018-09-12T13:00:00.000+03:00", "end": "2018-09-12T13:30:00.02100+03:00"}]}]}
+    - utter_show_free_slots
+* thank
+    - utter_thank
+
+## Generated Story -4435802499326907434
+* get_room_free_slots{"room_name": "first conference room"}
+    - slot{"room_name": "first conference room"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_get_room_free_slots
+    - slot{"rooms_free_slots": [{"room_id": "myid.com_os8ir3jmid199q9l0@group.calendar.google.com", "room_name": "first conference room", "free_slots": [{"start": "2018-09-12T13:00:00.000+03:00", "end": "2018-09-12T13:30:00.02100+03:00"}]}]}
+    - utter_show_free_slots
+* thank
+    - utter_thank
+
+
+## Generated Story 4655243035205847035
+* get_room_free_slots{"room_name": "second conference room"}
+    - slot{"room_name": "second conference room"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_get_room_free_slots
+    - slot{"rooms_free_slots": [{"room_id": "myid.com_os8ir3jmid199q9l0@group.calendar.google.com", "room_name": "first conference room", "free_slots": [{"start": "2018-09-12T13:00:00.000+03:00", "end": "2018-09-12T13:30:00.02100+03:00"}]}]}
+    - utter_show_free_slots
+* get_room_free_slots{"room_name": "first conference room"}
+    - slot{"room_name": "first conference room"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_get_room_free_slots
+    - slot{"rooms_free_slots": [{"room_name": "first conference room", "room_id": "myid.com_os8ir3jmid199q9l0@group.calendar.google.com", "free_slots": [{"start": "2018-09-12T13:00:00.000+03:00", "end": "2018-09-12T13:30:00.02100+03:00"}]}]}
+    - utter_show_free_slots
+
+## Generated Story 7591345819352212358
+* get_room_free_slots
+    - action_get_room_free_slots
+    - slot{"rooms_free_slots": [{"room_id": "myid.com_os8ir3jmid199q9l0@group.calendar.google.com", "room_name": "first conference room", "free_slots": [{"start": "2018-09-12T13:00:00.000+03:00", "end": "2018-09-12T13:30:00.02100+03:00"}]}]}
+    - utter_show_free_slots
+    - export
+

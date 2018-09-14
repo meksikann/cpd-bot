@@ -89,6 +89,9 @@
 - [small room](room_name)
 - [small conferance](room_name)
 - how about [small one](room_name)?
+- [the big one](room_name)
+- what about [first room](room_name)
+- and [second conference room](room_name)?
 
 
 ## intent: show_my_events
@@ -102,41 +105,24 @@
 - review my events
 
 ## intent: check_room_available
-- is it available?
 - is [second hall](room_name) free?
 - tell me if [first conference room](room_name) is free at 1pm
 - I am curious if  [2](room_name) is empty in an hour
 - would  you be so king to ping me if [big hall](room_name) is free now?
 - Has anyone occupied [first room](room_name) at 5 o'clock
 - Can I book a  [main conference room](room_name) today?
-- Is there an available spot for the [first room](room_name)
 - Could I reserve a [room number 1](room_name) for one hour
 - is [small room](room_name) available now?
 - I wanna take [second conference room](room_name)
 - show me if [main room](room_name) available in an hour?
 - would you be so king to ping me if [main room](room_name) is free now?
-- [the big one](room_name)
 - is conference room free?
 - are conference rooms available in an hour?
 - hey tell me if negotiation rooms are busy now. thanks
-- what about [first room](room_name)
-- and [second conference room](room_name)?
 - wanna know if room is free
 
-## intent: None
-- frfreveve frfrferr rvfvfvbfg
-- bullshit
-- fnrnf33233232
-
-
-## intent: are_you_sure
-- are you sure?
-- really?
-- is it
-- you sure it's not
-- interesting you have no doubt in it?
-
 ## intent: get_room_free_slots
+- is it available?
 - when it's free?
 - when [main room](room_name) available
 - tell me at what time [second conference room](room_name) is free
@@ -151,6 +137,23 @@
 - What time the room will be available?
 - Can I get info when the room is free?
 - when [main room](room_name) is free?
+- wanna know when [main room](room_name) is free?
+- tell me when [small room](room_name) is available
+- Is there an available spot for the [first room](room_name)
+- I am curious when [small room](room_name) is available?
+- hey. I want to know free space for rooms
+
+## intent: None
+- frfreveve frfrferr rvfvfvbfg
+- bullshit
+- fnrnf33233232
+
+## intent: are_you_sure
+- are you sure?
+- really?
+- is it
+- you sure it's not
+- interesting you have no doubt in it?
 
 ## synonym:first conference room
 - room one

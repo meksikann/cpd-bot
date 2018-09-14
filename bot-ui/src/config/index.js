@@ -7,13 +7,11 @@ let config = {
 
     developmentCalendarIds: {
         mainRoom: 'eliftech.com_f8rsjijoarsi9stp76gslhv9ek@group.calendar.google.com',
-        secondRoom: 'eliftech.com_os8ir07e7uqleh3jmid199q9l0@group.calendar.google.com',
-        primaryCalendarId: 'primary'
+        secondRoom: 'eliftech.com_os8ir07e7uqleh3jmid199q9l0@group.calendar.google.com'
     },
     productionCalendarIds: {
         mainRoom: 'eliftech.com_92gsu525ed2rrfotqfcd23vnk4@group.calendar.google.com',
-        secondRoom: '',
-        primaryCalendarId: 'primary'
+        secondRoom: ''
     }
 };
 

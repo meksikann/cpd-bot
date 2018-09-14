@@ -1,5 +1,6 @@
 {
   "states": [
+    "intent_None", 
     "intent_affirm", 
     "intent_are_you_sure", 
     "intent_bye", 

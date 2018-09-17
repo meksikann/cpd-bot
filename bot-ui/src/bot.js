@@ -1,5 +1,5 @@
 import {messages} from './constants/messages';
-import {createHeroCard} from './helpers/format-messages';
+import {createHeroCard, generateBotResponse} from './helpers/format-messages';
 import actionIntents from './constants/intents';
 import {getNextAction, notifyBotBrainActionDone} from './helpers/userContext';
 import {logInfo} from './utils/logger';
@@ -51,7 +51,6 @@ function botCreate(connector) {
 }
 
 
-
 /*
 * method to make response deppending on data received from NLU processor.
 * if next_action is simple utter_message that shoot it. else if next_action is in action actionIntents list - proceed intent,
@@ -61,7 +60,7 @@ async function processNextAction(session, nextActionData, next) {
     let data = {
         userId: session.message.user.id || 'default-user'
     };
-    logInfo('Process next action: ',nextActionData);
+    logInfo('Process next action: ', nextActionData);
 
     // set bot to listen to user - no other actions required
     if (nextActionData.next_action == actionIntents.action_listen) {
@@ -71,7 +70,7 @@ async function processNextAction(session, nextActionData, next) {
     //if next_action is simple response (utter) message - shoot it!
     if (messages.bot_response[nextActionData.next_action]) {
         logInfo('Log: next_action found in bot utter responses');
-        data.message = messages.bot_response[nextActionData.next_action];
+        data.message = generateBotResponse(nextActionData);
         data.notifyBotBrainToContinue = true;
         data.executed_action = nextActionData.next_action;
 

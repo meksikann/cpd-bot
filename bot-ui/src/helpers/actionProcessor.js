@@ -1,10 +1,11 @@
 import actionIntents from "../constants/intents";
 import {generalConstants} from '../constants/general';
 import {logInfo, logError} from "../utils/logger";
-import {getGoogleCalendarEvents, getFreeBusySlots} from './googleCalendarApiHandler';
+import {getGoogleCalendarEvents} from './googleCalendarApiHandler';
 import {formatEvents} from "../helpers/format-messages";
 import {isPlainObject} from 'lodash';
-import {getDateISOString, getCalendarId, aggregateCalendarIds} from './general';
+import config from '../config';
+import {getDateISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots} from './general';
 
 
 //process custom action
@@ -67,7 +68,7 @@ async function processActionIntent(nextActionData, session) {
                     roomName: nextActionData.tracker.slots.room_name,
                     time: nextActionData.tracker.slots.time
                 };
-                result.events = generateFreeSlots(queryData);
+                result.events = await generateFreeSlots(queryData);
                 result.success = true;
                 break;
 
@@ -119,14 +120,14 @@ async function checkCpecifiedRoomAvailable(queryData) {
     if (time) {
         if (isPlainObject(time)) {
             startTime = time.from || new Date().toISOString();
-            endTime = time.to || getDateISOString(startTime, generalConstants.minDurationAvailableMin, 'minutes', true);
+            endTime = time.to || getDateISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
         } else {
             startTime = time;
-            endTime = getDateISOString(startTime, generalConstants.minDurationAvailableMin, 'minutes', true);
+            endTime = getDateISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
         }
     } else {
         startTime = new Date().toISOString();
-        endTime = getDateISOString(startTime, generalConstants.minDurationAvailableMin, 'minutes', true);
+        endTime = getDateISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
     }
 
     events = await getGoogleCalendarEvents(calendarId, startTime, endTime);
@@ -149,10 +150,12 @@ async function checkCpecifiedRoomAvailable(queryData) {
 }
 
 async function generateFreeSlots(queryData) {
-    logInfo('generate free slots. Room names: ',queryData.roomName);
+    logInfo('generate free slots. Room names: ', queryData.roomName);
     const roomName = queryData.roomName;
     const shouldAdd = true;
     const minutesRange = 180;
+    let result;
+    let freeSlots = [];
 
     const calendarsIds = aggregateCalendarIds(roomName);
     const startTime = getDateISOString(queryData.time || new Date().toISOString(), minutesRange, 'minutes',
@@ -160,14 +163,36 @@ async function generateFreeSlots(queryData) {
     const endTime = getDateISOString(queryData.time || new Date().toISOString(), minutesRange, 'minutes',
         shouldAdd);
 
-    console.log('timmmmmmmmmmmmmmmmm================================S', startTime);
-    console.log('timmmmmmmmmmmmmmmmm================================E', endTime);
+    //get events in selected time range for array of calendars
+    const pArray = calendarsIds.map(async calObj => {
+        let freeSlotObject = {};
+        const events = await getGoogleCalendarEvents(calObj.id, startTime, endTime);
 
-    const slotsData = await getFreeBusySlots(calendarsIds, startTime, endTime);
+        freeSlotObject.room_name = calObj.name;
+        freeSlotObject.room_id = calObj.id;
+        freeSlotObject.free_slots = [];
 
-    console.log('received freebusy slots====================>', slotsData);
+        //if there are busy slots in  calendar time range - calculate free slots
+        if (events && events.length) {
+            freeSlotObject.free_slots = getTimeRangeFreeSlots(startTime, endTime, events);
+        } else {
+            //if not busy slots in calendar time range - set fee slot from startTima to endTime
+            freeSlotObject.free_slots.push({
+                start: startTime,
+                end: endTime
+            })
+        }
+
+        return freeSlotObject;
+    });
+
+    freeSlots = await Promise.all(pArray);
+    result = [
+        {"event": "slot", "name": "rooms_free_slots", "value": freeSlots}
+    ];
+
+    return result;
 }
-
 
 
 export {processActionIntent}

@@ -6,13 +6,16 @@ let config = {
     rasaContinueUrl: 'http://localhost:5005/conversations/',
 
     developmentCalendarIds: {
-        mainRoom: 'eliftech.com_f8rsjijoarsi9stp76gslhv9ek@group.calendar.google.com',
-        secondRoom: 'eliftech.com_os8ir07e7uqleh3jmid199q9l0@group.calendar.google.com'
+        'first_conference_room': 'eliftech.com_f8rsjijoarsi9stp76gslhv9ek@group.calendar.google.com',
+        'second_conference_room': 'eliftech.com_os8ir07e7uqleh3jmid199q9l0@group.calendar.google.com'
     },
     productionCalendarIds: {
-        mainRoom: 'eliftech.com_92gsu525ed2rrfotqfcd23vnk4@group.calendar.google.com',
-        secondRoom: ''
-    }
+        'first_conference_room': 'eliftech.com_92gsu525ed2rrfotqfcd23vnk4@group.calendar.google.com',
+        'second_conference_room': ''
+    },
+    userTimeZone: "Europe/Kiev",
+    minDurationAvailableMin: 30
+
 };
 
 

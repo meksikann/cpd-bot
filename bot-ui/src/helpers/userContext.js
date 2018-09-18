@@ -32,4 +32,15 @@ async function notifyBotBrainActionDone(data) {
     }
 }
 
-export {getNextAction, notifyBotBrainActionDone}
+async function sendFallbackEvent(data) {
+    try {
+        return await axios.post(`${config.rasaContinueUrl}${data.userId}/tracker/events`, {
+            "event": "rewind"
+        });
+    } catch(err) {
+        logError(err);
+        return;
+    }
+}
+
+export {getNextAction, notifyBotBrainActionDone, sendFallbackEvent}

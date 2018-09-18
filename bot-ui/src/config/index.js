@@ -14,7 +14,9 @@ let config = {
         'second_conference_room': ''
     },
     userTimeZone: "Europe/Kiev",
-    minDurationAvailableMin: 30
+    minDurationAvailableMin: 30,
+    freeSpaceSearchTimeRangeMins: 180,
+    nlu_confidence: 40
 
 };
 

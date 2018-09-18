@@ -1,9 +1,10 @@
 import {messages} from './constants/messages';
 import {createHeroCard, generateBotResponse} from './helpers/format-messages';
 import actionIntents from './constants/intents';
-import {getNextAction, notifyBotBrainActionDone} from './helpers/userContext';
+import {getNextAction, notifyBotBrainActionDone, sendFallbackEvent} from './helpers/userContext';
 import {logInfo} from './utils/logger';
 import {processActionIntent} from './helpers/actionProcessor';
+import config from './config';
 
 function botCreate(connector) {
 
@@ -60,12 +61,23 @@ async function processNextAction(session, nextActionData, next) {
     let data = {
         userId: session.message.user.id || 'default-user'
     };
+    let intent = nextActionData.tracker.latest_message.intent;
+
     logInfo('Process next action: ', nextActionData);
+
+
+    //check  intent confidence
+
+    if(intent.confidence < config.nlu_confidence || intent.name == 'None') {
+        logInfo('Fallback event triggered');
+        return handleLowConfidenceIntent(data, session);
+    }
 
     // set bot to listen to user - no other actions required
     if (nextActionData.next_action == actionIntents.action_listen) {
         return logInfo('LOG: action listen');
     }
+
 
     //if next_action is simple response (utter) message - shoot it!
     if (messages.bot_response[nextActionData.next_action]) {
@@ -107,6 +119,15 @@ async function sendBotReply(data, session, next) {
         const nextActionData = await notifyBotBrainActionDone(data);
         return processNextAction(session, nextActionData, next);
     }
+}
+
+async function handleLowConfidenceIntent(data, session) {
+    const result = await sendFallbackEvent();
+
+    if(result.error) {
+        return session.send(messages.bot_response.defaultmessage);
+    }
+    return session.send(messages.bot_response.utter_fallback);
 }
 
 export {botCreate}

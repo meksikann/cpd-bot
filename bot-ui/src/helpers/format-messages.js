@@ -27,14 +27,13 @@ function formatEvents(events) {
             formattedEvents += `${start} - ${event.summary} <br/>`;
         });
     } else {
-        formattedEvents = 'Calendar is empty';
+        formattedEvents = messages.calendarIsEmpty;
     }
 
     return formattedEvents;
 }
 
 function generateBotResponse(data) {
-
     //return messages, which require to paste data in it.
     if (data.next_action == 'utter_show_free_slots') {
         let message = `Ok! so what we've got here...
@@ -45,9 +44,14 @@ function generateBotResponse(data) {
         slots.forEach((slot) => {
             let roomMessage = `**${slot.room_name}**:\n`;
 
-            slot.free_slots.forEach(freeSlot => {
-                roomMessage += `*from ${getTime(freeSlot.start)} to ${getTime(freeSlot.end)}*. \n`
-            });
+            if(slot.free_slots && slot.free_slots.length) {
+                slot.free_slots.forEach(freeSlot => {
+                    roomMessage += `*from ${getTime(freeSlot.start)} to ${getTime(freeSlot.end)}*. \n`
+                });
+
+            } else {
+                roomMessage = messages.noFreeSpace;
+            }
 
             message += roomMessage;
         });

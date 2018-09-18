@@ -112,7 +112,6 @@ async function checkCpecifiedRoomAvailable(queryData) {
     let endTime;
     let calendarId = getCalendarId(queryData.roomName);
     let events;
-    logInfo('Chosen calendar ID: ', calendarId);
 
     logInfo(`Checking if room available, room name: ${queryData.roomName}, and time: ${queryData.time}`);
     //RASA-core can return  Time slot as string or as Object(from:'', to: '') manage handle exact time or time range.
@@ -132,7 +131,6 @@ async function checkCpecifiedRoomAvailable(queryData) {
 
     events = await getGoogleCalendarEvents(calendarId, startTime, endTime);
 
-    console.log(events);
     // if there are event on requested time - send room is busy, else - send room is free
     if (events && events.length) {
         result = [
@@ -153,7 +151,7 @@ async function generateFreeSlots(queryData) {
     logInfo('generate free slots. Room names: ', queryData.roomName);
     const roomName = queryData.roomName;
     const shouldAdd = true;
-    const minutesRange = 180;
+    const minutesRange = config.freeSpaceSearchTimeRangeMins;
     let result;
     let freeSlots = [];
 

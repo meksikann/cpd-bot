@@ -28,6 +28,8 @@ let messages = {
         /* ************************* custom ***************************************************************************/
         defaultmessage: 'default dialog goes here...Man!!....It means that you or bot screwed up conversation...:)',
         greeting: 'Hey, how can I help you?',
+        noFreeSpace: 'No free space in next 3 hours',
+        calendarIsEmpty: 'Calendar is empty'
     }
 };
 

@@ -4,13 +4,13 @@
     <list default="true" id="650a90c1-e9ec-4d69-b13c-05a89787fd7a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot-ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot-ui/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stories/check_room_available.md" beforeDir="false" afterPath="$PROJECT_DIR$/data/stories/check_room_available.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bot-ui/src/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot-ui/src/constants/general.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/constants/general.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bot-ui/src/constants/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/constants/messages.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bot-ui/src/helpers/actionProcessor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/helpers/actionProcessor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bot-ui/src/helpers/format-messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/helpers/format-messages.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bot-ui/src/helpers/general.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/helpers/general.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot-ui/src/helpers/googleCalendarApiHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/helpers/googleCalendarApiHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,12 +22,12 @@
     <session id="-981544063">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -35,16 +35,16 @@
           <entry key="Dockerfile" value="2" />
           <entry key="Makefile" value="2" />
           <entry key="json" value="4" />
-          <entry key="md" value="12" />
+          <entry key="md" value="13" />
           <entry key="py" value="2" />
           <entry key="txt" value="1" />
-          <entry key="yml" value="4" />
+          <entry key="yml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="4" />
-          <entry key="Markdown" value="16" />
+          <entry key="Markdown" value="18" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="Python" value="2" />
         </counts>
@@ -52,7 +52,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="json" value="267" />
-          <entry key="md" value="844" />
+          <entry key="md" value="858" />
           <entry key="py" value="179" />
           <entry key="yml" value="277" />
         </counts>
@@ -60,7 +60,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="267" />
-          <entry key="Markdown" value="1121" />
+          <entry key="Markdown" value="1135" />
           <entry key="Python" value="179" />
         </counts>
       </usages-collector>
@@ -78,34 +78,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/nlu_data.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="534">
-                <caret line="169" column="11" lean-forward="true" selection-start-line="169" selection-start-column="11" selection-end-line="169" selection-end-column="33" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/stories/check_room_available.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="4035">
-                <caret line="269" column="32" selection-start-line="269" selection-start-column="32" selection-end-line="269" selection-end-column="32" />
+              <first_editor relative-caret-position="1428">
+                <caret line="115" column="30" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="30" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -115,15 +92,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/learning_data.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <entry file="file://$PROJECT_DIR$/domain.yml">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="210">
+                <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>None</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -135,14 +122,14 @@
         <option value="$PROJECT_DIR$/domain.yml" />
         <option value="$PROJECT_DIR$/data/nlu_data.md" />
         <option value="$PROJECT_DIR$/stories.md" />
-        <option value="$PROJECT_DIR$/data/stories/check_room_available.md" />
         <option value="$PROJECT_DIR$/learning_data.json" />
+        <option value="$PROJECT_DIR$/data/stories/check_room_available.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="734" />
-    <option name="y" value="72" />
+    <option name="x" value="344" />
+    <option name="y" value="48" />
     <option name="width" value="1186" />
     <option name="height" value="911" />
   </component>
@@ -152,7 +139,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,6 +161,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -196,8 +183,7 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="734" y="72" width="1186" height="911" extended-state="0" />
-    <editor active="true" />
+    <frame x="344" y="48" width="1186" height="911" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25021496" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -273,18 +259,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/domain.yml">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="210">
-            <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/current/nlu/training_data.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9225" />
@@ -300,10 +274,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Makefile">
+    <entry file="file://$PROJECT_DIR$/learning_data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="99" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -314,23 +288,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/stories/check_room_available.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="4035">
-            <caret line="269" column="32" selection-start-line="269" selection-start-column="32" selection-end-line="269" selection-end-column="32" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/nlu_data.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="534">
-            <caret line="169" column="11" lean-forward="true" selection-start-line="169" selection-start-column="11" selection-end-line="169" selection-end-column="33" />
+            <caret line="169" column="11" selection-start-line="169" selection-start-column="11" selection-end-line="169" selection-end-column="33" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -338,10 +300,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/learning_data.json">
+    <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="375">
+          <caret line="25" column="99" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/stories/check_room_available.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1428">
+            <caret line="115" column="30" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="30" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domain.yml">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="210">
+            <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
         </state>
       </provider>
     </entry>

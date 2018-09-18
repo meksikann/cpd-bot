@@ -88,7 +88,6 @@
 * check_room_available{"time": "2018-09-13T10:49:51.000+03:00"}
     - slot{"time": "2018-09-13T10:49:51.000+03:00"}
     - utter_ask_room_name
-* None
 * check_room_available{"room_name": "second conference room"}
     - slot{"room_name": "second conference room"}
     - action_check_room_exists
@@ -178,7 +177,6 @@
 * check_room_available{"time": "2018-09-13T10:49:51.000+03:00"}
     - slot{"time": "2018-09-13T10:49:51.000+03:00"}
     - utter_ask_room_name
-* None
 * check_room_available{"room_name": "second conference room"}
     - slot{"room_name": "second conference room"}
     - action_check_room_exists

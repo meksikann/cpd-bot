@@ -33,7 +33,6 @@ function getCalendarId(roomName) {
 }
 
 function aggregateCalendarIds(roomName) {
-    // console.log('my time sone---------------------->', moment.tz.guess());
     let items = [];
 
     //if room name defined find aggregate data for specified room, else aggregate data for all existing rooms;
@@ -84,7 +83,6 @@ function getTimeRangeFreeSlots(start, end, events) {
     //find last free time range
     let lastDiffMin = moment(endTime).diff(startTime, 'minutes');
 
-
     if (lastDiffMin >= config.minDurationAvailableMin) {
         freeSlots.push(
             {
@@ -105,7 +103,10 @@ function getDate(string) {
 }
 
 function getTime(string) {
-    return moment(string).format('HH:mm');
+    if(string) {
+        return moment(string).format('HH:mm');
+    }
+    return moment().format('HH:mm');
 }
 
 export {getDateISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots, getDate, getTime}

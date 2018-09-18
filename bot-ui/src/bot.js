@@ -6,6 +6,10 @@ import {logInfo} from './utils/logger';
 import {processActionIntent} from './helpers/actionProcessor';
 import config from './config';
 
+const undoAction = 'undo';
+const rewindAction = 'rewind';
+const defaultUser = 'default-user';
+
 function botCreate(connector) {
 
     // init bot
@@ -18,7 +22,7 @@ function botCreate(connector) {
     bot.use({
         botbuilder: async (session, next) => {
             //use rasa-core server to predict next action *************
-            const nextActionData = await getNextAction(session.message.user.id || 'default-user', session.message.text);
+            const nextActionData = await getNextAction(session.message.user.id || defaultUser, session.message.text);
 
             if (nextActionData) {
                 logInfo('manage dialog depending from data received from RASA-CORE');
@@ -104,7 +108,7 @@ async function processNextAction(session, nextActionData, next) {
         }
 
         logInfo('action performing not succeeded!!!!!')
-        //TODO: handle action if success == false -----------------------
+        return handleUndoAction(data, session);
     }
 
     next();
@@ -121,13 +125,25 @@ async function sendBotReply(data, session, next) {
     }
 }
 
-async function handleLowConfidenceIntent(data, session) {
-    const result = await sendFallbackEvent();
-
-    if(result.error) {
-        return session.send(messages.bot_response.defaultmessage);
+// notify brain that something went wring and we do fallback user utterance or undo last action
+    try {
+        let res = await sendFallbackEvent(data, rewindAction);
+        console.log(res);
+        session.send(messages.bot_response.utter_fallback);
+    } catch(e) {
+        session.send(messages.bot_response.defaultmessage);
     }
-    return session.send(messages.bot_response.utter_fallback);
+}
+
+// notify brain that something went wring and we do undo last action
+async function handleUndoAction(data, session) {
+    try {
+        let res = await sendFallbackEvent(data, undoAction);
+
+        session.send(messages.bot_response.utter_action_not_succeed);
+    } catch(e) {
+        session.send(messages.bot_response.defaultmessage);
+    }
 }
 
 export {botCreate}

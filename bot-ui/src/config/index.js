@@ -16,7 +16,7 @@ let config = {
     userTimeZone: "Europe/Kiev",
     minDurationAvailableMin: 30,
     freeSpaceSearchTimeRangeMins: 180,
-    nlu_confidence: 40
+    nlu_confidence: 0.4
 
 };
 

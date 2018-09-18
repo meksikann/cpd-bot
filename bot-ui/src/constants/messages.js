@@ -21,10 +21,11 @@ let messages = {
         utter_ask_room_name: 'tell me room name which is interesting for you?',
         utter_room_is_free: 'room is free',
         utter_room_is_busy: 'room is busy',
-        utter_fallback: `sorry, I don't get your point dude ...It means that you or bot screwed up conversation...:)`,
+        utter_fallback: `sorry, I don't get your point dude ..Try to say same stuff using other sentence.:)`,
         utter_room_not_exists: 'the room name which you told me not exists.',
         utter_sure: `yeah pal, I'm sure`,
         utter_show_free_slots: 'todo -Room free time* make bot respond with some usefull info for user',
+        utter_action_not_succeed: 'Hm...last action not succeeded. Would you please try again now.',
         /* ************************* custom ***************************************************************************/
         defaultmessage: 'default dialog goes here...Man!!....It means that you or bot screwed up conversation...:)',
         greeting: 'Hey, how can I help you?',

@@ -32,15 +32,21 @@ async function notifyBotBrainActionDone(data) {
     }
 }
 
-async function sendFallbackEvent(data) {
-    try {
-        return await axios.post(`${config.rasaContinueUrl}${data.userId}/tracker/events`, {
-            "event": "rewind"
-        });
-    } catch(err) {
-        logError(err);
-        return;
-    }
+async function sendFallbackEvent(data, action) {
+    const event = {
+        "event": action
+    };
+
+    const res = await axios.post(`${config.rasaContinueUrl}${data.userId}/continue`, {
+        "events": [event]
+    });
+
+    /* wanted to use this endpoint to set fallback event, but it doesnt work == bot gives prediction to
+    listen always.
+    */
+    // const res = await axios.post(`${config.rasaContinueUrl}${data.userId}/tracker/events`, [event]);
+
+    return res.data;
 }
 
 export {getNextAction, notifyBotBrainActionDone, sendFallbackEvent}

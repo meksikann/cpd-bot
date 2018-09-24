@@ -1,4 +1,17 @@
 {
+  "max_histories": [
+    null, 
+    3, 
+    3
+  ], 
+  "python": "2.7.12", 
+  "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
+  "rasa_core": "0.11.6", 
+  "policy_names": [
+    "rasa_core.policies.fallback.FallbackPolicy", 
+    "rasa_core.policies.memoization.MemoizationPolicy", 
+    "rasa_core.policies.keras_policy.KerasPolicy"
+  ], 
   "action_fingerprints": {
     "action_check_room_available": {
       "slots": [
@@ -6,8 +19,10 @@
         "time"
       ]
     }, 
-    "utter_greet": {
-      "slots": []
+    "action_get_room_free_slots": {
+      "slots": [
+        "rooms_free_slots"
+      ]
     }, 
     "action_listen": {
       "slots": [
@@ -24,17 +39,15 @@
     "utter_room_not_exists": {
       "slots": []
     }, 
-    "action_get_room_free_slots": {
-      "slots": [
-        "rooms_free_slots"
-      ]
+    "utter_room_is_free": {
+      "slots": []
     }, 
     "action_check_room_exists": {
       "slots": [
         "is_room_exists"
       ]
     }, 
-    "utter_room_is_free": {
+    "utter_greet": {
       "slots": []
     }, 
     "utter_bye": {
@@ -46,15 +59,5 @@
     "utter_sure": {
       "slots": []
     }
-  }, 
-  "policy_names": [
-    "rasa_core.policies.memoization.MemoizationPolicy", 
-    "rasa_core.policies.keras_policy.KerasPolicy"
-  ], 
-  "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
-  "max_histories": [
-    3, 
-    3
-  ], 
-  "rasa_core": "0.10.4"
+  }
 }

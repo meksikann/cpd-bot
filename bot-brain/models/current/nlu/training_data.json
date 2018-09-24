@@ -840,6 +840,7 @@
         "value": "second conference room"
       }
     ], 
-    "regex_features": []
+    "regex_features": [], 
+    "lookup_tables": []
   }
 }

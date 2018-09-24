@@ -81,9 +81,9 @@ actions:
   - utter_room_not_exists
   - utter_sure
   - utter_show_free_slots
-  - actions.CreateEvent
-  - actions.RemoveEvent
-  - actions.ShowMyEvents
-  - actions.CheckRoomAvailable
-  - actions.CheckRoomExists
-  - actions.GetRoomFreeSlots
+  - action_create_event
+  - action_remove_event
+  - action_show_my_events
+  - action_check_room_available
+  - action_check_room_exists
+  - action_get_room_free_slots

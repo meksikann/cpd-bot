@@ -1,5 +1,4 @@
-action_factory: null
-action_names:
+actions:
 - utter_greet
 - utter_thank
 - utter_bye
@@ -20,27 +19,6 @@ action_names:
 - action_check_room_available
 - action_check_room_exists
 - action_get_room_free_slots
-actions:
-- utter_greet
-- utter_thank
-- utter_bye
-- utter_how_can_help
-- utter_on_it
-- utter_ask_event_name
-- utter_event_saved
-- utter_ask_room_name
-- utter_room_is_free
-- utter_room_is_busy
-- utter_fallback
-- utter_room_not_exists
-- utter_sure
-- utter_show_free_slots
-- actions.CreateEvent
-- actions.RemoveEvent
-- actions.ShowMyEvents
-- actions.CheckRoomAvailable
-- actions.CheckRoomExists
-- actions.GetRoomFreeSlots
 config:
   store_entities_as_slots: true
 entities:

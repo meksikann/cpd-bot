@@ -123,7 +123,6 @@ async function sendBotReply(data, session, next) {
         const nextActionData = await notifyBotBrainActionDone(data);
         return processNextAction(session, nextActionData, next);
     }
-}
 
 // notify brain that something went wring and we do fallback user utterance or undo last action
     try {

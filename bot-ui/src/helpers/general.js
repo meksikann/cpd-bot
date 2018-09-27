@@ -96,14 +96,14 @@ function getTimeRangeFreeSlots(start, end, events) {
 }
 
 function getDate(string) {
-    if(string) {
+    if (string) {
         return moment(string).format('DD-MM-YYYY');
     }
     return moment().format('DD-MM-YYYY');
 }
 
 function getTime(string) {
-    if(string) {
+    if (string) {
         return moment(string).format('HH:mm');
     }
     return moment().format('HH:mm');

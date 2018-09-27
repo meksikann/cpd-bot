@@ -34,17 +34,21 @@ function formatEvents(events) {
 }
 
 function generateBotResponse(data) {
-    //return messages, which require to paste data in it.
-    if (data.next_action == 'utter_show_free_slots') {
-        let message = `Ok! so what we've got here...
-        Free time available on ${getDate(data.tracker.slots.time)} :\n`;
+    let response = {
+        text: ''
+    };
 
-        const slots = data.tracker.slots.rooms_free_slots;
+    //return messages, which require to paste data in it.
+    if (data.template == 'utter_show_free_slots') {
+        let message = `Ok! so what we've got here...
+        Free time available on ${getDate(data.slots.time)} :\n`;
+
+        const slots = data.slots.rooms_free_slots;
 
         slots.forEach((slot) => {
             let roomMessage = `**${slot.room_name}**:\n`;
 
-            if(slot.free_slots && slot.free_slots.length) {
+            if (slot.free_slots && slot.free_slots.length) {
                 slot.free_slots.forEach(freeSlot => {
                     roomMessage += `*from ${getTime(freeSlot.start)} to ${getTime(freeSlot.end)}*. \n`
                 });
@@ -56,11 +60,13 @@ function generateBotResponse(data) {
             message += roomMessage;
         });
 
-        return message;
+        response.text = message;
+        return response;
     }
 
     //return constant messages, which not require to paste data in it.
-    return messages.bot_response[data.next_action];
+    response.text = messages.bot_response[data.template];
+    return response;
 }
 
 

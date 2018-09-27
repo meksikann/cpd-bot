@@ -28,7 +28,7 @@ train-core:
 cmdline:
 	python -m rasa_core.run -d models/current/dialogue -u models/current/nlu
 core-server:
-	python -m rasa_core.run --enable_api -d models/current/dialogue -u models/current/nlu -o out.log
+	python -m rasa_core.run --enable_api -d models/current/dialogue -u models/current/nlu -o out.log --endpoints endpoints.yml --port 5002 --credentials ../creds/credentials.yml
 core-learn:
 	python -m rasa_core_sdk.endpoint --actions actions& python -m rasa_core.train --online -o models/current/dialogue -d domain.yml -s data/stories -u models/current/nlu
 

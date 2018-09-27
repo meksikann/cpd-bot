@@ -33,6 +33,13 @@ pip install -r alt_requirements/requirements_full.txt
 *****************************************************************
 
 ## Usage
+Paste credentials.yml into root directiory:
+credentials.yml content:
+```
+botframework:
+  app_id: "MICROSOFT_APP_ID"
+  app_password: "MICROSOFT_APP_PASSWORD"
+  ```
 
 Run duckling docker container if you use ner_duckling_http in pipeline (duckling used to recognize mostly etc. dates https://duckling.wit.ai/)
 http://rasa.com/docs/nlu/master/components/#id2

@@ -1,31 +1,28 @@
 //setup builder global variable
+let express = require('express');
 import {logInfo} from "./utils/logger";
+import HttpStatus from 'http-status-codes'
+import bodyParser from 'body-parser';
+import {generalConstants} from './constants/general';
 
-global.builder = require('botbuilder');
+// global.builder = require('botbuilder');
+import {botGenerateUtter, botPerformAction} from './bot.js';
+
 require('dotenv').config();
 
-import restify from 'restify';
-import HttpStatus from 'http-status-codes'
-import {generalConstants} from './constants/general';
-import {botCreate} from './bot.js';
+const server = express();
+const port = 8282;
 
-let server = restify.createServer();
-
+server.use(bodyParser.urlencoded({extended: false}));
+server.use(bodyParser.json());
 //setup server
-server.listen(8282, () => {
-    logInfo(`${server.name} ${generalConstants.serverResponseMessages.listening} ${server.url}`);
+server.listen(port, () => {
+    logInfo(`${server.name} ${generalConstants.serverResponseMessages.listening} port ${port}`);
 });
 
-//create chat connector appId and appPassword are not needed when test on local bot-framework emulator
-let connector = new builder.ChatConnector({
-    appId: process.env.MicrosoftAppId,
-    appPassword: process.env.MicrosoftAppPassword
-});
+server.post('/webhook', botPerformAction);
 
-// connector usage in bot creation method
-botCreate(connector);
-
-server.post('/api/messages', connector.listen());
+server.post('/nlg', botGenerateUtter);
 
 // simple request for balancer
 server.post('/', (req, res, next) => {

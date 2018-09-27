@@ -1,92 +1,78 @@
 import actionIntents from "../constants/intents";
-import {generalConstants} from '../constants/general';
 import {logInfo, logError} from "../utils/logger";
 import {getGoogleCalendarEvents} from './googleCalendarApiHandler';
-import {formatEvents} from "../helpers/format-messages";
 import {isPlainObject} from 'lodash';
 import config from '../config';
 import {getDateISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots} from './general';
 
 
 //process custom action
-async function processActionIntent(nextActionData, session) {
-    let result = {
-        success: false
-    };
+async function processActionIntent(nextActionData) {
+    let events = [];
 
     let queryData;
 
     try {
-        switch (nextActionData.next_action) {
+        switch (nextActionData.nextAction) {
             case actionIntents.action_create_event:
                 //TODO: make IntentAction processor ----------------------------------------------------
                 logInfo('performing action_create_event ...');
-                result.success = true;
                 break;
             case actionIntents.action_update_event:
                 //TODO: make IntentAction processor ----------------------------------------------------
                 logInfo('performing action_update_event ...');
-                result.success = true;
                 break;
             case actionIntents.action_remove_event:
                 //TODO: make IntentAction processor ----------------------------------------------------
                 logInfo('performing action_remove_event ...');
-                result.success = true;
                 break;
             case actionIntents.action_show_my_events:
                 logInfo('performing action_show_events ...');
-                result.data = await showEvents();
-                result.success = true;
-
-                session.send(formatEvents(result.data));
+                //TODO: make IntentAction processor ----------------------------------------------------
                 break;
             case actionIntents.action_help:
                 logInfo('performing action_help ...');
-                session.beginDialog(actionIntents.action_help);
+                //TODO: make IntentAction processor ----------------------------------------------------
                 break;
             case actionIntents.action_check_room_available:
                 queryData = {
-                    roomName: nextActionData.tracker.slots.room_name,
-                    time: nextActionData.tracker.slots.time
+                    roomName: nextActionData.slots.room_name,
+                    time: nextActionData.slots.time
                 };
                 logInfo('performing action_check_room_available ...');
-                result.events = await checkCpecifiedRoomAvailable(queryData);
-                result.success = true;
+                events = await checkCpecifiedRoomAvailable(queryData);
                 break;
             case actionIntents.action_check_room_exists:
                 queryData = {
-                    roomName: nextActionData.tracker.slots.room_name,
-                    time: nextActionData.tracker.slots.time
+                    roomName: nextActionData.slots.room_name,
+                    time: nextActionData.slots.time
                 };
                 logInfo('performing action_check_room_exists ...');
-                result.events = checkCpecifiedRoomExists(queryData);
-                result.success = true;
+                events = checkCpecifiedRoomExists(queryData);
                 break;
             case actionIntents.action_get_room_free_slots:
                 logInfo('performing action_get_room_free_slots ...');
                 queryData = {
-                    roomName: nextActionData.tracker.slots.room_name,
-                    time: nextActionData.tracker.slots.time
+                    roomName: nextActionData.slots.room_name,
+                    time: nextActionData.slots.time
                 };
-                result.events = await generateFreeSlots(queryData);
-                result.success = true;
+                events = await generateFreeSlots(queryData);
                 break;
 
             default:
                 logInfo('performing default action ...');
-                result.success = false;
         }
+
+        return events;
     } catch (e) {
-        logError(e);
+        throw e;
     }
-
-    return result;
 }
 
-async function showEvents() {
-    let events = await getGoogleCalendarEvents();
-    return events;
-}
+// async function showEvents() {
+//     let events = await getGoogleCalendarEvents();
+//     return events;
+// }
 
 function checkCpecifiedRoomExists(queryData) {
     let result = [];
@@ -94,11 +80,11 @@ function checkCpecifiedRoomExists(queryData) {
 
     if (exists) {
         result = [
-            {"event": "slot", "name": "is_room_exists", "value": true},
+            {"event": "slot", "name": "is_room_exists", "value": true, "timestamp": Date.now()},
         ];
     } else {
         result = [
-            {"event": "slot", "name": "is_room_exists", "value": false},
+            {"event": "slot", "name": "is_room_exists", "value": false, "timestamp": Date.now()},
         ];
     }
 
@@ -134,13 +120,13 @@ async function checkCpecifiedRoomAvailable(queryData) {
     // if there are event on requested time - send room is busy, else - send room is free
     if (events && events.length) {
         result = [
-            {"event": "slot", "name": "is_room_available", "value": false},
-            {"event": "slot", "name": "time", "value": startTime},
+            {"event": "slot", "name": "is_room_available", "value": false, "timestamp": Date.now()},
+            {"event": "slot", "name": "time", "value": startTime, "timestamp": Date.now()},
         ];
     } else {
         result = [
-            {"event": "slot", "name": "is_room_available", "value": true},
-            {"event": "slot", "name": "time", "value": startTime},
+            {"event": "slot", "name": "is_room_available", "value": true, "timestamp": Date.now()},
+            {"event": "slot", "name": "time", "value": startTime, "timestamp": Date.now()},
         ];
     }
 
@@ -186,7 +172,7 @@ async function generateFreeSlots(queryData) {
 
     freeSlots = await Promise.all(pArray);
     result = [
-        {"event": "slot", "name": "rooms_free_slots", "value": freeSlots}
+        {"event": "slot", "name": "rooms_free_slots", "value": freeSlots, "timestamp": Date.now()}
     ];
 
     return result;

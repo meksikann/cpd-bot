@@ -1,148 +1,66 @@
-import {messages} from './constants/messages';
-import {createHeroCard, generateBotResponse} from './helpers/format-messages';
-import actionIntents from './constants/intents';
-import {getNextAction, notifyBotBrainActionDone, sendFallbackEvent} from './helpers/userContext';
-import {logInfo} from './utils/logger';
+import {generateBotResponse} from './helpers/format-messages';
+import {logError, logInfo} from './utils/logger';
 import {processActionIntent} from './helpers/actionProcessor';
-import config from './config';
 
-const undoAction = 'undo';
-const rewindAction = 'rewind';
 const defaultUser = 'default-user';
 
-function botCreate(connector) {
+//     /* shows help card*/
+//     bot.dialog(actionIntents.action_help, [
+//         (session) => {
+//             const card = createHeroCard(session);
+//             // attach the card to the reply message
+//             const msg = new builder.Message(session).addAttachment(card);
+//
+//             session.send(msg);
+//             session.endDialog();
+//         }
+//     ]);
+function botGenerateUtter(req, res) {
+    logInfo(`Got generate Utter request.Utter template: ${req.body.template}.`);
 
-    // init bot
-    let bot = new builder.UniversalBot(connector, [
-        function (session) {
-            session.send(messages.bot_response.defaultmessage);
-        }
-    ]);
-
-    bot.use({
-        botbuilder: async (session, next) => {
-            //use rasa-core server to predict next action *************
-            const nextActionData = await getNextAction(session.message.user.id || defaultUser, session.message.text);
-
-            if (nextActionData) {
-                logInfo('manage dialog depending from data received from RASA-CORE');
-
-                processNextAction(session, nextActionData, next);
-            } else {
-                next();
-            }
-        }
-    });
-
-    /**********************************************************************
-     * ******************** dialogs ***************************************
-     * ********************************************************************/
-
-    /* shows help card*/
-    bot.dialog(actionIntents.action_help, [
-        (session) => {
-            const card = createHeroCard(session);
-            // attach the card to the reply message
-            const msg = new builder.Message(session).addAttachment(card);
-
-            session.send(msg);
-            session.endDialog();
-        }
-    ]);
-
-    /**********************************************************************
-     * ******************** end dialogs ***********************************
-     * ********************************************************************/
-}
-
-
-/*
-* method to make response deppending on data received from NLU processor.
-* if next_action is simple utter_message that shoot it. else if next_action is in action actionIntents list - proceed intent,
- * else pass to default bot answer
-* */
-async function processNextAction(session, nextActionData, next) {
-    let data = {
-        userId: session.message.user.id || 'default-user'
+    const data = {
+        senderId: req.body.tracker.sender_id || defaultUser,
+        template: req.body.template,
+        slots: req.body.tracker.slots
     };
-    let intent = nextActionData.tracker.latest_message.intent;
 
-    logInfo('Process next action: ', nextActionData);
-
-
-    //check  intent confidence
-
-    if(intent.confidence < config.nlu_confidence || intent.name == 'None') {
-        logInfo('Fallback event triggered');
-        return handleLowConfidenceIntent(data, session);
-    }
-
-    // set bot to listen to user - no other actions required
-    if (nextActionData.next_action == actionIntents.action_listen) {
-        return logInfo('LOG: action listen');
-    }
-
-
-    //if next_action is simple response (utter) message - shoot it!
-    if (messages.bot_response[nextActionData.next_action]) {
-        logInfo('Log: next_action found in bot utter responses');
-        data.message = generateBotResponse(nextActionData);
-        data.notifyBotBrainToContinue = true;
-        data.executed_action = nextActionData.next_action;
-
-        return sendBotReply(data, session, next);
-    }
-
-    // perform next bot action
-    if (actionIntents[nextActionData.next_action]) {
-        // do intent action process
-        const nextActionPerform = nextActionData.next_action;
-        const processResult = await processActionIntent(nextActionData, session);
-
-        if (processResult.success) {
-            data.executed_action = nextActionPerform;
-            data.events = processResult.events;
-
-            const nextActionData = await notifyBotBrainActionDone(data);
-            return processNextAction(session, nextActionData, next);
-        }
-
-        logInfo('action performing not succeeded!!!!!')
-        return handleUndoAction(data, session);
-    }
-
-    next();
-}
-
-//send response back to user
-async function sendBotReply(data, session, next) {
-    session.send(data.message);
-
-    //notify BotBrain about utter action done and perform next action
-    if (data.notifyBotBrainToContinue) {
-        const nextActionData = await notifyBotBrainActionDone(data);
-        return processNextAction(session, nextActionData, next);
-    }
-
-// notify brain that something went wring and we do fallback user utterance or undo last action
     try {
-        let res = await sendFallbackEvent(data, rewindAction);
-        console.log(res);
-        session.send(messages.bot_response.utter_fallback);
-    } catch(e) {
-        session.send(messages.bot_response.defaultmessage);
+        const utterance = generateBotResponse(data);
+
+        res.send({
+            "text": utterance.text,
+            "buttons": [],
+            "image": null,
+            "elements": [],
+            "attachments": []
+        })
+    } catch (err) {
+        logError(err);
+        res.send(err);
     }
+
 }
 
-// notify brain that something went wring and we do undo last action
-async function handleUndoAction(data, session) {
+async function botPerformAction(req, res) {
+    logInfo(`Got perform Action request: ${req.body.next_action}`);
+    const data = {
+        senderId: req.body.sender_id || defaultUser,
+        nextAction: req.body.next_action,
+        slots: req.body.tracker.slots
+    };
+    let response = {};
+
     try {
-        let res = await sendFallbackEvent(data, undoAction);
+        response.events = await processActionIntent(data);
+        response.responses = [];
 
-        session.send(messages.bot_response.utter_action_not_succeed);
-    } catch(e) {
-        session.send(messages.bot_response.defaultmessage);
+        logInfo('Events sent ',response.events);
+
+        res.send(response);
+    } catch (err) {
+        logError(err);
+        res.send(err);
     }
 }
 
-export {botCreate}
+export {botGenerateUtter, botPerformAction}

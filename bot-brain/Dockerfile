@@ -26,13 +26,11 @@ COPY . /app
 # rasa stack
 ## rasa nlu
 RUN pip install -r alt_requirements/requirements_full.txt
-
+RUN pip install -r requirements.txt
 
 ## spacy models
 RUN pip install rasa_nlu[spacy]
 RUN python -m spacy download en
-#CMD [ "python", "-m spacy download en" ]
-
 
 ## rasa core
 RUN pip install rasa_core
@@ -45,4 +43,4 @@ EXPOSE 5005
 
 ENTRYPOINT ["./entrypoint.sh"]
 
-CMD ["start", "-d", "./models/current/dialogue", "-u", "./models/current/nlu"]
+CMD ["start"]

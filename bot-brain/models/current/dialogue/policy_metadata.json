@@ -28,13 +28,13 @@
         "time"
       ]
     }, 
-    "utter_room_not_exists": {
+    "utter_show_free_slots": {
       "slots": []
     }, 
     "utter_thank": {
       "slots": []
     }, 
-    "utter_show_free_slots": {
+    "utter_room_not_exists": {
       "slots": []
     }, 
     "action_get_room_free_slots": {

@@ -13,7 +13,7 @@ function print_help {
 
 case ${1} in
     start)
-        exec python -m rasa_core.server "${@:2}"
+        exec python -m rasa_core.run --enable_api -d models/current/dialogue -u models/current/nlu -o out.log --endpoints endpoints.yml --port 5002 --credentials creds/credentials.yml "${@:2}"
         ;;
     run)
         exec "${@:2}"

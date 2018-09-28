@@ -1,0 +1,19 @@
+version: '2'
+services:
+  bot-ui:
+    image: serhiyskoromets/cpd-bot-ui
+    command: npm run dev
+    ports:
+    - "8282:8282"
+  bot-brain:
+    image: serhiyskoromets/rasa-bot-core
+    ports:
+    - "5002:5002"
+    depends_on:
+    - bot-ui
+    - duckling
+  duckling:
+    image: rasa/duckling
+    ports:
+    - "8000:8000"
+

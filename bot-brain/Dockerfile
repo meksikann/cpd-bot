@@ -36,8 +36,8 @@ RUN python -m spacy download en
 RUN pip install rasa_core
 
 # volumes
-VOLUME ["/app/models/current/dialogue", "/app/models/current/nlu"]
-
+#VOLUME ["/app/models/current/dialogue", "/app/models/current/nlu"]
+#
 
 EXPOSE 5005
 

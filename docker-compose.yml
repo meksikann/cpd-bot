@@ -1,14 +1,15 @@
-version: '2'
+version: '3.2'
 services:
   bot-ui:
     image: serhiyskoromets/cpd-bot-ui
-    command: npm run dev
     ports:
     - "8282:8282"
+    network_mode: host
   bot-brain:
     image: serhiyskoromets/rasa-bot-core
     ports:
     - "5002:5002"
+    network_mode: host
     depends_on:
     - bot-ui
     - duckling
@@ -16,4 +17,5 @@ services:
     image: rasa/duckling
     ports:
     - "8000:8000"
+    network_mode: host
 

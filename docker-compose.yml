@@ -13,6 +13,13 @@ services:
     depends_on:
     - bot-ui
     - duckling
+    volumes:
+    - type: bind
+      source: ./models/current/dialogue
+      target: /opt/app/models/current/dialogue
+    - type: bind
+      source: ./models/current/nlu
+      target: /opt/app/models/current/nlu
   duckling:
     image: rasa/duckling
     ports:

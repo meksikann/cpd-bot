@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="650a90c1-e9ec-4d69-b13c-05a89787fd7a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/learn_endpoints.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/nlu_data.md" beforeDir="false" afterPath="$PROJECT_DIR$/data/nlu_data.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stories/check_room_available.md" beforeDir="false" afterPath="$PROJECT_DIR$/data/stories/check_room_available.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stories/create_event.md" beforeDir="false" afterPath="$PROJECT_DIR$/data/stories/create_event.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/stories/general.md" beforeDir="false" afterPath="$PROJECT_DIR$/data/stories/general.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/current/dialogue/domain.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/dialogue/domain.json" afterDir="false" />
@@ -22,8 +21,6 @@
       <change beforePath="$PROJECT_DIR$/models/current/nlu/training_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/training_data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/rasa-core/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/rasa-core/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stories.md" beforeDir="false" afterPath="$PROJECT_DIR$/stories.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot-ui/src/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/bot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot-ui/src/helpers/format-messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/helpers/format-messages.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +32,7 @@
     <session id="-981544063">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.2" value="1" />
@@ -44,8 +41,8 @@
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -54,7 +51,7 @@
           <entry key="Makefile" value="8" />
           <entry key="json" value="5" />
           <entry key="log" value="2" />
-          <entry key="md" value="31" />
+          <entry key="md" value="37" />
           <entry key="py" value="5" />
           <entry key="sh" value="3" />
           <entry key="txt" value="22" />
@@ -64,8 +61,8 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="5" />
-          <entry key="Markdown" value="49" />
-          <entry key="PLAIN_TEXT" value="41" />
+          <entry key="Markdown" value="54" />
+          <entry key="PLAIN_TEXT" value="42" />
           <entry key="Python" value="5" />
         </counts>
       </usages-collector>
@@ -74,17 +71,17 @@
           <entry key="Dockerfile" value="49" />
           <entry key="Makefile" value="92" />
           <entry key="json" value="267" />
-          <entry key="md" value="1494" />
+          <entry key="md" value="1787" />
           <entry key="py" value="179" />
           <entry key="sh" value="24" />
           <entry key="txt" value="11" />
-          <entry key="yml" value="354" />
+          <entry key="yml" value="356" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="267" />
-          <entry key="Markdown" value="1848" />
+          <entry key="Markdown" value="2143" />
           <entry key="PLAIN_TEXT" value="176" />
           <entry key="Python" value="179" />
         </counts>
@@ -92,14 +89,12 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stories.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="120">
-                <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-              </first_editor>
+              <first_editor />
               <second_editor>
                 <markdownNavigatorState />
               </second_editor>
@@ -108,11 +103,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/domain.yml">
+        <entry file="file://$PROJECT_DIR$/data/stories/create_event.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="396">
-                <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+              <first_editor relative-caret-position="90">
+                <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -125,8 +120,22 @@
         <entry file="file://$PROJECT_DIR$/data/nlu_data.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="740">
-                <caret line="169" selection-start-line="169" selection-end-line="169" />
+              <first_editor relative-caret-position="220">
+                <caret line="164" column="15" lean-forward="true" selection-start-line="164" selection-start-column="15" selection-end-line="164" selection-end-column="15" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/domain.yml">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="240">
+                <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -151,6 +160,8 @@
       <find>None</find>
       <find>abs</find>
       <find>keras==</find>
+      <find>afi</find>
+      <find>aff</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/data/stories</dir>
@@ -165,7 +176,6 @@
       <list>
         <option value="$PROJECT_DIR$/actions.py" />
         <option value="$PROJECT_DIR$/learning_data.json" />
-        <option value="$PROJECT_DIR$/data/stories/check_room_available.md" />
         <option value="$PROJECT_DIR$/endpoints.yml" />
         <option value="$PROJECT_DIR$/credentials.yml" />
         <option value="$PROJECT_DIR$/entrypoint.sh" />
@@ -173,12 +183,14 @@
         <option value="$PROJECT_DIR$/alt_requirements/requirements_full.txt" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/stories.md" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/domain.yml" />
-        <option value="$PROJECT_DIR$/data/nlu_data.md" />
-        <option value="$PROJECT_DIR$/data/stories/general.md" />
         <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/data/nlu_data.md" />
+        <option value="$PROJECT_DIR$/domain.yml" />
+        <option value="$PROJECT_DIR$/data/stories/check_room_available.md" />
+        <option value="$PROJECT_DIR$/data/stories/create_event.md" />
+        <option value="$PROJECT_DIR$/stories.md" />
+        <option value="$PROJECT_DIR$/data/stories/general.md" />
       </list>
     </option>
   </component>
@@ -194,7 +206,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -222,6 +233,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -248,8 +260,7 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="57" y="308" width="1309" height="772" extended-state="6" />
-    <editor active="true" />
+    <frame x="56" y="-11" width="1311" height="780" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32426128" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -397,18 +408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stories.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="120">
-            <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
@@ -431,35 +430,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/stories/check_room_available.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-2261">
-            <caret line="86" column="38" lean-forward="true" selection-start-line="86" selection-start-column="38" selection-end-line="86" selection-end-column="38" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nlu_config.yml">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="210">
             <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/stories/general.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="225">
-            <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -477,8 +452,8 @@
     <entry file="file://$PROJECT_DIR$/data/nlu_data.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="740">
-            <caret line="169" selection-start-line="169" selection-end-line="169" />
+          <first_editor relative-caret-position="220">
+            <caret line="164" column="15" lean-forward="true" selection-start-line="164" selection-start-column="15" selection-end-line="164" selection-end-column="15" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -489,8 +464,54 @@
     <entry file="file://$PROJECT_DIR$/domain.yml">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="396">
-            <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+          <first_editor relative-caret-position="240">
+            <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stories.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/stories/general.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="335">
+            <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/stories/check_room_available.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="590">
+            <caret line="376" lean-forward="true" selection-start-line="376" selection-end-line="376" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/stories/create_event.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="90">
+            <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />

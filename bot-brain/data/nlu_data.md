@@ -14,6 +14,7 @@
 - i'm off
 - see you later alligator
 - we'll speak soon
+- good bye
 
 ## intent:greet
 - Hi
@@ -65,6 +66,24 @@
 - nah
 - no and no again
 - no go
+
+## intent:affirm
+- yes
+- definitely yes
+- always
+- absolutely
+- i think so
+- i'm afraid yes
+- yes sir
+- yes ma'am
+- sure
+- ofcourse
+- for sure
+- yeah that's right
+- right
+- aha
+- go
+- got it
 
 ## intent: create_event
 - create new event
@@ -147,6 +166,9 @@
 - frfreveve frfrferr rvfvfvbfg
 - bullshit
 - fnrnf33233232
+- dedewq wqdwqdq wqqwewqd dwedesded  e
+- 3e3dwda343d
+- f fef eee
 
 ## intent: are_you_sure
 - are you sure?

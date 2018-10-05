@@ -276,3 +276,106 @@
     - utter_show_free_slots
     - export
 
+## Generated Story -1619954158191188524
+* greet
+    - utter_how_can_help
+* check_room_available{"room_name": "second conference room", "time": "2018-10-05T17:00:00.000+03:00"}
+    - slot{"room_name": "second conference room"}
+    - slot{"time": "2018-10-05T17:00:00.000+03:00"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_check_room_available
+    - slot{"is_room_available": true}
+    - slot{"time": "2018-10-05T17:00:00.000+03:00"}
+    - utter_room_is_free
+* thank
+    - utter_thank
+* inform{"room_name": "first conference room"}
+    - slot{"room_name": "first conference room"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_check_room_available
+    - slot{"is_room_available": true}
+    - slot{"time": "2018-10-05T17:00:00.000+03:00"}
+    - utter_room_is_free
+* greet
+    - utter_greet
+* bye
+    - utter_bye
+
+## Generated Story 375533884498444353
+* greet
+    - utter_how_can_help
+* help
+    - utter_help
+* check_room_available{"room_name": "first conference room"}
+    - slot{"room_name": "first conference room"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_check_room_available
+    - slot{"is_room_available": false}
+    - slot{"time": "2018-10-05T18:59:10.011Z"}
+    - utter_room_is_busy
+* affirm
+* inform{"room_name": "second conference room", "time": "2018-11-02T00:00:00.000+02:00"}
+    - slot{"room_name": "second conference room"}
+    - slot{"time": "2018-11-02T00:00:00.000+02:00"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_check_room_available
+    - slot{"is_room_available": true}
+    - slot{"time": "2018-11-02T00:00:00.000+02:00"}
+    - utter_room_is_free
+* affirm
+
+## Generated Story -6789888931697030904
+* help
+    - utter_help
+* greet
+    - utter_greet
+    - utter_how_can_help
+* bye
+    - utter_bye
+* greet
+    - utter_greet
+* greet
+    - utter_how_can_help
+* check_room_available{"time": "2019-01-01T00:00:00.000+02:00"}
+    - slot{"time": "2019-01-01T00:00:00.000+02:00"}
+    - action_check_room_exists
+    - slot{"is_room_exists": false}
+    - utter_room_not_exists
+* inform{"room_name": "second conference room"}
+    - slot{"room_name": "second conference room"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_check_room_available
+    - slot{"is_room_available": true}
+    - slot{"time": "2019-01-01T00:00:00.000+02:00"}
+    - utter_room_is_free
+
+## Generated Story 6554690921641332382
+* are_you_sure
+    - utter_sure
+* greet
+    - utter_greet
+* check_room_available{"room_name": "first conference room", "time": "2018-10-05T22:36:37.000+03:00"}
+    - slot{"room_name": "first conference room"}
+    - slot{"time": "2018-10-05T22:36:37.000+03:00"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_check_room_available
+    - slot{"is_room_available": false}
+    - slot{"time": "2018-10-05T22:36:37.000+03:00"}
+    - utter_room_is_busy
+* are_you_sure
+    - utter_sure
+* help
+    - utter_help
+* thank
+    - utter_thank
+
+
+
+
+

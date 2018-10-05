@@ -62,6 +62,10 @@
         "intent": "bye"
       }, 
       {
+        "text": "good bye", 
+        "intent": "bye"
+      }, 
+      {
         "text": "Hi", 
         "intent": "greet"
       }, 
@@ -240,6 +244,70 @@
       {
         "text": "no go", 
         "intent": "deny"
+      }, 
+      {
+        "text": "yes", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "definitely yes", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "always", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "absolutely", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "i think so", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "i'm afraid yes", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "yes sir", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "yes ma'am", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "sure", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "ofcourse", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "for sure", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "yeah that's right", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "right", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "aha", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "go", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "got it", 
+        "intent": "affirm"
       }, 
       {
         "text": "create new event", 
@@ -787,6 +855,18 @@
       }, 
       {
         "text": "fnrnf33233232", 
+        "intent": "None"
+      }, 
+      {
+        "text": "dedewq wqdwqdq wqqwewqd dwedesded  e", 
+        "intent": "None"
+      }, 
+      {
+        "text": "3e3dwda343d", 
+        "intent": "None"
+      }, 
+      {
+        "text": "f fef eee", 
         "intent": "None"
       }, 
       {

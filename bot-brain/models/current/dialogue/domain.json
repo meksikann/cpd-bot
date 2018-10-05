@@ -1,6 +1,5 @@
 {
   "states": [
-    "intent_Help", 
     "intent_None", 
     "intent_affirm", 
     "intent_are_you_sure", 
@@ -10,6 +9,7 @@
     "intent_deny", 
     "intent_get_room_free_slots", 
     "intent_greet", 
+    "intent_help", 
     "intent_inform", 
     "intent_remove_event", 
     "intent_show_my_events", 

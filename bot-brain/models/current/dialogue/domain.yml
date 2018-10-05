@@ -36,6 +36,8 @@ intents:
     use_entities: true
 - get_room_free_slots:
     use_entities: true
+- help:
+    use_entities: true
 - None:
     use_entities: true
 - show_my_events:
@@ -43,8 +45,6 @@ intents:
 - inform:
     use_entities: true
 - greet:
-    use_entities: true
-- Help:
     use_entities: true
 - remove_event:
     use_entities: true

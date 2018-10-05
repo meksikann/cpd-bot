@@ -13,7 +13,7 @@ intents:
   - are_you_sure
   - get_room_free_slots
   - None
-  - Help
+  - help
 
 entities:
   - event_name

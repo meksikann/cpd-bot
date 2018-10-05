@@ -109,4 +109,8 @@ function getTime(string) {
     return moment().format('HH:mm');
 }
 
-export {getDateISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots, getDate, getTime}
+function getTimeStamp() {
+    return moment.utc().format('YYYY-MM-DD HH:mm:ss');
+}
+
+export {getDateISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots, getDate, getTime, getTimeStamp }

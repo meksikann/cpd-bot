@@ -28,11 +28,10 @@ services:
     - "8000:8000"
     network_mode: host
   mongo:
-    container_name: mongo
-    image: mongo
+    image: mongo:latest
     ports:
     - "27017:27017"
     volumes:
-    - './data:/data/db'
+    - '../cpd-mongo-db:/data/db'
     network_mode: host
 

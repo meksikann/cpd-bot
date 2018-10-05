@@ -15,11 +15,11 @@ services:
     - duckling
     volumes:
     - type: bind
-      source: ./models/current/dialogue
-      target: /opt/app/models/current/dialogue
+      source: ./bot-brain/models/current/dialogue
+      target: /app/models/current/dialogue
     - type: bind
-      source: ./models/current/nlu
-      target: /opt/app/models/current/nlu
+      source: ./bot-brain/models/current/nlu
+      target: /app/models/current/nlu
   duckling:
     image: rasa/duckling
     ports:

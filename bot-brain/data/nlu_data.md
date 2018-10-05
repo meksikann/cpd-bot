@@ -155,6 +155,19 @@
 - you sure it's not
 - interesting you have no doubt in it?
 
+## intent: help
+- help
+- I need help from you
+- can you provide me with some information what you can do
+- what's your options
+- I require help
+- could you provide me with some guidance?
+- show me your tutorial
+- your documentation
+- show me your manual or instructions
+- hey I don't know nothing about you can you tell me something?
+- show me what can U do
+
 ## synonym:first conference room
 - room one
 - room 1

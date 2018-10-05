@@ -13,6 +13,7 @@ intents:
   - are_you_sure
   - get_room_free_slots
   - None
+  - Help
 
 entities:
   - event_name
@@ -65,6 +66,9 @@ templates:
     - "yeah pal, i'm sure"
   utter_show_free_slots:
     - 'the {room_name} is free/busy at (todo:make sure real bot receive free time)'
+  utter_help:
+    - 'Here is what I can do pal...'
+
 actions:
   # all the utter actions from the templates, plus any custom actions
   - utter_greet
@@ -81,6 +85,7 @@ actions:
   - utter_room_not_exists
   - utter_sure
   - utter_show_free_slots
+  - utter_help
   - action_create_event
   - action_remove_event
   - action_show_my_events

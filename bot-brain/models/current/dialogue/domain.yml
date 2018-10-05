@@ -13,6 +13,7 @@ actions:
 - utter_room_not_exists
 - utter_sure
 - utter_show_free_slots
+- utter_help
 - action_create_event
 - action_remove_event
 - action_show_my_events
@@ -42,6 +43,8 @@ intents:
 - inform:
     use_entities: true
 - greet:
+    use_entities: true
+- Help:
     use_entities: true
 - remove_event:
     use_entities: true
@@ -83,6 +86,8 @@ templates:
   - text: sorry, I did not get you...
   utter_greet:
   - text: Hey, how can I help you?
+  utter_help:
+  - text: Here is what I can do pal...
   utter_how_can_help:
   - text: how can i helps
   utter_on_it:

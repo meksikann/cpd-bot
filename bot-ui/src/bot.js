@@ -30,7 +30,7 @@ function botGenerateUtter(req, res) {
         res.send({
             "text": utterance.text,
             "buttons": [],
-            "image": null,
+            "image": utterance.image,
             "elements": [],
             "attachments": []
         })

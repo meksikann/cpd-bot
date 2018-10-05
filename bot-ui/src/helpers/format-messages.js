@@ -1,5 +1,6 @@
 import {messages} from "../constants/messages";
 import {getDate, getTime} from './general';
+const builder = require('botbuilder');
 
 const fs = require('fs');
 
@@ -16,6 +17,11 @@ function createHeroCard(session) {
         .buttons([
             builder.CardAction.openUrl(session, process.env.BOT_MANUAL || '', messages.heroCard.buttonLabel)
         ]);
+}
+
+function getBotImage() {
+    var image64 = new Buffer(fs.readFileSync('assets/img/lay-bot.jpeg').toString("base64"));
+    return "data:image/jpeg;base64," + image64
 }
 
 function formatEvents(events) {
@@ -38,9 +44,10 @@ function generateBotResponse(data) {
         text: ''
     };
 
+    let message = '';
     //return messages, which require to paste data in it.
     if (data.template == 'utter_show_free_slots') {
-        let message = `Ok! so what we've got here...
+         message = `Ok! so what we've got here...
         Free time available on ${getDate(data.slots.time)} :\n`;
 
         const slots = data.slots.rooms_free_slots;
@@ -61,6 +68,14 @@ function generateBotResponse(data) {
         });
 
         response.text = message;
+        return response;
+    } else if (data.template == 'utter_help') {
+        message = `${messages.heroCard.subtitle},
+        ${messages.getHelpMessage(process.env.BOT_MANUAL)}
+        `;
+
+        response.text = message;
+        response.image = getBotImage();
         return response;
     }
 

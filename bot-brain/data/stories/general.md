@@ -9,3 +9,7 @@
 ## bye
 * bye
     - utter_bye
+
+## help
+* help
+    - utter_help

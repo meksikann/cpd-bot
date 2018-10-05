@@ -1,0 +1,4 @@
+action_endpoint:
+  url: http://localhost:8282/webhook
+nlg:
+  url: http://localhost:8282/nlg

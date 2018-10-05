@@ -1,5 +1,6 @@
 {
   "states": [
+    "intent_Help", 
     "intent_None", 
     "intent_affirm", 
     "intent_are_you_sure", 
@@ -38,6 +39,7 @@
     "prev_utter_room_not_exists", 
     "prev_utter_sure", 
     "prev_utter_show_free_slots", 
+    "prev_utter_help", 
     "prev_action_create_event", 
     "prev_action_remove_event", 
     "prev_action_show_my_events", 

@@ -808,6 +808,50 @@
       {
         "text": "interesting you have no doubt in it?", 
         "intent": "are_you_sure"
+      }, 
+      {
+        "text": "help", 
+        "intent": "help"
+      }, 
+      {
+        "text": "I need help from you", 
+        "intent": "help"
+      }, 
+      {
+        "text": "can you provide me with some information what you can do", 
+        "intent": "help"
+      }, 
+      {
+        "text": "what's your options", 
+        "intent": "help"
+      }, 
+      {
+        "text": "I require help", 
+        "intent": "help"
+      }, 
+      {
+        "text": "could you provide me with some guidance?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "show me your tutorial", 
+        "intent": "help"
+      }, 
+      {
+        "text": "your documentation", 
+        "intent": "help"
+      }, 
+      {
+        "text": "show me your manual or instructions", 
+        "intent": "help"
+      }, 
+      {
+        "text": "hey I don't know nothing about you can you tell me something?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "show me what can U do", 
+        "intent": "help"
       }
     ], 
     "entity_synonyms": [

@@ -31,7 +31,17 @@ let messages = {
         greeting: 'Hey, how can I help you?',
         noFreeSpace: 'No free space in next 3 hours',
         calendarIsEmpty: 'Calendar is empty'
-    }
+    },
+    getHelpMessage: function (url) {
+        let message = `Ok. So first of all remember - I'm just in learning stage, and do not know loads of stuff.
+         Our CPD team working on my skills.
+         For now on I can give you information regarding conference rooms(Main conference room and small one) - if its available at time you need.
+         I am sure - late I will be able even book some time for you etc..
+         Also CPD guys working on [manual doc](${url}) ...or not..not really sure about it, better ask them;)
+         Hope in future we'll have a nice talk:)`;
+
+        return message;
+    },
 };
 
 

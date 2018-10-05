@@ -45,7 +45,8 @@ Run duckling docker container if you use ner_duckling_http in pipeline (duckling
 http://rasa.com/docs/nlu/master/components/#id2
 
 ```
-docker run -p 8000:8000 rasa/duckling
+
+
 ```
 
 
@@ -65,10 +66,7 @@ http://localhost:5005/conversations/default/parse?query=hello
 ## Interactive learning
  ``make core-learn``
  then proceed conversation like here https://rasa.com/docs/core/interactive_learning/
- to execute ations during training make sure actions.py RUN methods do what needs to be done..
- e.g  if bot needs to execute action_check_room_available ,
- the CheckRoomAvailable.run must set slot is_room_available TRUE/FALSE, deppending if room available.
- Used fake data from learning_data.json
+ ``--endpoints endpoints.yml`` should be endpoints for learning provided
 
 the second possible way to execute actions is here
 https://rasa.com/docs/core/customactions/ Custom Actions.

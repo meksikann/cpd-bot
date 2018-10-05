@@ -1,42 +1,11 @@
 import {messages} from "../constants/messages";
 import {getDate, getTime} from './general';
-const builder = require('botbuilder');
 
 const fs = require('fs');
-
-function createHeroCard(session) {
-    var image64 = new Buffer(fs.readFileSync('assets/img/lay-bot.jpeg').toString("base64"));
-
-    return new builder.HeroCard(session)
-        .title(messages.heroCard.title)
-        .subtitle(messages.heroCard.subtitle)
-        .text(messages.heroCard.text)
-        .images([
-            builder.CardImage.create(session, "data:image/jpeg;base64," + image64)
-        ])
-        .buttons([
-            builder.CardAction.openUrl(session, process.env.BOT_MANUAL || '', messages.heroCard.buttonLabel)
-        ]);
-}
 
 function getBotImage() {
     var image64 = new Buffer(fs.readFileSync('assets/img/lay-bot.jpeg').toString("base64"));
     return "data:image/jpeg;base64," + image64
-}
-
-function formatEvents(events) {
-    let formattedEvents = '';
-
-    if (events && events.length) {
-        events.forEach((event, i) => {
-            const start = event.start.dateTime || event.start.date;
-            formattedEvents += `${start} - ${event.summary} <br/>`;
-        });
-    } else {
-        formattedEvents = messages.calendarIsEmpty;
-    }
-
-    return formattedEvents;
 }
 
 function generateBotResponse(data) {
@@ -85,4 +54,4 @@ function generateBotResponse(data) {
 }
 
 
-export {createHeroCard, formatEvents, generateBotResponse};
+export { generateBotResponse};

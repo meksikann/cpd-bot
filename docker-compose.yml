@@ -5,6 +5,8 @@ services:
     ports:
     - "8282:8282"
     network_mode: host
+    depends_on:
+    - mongo
   bot-brain:
     image: serhiyskoromets/rasa-bot-core
     ports:
@@ -24,5 +26,12 @@ services:
     image: rasa/duckling
     ports:
     - "8000:8000"
+    network_mode: host
+  mongo:
+    image: mongo:latest
+    ports:
+    - "27017:27017"
+    volumes:
+    - '../cpd-mongo-db:/data/db'
     network_mode: host
 

@@ -2,21 +2,14 @@ import {generateBotResponse} from './helpers/format-messages';
 import {logError, logInfo} from './utils/logger';
 import {processActionIntent} from './helpers/actionProcessor';
 
+
+
 const defaultUser = 'default-user';
 
-//     /* shows help card*/
-//     bot.dialog(actionIntents.action_help, [
-//         (session) => {
-//             const card = createHeroCard(session);
-//             // attach the card to the reply message
-//             const msg = new builder.Message(session).addAttachment(card);
-//
-//             session.send(msg);
-//             session.endDialog();
-//         }
-//     ]);
 function botGenerateUtter(req, res) {
     logInfo(`Got generate Utter request.Utter template: ${req.body.template}.`);
+
+    updateDbUserActions(req.db);
 
     const data = {
         senderId: req.body.tracker.sender_id || defaultUser,
@@ -61,6 +54,30 @@ async function botPerformAction(req, res) {
         logError(err);
         res.send(err);
     }
+}
+
+function updateDbUserActions(db) {
+
+    // Get our form values. These rely on the "name" attributes
+    var userName = 'serhiy';
+    var userEmail = 'test';
+
+    // Set our collection
+    var collection = db.get('users');
+
+    // Submit to the DB
+    collection.insert({
+        "username" : userName,
+        "email" : userEmail
+    }, function (err, doc) {
+        if (err) {
+            console.error(err)
+        }
+        else {
+            console.log('saved====================>');
+
+        }
+    });
 }
 
 export {botGenerateUtter, botPerformAction}

@@ -5,6 +5,11 @@ import HttpStatus from 'http-status-codes'
 import bodyParser from 'body-parser';
 import {generalConstants} from './constants/general';
 
+
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/cpd-bot');
+
 // global.builder = require('botbuilder');
 import {botGenerateUtter, botPerformAction} from './bot.js';
 
@@ -15,6 +20,11 @@ const port = 8282;
 
 server.use(bodyParser.urlencoded({extended: false}));
 server.use(bodyParser.json());
+
+server.use(function (req, res, next) {
+    req.db = db;
+    next();
+});
 //setup server
 server.listen(port, () => {
     logInfo(`${server.name} ${generalConstants.serverResponseMessages.listening} port ${port}`);

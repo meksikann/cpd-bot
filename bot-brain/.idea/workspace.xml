@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="650a90c1-e9ec-4d69-b13c-05a89787fd7a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/learn_endpoints.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nlu_data.md" beforeDir="false" afterPath="$PROJECT_DIR$/data/nlu_data.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stories/general.md" beforeDir="false" afterPath="$PROJECT_DIR$/data/stories/general.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/dialogue/domain.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/dialogue/domain.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/dialogue/domain.yml" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/dialogue/domain.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/dialogue/policy_1_MemoizationPolicy/memorized_turns.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/dialogue/policy_1_MemoizationPolicy/memorized_turns.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/dialogue/policy_2_KerasPolicy/featurizer.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/dialogue/policy_2_KerasPolicy/featurizer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/dialogue/policy_2_KerasPolicy/keras_model.h5" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/dialogue/policy_2_KerasPolicy/keras_model.h5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/dialogue/policy_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/dialogue/policy_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/nlu/crf_model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/crf_model.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/nlu/intent_classifier_sklearn.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/intent_classifier_sklearn.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/nlu/metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/nlu/training_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/training_data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/rasa-core/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/rasa-core/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stories.md" beforeDir="false" afterPath="$PROJECT_DIR$/stories.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot-ui/src/bot.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/bot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bot-ui/src/helpers/format-messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bot-ui/src/helpers/format-messages.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +14,7 @@
     <session id="-981544063">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.2" value="1" />
@@ -249,7 +228,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="308" width="1309" height="772" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32426128" />
       <window_info id="Structure" order="1" weight="0.25" />

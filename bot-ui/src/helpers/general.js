@@ -6,7 +6,7 @@ import moment from 'moment';
 let calendarsIds = process.env.NODE_ENV == 'production' ? config.productionCalendarIds :
     config.developmentCalendarIds;
 
-function getDateISOString(time, duration, unit, isAdd) {
+function getDateWithDurationISOString(time, duration, unit, isAdd) {
     if (isAdd) {
         return moment(time).add(duration, unit).format();
     }
@@ -113,4 +113,16 @@ function getTimeStamp() {
     return moment.utc().format('YYYY-MM-DD HH:mm:ss');
 }
 
-export {getDateISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots, getDate, getTime, getTimeStamp }
+// if asked time passed allready  = set time now.
+function getQueriedValidTime(time) {
+    if(time && (moment(time) > moment())) {
+        console.log('======================>>>>>bigger');
+        return time;
+    }
+
+    logInfo('Passed time requested');
+    return new Date().toISOString();
+
+}
+
+export {getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots, getDate, getTime, getTimeStamp }

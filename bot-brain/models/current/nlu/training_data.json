@@ -126,6 +126,14 @@
         "intent": "greet"
       }, 
       {
+        "text": "hey dude", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hello my friend", 
+        "intent": "greet"
+      }, 
+      {
         "text": "Thanks", 
         "intent": "thank"
       }, 
@@ -691,6 +699,26 @@
       }, 
       {
         "text": "wanna know if room is free", 
+        "intent": "check_room_available"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 16, 
+            "end": 25, 
+            "value": "main room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "I wanna know if main room free now?"
+      }, 
+      {
+        "text": "how about in an hour?", 
+        "intent": "check_room_available"
+      }, 
+      {
+        "text": "and what about in four hours", 
         "intent": "check_room_available"
       }, 
       {

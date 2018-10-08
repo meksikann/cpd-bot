@@ -3,7 +3,7 @@ import {logInfo, logError} from "../utils/logger";
 import {getGoogleCalendarEvents} from './googleCalendarApiHandler';
 import {isPlainObject} from 'lodash';
 import config from '../config';
-import {getDateISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots} from './general';
+import {getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots, getQueriedValidTime} from './general';
 
 
 //process custom action
@@ -37,7 +37,7 @@ async function processActionIntent(nextActionData) {
             case actionIntents.action_check_room_available:
                 queryData = {
                     roomName: nextActionData.slots.room_name,
-                    time: nextActionData.slots.time
+                    time: getQueriedValidTime(nextActionData.slots.time)
                 };
                 logInfo('performing action_check_room_available ...');
                 events = await checkCpecifiedRoomAvailable(queryData);
@@ -45,7 +45,7 @@ async function processActionIntent(nextActionData) {
             case actionIntents.action_check_room_exists:
                 queryData = {
                     roomName: nextActionData.slots.room_name,
-                    time: nextActionData.slots.time
+                    time: getQueriedValidTime(nextActionData.slots.time)
                 };
                 logInfo('performing action_check_room_exists ...');
                 events = checkCpecifiedRoomExists(queryData);
@@ -54,7 +54,7 @@ async function processActionIntent(nextActionData) {
                 logInfo('performing action_get_room_free_slots ...');
                 queryData = {
                     roomName: nextActionData.slots.room_name,
-                    time: nextActionData.slots.time
+                    time: getQueriedValidTime(nextActionData.slots.time)
                 };
                 events = await generateFreeSlots(queryData);
                 break;
@@ -105,14 +105,14 @@ async function checkCpecifiedRoomAvailable(queryData) {
     if (time) {
         if (isPlainObject(time)) {
             startTime = time.from || new Date().toISOString();
-            endTime = time.to || getDateISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
+            endTime = time.to || getDateWithDurationISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
         } else {
             startTime = time;
-            endTime = getDateISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
+            endTime = getDateWithDurationISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
         }
     } else {
         startTime = new Date().toISOString();
-        endTime = getDateISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
+        endTime = getDateWithDurationISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
     }
 
     events = await getGoogleCalendarEvents(calendarId, startTime, endTime);
@@ -142,10 +142,10 @@ async function generateFreeSlots(queryData) {
     let freeSlots = [];
 
     const calendarsIds = aggregateCalendarIds(roomName);
-    const startTime = getDateISOString(queryData.time || new Date().toISOString(), minutesRange, 'minutes',
-        !shouldAdd);
-    const endTime = getDateISOString(queryData.time || new Date().toISOString(), minutesRange, 'minutes',
-        shouldAdd);
+    const startTime = getQueriedValidTime(getDateWithDurationISOString(queryData.time || new Date().toISOString(), minutesRange, 'minutes',
+        !shouldAdd));
+    const endTime = getQueriedValidTime(getDateWithDurationISOString(queryData.time || new Date().toISOString(), minutesRange, 'minutes',
+        shouldAdd));
 
     //get events in selected time range for array of calendars
     const pArray = calendarsIds.map(async calObj => {

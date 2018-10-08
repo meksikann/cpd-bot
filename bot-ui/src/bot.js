@@ -7,6 +7,8 @@ const defaultUser = 'default-user';
 
 function botGenerateUtter(req, res) {
     logInfo(`Got generate Utter request.Utter template: ${req.body.template}.`);
+    // logInfo('Slots: ',req.body.tracker.slots);
+    console.log(req.body.tracker.latest_message.intent)
     let dbData = {
         db: req.db,
         lastAction: req.body.template,

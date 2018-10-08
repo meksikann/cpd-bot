@@ -32,6 +32,8 @@
 - hello everybody
 - hello is anybody there
 - hello robot
+- hey dude
+- hello my friend
 
 ## intent:thank
 - Thanks
@@ -139,6 +141,9 @@
 - are conference rooms available in an hour?
 - hey tell me if negotiation rooms are busy now. thanks
 - wanna know if room is free
+- I wanna know if [main room](room_name) free now?
+- how about in an hour?
+- and what about in four hours
 
 ## intent: get_room_free_slots
 - is it available?

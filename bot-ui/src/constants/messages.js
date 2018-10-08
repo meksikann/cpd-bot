@@ -11,7 +11,7 @@ let messages = {
     },
     bot_response: {
         /* ************************* rasa-core utter messages *********************************************************/
-        utter_thank: 'glad to help you',
+        utter_thank: 'glad to help you :)',
         utter_bye: `Bye bye my friend...Don't hesitate to ping me if U need something.`,
         utter_greet: 'Hey :)',
         utter_how_can_help: 'How can I help?',
@@ -22,6 +22,7 @@ let messages = {
         utter_room_is_free: 'room is free',
         utter_room_is_busy: 'room is busy',
         utter_fallback: `sorry, I don't get your point dude ..Try to say same stuff using other sentence.:)`,
+        utter_default: `sorry, I don't get your point dude ..Try to say same stuff using other sentence.:)`,
         utter_room_not_exists: 'the room name which you told me not exists.',
         utter_sure: `yeah pal, I'm sure`,
         utter_show_free_slots: 'todo -Room free time* make bot respond with some usefull info for user',

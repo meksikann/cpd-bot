@@ -2,9 +2,10 @@ import config from '../config/index';
 import {logError, logInfo} from "../utils/logger";
 import {getTimeStamp} from  './general';
 
-let db = config.db;
+
 
 async function updateDbUserActions(dbData) {
+    let db = config.db;
     let findQry = {
         "userId": dbData.userId
     };

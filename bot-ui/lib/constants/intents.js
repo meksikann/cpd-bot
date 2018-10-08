@@ -1,0 +1,22 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var keyMirror = require('keymirror');
+
+// actionIntents to do some action
+var actionIntents = {
+    'action_listen': null,
+    'action_create_event': null,
+    'action_remove_event': null,
+    'action_update_event': null,
+    'action_show_my_events': null,
+    'action_help': null,
+    'action_check_room_available': null,
+    'action_check_room_exists': null,
+    'action_get_room_free_slots': null
+};
+
+exports.default = keyMirror(actionIntents);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9jb25zdGFudHMvaW50ZW50cy5qcyJdLCJuYW1lcyI6WyJrZXlNaXJyb3IiLCJyZXF1aXJlIiwiYWN0aW9uSW50ZW50cyJdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQSxJQUFJQSxZQUFZQyxRQUFRLFdBQVIsQ0FBaEI7O0FBRUE7QUFDQSxJQUFNQyxnQkFBZ0I7QUFDbEIscUJBQWlCLElBREM7QUFFbEIsMkJBQXVCLElBRkw7QUFHbEIsMkJBQXVCLElBSEw7QUFJbEIsMkJBQXVCLElBSkw7QUFLbEIsNkJBQXlCLElBTFA7QUFNbEIsbUJBQWUsSUFORztBQU9sQixtQ0FBK0IsSUFQYjtBQVFsQixnQ0FBNEIsSUFSVjtBQVNsQixrQ0FBOEI7QUFUWixDQUF0Qjs7a0JBWWVGLFVBQVVFLGFBQVYsQyIsImZpbGUiOiJpbnRlbnRzLmpzIiwic291cmNlc0NvbnRlbnQiOlsibGV0IGtleU1pcnJvciA9IHJlcXVpcmUoJ2tleW1pcnJvcicpO1xuXG4vLyBhY3Rpb25JbnRlbnRzIHRvIGRvIHNvbWUgYWN0aW9uXG5jb25zdCBhY3Rpb25JbnRlbnRzID0ge1xuICAgICdhY3Rpb25fbGlzdGVuJzogbnVsbCxcbiAgICAnYWN0aW9uX2NyZWF0ZV9ldmVudCc6IG51bGwsXG4gICAgJ2FjdGlvbl9yZW1vdmVfZXZlbnQnOiBudWxsLFxuICAgICdhY3Rpb25fdXBkYXRlX2V2ZW50JzogbnVsbCxcbiAgICAnYWN0aW9uX3Nob3dfbXlfZXZlbnRzJzogbnVsbCxcbiAgICAnYWN0aW9uX2hlbHAnOiBudWxsLFxuICAgICdhY3Rpb25fY2hlY2tfcm9vbV9hdmFpbGFibGUnOiBudWxsLFxuICAgICdhY3Rpb25fY2hlY2tfcm9vbV9leGlzdHMnOiBudWxsLFxuICAgICdhY3Rpb25fZ2V0X3Jvb21fZnJlZV9zbG90cyc6IG51bGxcbn07XG5cbmV4cG9ydCBkZWZhdWx0IGtleU1pcnJvcihhY3Rpb25JbnRlbnRzKTtcbiJdfQ==

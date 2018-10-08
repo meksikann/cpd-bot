@@ -144,6 +144,7 @@
 - I wanna know if [main room](room_name) free now?
 - how about in an hour?
 - and what about in four hours
+- I want to know if [main room](room_name) is free now
 
 ## intent: get_room_free_slots
 - is it available?

@@ -13,7 +13,7 @@ const currentPath = path.dirname(__filename);
 async function getGoogleCalendarEvents(calendarId, startTime, endTime) {
     logInfo('In googleCalendarApiHandler: get all events');
 
-    let content = await readFileSync(`${currentPath}/../creds/credentials.json`);
+    let content = await readFileSync(`${currentPath}/creds/credentials.json`);
     // Authorize a client with credentials, then call the Google Calendar API.
     const oAuth2Client = await authorize(JSON.parse(content));
     const events = await listEvents(oAuth2Client, calendarId, startTime, endTime);
@@ -107,7 +107,7 @@ async function authorize(credentials) {
     const oAuth2Client = new google.auth.OAuth2(
         client_id, client_secret, redirect_uris[0]);
 
-    const token = await readFileSync(`${currentPath}/../creds/${TOKEN_PATH}`);
+    const token = await readFileSync(`${currentPath}/creds/${TOKEN_PATH}`);
     oAuth2Client.setCredentials(JSON.parse(token));
 
     return oAuth2Client;

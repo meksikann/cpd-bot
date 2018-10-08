@@ -7,7 +7,7 @@
     "babel-node": "babel-node --presets=latest ",
     "start": "nodemon --exec npm run babel-node -- ./src/app.js ",
     "debug": "babel-node -- ./src/app.js $NODE_DEBUG_OPTION ./src/app.js",
-    "build": "babel src -d dist",
+    "build": "babel src  --out-dir lib --source-maps inline --copy-files -d dist",
     "serve": "node dist/app.js"
   },
   "babel": {

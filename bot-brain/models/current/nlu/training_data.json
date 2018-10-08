@@ -722,6 +722,18 @@
         "intent": "check_room_available"
       }, 
       {
+        "entities": [
+          {
+            "start": 18, 
+            "end": 27, 
+            "value": "main room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "I want to know if main room is free now"
+      }, 
+      {
         "text": "is it available?", 
         "intent": "get_room_free_slots"
       }, 

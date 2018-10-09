@@ -1,6 +1,7 @@
 import {logInfo} from "../utils/logger";
 import config from "../config";
 import moment from 'moment';
+import {each} from 'lodash';
 
 
 let calendarsIds = process.env.NODE_ENV == 'production' ? config.productionCalendarIds :
@@ -21,10 +22,10 @@ function getCalendarId(roomName) {
     let id;
 
     switch (roomName) {
-        case 'first conference room':
+        case config.room_names.first_conference_room:
             id = calendarsIds.first_conference_room;
             break;
-        case 'second conference room':
+        case config.room_names.second_conference_room:
             id = calendarsIds.second_conference_room;
             break;
     }
@@ -116,13 +117,30 @@ function getTimeStamp() {
 // if asked time passed allready  = set time now.
 function getQueriedValidTime(time) {
     if(time && (moment(time) > moment())) {
-        console.log('======================>>>>>bigger');
         return time;
     }
 
     logInfo('Passed time requested');
     return new Date().toISOString();
-
 }
 
-export {getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots, getDate, getTime, getTimeStamp }
+function getNormalizedDuration(data) {
+    const durationName ='duration';
+    let durationData = {};
+
+    logInfo('getting duration entity...');
+    console.log(data.entities)
+
+    // get duration data normalized in seconds
+    each(data.entities, ent => {
+        if(ent.entity == durationName) {
+            durationData.value = ent.additional_info.normalized.value;
+            durationData.unit = ent.additional_info.normalized.unit + 's'; // for moment e.g. 'second' into 'seconds'
+        }
+    });
+
+    return durationData
+}
+
+export {getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
+    getDate, getTime, getTimeStamp, getNormalizedDuration }

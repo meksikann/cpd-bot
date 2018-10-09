@@ -3,7 +3,8 @@ import {logInfo, logError} from "../utils/logger";
 import {getGoogleCalendarEvents} from './googleCalendarApiHandler';
 import {isPlainObject} from 'lodash';
 import config from '../config';
-import {getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots, getQueriedValidTime} from './general';
+import {getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
+    getQueriedValidTime, getNormalizedDuration} from './general';
 
 
 //process custom action
@@ -37,7 +38,8 @@ async function processActionIntent(nextActionData) {
             case actionIntents.action_check_room_available:
                 queryData = {
                     roomName: nextActionData.slots.room_name,
-                    time: getQueriedValidTime(nextActionData.slots.time)
+                    time: getQueriedValidTime(nextActionData.slots.time),
+                    duration: nextActionData.slots.duration ? getNormalizedDuration(nextActionData) : null
                 };
                 logInfo('performing action_check_room_available ...');
                 events = await checkCpecifiedRoomAvailable(queryData);
@@ -93,26 +95,32 @@ function checkCpecifiedRoomExists(queryData) {
 
 async function checkCpecifiedRoomAvailable(queryData) {
     const time = queryData.time;
+    let durationValue = queryData.duration ? queryData.duration.value : null;
+    let durationUnit = queryData.duration ? queryData.duration.unit : null;
     let result = [];
     let startTime;
     let endTime;
     let calendarId = getCalendarId(queryData.roomName);
     let events;
 
+    console.log('got duration ----------->', durationValue, durationUnit);
     logInfo(`Checking if room available, room name: ${queryData.roomName}, and time: ${queryData.time}`);
     //RASA-core can return  Time slot as string or as Object(from:'', to: '') manage handle exact time or time range.
 
     if (time) {
         if (isPlainObject(time)) {
             startTime = time.from || new Date().toISOString();
-            endTime = time.to || getDateWithDurationISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
+            endTime = time.to || getDateWithDurationISOString(startTime, durationValue || config.minDurationAvailableMin,
+                durationUnit || 'minutes', true);
         } else {
             startTime = time;
-            endTime = getDateWithDurationISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
+            endTime = getDateWithDurationISOString(startTime, durationValue || config.minDurationAvailableMin,
+                durationUnit || 'minutes', true);
         }
     } else {
         startTime = new Date().toISOString();
-        endTime = getDateWithDurationISOString(startTime, config.minDurationAvailableMin, 'minutes', true);
+        endTime = getDateWithDurationISOString(startTime,  durationValue || config.minDurationAvailableMin,
+            durationUnit || 'minutes', true);
     }
 
     events = await getGoogleCalendarEvents(calendarId, startTime, endTime);
@@ -121,12 +129,12 @@ async function checkCpecifiedRoomAvailable(queryData) {
     if (events && events.length) {
         result = [
             {"event": "slot", "name": "is_room_available", "value": false, "timestamp": Date.now()},
-            {"event": "slot", "name": "time", "value": startTime, "timestamp": Date.now()},
+             {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()},
         ];
     } else {
         result = [
             {"event": "slot", "name": "is_room_available", "value": true, "timestamp": Date.now()},
-            {"event": "slot", "name": "time", "value": startTime, "timestamp": Date.now()},
+            {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()},
         ];
     }
 

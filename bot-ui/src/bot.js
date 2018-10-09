@@ -7,8 +7,9 @@ const defaultUser = 'default-user';
 
 function botGenerateUtter(req, res) {
     logInfo(`Got generate Utter request.Utter template: ${req.body.template}.`);
-    // logInfo('Slots: ',req.body.tracker.slots);
-    console.log(req.body.tracker.latest_message.intent)
+    logInfo('Slots: ',req.body.tracker.slots);
+    logInfo('Intent: ',req.body.tracker.latest_message.intent);
+
     let dbData = {
         db: req.db,
         lastAction: req.body.template,
@@ -48,7 +49,8 @@ async function botPerformAction(req, res) {
     const data = {
         senderId: req.body.sender_id || defaultUser,
         nextAction: req.body.next_action,
-        slots: req.body.tracker.slots
+        slots: req.body.tracker.slots,
+        entities: req.body.tracker.latest_message.entities
     };
     let response = {};
 

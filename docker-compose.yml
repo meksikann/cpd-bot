@@ -18,7 +18,7 @@ services:
     volumes:
     - type: bind
       source: ./bot-brain/models/current/dialogue
-      target: /app/models/current/dialogue
+      target: /app/models/current/dialoguecd
     - type: bind
       source: ./bot-brain/models/current/nlu
       target: /app/models/current/nlu

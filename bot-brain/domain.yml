@@ -26,6 +26,10 @@ slots:
     type: text
   time:
     type: text
+  duration:
+    type: text
+  normalized_duration:
+    type: text
   is_room_available:
     type: bool
     initial_value: False

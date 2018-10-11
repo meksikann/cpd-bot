@@ -2,13 +2,18 @@ import {generateBotResponse} from './helpers/format-messages';
 import {logError, logInfo} from './utils/logger';
 import {processActionIntent} from './helpers/actionProcessor';
 import {updateDbUserActions} from './helpers/database-queries';
+import {generalHelper} from './helpers/general';
+import  {appendNewSlots} from './utils/httpRequests';
 
 const defaultUser = 'default-user';
 
-function botGenerateUtter(req, res) {
+async function botGenerateUtter(req, res) {
     logInfo(`Got generate Utter request.Utter template: ${req.body.template}.`);
     logInfo('Slots: ',req.body.tracker.slots);
     logInfo('Intent: ',req.body.tracker.latest_message.intent);
+
+
+    console.log(JSON.stringify(req.body));
 
     let dbData = {
         db: req.db,
@@ -24,6 +29,13 @@ function botGenerateUtter(req, res) {
     try {
         const utterance = generateBotResponse(data);
         updateDbUserActions(dbData);
+
+        // let newSlots = generalHelper.getNewsSlotsFromUtterance(req.body);
+        //  if(newSlots && newSlots.length) {
+        //      // generate new slots if needed
+        //      res = await appendNewSlots(newSlots);
+        //      console.log(res);
+        //  }
 
         res.send({
             "text": utterance.text,

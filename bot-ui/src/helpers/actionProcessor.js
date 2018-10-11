@@ -3,10 +3,10 @@ import {logInfo, logError} from "../utils/logger";
 import {getGoogleCalendarEvents} from './googleCalendarApiHandler';
 import {isPlainObject} from 'lodash';
 import config from '../config';
-import {getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
-    getQueriedValidTime, getNormalizedDuration} from './general';
 
+import {generalHelper} from './general';
 
+const seconds = 'seconds';
 //process custom action
 async function processActionIntent(nextActionData) {
     let events = [];
@@ -36,27 +36,24 @@ async function processActionIntent(nextActionData) {
                 //TODO: make IntentAction processor ----------------------------------------------------
                 break;
             case actionIntents.action_check_room_available:
-                queryData = {
-                    roomName: nextActionData.slots.room_name,
-                    time: getQueriedValidTime(nextActionData.slots.time),
-                    duration: nextActionData.slots.duration ? getNormalizedDuration(nextActionData) : null
-                };
                 logInfo('performing action_check_room_available ...');
+
+                queryData = generalHelper.geterateQueryData(nextActionData);
                 events = await checkCpecifiedRoomAvailable(queryData);
                 break;
             case actionIntents.action_check_room_exists:
-                queryData = {
-                    roomName: nextActionData.slots.room_name,
-                    time: getQueriedValidTime(nextActionData.slots.time)
-                };
                 logInfo('performing action_check_room_exists ...');
+
+                console.log(JSON.stringify(nextActionData));
+
+                queryData = generalHelper.geterateQueryData(nextActionData);
                 events = checkCpecifiedRoomExists(queryData);
                 break;
             case actionIntents.action_get_room_free_slots:
                 logInfo('performing action_get_room_free_slots ...');
                 queryData = {
                     roomName: nextActionData.slots.room_name,
-                    time: getQueriedValidTime(nextActionData.slots.time)
+                    time: generalHelper.getQueriedValidTime(nextActionData.slots.time)
                 };
                 events = await generateFreeSlots(queryData);
                 break;
@@ -78,7 +75,16 @@ async function processActionIntent(nextActionData) {
 
 function checkCpecifiedRoomExists(queryData) {
     let result = [];
-    let exists = getCalendarId(queryData.roomName);
+    let exists = generalHelper.getCalendarId(queryData.roomName);
+
+    let durationValue = queryData.duration ? queryData.duration.value : null;
+
+    // if mentioned new duration inutterance
+    if(durationValue && durationValue != queryData.normalized_duration) {
+        result.push(
+            {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()},
+        )
+    }
 
     if (exists) {
         result = [
@@ -95,13 +101,26 @@ function checkCpecifiedRoomExists(queryData) {
 
 async function checkCpecifiedRoomAvailable(queryData) {
     const time = queryData.time;
-    let durationValue = queryData.duration ? queryData.duration.value : null;
-    let durationUnit = queryData.duration ? queryData.duration.unit : null;
     let result = [];
     let startTime;
     let endTime;
-    let calendarId = getCalendarId(queryData.roomName);
+    let calendarId = generalHelper.getCalendarId(queryData.roomName);
     let events;
+    let durationValue = queryData.duration ? queryData.duration.value : null;
+    let durationUnit = queryData.duration ? queryData.duration.unit : null;
+
+    // if mentioned new duration inutterance
+    if(durationValue && durationValue != queryData.normalized_duration) {
+        result.push(
+            {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()},
+        )
+    } else
+    // if normalized_duration exists in slots from utterances mentioned before
+        if(!durationValue && queryData.normalized_duration) {
+        durationValue = queryData.normalized_duration;
+        durationUnit = seconds;
+    }
+
 
     console.log('got duration ----------->', durationValue, durationUnit);
     logInfo(`Checking if room available, room name: ${queryData.roomName}, and time: ${queryData.time}`);
@@ -110,16 +129,16 @@ async function checkCpecifiedRoomAvailable(queryData) {
     if (time) {
         if (isPlainObject(time)) {
             startTime = time.from || new Date().toISOString();
-            endTime = time.to || getDateWithDurationISOString(startTime, durationValue || config.minDurationAvailableMin,
+            endTime = time.to || generalHelper.getDateWithDurationISOString(startTime, durationValue || config.minDurationAvailableMin,
                 durationUnit || 'minutes', true);
         } else {
             startTime = time;
-            endTime = getDateWithDurationISOString(startTime, durationValue || config.minDurationAvailableMin,
+            endTime = generalHelper.getDateWithDurationISOString(startTime, durationValue || config.minDurationAvailableMin,
                 durationUnit || 'minutes', true);
         }
     } else {
         startTime = new Date().toISOString();
-        endTime = getDateWithDurationISOString(startTime,  durationValue || config.minDurationAvailableMin,
+        endTime = generalHelper.getDateWithDurationISOString(startTime,  durationValue || config.minDurationAvailableMin,
             durationUnit || 'minutes', true);
     }
 
@@ -128,13 +147,11 @@ async function checkCpecifiedRoomAvailable(queryData) {
     // if there are event on requested time - send room is busy, else - send room is free
     if (events && events.length) {
         result = [
-            {"event": "slot", "name": "is_room_available", "value": false, "timestamp": Date.now()},
-             {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()},
+            {"event": "slot", "name": "is_room_available", "value": false, "timestamp": Date.now()}
         ];
     } else {
         result = [
-            {"event": "slot", "name": "is_room_available", "value": true, "timestamp": Date.now()},
-            {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()},
+            {"event": "slot", "name": "is_room_available", "value": true, "timestamp": Date.now()}
         ];
     }
 
@@ -149,10 +166,12 @@ async function generateFreeSlots(queryData) {
     let result;
     let freeSlots = [];
 
-    const calendarsIds = aggregateCalendarIds(roomName);
-    const startTime = getQueriedValidTime(getDateWithDurationISOString(queryData.time || new Date().toISOString(), minutesRange, 'minutes',
+    const calendarsIds = generalHelper.aggregateCalendarIds(roomName);
+    const startTime = generalHelper.getQueriedValidTime(generalHelper.getDateWithDurationISOString(queryData.time ||
+        new Date().toISOString(), minutesRange, 'minutes',
         !shouldAdd));
-    const endTime = getQueriedValidTime(getDateWithDurationISOString(queryData.time || new Date().toISOString(), minutesRange, 'minutes',
+    const endTime = generalHelper.getQueriedValidTime(generalHelper.getDateWithDurationISOString(queryData.time ||
+        new Date().toISOString(), minutesRange, 'minutes',
         shouldAdd));
 
     //get events in selected time range for array of calendars
@@ -166,7 +185,7 @@ async function generateFreeSlots(queryData) {
 
         //if there are busy slots in  calendar time range - calculate free slots
         if (events && events.length) {
-            freeSlotObject.free_slots = getTimeRangeFreeSlots(startTime, endTime, events);
+            freeSlotObject.free_slots = generalHelper.getTimeRangeFreeSlots(startTime, endTime, events);
         } else {
             //if not busy slots in calendar time range - set fee slot from startTima to endTime
             freeSlotObject.free_slots.push({
@@ -185,6 +204,7 @@ async function generateFreeSlots(queryData) {
 
     return result;
 }
+
 
 
 export {processActionIntent}

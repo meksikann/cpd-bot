@@ -1,9 +1,10 @@
 import {logInfo} from "../utils/logger";
 import config from "../config";
 import moment from 'moment';
-import {each} from 'lodash';
+import {each, find} from 'lodash';
 
 
+const user = 'user';
 let calendarsIds = process.env.NODE_ENV == 'production' ? config.productionCalendarIds :
     config.developmentCalendarIds;
 
@@ -116,7 +117,7 @@ function getTimeStamp() {
 
 // if asked time passed allready  = set time now.
 function getQueriedValidTime(time) {
-    if(time && (moment(time) > moment())) {
+    if (time && (moment(time) > moment())) {
         return time;
     }
 
@@ -125,15 +126,17 @@ function getQueriedValidTime(time) {
 }
 
 function getNormalizedDuration(data) {
-    const durationName ='duration';
+    const durationName = 'duration';
+    const extractorName = 'ner_duckling_http';
     let durationData = {};
 
-    logInfo('getting duration entity...');
+    logInfo('getting duration entity from array: ');
     console.log(data.entities)
 
     // get duration data normalized in seconds
     each(data.entities, ent => {
-        if(ent.entity == durationName) {
+        if (ent.entity == durationName && ent.extractor == extractorName) {
+            console.log('=========================>>>>>>', ent);
             durationData.value = ent.additional_info.normalized.value;
             durationData.unit = ent.additional_info.normalized.unit + 's'; // for moment e.g. 'second' into 'seconds'
         }
@@ -142,5 +145,44 @@ function getNormalizedDuration(data) {
     return durationData
 }
 
-export {getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
-    getDate, getTime, getTimeStamp, getNormalizedDuration }
+function geterateQueryData(nextActionData) {
+    return {
+        roomName: nextActionData.slots.room_name,
+        time: getQueriedValidTime(nextActionData.slots.time),
+        duration: nextActionData.slots.duration ? getNormalizedDuration(nextActionData) : {},
+        normalized_duration: nextActionData.slots.normalized_duration
+    };
+}
+
+function getNewsSlotsFromUtterance(data) {
+    let newSlots = [];
+
+    //if duration mentioned in utternace but not set slots value
+    if (data.tracker.slots.duration && !data.tracker.slots.normalized_duration) {
+        let durationData = getNormalizedDuration(getEntitiesFromEvents(data.tracker.events, user));
+
+        if (durationData.value && durationData.unit) {
+            newSlots.push(
+                {"event": "slot", "name": "normalized_duration", "value": durationData.value},
+            )
+        }
+    }
+
+    return newSlots;
+}
+
+function getEntitiesFromEvents(events, eventName) {
+    let event = find(events, ev => ev.event == eventName);
+
+    if (event) {
+        return event.parse_data;
+    }
+
+    return [];
+}
+
+let generalHelper = {
+    getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
+    getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance
+};
+export {generalHelper}

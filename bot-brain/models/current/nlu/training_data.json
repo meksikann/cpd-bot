@@ -378,12 +378,28 @@
         "text": "Hey set calendar for me for do bot testing"
       }, 
       {
-        "text": "factory", 
-        "intent": "inform"
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "factoy", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "factoy"
       }, 
       {
-        "text": "space", 
-        "intent": "inform"
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "space", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "space"
       }, 
       {
         "entities": [
@@ -760,6 +776,12 @@
             "end": 10, 
             "value": "factory", 
             "entity": "room_name"
+          }, 
+          {
+            "start": 30, 
+            "end": 39, 
+            "value": "two hours", 
+            "entity": "duration"
           }
         ], 
         "intent": "check_room_available", 

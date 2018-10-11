@@ -101,8 +101,8 @@
 - Hey set calendar for me for [do bot testing](event_name)
 
 ## intent: inform
-- factory
-- space
+- [factoy](room_name)
+- [space](room_name)
 - it's [second hall](room_name)
 - the [main one](room_name)
 - I want to know if [space](room_name) is available
@@ -148,7 +148,7 @@
 - and what about in four hours
 - I want to know if [main room](room_name) is free now
 - is [space](room_name) available now?
-- is [factory](room_name) available for next two hours?
+- is [factory](room_name) available for next [two hours](duration)?
 
 ##intent: book_room
 ##- hello I want to book a [factory](room_name) for [one hour](duration) at 5 pm is it available?

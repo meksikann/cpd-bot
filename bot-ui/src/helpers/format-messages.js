@@ -1,5 +1,5 @@
 import {messages} from "../constants/messages";
-import {getDate, getTime} from './general';
+import {generalHelper} from './general';
 
 const fs = require('fs');
 
@@ -17,7 +17,7 @@ function generateBotResponse(data) {
     //return messages, which require to paste data in it.
     if (data.template == 'utter_show_free_slots') {
          message = `Ok! so what we've got here...
-        Free time available on ${getDate(data.slots.time)} :\n`;
+        Free time available on ${generalHelper.getDate(data.slots.time)} :\n`;
 
         const slots = data.slots.rooms_free_slots;
 
@@ -26,7 +26,7 @@ function generateBotResponse(data) {
 
             if (slot.free_slots && slot.free_slots.length) {
                 slot.free_slots.forEach(freeSlot => {
-                    roomMessage += `*from ${getTime(freeSlot.start)} to ${getTime(freeSlot.end)}*. \n`
+                    roomMessage += `*from ${generalHelper.getTime(freeSlot.start)} to ${generalHelper.getTime(freeSlot.end)}*. \n`
                 });
 
             } else {

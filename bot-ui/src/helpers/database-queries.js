@@ -1,6 +1,6 @@
 import config from '../config/index';
 import {logError, logInfo} from "../utils/logger";
-import {getTimeStamp} from  './general';
+import {generalHelper} from  './general';
 
 
 
@@ -11,7 +11,7 @@ async function updateDbUserActions(dbData) {
     };
     let updateQry = {
         "userId": dbData.userId,
-        "last_action_date": getTimeStamp(),
+        "last_action_date": generalHelper.getTimeStamp(),
         "last_action": dbData.lastAction
     };
 

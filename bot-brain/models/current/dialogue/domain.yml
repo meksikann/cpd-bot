@@ -20,6 +20,7 @@ actions:
 - action_check_room_available
 - action_check_room_exists
 - action_get_room_free_slots
+- action_get_new_slots
 config:
   store_entities_as_slots: true
 entities:

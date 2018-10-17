@@ -158,8 +158,8 @@ function getNewsSlotsFromUtterance(data) {
     let newSlots = [];
 
     //if duration mentioned in utternace but not set slots value
-    if (data.tracker.slots.duration && !data.tracker.slots.normalized_duration) {
-        let durationData = getNormalizedDuration(getEntitiesFromEvents(data.tracker.events, user));
+    if (data.slots.duration && !data.slots.normalized_duration) {
+        let durationData = getNormalizedDuration(data.entities);
 
         if (durationData.value && durationData.unit) {
             newSlots.push(
@@ -180,6 +180,7 @@ function getEntitiesFromEvents(events, eventName) {
 
     return [];
 }
+
 
 let generalHelper = {
     getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,

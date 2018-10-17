@@ -13,6 +13,9 @@ async function processActionIntent(nextActionData) {
 
     let queryData;
 
+    console.log('==============================');
+    console.log(nextActionData);
+
     try {
         switch (nextActionData.nextAction) {
             case actionIntents.action_create_event:
@@ -44,20 +47,24 @@ async function processActionIntent(nextActionData) {
             case actionIntents.action_check_room_exists:
                 logInfo('performing action_check_room_exists ...');
 
-                console.log(JSON.stringify(nextActionData));
-
                 queryData = generalHelper.geterateQueryData(nextActionData);
                 events = checkCpecifiedRoomExists(queryData);
                 break;
             case actionIntents.action_get_room_free_slots:
                 logInfo('performing action_get_room_free_slots ...');
+
                 queryData = {
                     roomName: nextActionData.slots.room_name,
                     time: generalHelper.getQueriedValidTime(nextActionData.slots.time)
                 };
                 events = await generateFreeSlots(queryData);
                 break;
+            case actionIntents.action_get_new_slots:
 
+                logInfo('performing action_get_new_slots11 ...');
+
+                events = generalHelper.getNewsSlotsFromUtterance(nextActionData);
+                break;
             default:
                 logInfo('performing default action ...');
         }
@@ -67,6 +74,8 @@ async function processActionIntent(nextActionData) {
         throw e;
     }
 }
+
+
 
 // async function showEvents() {
 //     let events = await getGoogleCalendarEvents();

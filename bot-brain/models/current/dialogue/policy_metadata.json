@@ -19,19 +19,20 @@
         "time"
       ]
     }, 
-    "action_get_room_free_slots": {
-      "slots": [
-        "rooms_free_slots"
-      ]
+    "utter_greet": {
+      "slots": []
     }, 
     "action_listen": {
       "slots": [
+        "duration", 
         "room_name", 
         "time"
       ]
     }, 
-    "utter_room_not_exists": {
-      "slots": []
+    "action_check_room_exists": {
+      "slots": [
+        "is_room_exists"
+      ]
     }, 
     "utter_thank": {
       "slots": []
@@ -39,21 +40,26 @@
     "utter_show_free_slots": {
       "slots": []
     }, 
-    "utter_room_is_free": {
+    "action_get_new_slots": {
+      "slots": [
+        "normalized_duration"
+      ]
+    }, 
+    "utter_room_not_exists": {
       "slots": []
     }, 
-    "action_check_room_exists": {
+    "action_get_room_free_slots": {
       "slots": [
-        "is_room_exists"
+        "rooms_free_slots"
       ]
+    }, 
+    "utter_room_is_free": {
+      "slots": []
     }, 
     "utter_how_can_help": {
       "slots": []
     }, 
     "utter_help": {
-      "slots": []
-    }, 
-    "utter_greet": {
       "slots": []
     }, 
     "utter_fallback": {

@@ -10,7 +10,8 @@ const actionIntents = {
     'action_help': null,
     'action_check_room_available': null,
     'action_check_room_exists': null,
-    'action_get_room_free_slots': null
+    'action_get_room_free_slots': null,
+    'action_get_new_slots': null
 };
 
 export default keyMirror(actionIntents);

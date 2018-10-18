@@ -7,13 +7,14 @@ import config from '../config';
 import {generalHelper} from './general';
 
 const seconds = 'seconds';
+
 //process custom action
 async function processActionIntent(nextActionData) {
     let events = [];
 
     let queryData;
 
-    console.log('==============================');
+    logInfo('processActionIntent')
     console.log(nextActionData);
 
     try {
@@ -71,16 +72,10 @@ async function processActionIntent(nextActionData) {
 
         return events;
     } catch (e) {
+        logError(e);
         throw e;
     }
 }
-
-
-
-// async function showEvents() {
-//     let events = await getGoogleCalendarEvents();
-//     return events;
-// }
 
 function checkCpecifiedRoomExists(queryData) {
     let result = [];
@@ -89,7 +84,7 @@ function checkCpecifiedRoomExists(queryData) {
     let durationValue = queryData.duration ? queryData.duration.value : null;
 
     // if mentioned new duration inutterance
-    if(durationValue && durationValue != queryData.normalized_duration) {
+    if (durationValue && durationValue != queryData.normalized_duration) {
         result.push(
             {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()},
         )
@@ -119,13 +114,13 @@ async function checkCpecifiedRoomAvailable(queryData) {
     let durationUnit = queryData.duration ? queryData.duration.unit : null;
 
     // if mentioned new duration inutterance
-    if(durationValue && durationValue != queryData.normalized_duration) {
+    if (durationValue && durationValue != queryData.normalized_duration) {
         result.push(
             {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()},
         )
     } else
     // if normalized_duration exists in slots from utterances mentioned before
-        if(!durationValue && queryData.normalized_duration) {
+    if (!durationValue && queryData.normalized_duration) {
         durationValue = queryData.normalized_duration;
         durationUnit = seconds;
     }
@@ -147,7 +142,7 @@ async function checkCpecifiedRoomAvailable(queryData) {
         }
     } else {
         startTime = new Date().toISOString();
-        endTime = generalHelper.getDateWithDurationISOString(startTime,  durationValue || config.minDurationAvailableMin,
+        endTime = generalHelper.getDateWithDurationISOString(startTime, durationValue || config.minDurationAvailableMin,
             durationUnit || 'minutes', true);
     }
 
@@ -213,7 +208,5 @@ async function generateFreeSlots(queryData) {
 
     return result;
 }
-
-
 
 export {processActionIntent}

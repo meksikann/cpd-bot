@@ -18,9 +18,10 @@ function getDateWithDurationISOString(time, duration, unit, isAdd) {
 
 //choose which calendar ID user wants to use.
 function getCalendarId(roomName) {
+    let id;
+
     logInfo('process.env.NODE_ENV ', process.env.NODE_ENV);
     logInfo('Choose calendar id.Room name: ', roomName);
-    let id;
 
     switch (roomName) {
         case config.room_names.first_conference_room:
@@ -131,12 +132,10 @@ function getNormalizedDuration(data) {
     let durationData = {};
 
     logInfo('getting duration entity from array: ');
-    console.log(data.entities)
 
     // get duration data normalized in seconds
     each(data.entities, ent => {
         if (ent.entity == durationName && ent.extractor == extractorName) {
-            console.log('=========================>>>>>>', ent);
             durationData.value = ent.additional_info.normalized.value;
             durationData.unit = ent.additional_info.normalized.unit + 's'; // for moment e.g. 'second' into 'seconds'
         }
@@ -159,7 +158,7 @@ function getNewsSlotsFromUtterance(data) {
 
     //if duration mentioned in utternace but not set slots value
     if (data.slots.duration && !data.slots.normalized_duration) {
-        let durationData = getNormalizedDuration(data.entities);
+        let durationData = getNormalizedDuration(data);
 
         if (durationData.value && durationData.unit) {
             newSlots.push(
@@ -169,16 +168,6 @@ function getNewsSlotsFromUtterance(data) {
     }
 
     return newSlots;
-}
-
-function getEntitiesFromEvents(events, eventName) {
-    let event = find(events, ev => ev.event == eventName);
-
-    if (event) {
-        return event.parse_data;
-    }
-
-    return [];
 }
 
 

@@ -391,6 +391,23 @@
     - slot{"is_room_available": true}
     - utter_room_is_free
     
+## Generated Story 1322870027489661269
+* check_room_available{"duration": 2, "time": "2018-10-18T15:03:08.000+03:00"}
+    - slot{"duration": 2}
+    - slot{"time": "2018-10-18T15:03:08.000+03:00"}
+    - action_get_new_slots
+    - slot{"normalized_duration": 7200}
+    - utter_ask_room_name
+* inform{"room_name": "factory"}
+    - slot{"room_name": "factory"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_check_room_available
+    - slot{"is_room_available": false}
+    - utter_room_is_busy
+    
+
+    
 
 
 

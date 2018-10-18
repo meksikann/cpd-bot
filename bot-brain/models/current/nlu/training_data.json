@@ -380,6 +380,30 @@
       {
         "entities": [
           {
+            "start": 0, 
+            "end": 6, 
+            "value": "factoy", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "factoy"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "space", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "space"
+      }, 
+      {
+        "entities": [
+          {
             "start": 5, 
             "end": 16, 
             "value": "second hall", 
@@ -405,13 +429,13 @@
         "entities": [
           {
             "start": 18, 
-            "end": 40, 
-            "value": "second conference hall", 
+            "end": 23, 
+            "value": "space", 
             "entity": "room_name"
           }
         ], 
         "intent": "inform", 
-        "text": "I want to know if second conference hall is available"
+        "text": "I want to know if space is available"
       }, 
       {
         "entities": [
@@ -513,13 +537,13 @@
         "entities": [
           {
             "start": 4, 
-            "end": 26, 
-            "value": "second conference room", 
+            "end": 9, 
+            "value": "space", 
             "entity": "room_name"
           }
         ], 
         "intent": "inform", 
-        "text": "and second conference room?"
+        "text": "and space?"
       }, 
       {
         "text": "hello can you show me my events please ?", 
@@ -569,25 +593,25 @@
         "entities": [
           {
             "start": 11, 
-            "end": 32, 
-            "value": "first conference room", 
+            "end": 18, 
+            "value": "factory", 
             "entity": "room_name"
           }
         ], 
         "intent": "check_room_available", 
-        "text": "tell me if first conference room is free at 1pm"
+        "text": "tell me if factory is free at 1pm"
       }, 
       {
         "entities": [
           {
             "start": 17, 
-            "end": 18, 
-            "value": "2", 
+            "end": 22, 
+            "value": "space", 
             "entity": "room_name"
           }
         ], 
         "intent": "check_room_available", 
-        "text": "I am curious if  2 is empty in an hour"
+        "text": "I am curious if  space is empty in an hour"
       }, 
       {
         "entities": [
@@ -653,25 +677,25 @@
         "entities": [
           {
             "start": 13, 
-            "end": 35, 
-            "value": "second conference room", 
+            "end": 18, 
+            "value": "space", 
             "entity": "room_name"
           }
         ], 
         "intent": "check_room_available", 
-        "text": "I wanna take second conference room"
+        "text": "I wanna take space"
       }, 
       {
         "entities": [
           {
             "start": 11, 
-            "end": 20, 
-            "value": "main room", 
+            "end": 18, 
+            "value": "factory", 
             "entity": "room_name"
           }
         ], 
         "intent": "check_room_available", 
-        "text": "show me if main room available in an hour?"
+        "text": "show me if factory available in an hour?"
       }, 
       {
         "entities": [
@@ -734,6 +758,36 @@
         "text": "I want to know if main room is free now"
       }, 
       {
+        "entities": [
+          {
+            "start": 3, 
+            "end": 8, 
+            "value": "space", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "is space available now?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 3, 
+            "end": 10, 
+            "value": "factory", 
+            "entity": "room_name"
+          }, 
+          {
+            "start": 30, 
+            "end": 39, 
+            "value": "two hours", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "check_room_available", 
+        "text": "is factory available for next two hours?"
+      }, 
+      {
         "text": "is it available?", 
         "intent": "get_room_free_slots"
       }, 
@@ -745,25 +799,25 @@
         "entities": [
           {
             "start": 5, 
-            "end": 14, 
-            "value": "main room", 
+            "end": 12, 
+            "value": "factory", 
             "entity": "room_name"
           }
         ], 
         "intent": "get_room_free_slots", 
-        "text": "when main room available"
+        "text": "when factory available"
       }, 
       {
         "entities": [
           {
             "start": 21, 
-            "end": 43, 
-            "value": "second conference room", 
+            "end": 26, 
+            "value": "space", 
             "entity": "room_name"
           }
         ], 
         "intent": "get_room_free_slots", 
-        "text": "tell me at what time second conference room is free"
+        "text": "tell me at what time space is free"
       }, 
       {
         "entities": [
@@ -977,31 +1031,35 @@
     "entity_synonyms": [
       {
         "synonyms": [
+          "Factory", 
+          "main conference room", 
+          "Factori", 
+          "main room", 
+          "main one", 
+          "main hall", 
+          "the big one", 
           "first room", 
           "first hall", 
-          "main hall", 
-          "main conference room", 
-          "the big one", 
-          "main room", 
-          "room one", 
-          "main one", 
-          "room 1", 
-          "big hall"
+          "factori", 
+          "Factory room"
         ], 
-        "value": "first conference room"
+        "value": "factory"
       }, 
       {
         "synonyms": [
-          "small conference hall", 
-          "room two", 
+          "Space", 
           "second room", 
-          "second one", 
-          "second hall", 
-          "small room", 
           "small one", 
-          "room 2"
+          "room two", 
+          "sPace", 
+          "small room", 
+          "room 2", 
+          "the space", 
+          "small conference hall", 
+          "second hall", 
+          "second one"
         ], 
-        "value": "second conference room"
+        "value": "space"
       }
     ], 
     "regex_features": [], 

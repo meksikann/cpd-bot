@@ -20,6 +20,7 @@ actions:
 - action_check_room_available
 - action_check_room_exists
 - action_get_room_free_slots
+- action_get_new_slots
 config:
   store_entities_as_slots: true
 entities:
@@ -55,6 +56,9 @@ intents:
 - create_event:
     use_entities: true
 slots:
+  duration:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
   event_name:
     initial_value: null
     type: rasa_core.slots.TextSlot
@@ -64,6 +68,9 @@ slots:
   is_room_exists:
     initial_value: false
     type: rasa_core.slots.BooleanSlot
+  normalized_duration:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
   room_name:
     initial_value: null
     type: rasa_core.slots.TextSlot

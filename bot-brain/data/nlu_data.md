@@ -101,9 +101,11 @@
 - Hey set calendar for me for [do bot testing](event_name)
 
 ## intent: inform
+- [factoy](room_name)
+- [space](room_name)
 - it's [second hall](room_name)
 - the [main one](room_name)
-- I want to know if [second conference hall](room_name) is available
+- I want to know if [space](room_name) is available
 - it's name is [room 2](room_name)
 - tell me info about [room two](room_name)
 - [small hall](room_name)
@@ -112,7 +114,7 @@
 - how about [small one](room_name)?
 - [the big one](room_name)
 - what about [first room](room_name)
-- and [second conference room](room_name)?
+- and [space](room_name)?
 
 
 ## intent: show_my_events
@@ -127,15 +129,15 @@
 
 ## intent: check_room_available
 - is [second hall](room_name) free?
-- tell me if [first conference room](room_name) is free at 1pm
-- I am curious if  [2](room_name) is empty in an hour
+- tell me if [factory](room_name) is free at 1pm
+- I am curious if  [space](room_name) is empty in an hour
 - would  you be so king to ping me if [big hall](room_name) is free now?
 - Has anyone occupied [first room](room_name) at 5 o'clock
 - Can I book a  [main conference room](room_name) today?
 - Could I reserve a [room number 1](room_name) for one hour
 - is [small room](room_name) available now?
-- I wanna take [second conference room](room_name)
-- show me if [main room](room_name) available in an hour?
+- I wanna take [space](room_name)
+- show me if [factory](room_name) available in an hour?
 - would you be so king to ping me if [main room](room_name) is free now?
 - is conference room free?
 - are conference rooms available in an hour?
@@ -145,12 +147,19 @@
 - how about in an hour?
 - and what about in four hours
 - I want to know if [main room](room_name) is free now
+- is [space](room_name) available now?
+- is [factory](room_name) available for next [two hours](duration)?
+
+##intent: book_room
+##- hello I want to book a [factory](room_name) for [one hour](duration) at 5 pm is it available?
+##- it would be great to take factory in an hour for [30 mins](duration)
+
 
 ## intent: get_room_free_slots
 - is it available?
 - when it's free?
-- when [main room](room_name) available
-- tell me at what time [second conference room](room_name) is free
+- when [factory](room_name) available
+- tell me at what time [space](room_name) is free
 - at what time I can take [main room](room_name)?
 - when I can take it
 - I want to use [main conference room](room_name). when I can do it?
@@ -196,10 +205,11 @@
 - hey I don't know nothing about you can you tell me something?
 - show me what can U do
 
-## synonym:first conference room
-- room one
-- room 1
-- big hall
+## synonym:factory
+- factori
+- Factori
+- Factory
+- Factory room
 - main conference room
 - first room
 - first hall
@@ -208,7 +218,10 @@
 - the big one
 - main one
 
-## synonym:second conference room
+## synonym:space
+- Space
+- sPace
+- the space
 - second hall
 - room 2
 - second room

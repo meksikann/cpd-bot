@@ -16,7 +16,11 @@ let config = {
     userTimeZone: "Europe/Kiev",
     minDurationAvailableMin: 30,
     freeSpaceSearchTimeRangeMins: 180,
-    nlu_confidence: 0.4
+    nlu_confidence: 0.4,
+    room_names: {
+        first_conference_room: 'factory',
+        second_conference_room:'space'
+    }
 
 };
 

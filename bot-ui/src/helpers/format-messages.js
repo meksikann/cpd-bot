@@ -48,6 +48,7 @@ function generateBotResponse(data) {
         return response;
     }
 
+    console.log('----------------------------->>>>>>>>>', data.template);
     //return constant messages, which not require to paste data in it.
     response.text = messages.bot_response[data.template];
     return response;

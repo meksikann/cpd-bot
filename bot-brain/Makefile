@@ -23,7 +23,7 @@ train-nlu:
 	python -m rasa_nlu.train -c nlu_config.yml --data data/nlu_data.md -o models --fixed_model_name nlu --project current --verbose
 
 train-core:
-	python -m rasa_core.train -d domain.yml -s data/stories -o models/current/dialogue --epochs 200 --nlu_threshold 0.20 --core_threshold 0.2
+	python -m rasa_core.train -d domain.yml -s data/stories -o models/current/dialogue --epochs 200 --nlu_threshold 0.2 --core_threshold 0.2
 core-server:
 	python -m rasa_core.run --enable_api -d models/current/dialogue -u models/current/nlu -o out.log --endpoints endpoints.yml --port 5002 --credentials creds/credentials.yml
 core-learn:

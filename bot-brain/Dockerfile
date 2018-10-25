@@ -35,9 +35,6 @@ RUN python -m spacy download en
 ## rasa core
 RUN pip install rasa_core
 
-
-EXPOSE 5005
-
 ENTRYPOINT ["./entrypoint.sh"]
 
 CMD ["start"]

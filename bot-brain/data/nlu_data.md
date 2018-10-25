@@ -34,6 +34,8 @@
 - hello robot
 - hey dude
 - hello my friend
+- hey
+- hello
 
 ## intent:thank
 - Thanks

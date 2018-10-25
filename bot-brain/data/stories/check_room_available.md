@@ -1,5 +1,3 @@
-
-
 ## Generated Story 7661465693707347508
 * check_room_available{"room_name": "first conference room", "time": "2018-09-13T10:38:51.000+03:00"}
     - slot{"room_name": "first conference room"}
@@ -340,6 +338,7 @@
     - utter_bye
 * greet
     - utter_greet
+    - utter_how_can_help
 * greet
     - utter_how_can_help
 * check_room_available{"time": "2019-01-01T00:00:00.000+02:00"}
@@ -361,6 +360,7 @@
     - utter_sure
 * greet
     - utter_greet
+    - utter_how_can_help
 * check_room_available{"room_name": "first conference room", "time": "2018-10-05T22:36:37.000+03:00"}
     - slot{"room_name": "first conference room"}
     - slot{"time": "2018-10-05T22:36:37.000+03:00"}
@@ -406,6 +406,27 @@
     - slot{"is_room_available": false}
     - utter_room_is_busy
     
+## Generated Story 7010713489214373364
+* greet
+    - utter_greet
+    - utter_how_can_help
+    
+## Generated Story -623317588899375065
+* greet
+    - utter_greet
+    - utter_how_can_help
+* check_room_available{"room_name": "factory", "time": "2018-10-25T12:41:06.000+03:00"}
+    - slot{"room_name": "factory"}
+    - slot{"time": "2018-10-25T12:41:06.000+03:00"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_check_room_available
+    - slot{"is_room_available": false}
+    - utter_room_is_busy
+* thank
+    - utter_thank
+
+
 
     
 

@@ -10,8 +10,8 @@ let config = {
         'second_conference_room': 'eliftech.com_os8ir07e7uqleh3jmid199q9l0@group.calendar.google.com'
     },
     productionCalendarIds: {
-        'first_conference_room': 'eliftech.com_92gsu525ed2rrfotqfcd23vnk4@group.calendar.google.com',
-        'second_conference_room': ''
+        'first_conference_room': 'eliftech.com_opr4uacf9vnofoacil689vpbh8@group.calendar.google.com',
+        'second_conference_room': 'eliftech.com_os8ir07e7uqleh3jmid199q9l0@group.calendar.google.com'
     },
     userTimeZone: "Europe/Kiev",
     minDurationAvailableMin: 30,

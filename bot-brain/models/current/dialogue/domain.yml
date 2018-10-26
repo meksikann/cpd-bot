@@ -21,6 +21,9 @@ actions:
 - action_check_room_exists
 - action_get_room_free_slots
 - action_get_new_slots
+- utter_responce_got_it
+- utter_responce_who_are_you
+- utter_responce_how_are_you
 config:
   store_entities_as_slots: true
 entities:
@@ -47,9 +50,15 @@ intents:
     use_entities: true
 - greet:
     use_entities: true
+- how_are_you:
+    use_entities: true
+- who_are_you:
+    use_entities: true
 - remove_event:
     use_entities: true
 - bye:
+    use_entities: true
+- got_it:
     use_entities: true
 - check_room_available:
     use_entities: true
@@ -99,6 +108,12 @@ templates:
   - text: how can i helps
   utter_on_it:
   - text: I am on it
+  utter_responce_got_it:
+  - text: great, dude!:)
+  utter_responce_how_are_you:
+  - text: I am fine, thanks! Learning new stuff every day
+  utter_responce_who_are_you:
+  - text: I am bot. Called to help you with conference rooms
   utter_room_is_busy:
   - text: room is busy
   utter_room_is_free:

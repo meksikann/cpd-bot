@@ -54,6 +54,37 @@
 - cool, thanks
 - cool thank you
 
+## intent:got_it
+- ok
+- cool
+- aha
+- super
+- aha got it
+- got it
+- gotcha
+- uhu
+- great
+- it's great
+- super got it
+
+## intent:who_are_you
+- who are you?
+- who're U
+- hey, man who are you
+- tell me please who are you?
+- are you human or bot?
+- who are you ? are you robot?
+- what are you 
+
+
+## intent:how_are_you
+- how are you doing?
+- hey. how is it going?
+- how to you do today?
+- are you ok?
+- do you feel good today?
+- hows U today?
+
 ## intent:deny
 - no
 - definitely not
@@ -88,6 +119,9 @@
 - aha
 - go
 - got it
+- i'm cool with it
+- it's ok
+- no problem
 
 ## intent: create_event
 - create new event

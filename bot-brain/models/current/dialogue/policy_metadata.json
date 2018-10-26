@@ -73,6 +73,9 @@
     }, 
     "utter_sure": {
       "slots": []
+    }, 
+    "utter_responce_got_it": {
+      "slots": []
     }
   }
 }

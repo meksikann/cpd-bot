@@ -11,7 +11,7 @@ let messages = {
     },
     bot_response: {
         /* ************************* rasa-core utter messages *********************************************************/
-        utter_thank: 'glad to help you :)',
+        utter_thank: 'glad to help you :). Ping me if you need something I can help with.',
         utter_bye: `Bye bye my friend...Don't hesitate to ping me if U need something.`,
         utter_greet: 'Hey :)',
         utter_how_can_help: 'How can I help?',
@@ -27,6 +27,12 @@ let messages = {
         utter_sure: `yeah pal, I'm sure`,
         utter_show_free_slots: 'todo -Room free time* make bot respond with some usefull info for user',
         utter_action_not_succeed: 'Hm...last action not succeeded. Would you please try again now.',
+        utter_responce_got_it: 'Great.',
+        utter_responce_who_are_you: 'Well....mmmm.... At the moment I am chat-bot called to help you with some conference-' +
+            'room activities. But in future I am sure I will be able to manage some more stuff..And you know..maybe I could even have' +
+            'some voice interface. Who knows!? :)',
+        utter_responce_how_are_you: `I'm fine. Thanks:) Learning new stuff every day. And you?`,
+
         /* ************************* custom ***************************************************************************/
         defaultmessage: 'default dialog goes here...Man!!....It means that you or bot screwed up conversation...:)',
         greeting: 'Hey, how can I help you?',

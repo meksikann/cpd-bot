@@ -8,12 +8,15 @@
     "intent_create_event", 
     "intent_deny", 
     "intent_get_room_free_slots", 
+    "intent_got_it", 
     "intent_greet", 
     "intent_help", 
+    "intent_how_are_you", 
     "intent_inform", 
     "intent_remove_event", 
     "intent_show_my_events", 
     "intent_thank", 
+    "intent_who_are_you", 
     "entity_event_name", 
     "entity_room_name", 
     "slot_duration_0", 
@@ -48,6 +51,9 @@
     "prev_action_check_room_available", 
     "prev_action_check_room_exists", 
     "prev_action_get_room_free_slots", 
-    "prev_action_get_new_slots"
+    "prev_action_get_new_slots", 
+    "prev_utter_responce_got_it", 
+    "prev_utter_responce_who_are_you", 
+    "prev_utter_responce_how_are_you"
   ]
 }

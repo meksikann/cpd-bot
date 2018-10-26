@@ -14,6 +14,9 @@ intents:
   - get_room_free_slots
   - None
   - help
+  - got_it
+  - who_are_you
+  - how_are_you
 
 entities:
   - event_name
@@ -72,6 +75,13 @@ templates:
     - 'the {room_name} is free/busy at (todo:make sure real bot receive free time)'
   utter_help:
     - 'Here is what I can do pal...'
+  utter_responce_got_it:
+    - 'great, dude!:)'
+  utter_responce_who_are_you:
+    - 'I am bot. Called to help you with conference rooms'
+  utter_responce_how_are_you:
+    - 'I am fine, thanks! Learning new stuff every day'
+
 
 actions:
   # all the utter actions from the templates, plus any custom actions
@@ -97,3 +107,6 @@ actions:
   - action_check_room_exists
   - action_get_room_free_slots
   - action_get_new_slots
+  - utter_responce_got_it
+  - utter_responce_who_are_you
+  - utter_responce_how_are_you

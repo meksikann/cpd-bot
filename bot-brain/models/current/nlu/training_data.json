@@ -134,6 +134,14 @@
         "intent": "greet"
       }, 
       {
+        "text": "hey", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hello", 
+        "intent": "greet"
+      }, 
+      {
         "text": "Thanks", 
         "intent": "thank"
       }, 
@@ -192,6 +200,102 @@
       {
         "text": "cool thank you", 
         "intent": "thank"
+      }, 
+      {
+        "text": "ok", 
+        "intent": "got_it"
+      }, 
+      {
+        "text": "cool", 
+        "intent": "got_it"
+      }, 
+      {
+        "text": "aha", 
+        "intent": "got_it"
+      }, 
+      {
+        "text": "super", 
+        "intent": "got_it"
+      }, 
+      {
+        "text": "aha got it", 
+        "intent": "got_it"
+      }, 
+      {
+        "text": "got it", 
+        "intent": "got_it"
+      }, 
+      {
+        "text": "gotcha", 
+        "intent": "got_it"
+      }, 
+      {
+        "text": "uhu", 
+        "intent": "got_it"
+      }, 
+      {
+        "text": "great", 
+        "intent": "got_it"
+      }, 
+      {
+        "text": "it's great", 
+        "intent": "got_it"
+      }, 
+      {
+        "text": "super got it", 
+        "intent": "got_it"
+      }, 
+      {
+        "text": "who are you?", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "who're U", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "hey, man who are you", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "tell me please who are you?", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "are you human or bot?", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "who are you ? are you robot?", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "what are you", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "how are you doing?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "hey. how is it going?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how to you do today?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "are you ok?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "do you feel good today?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "hows U today?", 
+        "intent": "how_are_you"
       }, 
       {
         "text": "no", 
@@ -315,6 +419,18 @@
       }, 
       {
         "text": "got it", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "i'm cool with it", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "it's ok", 
+        "intent": "affirm"
+      }, 
+      {
+        "text": "no problem", 
         "intent": "affirm"
       }, 
       {

@@ -20,8 +20,9 @@ let config = {
     room_names: {
         first_conference_room: 'factory',
         second_conference_room:'space'
-    }
-
+    },
+    vinLocation: 'Vinnitsa',
+    lvLocation: 'Lviv'
 };
 
 

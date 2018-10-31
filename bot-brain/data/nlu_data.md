@@ -126,15 +126,6 @@
 ## intent: create_event
 - create new event
 - add new task into calendar
-- set new item to my calendar
-- add new item in scheduler
-- update calendar - add task
-- I want to add some event to the calendar
-- please create item for me
-- could you add item into calendar?
-- hey man how are you? I want to set some event
-- I want you to schedule [choose hotel in kamyanets](event_name) it for 1 p.m
-- Hey set calendar for me for [do bot testing](event_name)
 
 ## intent: inform
 - [factoy](room_name)
@@ -187,8 +178,12 @@
 - is [factory](room_name) available for next [two hours](duration)?
 
 ##intent: book_room
-##- hello I want to book a [factory](room_name) for [one hour](duration) at 5 pm is it available?
-##- it would be great to take factory in an hour for [30 mins](duration)
+- hello I want to book a [factory](room_name) for [one hour](duration) at 5 pm is it available?
+- it would be great to take factory in an hour for [30 mins](duration)
+- I want to book conference room
+- I want to take [space](room_name) at 4pm
+- hey! please book conference hall for me
+
 
 
 ## intent: get_room_free_slots

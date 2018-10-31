@@ -9,6 +9,7 @@ async function botGenerateUtter(req, res) {
     logInfo(`Got generate Utter request.Utter template: ${req.body.template}.`);
     logInfo('Slots: ',req.body.tracker.slots);
     logInfo('Intent: ',req.body.tracker.latest_message.intent);
+    logInfo(`userId: ${req.body.tracker.sender_id}`);
 
     const data = {
         senderId: req.body.tracker.sender_id || defaultUser,
@@ -35,6 +36,8 @@ async function botGenerateUtter(req, res) {
 
 async function botPerformAction(req, res) {
     logInfo(`Got perform Action request: ${req.body.next_action}`);
+    logInfo(`userId: ${req.body.sender_id}`);
+
     let dbData = {
         db: req.db,
         lastAction: req.body.next_action,
@@ -44,7 +47,8 @@ async function botPerformAction(req, res) {
         senderId: req.body.sender_id || defaultUser,
         nextAction: req.body.next_action,
         slots: req.body.tracker.slots,
-        entities: req.body.tracker.latest_message.entities
+        entities: req.body.tracker.latest_message.entities,
+        intent_name: req.body.tracker.latest_message.intent.name
     };
     let response = {};
 

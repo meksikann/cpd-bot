@@ -62,9 +62,20 @@ async function processActionIntent(nextActionData) {
                 break;
             case actionIntents.action_get_new_slots:
 
-                logInfo('performing action_get_new_slots11 ...');
+                logInfo('performing action_get_new_slots1 ...');
 
                 events = generalHelper.getNewsSlotsFromUtterance(nextActionData);
+                break;
+            case actionIntents.action_check_auth_valid:
+                logInfo('performing action_check_auth_valid ...');
+
+                events = await generalHelper.checkUserOfficeLocation(nextActionData);
+                break;
+
+            case actionIntents.action_reset_auth_valid_slot:
+                logInfo('performing action_reset_auth_valid_slot ...');
+
+                events = generalHelper.resetAuthSlot();
                 break;
             default:
                 logInfo('performing default action ...');

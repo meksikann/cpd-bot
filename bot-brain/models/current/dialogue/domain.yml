@@ -14,6 +14,11 @@ actions:
 - utter_sure
 - utter_show_free_slots
 - utter_help
+- utter_responce_got_it
+- utter_responce_who_are_you
+- utter_responce_how_are_you
+- utter_user_not_authorized
+- utter_user_authorized
 - action_create_event
 - action_remove_event
 - action_show_my_events
@@ -21,9 +26,8 @@ actions:
 - action_check_room_exists
 - action_get_room_free_slots
 - action_get_new_slots
-- utter_responce_got_it
-- utter_responce_who_are_you
-- utter_responce_how_are_you
+- action_check_auth_valid
+- action_reset_auth_valid_slot
 config:
   store_entities_as_slots: true
 entities:
@@ -60,11 +64,16 @@ intents:
     use_entities: true
 - got_it:
     use_entities: true
+- book_room:
+    use_entities: true
 - check_room_available:
     use_entities: true
 - create_event:
     use_entities: true
 slots:
+  auth_valid:
+    initial_value: false
+    type: rasa_core.slots.BooleanSlot
   duration:
     initial_value: null
     type: rasa_core.slots.TextSlot
@@ -126,3 +135,7 @@ templates:
   - text: yeah pal, i'm sure
   utter_thank:
   - text: You're welcome!
+  utter_user_authorized:
+  - text: You authorized, so I can make action you asked for.
+  utter_user_not_authorized:
+  - text: O-o-o-p-s... Cannot make the action.You need to authorize first.

@@ -19,7 +19,7 @@ async function updateDbUserActions(dbData) {
         const user = await db.users.findOne(findQry);
 
         if (user) {
-            await db.users.update(findQry, updateQry);
+            await db.users.update(findQry, {$set: updateQry});
         } else {
             await db.users.insert(updateQry);
         }
@@ -30,4 +30,24 @@ async function updateDbUserActions(dbData) {
         throw err;
     }
 }
-export {updateDbUserActions}
+
+async function getUserPermissions(userId) {
+    let db = config.db;
+    let findQry = {
+        "userId": userId
+    };
+    let project = {
+        "userId": 1,
+        "feature_permissions": 1
+    };
+
+    try {
+        const user = await db.users.findOne(findQry, project);
+
+        return user;
+    } catch (err) {
+        logError(err);
+        throw err;
+    }
+}
+export {updateDbUserActions, getUserPermissions}

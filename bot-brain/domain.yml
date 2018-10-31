@@ -17,6 +17,7 @@ intents:
   - got_it
   - who_are_you
   - how_are_you
+  - book_room
 
 entities:
   - event_name
@@ -42,6 +43,9 @@ slots:
   rooms_free_slots:
     type: list
     initial_value: []
+  auth_valid:
+    type: bool
+    initial_value: False
 
 templates:
   # templates the bot should respond with
@@ -81,7 +85,10 @@ templates:
     - 'I am bot. Called to help you with conference rooms'
   utter_responce_how_are_you:
     - 'I am fine, thanks! Learning new stuff every day'
-
+  utter_user_not_authorized:
+    - 'O-o-o-p-s... Cannot make the action.You need to authorize first.'
+  utter_user_authorized:
+    - 'You authorized, so I can make action you asked for.'
 
 actions:
   # all the utter actions from the templates, plus any custom actions
@@ -100,6 +107,11 @@ actions:
   - utter_sure
   - utter_show_free_slots
   - utter_help
+  - utter_responce_got_it
+  - utter_responce_who_are_you
+  - utter_responce_how_are_you
+  - utter_user_not_authorized
+  - utter_user_authorized
   - action_create_event
   - action_remove_event
   - action_show_my_events
@@ -107,6 +119,5 @@ actions:
   - action_check_room_exists
   - action_get_room_free_slots
   - action_get_new_slots
-  - utter_responce_got_it
-  - utter_responce_who_are_you
-  - utter_responce_how_are_you
+  - action_check_auth_valid
+  - action_reset_auth_valid_slot

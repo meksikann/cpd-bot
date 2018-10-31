@@ -1,4 +1,5 @@
 import {logInfo} from "../utils/logger";
+import {getUserPermissions} from './database-queries';
 import config from "../config";
 import moment from 'moment';
 import {each, find} from 'lodash';
@@ -113,7 +114,7 @@ function getTime(string) {
 }
 
 function getTimeStamp() {
-    return moment.utc().format('YYYY-MM-DD HH:mm:ss');
+    return moment().format('DD-MM-YYYY HH:mm:ss');
 }
 
 // if asked time passed allready  = set time now.
@@ -170,9 +171,27 @@ function getNewsSlotsFromUtterance(data) {
     return newSlots;
 }
 
+async function checkUserOfficeLocation(data) {
+    let user = await getUserPermissions(data.senderId);
+
+    // if permission has any office location, set auth slot to true
+    if(user && user.feature_permissions && (user.feature_permissions[config.vinLocation.toLowerCase()] ||
+        user.feature_permissions[config.vinLocation.toLowerCase()])) {
+        return [
+            {"event": "slot", "name": "auth_valid", "value": true}
+            ]
+    }
+
+    return [{"event": "slot", "name": "auth_valid", "value": false}]
+}
+
+function resetAuthSlot() {
+    return [{"event": "slot", "name": "auth_valid", "value": false}]
+}
+
 
 let generalHelper = {
     getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
-    getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance
+    getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance, checkUserOfficeLocation, resetAuthSlot
 };
 export {generalHelper}

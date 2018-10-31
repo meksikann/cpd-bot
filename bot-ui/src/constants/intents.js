@@ -11,7 +11,10 @@ const actionIntents = {
     'action_check_room_available': null,
     'action_check_room_exists': null,
     'action_get_room_free_slots': null,
-    'action_get_new_slots': null
+    'action_get_new_slots': null,
+    'book_room': null,
+    'action_check_auth_valid':null,
+    'action_reset_auth_valid_slot': null
 };
 
 export default keyMirror(actionIntents);

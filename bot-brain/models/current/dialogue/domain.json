@@ -3,6 +3,7 @@
     "intent_None", 
     "intent_affirm", 
     "intent_are_you_sure", 
+    "intent_book_room", 
     "intent_bye", 
     "intent_check_room_available", 
     "intent_create_event", 
@@ -19,6 +20,7 @@
     "intent_who_are_you", 
     "entity_event_name", 
     "entity_room_name", 
+    "slot_auth_valid_0", 
     "slot_duration_0", 
     "slot_event_name_0", 
     "slot_is_room_available_0", 
@@ -45,6 +47,11 @@
     "prev_utter_sure", 
     "prev_utter_show_free_slots", 
     "prev_utter_help", 
+    "prev_utter_responce_got_it", 
+    "prev_utter_responce_who_are_you", 
+    "prev_utter_responce_how_are_you", 
+    "prev_utter_user_not_authorized", 
+    "prev_utter_user_authorized", 
     "prev_action_create_event", 
     "prev_action_remove_event", 
     "prev_action_show_my_events", 
@@ -52,8 +59,7 @@
     "prev_action_check_room_exists", 
     "prev_action_get_room_free_slots", 
     "prev_action_get_new_slots", 
-    "prev_utter_responce_got_it", 
-    "prev_utter_responce_who_are_you", 
-    "prev_utter_responce_how_are_you"
+    "prev_action_check_auth_valid", 
+    "prev_action_reset_auth_valid_slot"
   ]
 }

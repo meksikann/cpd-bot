@@ -442,58 +442,6 @@
         "intent": "create_event"
       }, 
       {
-        "text": "set new item to my calendar", 
-        "intent": "create_event"
-      }, 
-      {
-        "text": "add new item in scheduler", 
-        "intent": "create_event"
-      }, 
-      {
-        "text": "update calendar - add task", 
-        "intent": "create_event"
-      }, 
-      {
-        "text": "I want to add some event to the calendar", 
-        "intent": "create_event"
-      }, 
-      {
-        "text": "please create item for me", 
-        "intent": "create_event"
-      }, 
-      {
-        "text": "could you add item into calendar?", 
-        "intent": "create_event"
-      }, 
-      {
-        "text": "hey man how are you? I want to set some event", 
-        "intent": "create_event"
-      }, 
-      {
-        "entities": [
-          {
-            "start": 23, 
-            "end": 48, 
-            "value": "choose hotel in kamyanets", 
-            "entity": "event_name"
-          }
-        ], 
-        "intent": "create_event", 
-        "text": "I want you to schedule choose hotel in kamyanets it for 1 p.m"
-      }, 
-      {
-        "entities": [
-          {
-            "start": 28, 
-            "end": 42, 
-            "value": "do bot testing", 
-            "entity": "event_name"
-          }
-        ], 
-        "intent": "create_event", 
-        "text": "Hey set calendar for me for do bot testing"
-      }, 
-      {
         "entities": [
           {
             "start": 0, 
@@ -902,6 +850,56 @@
         ], 
         "intent": "check_room_available", 
         "text": "is factory available for next two hours?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 23, 
+            "end": 30, 
+            "value": "factory", 
+            "entity": "room_name"
+          }, 
+          {
+            "start": 35, 
+            "end": 43, 
+            "value": "one hour", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "book_room", 
+        "text": "hello I want to book a factory for one hour at 5 pm is it available?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 49, 
+            "end": 56, 
+            "value": "30 mins", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "book_room", 
+        "text": "it would be great to take factory in an hour for 30 mins"
+      }, 
+      {
+        "text": "I want to book conference room", 
+        "intent": "book_room"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 15, 
+            "end": 20, 
+            "value": "space", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "book_room", 
+        "text": "I want to take space at 4pm"
+      }, 
+      {
+        "text": "hey! please book conference hall for me", 
+        "intent": "book_room"
       }, 
       {
         "text": "is it available?", 

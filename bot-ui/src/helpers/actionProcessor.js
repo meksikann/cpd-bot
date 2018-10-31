@@ -69,7 +69,7 @@ async function processActionIntent(nextActionData) {
             case actionIntents.action_check_auth_valid:
                 logInfo('performing action_check_auth_valid ...');
 
-                events = await generalHelper.checkUserOfficeLocation(nextActionData);
+                events = await generalHelper.checkUserAuth(nextActionData);
                 break;
 
             case actionIntents.action_reset_auth_valid_slot:

@@ -46,6 +46,8 @@ slots:
   auth_valid:
     type: bool
     initial_value: False
+  office_location:
+    type: text
 
 templates:
   # templates the bot should respond with

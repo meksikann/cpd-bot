@@ -14,9 +14,22 @@ async function appendNewSlots(slots) {
     //     json: true
     // })
 
-    const res = await axios.post(appendSlotUrl,{"body":slots[0]});
+    const res = await axios.post(appendSlotUrl, {"body": slots[0]});
 
     return res.data;
 }
 
-export {appendNewSlots}
+async function getUserSlackData(userId) {
+    const token = process.env.slack_token;
+    const url = `https://slack.com/api/users.profile.get?token=${token}&user=${userId}&pretty=1`;
+    try {
+        const res = await axios.get(url);
+
+        return res.data;
+    } catch (e) {
+        console.error(e);
+        return null;
+    }
+}
+
+export {getUserSlackData}

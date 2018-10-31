@@ -32,8 +32,7 @@ let messages = {
             'room activities. But in future I am sure I will be able to manage some more stuff..And you know..maybe I could even have' +
             'some voice interface. Who knows!? :)',
         utter_responce_how_are_you: `I'm fine. Thanks:) Learning new stuff every day. And you?`,
-        utter_user_not_authorized:`O-o-o-p-s! Can't make the action. You need authorise first.
-         Please perform quick steps in this link.`,
+        utter_user_not_authorized:`O-o-o-p-s! Can't make the action. I need to know you'r profile details, like location, name and email.`,
         utter_user_authorized: 'You authorized, so I can make action you asked for.',
 
         /* ************************* custom ***************************************************************************/

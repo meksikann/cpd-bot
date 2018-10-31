@@ -32,18 +32,23 @@ In MS Bot-framework set url:
 
 ``https://your-bot-host/webhooks/botframework/webhook``
 
+For slack
+
+
 
 ## Development
 ### Bot-ui
 1. git clone https://github.com/meksikann/cpd-bot.git
 2. install npm + node.js
 3. insert  .env file with next variables:
-
+NOTE: slack_token needed to get user profile data from slack (if slack channel used) https://api.slack.com/custom-integrations/legacy-tokens()
+NOTE: MicrosoftAppId and MicrosoftAppPassword needed if you connect bot via MS Bot-Framework channel
 ```bash
 MicrosoftAppId=<YOUR_MS_ID>
 MicrosoftAppPassword=<YOUR_MS_PASSWORD>>
 BOT_MANUAL=<URL_TO_MANUAL>>
 NODE_ENV=development
+slack_token
 ```
 4. install dependencies
 ```

@@ -1,7 +1,6 @@
 import config from '../config/index';
 import {logError, logInfo} from "../utils/logger";
-import {generalHelper} from  './general';
-
+import {generalHelper} from './general';
 
 
 async function updateDbUserActions(dbData) {
@@ -31,18 +30,52 @@ async function updateDbUserActions(dbData) {
     }
 }
 
+async function updateUserProfileData(userId, email, name, location = null) {
+    let db = config.db;
+    let findQry = {
+        "userId": userId
+    };
+    let updateQry = {
+        "userId": userId,
+        "last_action_date": generalHelper.getTimeStamp()
+    };
+
+    if (email) {
+        updateQry.email = email;
+    }
+
+    if (name) {
+        updateQry.name = name;
+    }
+
+    if (location) {
+        updateQry.office_location = location;
+    }
+
+    try {
+        const user = await db.users.findOne(findQry);
+
+        if (user) {
+            await db.users.update(findQry, {$set: updateQry});
+        } else {
+            await db.users.insert(updateQry);
+        }
+        logInfo('User dbData successfully updated');
+
+    } catch (err) {
+        logError(err);
+        throw err;
+    }
+}
+
 async function getUserPermissions(userId) {
     let db = config.db;
     let findQry = {
         "userId": userId
     };
-    let project = {
-        "userId": 1,
-        "feature_permissions": 1
-    };
 
     try {
-        const user = await db.users.findOne(findQry, project);
+        const user = await db.users.findOne(findQry);
 
         return user;
     } catch (err) {
@@ -50,4 +83,5 @@ async function getUserPermissions(userId) {
         throw err;
     }
 }
-export {updateDbUserActions, getUserPermissions}
+
+export {updateDbUserActions, getUserPermissions, updateUserProfileData}

@@ -22,7 +22,8 @@ let config = {
         second_conference_room:'space'
     },
     vinLocation: 'Vinnitsa',
-    lvLocation: 'Lviv'
+    lvLocation: 'Lviv',
+    slackChannel: 'slack'
 };
 
 

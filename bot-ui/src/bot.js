@@ -48,7 +48,8 @@ async function botPerformAction(req, res) {
         nextAction: req.body.next_action,
         slots: req.body.tracker.slots,
         entities: req.body.tracker.latest_message.entities,
-        intent_name: req.body.tracker.latest_message.intent.name
+        intent_name: req.body.tracker.latest_message.intent.name,
+        channel: req.body.tracker.latest_input_channel
     };
     let response = {};
 

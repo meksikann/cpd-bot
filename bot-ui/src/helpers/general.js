@@ -1,5 +1,6 @@
-import {logInfo} from "../utils/logger";
-import {getUserPermissions} from './database-queries';
+import {logError, logInfo} from "../utils/logger";
+import {getUserPermissions, updateUserProfileData} from './database-queries';
+import {getUserSlackData} from '../utils/httpRequests';
 import config from "../config";
 import moment from 'moment';
 import {each, find} from 'lodash';
@@ -171,17 +172,46 @@ function getNewsSlotsFromUtterance(data) {
     return newSlots;
 }
 
-async function checkUserOfficeLocation(data) {
-    let user = await getUserPermissions(data.senderId);
+async function checkUserAuth(data) {
+    let user;
 
-    // if permission has any office location, set auth slot to true
-    if(user && user.feature_permissions && (user.feature_permissions[config.vinLocation.toLowerCase()] ||
-        user.feature_permissions[config.vinLocation.toLowerCase()])) {
+    user = await getUserPermissions(data.senderId);
+    // if permission has any office location and email  and name, set auth slot to true
+    if (user && user.email && user.name) {
+        logInfo('retrieved user data from Db');
         return [
             {"event": "slot", "name": "auth_valid", "value": true}
-            ]
+        ]
     }
 
+    // if user uses Slack channel, try to retrieve info from channel
+    if (data.channel == config.slackChannel) {
+        let resp = await getUserSlackData(data.senderId);
+
+        if (!resp.ok) {
+            logError('Error while getting data from slack app');
+            logError(resp.error);
+            return [{"event": "slot", "name": "auth_valid", "value": false}]
+        }
+
+        user = resp.profile;
+
+        // if data received - save to DB and send slost auth true
+        if (user && user.email && user.real_name) {
+            logInfo('retrieved user data from slack');
+
+            await updateUserProfileData(data.senderId, user.email, user.real_name);
+
+            return [
+                {"event": "slot", "name": "auth_valid", "value": true}
+            ]
+        }
+    }
+
+    // (user.feature_permissions[config.vinLocation.toLowerCase()]
+    //     || user.feature_permissions[config.vinLocation.toLowerCase()])
+
+    // if there is no any data about user - send auth slot as false
     return [{"event": "slot", "name": "auth_valid", "value": false}]
 }
 
@@ -192,6 +222,6 @@ function resetAuthSlot() {
 
 let generalHelper = {
     getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
-    getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance, checkUserOfficeLocation, resetAuthSlot
+    getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance, checkUserAuth, resetAuthSlot
 };
 export {generalHelper}

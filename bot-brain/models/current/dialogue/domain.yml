@@ -19,6 +19,9 @@ actions:
 - utter_responce_how_are_you
 - utter_user_not_authorized
 - utter_user_authorized
+- utter_provide_office_location
+- utter_location_saved
+- utter_ready_to_proceed
 - action_create_event
 - action_remove_event
 - action_show_my_events
@@ -28,11 +31,14 @@ actions:
 - action_get_new_slots
 - action_check_auth_valid
 - action_reset_auth_valid_slot
+- action_check_office_location
+- action_save_office_location
 config:
   store_entities_as_slots: true
 entities:
 - event_name
 - room_name
+- office_location
 intents:
 - are_you_sure:
     use_entities: true
@@ -89,6 +95,9 @@ slots:
   normalized_duration:
     initial_value: null
     type: rasa_core.slots.TextSlot
+  office_location:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
   room_name:
     initial_value: null
     type: rasa_core.slots.TextSlot
@@ -115,8 +124,14 @@ templates:
   - text: Here is what I can do pal...
   utter_how_can_help:
   - text: how can i helps
+  utter_location_saved:
+  - text: Great! I have remembered your location:)
   utter_on_it:
   - text: I am on it
+  utter_provide_office_location:
+  - text: Please click  your office location button
+  utter_ready_to_proceed:
+  - text: Reade to continue
   utter_responce_got_it:
   - text: great, dude!:)
   utter_responce_how_are_you:

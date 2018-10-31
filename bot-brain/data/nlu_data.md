@@ -142,6 +142,8 @@
 - [the big one](room_name)
 - what about [first room](room_name)
 - and [space](room_name)?
+- [vinnitsia](office_location)
+- [lviv](office_location)
 
 
 ## intent: show_my_events

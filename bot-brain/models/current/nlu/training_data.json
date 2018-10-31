@@ -610,6 +610,30 @@
         "text": "and space?"
       }, 
       {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 9, 
+            "value": "vinnitsia", 
+            "entity": "office_location"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "vinnitsia"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 4, 
+            "value": "lviv", 
+            "entity": "office_location"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "lviv"
+      }, 
+      {
         "text": "hello can you show me my events please ?", 
         "intent": "show_my_events"
       }, 

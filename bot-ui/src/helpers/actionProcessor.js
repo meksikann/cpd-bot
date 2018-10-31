@@ -77,6 +77,14 @@ async function processActionIntent(nextActionData) {
 
                 events = generalHelper.resetAuthSlot();
                 break;
+            case actionIntents.action_check_office_location:
+                logInfo('performing action_check_office_location ...');
+                events = generalHelper.getUserOfficeLocation(nextActionData);
+                break;
+            case actionIntents.action_save_office_location:
+                logInfo('performing action_save_office_location ...');
+                await generalHelper.saveUserOfficeLocation(nextActionData);
+                break;
             default:
                 logInfo('performing default action ...');
         }

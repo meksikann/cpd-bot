@@ -22,6 +22,7 @@ intents:
 entities:
   - event_name
   - room_name
+  - office_location
 
 slots:
   event_name:
@@ -91,6 +92,12 @@ templates:
     - 'O-o-o-p-s... Cannot make the action.You need to authorize first.'
   utter_user_authorized:
     - 'You authorized, so I can make action you asked for.'
+  utter_provide_office_location:
+    - 'Please click  your office location button'
+  utter_location_saved:
+    - 'Great! I have remembered your location:)'
+  utter_ready_to_proceed:
+    - 'Reade to continue'
 
 actions:
   # all the utter actions from the templates, plus any custom actions
@@ -114,6 +121,9 @@ actions:
   - utter_responce_how_are_you
   - utter_user_not_authorized
   - utter_user_authorized
+  - utter_provide_office_location
+  - utter_location_saved
+  - utter_ready_to_proceed
   - action_create_event
   - action_remove_event
   - action_show_my_events
@@ -123,3 +133,5 @@ actions:
   - action_get_new_slots
   - action_check_auth_valid
   - action_reset_auth_valid_slot
+  - action_check_office_location
+  - action_save_office_location

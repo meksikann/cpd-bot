@@ -13,8 +13,10 @@ const actionIntents = {
     'action_get_room_free_slots': null,
     'action_get_new_slots': null,
     'book_room': null,
-    'action_check_auth_valid':null,
-    'action_reset_auth_valid_slot': null
+    'action_check_auth_valid': null,
+    'action_reset_auth_valid_slot': null,
+    'action_check_office_location': null,
+    'action_save_office_location': null
 };
 
 export default keyMirror(actionIntents);

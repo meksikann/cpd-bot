@@ -208,8 +208,7 @@ async function checkUserAuth(data) {
         }
     }
 
-    // (user.feature_permissions[config.vinLocation.toLowerCase()]
-    //     || user.feature_permissions[config.vinLocation.toLowerCase()])
+
 
     // if there is no any data about user - send auth slot as false
     return [{"event": "slot", "name": "auth_valid", "value": false}]
@@ -219,9 +218,28 @@ function resetAuthSlot() {
     return [{"event": "slot", "name": "auth_valid", "value": false}]
 }
 
+async function getUserOfficeLocation(data) {
+    console.log('check office location in db---------------->>>>>');
+    let user = await getUserPermissions(data.senderId);
+
+    if (user && user.office_location) {
+        console.log('user location found in database !!!!!!!!!!!!!!!!1');
+        return [{"event": "slot", "name": "office_location", "value": user.office_location}]
+    }
+
+    return []
+}
+
+async function saveUserOfficeLocation(data) {
+    logInfo('saving office location into db');
+    console.log(data);
+     return await updateUserProfileData(data.senderId, null, null, data.slots.office_location);
+}
+
 
 let generalHelper = {
     getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
-    getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance, checkUserAuth, resetAuthSlot
+    getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance, checkUserAuth, resetAuthSlot,
+    getUserOfficeLocation, saveUserOfficeLocation
 };
 export {generalHelper}

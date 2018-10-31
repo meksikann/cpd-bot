@@ -7,8 +7,8 @@ const defaultUser = 'default-user';
 
 async function botGenerateUtter(req, res) {
     logInfo(`Got generate Utter request.Utter template: ${req.body.template}.`);
-    logInfo('Slots: ',req.body.tracker.slots);
-    logInfo('Intent: ',req.body.tracker.latest_message.intent);
+    logInfo('Slots: ', req.body.tracker.slots);
+    logInfo('Intent: ', req.body.tracker.latest_message.intent);
     logInfo(`userId: ${req.body.tracker.sender_id}`);
 
     const data = {
@@ -19,10 +19,16 @@ async function botGenerateUtter(req, res) {
 
     try {
         const utterance = generateBotResponse(data);
+        let buttons = [];
+
+        // add buttons to template
+        if (req.body.template == 'utter_provide_office_location') {
+            buttons = [{'title': 'Vinnitsia', 'payload': 'vinnitsia'}, {'title': 'Lviv', 'payload': 'lviv'}];
+        }
 
         res.send({
             "text": utterance.text,
-            "buttons": [],
+            "buttons": buttons,
             "image": utterance.image,
             "elements": [],
             "attachments": []
@@ -31,7 +37,6 @@ async function botGenerateUtter(req, res) {
         logError(err);
         res.send(err);
     }
-
 }
 
 async function botPerformAction(req, res) {

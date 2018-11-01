@@ -19,26 +19,6 @@ async function processActionIntent(nextActionData) {
 
     try {
         switch (nextActionData.nextAction) {
-            case actionIntents.action_create_event:
-                //TODO: make IntentAction processor ----------------------------------------------------
-                logInfo('performing action_create_event ...');
-                break;
-            case actionIntents.action_update_event:
-                //TODO: make IntentAction processor ----------------------------------------------------
-                logInfo('performing action_update_event ...');
-                break;
-            case actionIntents.action_remove_event:
-                //TODO: make IntentAction processor ----------------------------------------------------
-                logInfo('performing action_remove_event ...');
-                break;
-            case actionIntents.action_show_my_events:
-                logInfo('performing action_show_events ...');
-                //TODO: make IntentAction processor ----------------------------------------------------
-                break;
-            case actionIntents.action_help:
-                logInfo('performing action_help ...');
-                //TODO: make IntentAction processor ----------------------------------------------------
-                break;
             case actionIntents.action_check_room_available:
                 logInfo('performing action_check_room_available ...');
 
@@ -84,6 +64,17 @@ async function processActionIntent(nextActionData) {
             case actionIntents.action_save_office_location:
                 logInfo('performing action_save_office_location ...');
                 await generalHelper.saveUserOfficeLocation(nextActionData);
+
+                break;
+            case actionIntents.action_save_user_email:
+                logInfo('performing action_save_user_email ...');
+                events = await generalHelper.saveUserEmail(nextActionData);
+
+                break;
+            case actionIntents.action_save_user_name:
+                logInfo('performing action_save_user_name ....');
+                events = generalHelper.saveUserName(nextActionData);
+
                 break;
             default:
                 logInfo('performing default action ...');

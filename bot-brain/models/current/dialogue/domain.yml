@@ -22,6 +22,8 @@ actions:
 - utter_provide_office_location
 - utter_location_saved
 - utter_ready_to_proceed
+- utter_ask_email
+- utter_ask_user_name
 - action_create_event
 - action_remove_event
 - action_show_my_events
@@ -33,12 +35,16 @@ actions:
 - action_reset_auth_valid_slot
 - action_check_office_location
 - action_save_office_location
+- action_save_user_email
+- action_save_user_name
 config:
   store_entities_as_slots: true
 entities:
 - event_name
 - room_name
 - office_location
+- user_name
+- email
 intents:
 - are_you_sure:
     use_entities: true
@@ -83,6 +89,9 @@ slots:
   duration:
     initial_value: null
     type: rasa_core.slots.TextSlot
+  email:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
   event_name:
     initial_value: null
     type: rasa_core.slots.TextSlot
@@ -107,11 +116,18 @@ slots:
   time:
     initial_value: null
     type: rasa_core.slots.TextSlot
+  user_name:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
 templates:
+  utter_ask_email:
+  - text: Tell me your email please
   utter_ask_event_name:
   - text: what is event name
   utter_ask_room_name:
   - text: what is room name
+  utter_ask_user_name:
+  - text: Your user name please.
   utter_bye:
   - text: Goodbye
   utter_event_saved:

@@ -16,7 +16,9 @@ const actionIntents = {
     'action_check_auth_valid': null,
     'action_reset_auth_valid_slot': null,
     'action_check_office_location': null,
-    'action_save_office_location': null
+    'action_save_office_location': null,
+    'action_save_user_email' : null,
+    'action_save_user_name': null
 };
 
 export default keyMirror(actionIntents);

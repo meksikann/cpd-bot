@@ -21,7 +21,7 @@ sudo docker run --name cpd-bot -p 8282:8282  --network host serhiyskoromets/cpd-
 
 duckling nlu
 ```angular2html
-sudo docker run -p 8000:8000 rasa/duckling
+sudo docker run -d -p 8000:8000 rasa/duckling
 ```
 bot brain (rasa-core)
 ```angular2html
@@ -125,6 +125,25 @@ Run Interactive learning ``make core-learn``
 NOTE: during interactive leaning rasa-core connect to existing action server, which may 
 cause real data change. TODO: make separet action-server for learning.
 
+Visualizing your Stories
+use https://rasa.com/docs/core/debugging/
+
+required libs:
+``` 
+pip install pygraphviz
+```
+```
+sudo apt-get install python-pip python-virtualenv
+```
+
+```
+sudo apt-get install graphviz libgraphviz-dev pkg-config
+```
+run:
+
+```
+python -m rasa_core.visualize -d domain.yml -s data/stories -o graph.png
+```
 
 
 

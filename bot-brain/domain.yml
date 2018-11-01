@@ -23,6 +23,8 @@ entities:
   - event_name
   - room_name
   - office_location
+  - user_name
+  - email
 
 slots:
   event_name:
@@ -48,6 +50,10 @@ slots:
     type: bool
     initial_value: False
   office_location:
+    type: text
+  email:
+    type: text
+  user_name:
     type: text
 
 templates:
@@ -98,6 +104,10 @@ templates:
     - 'Great! I have remembered your location:)'
   utter_ready_to_proceed:
     - 'Reade to continue'
+  utter_ask_email:
+    - "Tell me your email please"
+  utter_ask_user_name:
+    - "Your user name please."
 
 actions:
   # all the utter actions from the templates, plus any custom actions
@@ -124,6 +134,8 @@ actions:
   - utter_provide_office_location
   - utter_location_saved
   - utter_ready_to_proceed
+  - utter_ask_email
+  - utter_ask_user_name
   - action_create_event
   - action_remove_event
   - action_show_my_events
@@ -135,3 +147,5 @@ actions:
   - action_reset_auth_valid_slot
   - action_check_office_location
   - action_save_office_location
+  - action_save_user_email
+  - action_save_user_name

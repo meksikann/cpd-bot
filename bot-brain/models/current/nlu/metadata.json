@@ -1,5 +1,5 @@
 {
-    "trained_at": "20181031-153821", 
+    "trained_at": "20181101-142350", 
     "pipeline": [
         {
             "class": "rasa_nlu.utils.spacy_utils.SpacyNLP", 
@@ -75,7 +75,8 @@
         {
             "dimensions": [
                 "time", 
-                "duration"
+                "duration", 
+                "email"
             ], 
             "url": "http://0.0.0.0:8000", 
             "locale": null, 

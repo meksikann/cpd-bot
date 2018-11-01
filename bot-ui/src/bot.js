@@ -7,9 +7,11 @@ const defaultUser = 'default-user';
 
 async function botGenerateUtter(req, res) {
     logInfo(`Got generate Utter request.Utter template: ${req.body.template}.`);
-    logInfo('Slots: ', req.body.tracker.slots);
-    logInfo('Intent: ', req.body.tracker.latest_message.intent);
-    logInfo(`userId: ${req.body.tracker.sender_id}`);
+    // logInfo('Slots: ', req.body.tracker.slots);
+    // logInfo('Intent: ', req.body.tracker.latest_message.intent);
+    // logInfo(`userId: ${req.body.tracker.sender_id}`);
+
+    console.log(JSON.stringify(req.body));
 
     const data = {
         senderId: req.body.tracker.sender_id || defaultUser,
@@ -41,7 +43,7 @@ async function botGenerateUtter(req, res) {
 
 async function botPerformAction(req, res) {
     logInfo(`Got perform Action request: ${req.body.next_action}`);
-    logInfo(`userId: ${req.body.sender_id}`);
+    // logInfo(`userId: ${req.body.sender_id}`);
 
     let dbData = {
         db: req.db,
@@ -62,7 +64,7 @@ async function botPerformAction(req, res) {
         response.events = await processActionIntent(data);
         response.responses = [];
 
-        logInfo('Events sent ', response.events);
+        // logInfo('Events sent ', response.events);
 
         updateDbUserActions(dbData);
         res.send(response);
@@ -71,7 +73,6 @@ async function botPerformAction(req, res) {
         res.send(err);
     }
 }
-
 
 
 export {botGenerateUtter, botPerformAction}

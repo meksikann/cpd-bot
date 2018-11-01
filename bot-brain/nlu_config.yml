@@ -9,6 +9,6 @@ pipeline:
   - name: "ner_synonyms"
   - name: "ner_duckling_http"
     url: "http://0.0.0.0:8000"
-    dimensions: ["time", "duration"]
+    dimensions: ["time", "duration", "email"]
     timezone: "Europe/Kiev"
 

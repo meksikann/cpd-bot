@@ -634,6 +634,114 @@
         "text": "lviv"
       }, 
       {
+        "entities": [
+          {
+            "start": 18, 
+            "end": 31, 
+            "value": "user@mail.com", 
+            "entity": "email"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "ok bot here it is user@mail.com"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 13, 
+            "value": "user@mail.com", 
+            "entity": "email"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "user@mail.com"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 35, 
+            "end": 48, 
+            "value": "user@mail.com", 
+            "entity": "email"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "well I want to say that my mail is user@mail.com"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 17, 
+            "value": "Serhiy", 
+            "entity": "user_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "my name is Serhiy"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 4, 
+            "end": 10, 
+            "value": "Serhiy", 
+            "entity": "user_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "its Serhiy"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 4, 
+            "value": "Alex", 
+            "entity": "user_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "Alex"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 16, 
+            "end": 20, 
+            "value": "Nick", 
+            "entity": "user_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "well, ok, it is Nick"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 4, 
+            "value": "Mike", 
+            "entity": "user_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "Mike"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 8, 
+            "value": "Victoria", 
+            "entity": "user_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "Victoria"
+      }, 
+      {
         "text": "hello can you show me my events please ?", 
         "intent": "show_my_events"
       }, 

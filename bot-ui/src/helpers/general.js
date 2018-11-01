@@ -209,7 +209,6 @@ async function checkUserAuth(data) {
     }
 
 
-
     // if there is no any data about user - send auth slot as false
     return [{"event": "slot", "name": "auth_valid", "value": false}]
 }
@@ -223,7 +222,6 @@ async function getUserOfficeLocation(data) {
     let user = await getUserPermissions(data.senderId);
 
     if (user && user.office_location) {
-        console.log('user location found in database !!!!!!!!!!!!!!!!1');
         return [{"event": "slot", "name": "office_location", "value": user.office_location}]
     }
 
@@ -232,14 +230,46 @@ async function getUserOfficeLocation(data) {
 
 async function saveUserOfficeLocation(data) {
     logInfo('saving office location into db');
-    console.log(data);
-     return await updateUserProfileData(data.senderId, null, null, data.slots.office_location);
+
+    return await updateUserProfileData(data.senderId, null, null, data.slots.office_location);
 }
 
+async function saveUserEmail(data) {
+    let email = getEntityValue(data.entities, 'email');
+
+    if (email) {
+        await updateUserProfileData(data.senderId, email, null, null);
+
+        return [{"event": "slot", "name": "email", "value": email}]
+    }
+
+    return [];
+}
+
+async function saveUserName(data) {
+
+    let name = getEntityValue(data.entities, 'user_name');
+
+    if (name) {
+        await updateUserProfileData(data.senderId, null, name, null);
+
+        return [{"event": "slot", "name": "user_name", "value": name}]
+    }
+
+    return [];
+}
+
+function getEntityValue(entities, entityName) {
+    let entity = find(entities, ent => {
+        return ent.entity === entityName
+    });
+
+    return entity.value || null;
+}
 
 let generalHelper = {
     getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
     getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance, checkUserAuth, resetAuthSlot,
-    getUserOfficeLocation, saveUserOfficeLocation
+    getUserOfficeLocation, saveUserOfficeLocation, saveUserEmail, saveUserName
 };
 export {generalHelper}

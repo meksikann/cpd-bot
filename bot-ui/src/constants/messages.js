@@ -32,11 +32,14 @@ let messages = {
             'room activities. But in future I am sure I will be able to manage some more stuff..And you know..maybe I could even have' +
             'some voice interface. Who knows!? :)',
         utter_responce_how_are_you: `I'm fine. Thanks:) Learning new stuff every day. And you?`,
-        utter_user_not_authorized:`O-o-o-p-s! Can't make the action. I need to know you'r profile details, like *location, name and email*.`,
+        utter_user_not_authorized: `O-o-o-p-s! Can't make the action. Need to get few details about your profile. 
+        Don't you mind for few quick questions?`,
         utter_user_authorized: 'You authorized, so I can make action you asked for.',
         utter_provide_office_location: 'Hm... Need to get you office_location. Please choose the right one.',
         utter_location_saved: `Great! I've remembered your location :). As would Robocop say: *"Thank you for your cooperation"*  ;)`,
         utter_ready_to_proceed: 'Good! I am ready to go on...',
+        utter_ask_email: `Tell me your email, please.`,
+        utter_ask_user_name: `And you'r user name? (start name with capitalized letter  ex. Alex)`,
 
         /* ************************* custom ***************************************************************************/
         defaultmessage: 'default dialog goes here...Man!!....It means that you or bot screwed up conversation...:)',
@@ -44,6 +47,7 @@ let messages = {
         noFreeSpace: 'No free space in next 3 hours',
         calendarIsEmpty: 'Calendar is empty'
     },
+    /* ************************* rasa-core utter messages with variables **********************************************/
     getHelpMessage: function (url) {
         let message = `
          Ok. So first of all remember - I'm just in learning stage, and do not know loads of stuff.
@@ -55,6 +59,8 @@ let messages = {
 
         return message;
     },
+
+    /* ******************************** end ***************************************************************************/
 };
 
 

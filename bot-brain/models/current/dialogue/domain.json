@@ -21,8 +21,11 @@
     "entity_event_name", 
     "entity_room_name", 
     "entity_office_location", 
+    "entity_user_name", 
+    "entity_email", 
     "slot_auth_valid_0", 
     "slot_duration_0", 
+    "slot_email_0", 
     "slot_event_name_0", 
     "slot_is_room_available_0", 
     "slot_is_room_exists_0", 
@@ -31,6 +34,7 @@
     "slot_room_name_0", 
     "slot_rooms_free_slots_0", 
     "slot_time_0", 
+    "slot_user_name_0", 
     "prev_action_listen", 
     "prev_action_restart", 
     "prev_action_default_fallback", 
@@ -57,6 +61,8 @@
     "prev_utter_provide_office_location", 
     "prev_utter_location_saved", 
     "prev_utter_ready_to_proceed", 
+    "prev_utter_ask_email", 
+    "prev_utter_ask_user_name", 
     "prev_action_create_event", 
     "prev_action_remove_event", 
     "prev_action_show_my_events", 
@@ -67,6 +73,8 @@
     "prev_action_check_auth_valid", 
     "prev_action_reset_auth_valid_slot", 
     "prev_action_check_office_location", 
-    "prev_action_save_office_location"
+    "prev_action_save_office_location", 
+    "prev_action_save_user_email", 
+    "prev_action_save_user_name"
   ]
 }

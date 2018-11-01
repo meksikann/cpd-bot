@@ -144,7 +144,15 @@
 - and [space](room_name)?
 - [vinnitsia](office_location)
 - [lviv](office_location)
-
+- ok bot here it is [user@mail.com](email)
+- [user@mail.com](email)
+- well I want to say that my mail is [user@mail.com](email)
+- my name is [Serhiy](user_name)
+- its [Serhiy](user_name)
+- [Alex](user_name)
+- well, ok, it is [Nick](user_name)
+- [Mike](user_name)
+- [Victoria](user_name)
 
 ## intent: show_my_events
 - hello can you show me my events please ?

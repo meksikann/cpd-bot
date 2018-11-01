@@ -40,6 +40,8 @@ let messages = {
         utter_ready_to_proceed: 'Good! I am ready to go on...',
         utter_ask_email: `Tell me your email, please.`,
         utter_ask_user_name: `And you'r user name? (start name with capitalized letter  ex. Alex)`,
+        utter_ask_time: "At what time?",
+        utter_ask_duration: "For how long should I book it?",
 
         /* ************************* custom ***************************************************************************/
         defaultmessage: 'default dialog goes here...Man!!....It means that you or bot screwed up conversation...:)',

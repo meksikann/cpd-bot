@@ -34,16 +34,13 @@
         "email"
       ]
     }, 
-    "utter_responce_got_it": {
+    "utter_thank": {
       "slots": []
     }, 
     "action_get_new_slots": {
       "slots": [
         "normalized_duration"
       ]
-    }, 
-    "utter_room_not_exists": {
-      "slots": []
     }, 
     "action_get_room_free_slots": {
       "slots": [
@@ -85,7 +82,7 @@
     "utter_sure": {
       "slots": []
     }, 
-    "utter_thank": {
+    "utter_room_not_exists": {
       "slots": []
     }, 
     "utter_show_free_slots": {
@@ -106,6 +103,9 @@
       "slots": []
     }, 
     "utter_ready_to_proceed": {
+      "slots": []
+    }, 
+    "utter_responce_got_it": {
       "slots": []
     }
   }

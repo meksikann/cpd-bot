@@ -1,5 +1,4 @@
 intents:
-  # add your intents
   - greet
   - thank
   - bye
@@ -57,7 +56,6 @@ slots:
     type: text
 
 templates:
-  # templates the bot should respond with
   utter_greet:
     - "Hey, how can I help you?"
   utter_thank:
@@ -110,7 +108,6 @@ templates:
     - "Your user name please."
 
 actions:
-  # all the utter actions from the templates, plus any custom actions
   - utter_greet
   - utter_thank
   - utter_bye

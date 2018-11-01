@@ -11,11 +11,9 @@ const seconds = 'seconds';
 //process custom action
 async function processActionIntent(nextActionData) {
     let events = [];
-
     let queryData;
 
-    logInfo('processActionIntent')
-    console.log(nextActionData);
+    logInfo('processActionIntent');
 
     try {
         switch (nextActionData.nextAction) {
@@ -135,8 +133,6 @@ async function checkCpecifiedRoomAvailable(queryData) {
         durationUnit = seconds;
     }
 
-
-    console.log('got duration ----------->', durationValue, durationUnit);
     logInfo(`Checking if room available, room name: ${queryData.roomName}, and time: ${queryData.time}`);
     //RASA-core can return  Time slot as string or as Object(from:'', to: '') manage handle exact time or time range.
 

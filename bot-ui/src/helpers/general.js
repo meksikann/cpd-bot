@@ -1,6 +1,7 @@
 import {logError, logInfo} from "../utils/logger";
 import {getUserPermissions, updateUserProfileData} from './database-queries';
 import {getUserSlackData} from '../utils/httpRequests';
+import {addGoogleCalendarEvent} from './googleCalendarApiHandler';
 import config from "../config";
 import moment from 'moment';
 import {each, find} from 'lodash';
@@ -279,8 +280,52 @@ function getEntityValue(entities, entityName) {
 }
 
 //TODO: make the api --------------------------->>>>>>
-function bookRoom(data) {
-    return [{"event": "slot", "name": "success_booking", "value": true}]
+async function bookRoom(data) {
+    console.log(data);
+    let user = await getUserPermissions(data.senderId);
+    let calendarId = ''; // TODO: !!!!!!!!!!!!1
+    let event = generateEvent(user.email, data.slots.time,
+        getDateWithDurationISOString(data.slots.time, data.slots.normalized_duration, 'seconds', true));
+    let req = {
+        event,
+        calendarId
+    };
+    let res = await addGoogleCalendarEvent(req);
+
+    if(res.event) {
+        return [{"event": "slot", "name": "success_booking", "value": true}]
+    }
+
+    return [{"event": "slot", "name": "success_booking", "value": false}]
+}
+
+function generateEvent(email, startTime, endTime) {
+    let event = {
+        'summary': email,
+        'location': '',
+        'description': '',
+        'start': {
+            'dateTime': startTime,
+            'timeZone': config.timeZone,
+        },
+        'end': {
+            'dateTime': endTime,
+            'timeZone': config.timeZone,
+        },
+        'recurrence': [],
+        'attendees': [
+            {'email': email}
+        ],
+        'reminders': {
+            'useDefault': false,
+            'overrides': [
+                {'method': 'email', 'minutes': 24 * 60},
+                {'method': 'popup', 'minutes': 10},
+            ],
+        },
+    };
+
+    return event;
 }
 
 let generalHelper = {

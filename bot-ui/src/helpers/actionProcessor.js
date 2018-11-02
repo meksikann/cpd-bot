@@ -14,7 +14,6 @@ async function processActionIntent(nextActionData) {
     let queryData;
 
     logInfo('processActionIntent');
-    console.log(nextActionData);
 
     try {
         switch (nextActionData.nextAction) {
@@ -22,7 +21,6 @@ async function processActionIntent(nextActionData) {
                 logInfo('performing action_check_room_available ...');
 
                 queryData = generalHelper.geterateQueryData(nextActionData);
-                console.log(queryData);
                 events = await checkCpecifiedRoomAvailable(queryData);
                 break;
             case actionIntents.action_check_room_exists:

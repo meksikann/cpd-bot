@@ -23,7 +23,8 @@ let config = {
     },
     vinLocation: 'vinnitsia',
     lvLocation: 'lviv',
-    slackChannel: 'slack'
+    slackChannel: 'slack',
+    timeZone: 'Europe/Kiev'
 };
 
 

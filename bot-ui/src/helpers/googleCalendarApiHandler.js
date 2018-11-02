@@ -14,12 +14,47 @@ async function getGoogleCalendarEvents(calendarId, startTime, endTime) {
     logInfo('In googleCalendarApiHandler: get all events');
 
     let content = await readFileSync(`${currentPath}/../creds/credentials.json`);
-    console.log(content);
+
     // Authorize a client with credentials, then call the Google Calendar API.
     const oAuth2Client = await authorize(JSON.parse(content));
     const events = await listEvents(oAuth2Client, calendarId, startTime, endTime);
 
     return events;
+}
+
+async function addGoogleCalendarEvent(data) {
+    let res = {
+        event: null
+    };
+
+
+    let content = await readFileSync(`${currentPath}/../creds/credentials.json`);
+    // Authorize a client with credentials, then call the Google Calendar API.
+    const oAuth2Client = await authorize(JSON.parse(content));
+
+    res.event = await addEvent(oAuth2Client, data.calendarId, data.event);
+
+    return res
+}
+
+function addEvent(auth, calendarId, event) {
+    const calendar = google.calendar({version: 'v3', auth});
+
+    return  new Promise((resolve, reject) => {
+        calendar.events.insert({
+            auth: auth,
+            calendarId: calendarId,
+            resource: event,
+        }, function(err, ev) {
+            if (err) {
+                console.log('There was an error contacting the Calendar service: ' + err);
+                reject();
+            } else {
+                resolve(ev);
+            }
+        });
+
+    })
 }
 
 /**
@@ -146,4 +181,4 @@ async function authorize(credentials) {
 // }
 
 
-export {getGoogleCalendarEvents};
+export {getGoogleCalendarEvents, addGoogleCalendarEvent};

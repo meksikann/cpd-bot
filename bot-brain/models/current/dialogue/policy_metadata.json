@@ -39,6 +39,7 @@
     }, 
     "action_get_new_slots": {
       "slots": [
+        "formatted_duration", 
         "normalized_duration"
       ]
     }, 
@@ -50,6 +51,11 @@
     "action_check_room_exists": {
       "slots": [
         "is_room_exists"
+      ]
+    }, 
+    "action_book_room": {
+      "slots": [
+        "success_booking"
       ]
     }, 
     "action_check_auth_valid": {

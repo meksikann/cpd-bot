@@ -742,6 +742,18 @@
         "text": "Victoria"
       }, 
       {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 26, 
+            "value": "serhiy.testitest@testi.com", 
+            "entity": "email"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "serhiy.testitest@testi.com"
+      }, 
+      {
         "text": "hello can you show me my events please ?", 
         "intent": "show_my_events"
       }, 
@@ -1032,6 +1044,60 @@
       {
         "text": "hey! please book conference hall for me", 
         "intent": "book_room"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 13, 
+            "end": 20, 
+            "value": "factory", 
+            "entity": "room_name"
+          }, 
+          {
+            "start": 33, 
+            "end": 40, 
+            "value": "2 hours", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "book_room", 
+        "text": "need to take factory at 5 pm for 2 hours"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 4, 
+            "end": 9, 
+            "value": "space", 
+            "entity": "room_name"
+          }, 
+          {
+            "start": 14, 
+            "end": 21, 
+            "value": "3 hours", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "book_room", 
+        "text": "get space for 3 hours"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 13, 
+            "end": 24, 
+            "value": "second room", 
+            "entity": "room_name"
+          }, 
+          {
+            "start": 29, 
+            "end": 39, 
+            "value": "four hours", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "book_room", 
+        "text": "i wanna book second room for four hours at 2pm"
       }, 
       {
         "text": "is it available?", 

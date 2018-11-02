@@ -36,6 +36,8 @@ slots:
     type: text
   normalized_duration:
     type: text
+  formatted_duration:
+    type: text
   is_room_available:
     type: bool
     initial_value: False
@@ -54,6 +56,9 @@ slots:
     type: text
   user_name:
     type: text
+  success_booking:
+    type: bool
+    initial_value: False
 
 templates:
   utter_greet:
@@ -110,6 +115,12 @@ templates:
     - "At what time?"
   utter_ask_duration:
     - "For how long should I book it?"
+  utter_confirm_booking:
+    - "I will book {room_name} at {time} for {formatted_duration}. Correct ?"
+  utter_room_booked:
+    - "I have booked room"
+  utter_room_not_booked:
+    - "Failed to book room"
 
 actions:
   - utter_greet
@@ -119,7 +130,7 @@ actions:
   - utter_on_it
   - utter_ask_event_name
   - utter_event_saved
-  - utter_ask_room_ name
+  - utter_ask_room_name
   - utter_room_is_free
   - utter_room_is_busy
   - utter_fallback
@@ -139,6 +150,9 @@ actions:
   - utter_ask_user_name
   - utter_ask_time
   - utter_ask_duration
+  - utter_confirm_booking
+  - utter_room_booked
+  - utter_room_not_booked
   - action_create_event
   - action_remove_event
   - action_show_my_events
@@ -152,3 +166,4 @@ actions:
   - action_save_office_location
   - action_save_user_email
   - action_save_user_name
+  - action_book_room

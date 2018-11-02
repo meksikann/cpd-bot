@@ -14,6 +14,7 @@ async function processActionIntent(nextActionData) {
     let queryData;
 
     logInfo('processActionIntent');
+    console.log(nextActionData);
 
     try {
         switch (nextActionData.nextAction) {
@@ -21,6 +22,7 @@ async function processActionIntent(nextActionData) {
                 logInfo('performing action_check_room_available ...');
 
                 queryData = generalHelper.geterateQueryData(nextActionData);
+                console.log(queryData);
                 events = await checkCpecifiedRoomAvailable(queryData);
                 break;
             case actionIntents.action_check_room_exists:
@@ -71,7 +73,12 @@ async function processActionIntent(nextActionData) {
                 break;
             case actionIntents.action_save_user_name:
                 logInfo('performing action_save_user_name ....');
-                events = generalHelper.saveUserName(nextActionData);
+                events = await generalHelper.saveUserName(nextActionData);
+
+                break;
+            case actionIntents.action_book_room:
+                logInfo('performing action_book_room ...');
+                events = generalHelper.bookRoom(nextActionData);
 
                 break;
             default:
@@ -94,8 +101,13 @@ function checkCpecifiedRoomExists(queryData) {
     // if mentioned new duration inutterance
     if (durationValue && durationValue != queryData.normalized_duration) {
         result.push(
-            {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()},
-        )
+            {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()}
+        );
+
+        // add human normalized duration
+        result.push(
+            {"event": "slot", "name": "formatted_duration", "value": generalHelper.getFormattedDuration(durationValue)}
+        );
     }
 
     if (exists) {
@@ -124,8 +136,13 @@ async function checkCpecifiedRoomAvailable(queryData) {
     // if mentioned new duration inutterance
     if (durationValue && durationValue != queryData.normalized_duration) {
         result.push(
-            {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()},
-        )
+            {"event": "slot", "name": "normalized_duration", "value": durationValue, "timestamp": Date.now()}
+        );
+
+        // add human normalized duration
+        result.push(
+            {"event": "slot", "name": "formatted_duration", "value": generalHelper.getFormattedDuration(durationValue)}
+        );
     } else
     // if normalized_duration exists in slots from utterances mentioned before
     if (!durationValue && queryData.normalized_duration) {
@@ -156,13 +173,13 @@ async function checkCpecifiedRoomAvailable(queryData) {
 
     // if there are event on requested time - send room is busy, else - send room is free
     if (events && events.length) {
-        result = [
+        result.push(
             {"event": "slot", "name": "is_room_available", "value": false, "timestamp": Date.now()}
-        ];
+        );
     } else {
-        result = [
+        result.push(
             {"event": "slot", "name": "is_room_available", "value": true, "timestamp": Date.now()}
-        ];
+        );
     }
 
     return result;
@@ -173,7 +190,7 @@ async function generateFreeSlots(queryData) {
     const roomName = queryData.roomName;
     const shouldAdd = true;
     const minutesRange = config.freeSpaceSearchTimeRangeMins;
-    let result;
+    let result = [];
     let freeSlots = [];
 
     const calendarsIds = generalHelper.aggregateCalendarIds(roomName);
@@ -208,9 +225,9 @@ async function generateFreeSlots(queryData) {
     });
 
     freeSlots = await Promise.all(pArray);
-    result = [
+    result.push(
         {"event": "slot", "name": "rooms_free_slots", "value": freeSlots, "timestamp": Date.now()}
-    ];
+    );
 
     return result;
 }

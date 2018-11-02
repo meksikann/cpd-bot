@@ -42,6 +42,8 @@ let messages = {
         utter_ask_user_name: `And you'r user name? (start name with capitalized letter  ex. Alex)`,
         utter_ask_time: "At what time?",
         utter_ask_duration: "For how long should I book it?",
+        utter_room_booked: "I have booked room for you.",
+        utter_room_not_booked: "Failed to book room",
 
         /* ************************* custom ***************************************************************************/
         defaultmessage: 'default dialog goes here...Man!!....It means that you or bot screwed up conversation...:)',
@@ -51,16 +53,21 @@ let messages = {
     },
     /* ************************* rasa-core utter messages with variables **********************************************/
     getHelpMessage: function (url) {
-        let message = `
-         Ok. So first of all remember - I'm just in learning stage, and do not know loads of stuff.
+        let message = `Ok. So first of all remember - I'm just in learning stage, and do not know loads of stuff.
          Our CPD team working on my skills.
-         For now on I can give you information regarding conference rooms(Main conference room and small one) - if its available at time you need.
+         For now on I can give you information regarding conference rooms(Main conference room and small one) - 
+         if its available at time you need.
          I am sure - late I will be able even book some time for you etc..
-         Also CPD guys working on [manual doc](${url}) ...or not..not really sure about it, better ask them;)
+         Also CPD guys working on [manual doc](${url}) 
+         ...or not..not really sure about it, better ask them;)
+         If you have any issues, please ping dev-team to _serhii.skoromets@eliftech.com_
          Hope in future we'll have a nice talk:)`;
 
         return message;
     },
+    getConfirmBookingMessage(data) {
+        return `I will book ${data.roomName} at ${data.time} for next ${data.formatted_duration}. Correct ?`;
+    }
 
     /* ******************************** end ***************************************************************************/
 };

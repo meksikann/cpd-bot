@@ -153,6 +153,7 @@
 - well, ok, it is [Nick](user_name)
 - [Mike](user_name)
 - [Victoria](user_name)
+- [serhiy.testitest@testi.com](email)
 
 ## intent: show_my_events
 - hello can you show me my events please ?
@@ -193,8 +194,9 @@
 - I want to book conference room
 - I want to take [space](room_name) at 4pm
 - hey! please book conference hall for me
-
-
+- need to take [factory](room_name) at 5 pm for [2 hours](duration)
+- get [space](room_name) for [3 hours](duration)
+- i wanna book [second room](room_name) for [four hours](duration) at 2pm
 
 ## intent: get_room_free_slots
 - is it available?

@@ -164,7 +164,12 @@ function getNewsSlotsFromUtterance(data) {
 
         if (durationData.value && durationData.unit) {
             newSlots.push(
-                {"event": "slot", "name": "normalized_duration", "value": durationData.value},
+                {"event": "slot", "name": "normalized_duration", "value": durationData.value}
+            )
+
+             // add human normalized dration
+            newSlots.push(
+                {"event": "slot", "name": "formatted_duration", "value": getFormattedDuration(durationData.value)}
             )
         }
     }
@@ -172,6 +177,12 @@ function getNewsSlotsFromUtterance(data) {
     return newSlots;
 }
 
+// get formatted duration text from seconds to user friendly format
+function getFormattedDuration(value) {
+    let seconds = value ? value : config.minDurationAvailableMin * 60;
+
+    return moment.duration(seconds, "seconds").humanize()
+}
 async function checkUserAuth(data) {
     let user;
 
@@ -267,9 +278,14 @@ function getEntityValue(entities, entityName) {
     return entity.value || null;
 }
 
+//TODO: make the api --------------------------->>>>>>
+function bookRoom(data) {
+    return [{"event": "slot", "name": "success_booking", "value": true}]
+}
+
 let generalHelper = {
     getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
     getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance, checkUserAuth, resetAuthSlot,
-    getUserOfficeLocation, saveUserOfficeLocation, saveUserEmail, saveUserName
+    getUserOfficeLocation, saveUserOfficeLocation, saveUserEmail, saveUserName, getFormattedDuration, bookRoom
 };
 export {generalHelper}

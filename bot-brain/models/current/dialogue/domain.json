@@ -27,12 +27,14 @@
     "slot_duration_0", 
     "slot_email_0", 
     "slot_event_name_0", 
+    "slot_formatted_duration_0", 
     "slot_is_room_available_0", 
     "slot_is_room_exists_0", 
     "slot_normalized_duration_0", 
     "slot_office_location_0", 
     "slot_room_name_0", 
     "slot_rooms_free_slots_0", 
+    "slot_success_booking_0", 
     "slot_time_0", 
     "slot_user_name_0", 
     "prev_action_listen", 
@@ -63,6 +65,11 @@
     "prev_utter_ready_to_proceed", 
     "prev_utter_ask_email", 
     "prev_utter_ask_user_name", 
+    "prev_utter_ask_time", 
+    "prev_utter_ask_duration", 
+    "prev_utter_confirm_booking", 
+    "prev_utter_room_booked", 
+    "prev_utter_room_not_booked", 
     "prev_action_create_event", 
     "prev_action_remove_event", 
     "prev_action_show_my_events", 
@@ -75,6 +82,7 @@
     "prev_action_check_office_location", 
     "prev_action_save_office_location", 
     "prev_action_save_user_email", 
-    "prev_action_save_user_name"
+    "prev_action_save_user_name", 
+    "prev_action_book_room"
   ]
 }

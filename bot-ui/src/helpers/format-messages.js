@@ -1,5 +1,6 @@
 import {messages} from "../constants/messages";
 import {generalHelper} from './general';
+import config from  '../config';
 
 const fs = require('fs');
 
@@ -39,12 +40,21 @@ function generateBotResponse(data) {
         response.text = message;
         return response;
     } else if (data.template == 'utter_help') {
-        message = `${messages.heroCard.subtitle},
+        message = `${messages.heroCard.subtitle}.
         ${messages.getHelpMessage(process.env.BOT_MANUAL)}
         `;
 
         response.text = message;
         response.image = getBotImage();
+        return response;
+    } else if (data.template == 'utter_confirm_booking') {
+        console.log(data);
+        let req = {
+            time: data.slots.time,
+            formatted_duration: data.slots.formatted_duration,
+            roomName: data.slots.room_name
+        };
+        response.text = messages.getConfirmBookingMessage(req);
         return response;
     }
 

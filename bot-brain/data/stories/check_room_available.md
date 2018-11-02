@@ -179,6 +179,7 @@
     - slot{"time": "2018-09-13T10:49:51.000+03:00"}
     - action_get_new_slots
     - slot{"normalized_duration": "180"}
+    - slot{"formatted_duration": "3 mins"}
     - utter_ask_room_name
 * check_room_available{"room_name": "second conference room"}
     - slot{"room_name": "second conference room"}
@@ -397,6 +398,7 @@
     - slot{"time": "2018-10-18T15:03:08.000+03:00"}
     - action_get_new_slots
     - slot{"normalized_duration": 7200}
+    - slot{"formatted_duration": "2 hours"}
     - utter_ask_room_name
 * inform{"room_name": "factory"}
     - slot{"room_name": "factory"}

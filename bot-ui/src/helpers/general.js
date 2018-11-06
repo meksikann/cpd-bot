@@ -8,8 +8,6 @@ import {each, find} from 'lodash';
 
 
 const user = 'user';
-let calendarsIds = process.env.NODE_ENV == 'production' ? config.productionCalendarIds :
-    config.developmentCalendarIds;
 
 function getDateWithDurationISOString(time, duration, unit, isAdd) {
     if (isAdd) {
@@ -21,10 +19,15 @@ function getDateWithDurationISOString(time, duration, unit, isAdd) {
 
 //choose which calendar ID user wants to use.
 function getCalendarId(roomName) {
+    let calendarsIds = process.env.NODE_ENV == 'production' ? config.productionCalendarIds :
+        config.developmentCalendarIds;
+
     return calendarsIds[roomName];
 }
 
 function aggregateCalendarIds(roomName) {
+    let calendarsIds = process.env.NODE_ENV == 'production' ? config.productionCalendarIds :
+        config.developmentCalendarIds;
     let items = [];
 
     //if room name defined find aggregate data for specified room, else aggregate data for all existing rooms;
@@ -270,9 +273,9 @@ function getEntityValue(entities, entityName) {
     return entity.value || null;
 }
 
-//TODO: make the api --------------------------->>>>>>
 async function bookRoom(data) {
     console.log(data);
+
     let user = await getUserPermissions(data.senderId);
     let calendarId = getCalendarId(data.slots.room_name);
     let event = generateEvent(user.email, data.slots.time,

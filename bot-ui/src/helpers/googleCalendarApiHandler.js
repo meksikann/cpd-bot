@@ -128,7 +128,6 @@ function getAccessToken(oAuth2Client) {
                 if (err) reject('Error retrieving access token', err);
                 // Store the token to disk for later program executions
                 let res = await writeFileSync(`${currentPath}/../creds/${TOKEN_PATH}`, JSON.stringify(token));
-                console.log(res);
 
                 resolve(token);
             });

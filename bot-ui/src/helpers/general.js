@@ -285,7 +285,7 @@ async function bookRoom(data) {
         event,
         calendarId
     };
-    console.log(req);
+    logInfo('Event to create: ', req);
     let res = await addGoogleCalendarEvent(req);
 
     if (res.event) {

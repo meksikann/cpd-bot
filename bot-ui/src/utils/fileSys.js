@@ -11,4 +11,16 @@ function readFileSync(path) {
     })
 }
 
-export {readFileSync}
+function writeFileSync(path, data) {
+    return new Promise((resolve, reject)=>{
+        fs.writeFile(path, data, (err) => {
+            if (err) {
+                reject(err)
+            };
+            console.log('Token stored to ', path);
+            resolve(data);
+        });
+    });
+}
+
+export {readFileSync, writeFileSync}

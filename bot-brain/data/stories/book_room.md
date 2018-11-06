@@ -128,6 +128,9 @@
     - slot{"is_room_exists": true}
     - utter_confirm_booking
 * affirm
+    - action_book_room
+    - slot{"success_booking": true}
+    - utter_room_booked
 * thank
     - utter_thank
 

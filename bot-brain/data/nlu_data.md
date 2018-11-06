@@ -197,6 +197,10 @@
 - need to take [factory](room_name) at 5 pm for [2 hours](duration)
 - get [space](room_name) for [3 hours](duration)
 - i wanna book [second room](room_name) for [four hours](duration) at 2pm
+- i want to book room now
+- book me [main room](room_name) at 3pm
+- order me [space](room_name) at 13:00 for [two hours](duration)
+- I want to book [main room](room_name) now
 
 ## intent: get_room_free_slots
 - is it available?

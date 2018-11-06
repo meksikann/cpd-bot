@@ -66,7 +66,7 @@ let messages = {
         return message;
     },
     getConfirmBookingMessage(data) {
-        return `I will book ${data.roomName} at ${data.time} for next ${data.formatted_duration}. Correct ?`;
+        return `I will book *${data.roomName}* at ${data.time} for next *${data.formatted_duration}*. _Correct_ ?`;
     }
 
     /* ******************************** end ***************************************************************************/

@@ -58,9 +58,9 @@
         "success_booking"
       ]
     }, 
-    "action_check_auth_valid": {
+    "action_check_office_location": {
       "slots": [
-        "auth_valid"
+        "office_location"
       ]
     }, 
     "action_save_user_email": {
@@ -94,9 +94,9 @@
     "utter_show_free_slots": {
       "slots": []
     }, 
-    "action_check_office_location": {
+    "action_check_auth_valid": {
       "slots": [
-        "office_location"
+        "auth_valid"
       ]
     }, 
     "utter_help": {

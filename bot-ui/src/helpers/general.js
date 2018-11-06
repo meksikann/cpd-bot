@@ -21,21 +21,7 @@ function getDateWithDurationISOString(time, duration, unit, isAdd) {
 
 //choose which calendar ID user wants to use.
 function getCalendarId(roomName) {
-    let id;
-
-    logInfo('process.env.NODE_ENV ', process.env.NODE_ENV);
-    logInfo('Choose calendar id.Room name: ', roomName);
-
-    switch (roomName) {
-        case config.room_names.first_conference_room:
-            id = calendarsIds.first_conference_room;
-            break;
-        case config.room_names.second_conference_room:
-            id = calendarsIds.second_conference_room;
-            break;
-    }
-
-    return id;
+    return calendarsIds[roomName];
 }
 
 function aggregateCalendarIds(roomName) {
@@ -168,7 +154,7 @@ function getNewsSlotsFromUtterance(data) {
                 {"event": "slot", "name": "normalized_duration", "value": durationData.value}
             )
 
-             // add human normalized dration
+            // add human normalized dration
             newSlots.push(
                 {"event": "slot", "name": "formatted_duration", "value": getFormattedDuration(durationData.value)}
             )
@@ -184,6 +170,11 @@ function getFormattedDuration(value) {
 
     return moment.duration(seconds, "seconds").humanize()
 }
+
+function getHumanizedTime(time) {
+    return moment(time).format("h:mm a, dddd, MMM Do YYYY");
+}
+
 async function checkUserAuth(data) {
     let user;
 
@@ -283,16 +274,18 @@ function getEntityValue(entities, entityName) {
 async function bookRoom(data) {
     console.log(data);
     let user = await getUserPermissions(data.senderId);
-    let calendarId = ''; // TODO: !!!!!!!!!!!!1
+    let calendarId = getCalendarId(data.slots.room_name);
     let event = generateEvent(user.email, data.slots.time,
-        getDateWithDurationISOString(data.slots.time, data.slots.normalized_duration, 'seconds', true));
+        getDateWithDurationISOString(data.slots.time, data.slots.normalized_duration || config.minDurationAvailableMin * 60,
+            'seconds', true));
     let req = {
         event,
         calendarId
     };
+    console.log(req);
     let res = await addGoogleCalendarEvent(req);
 
-    if(res.event) {
+    if (res.event) {
         return [{"event": "slot", "name": "success_booking", "value": true}]
     }
 
@@ -303,7 +296,7 @@ function generateEvent(email, startTime, endTime) {
     let event = {
         'summary': email,
         'location': '',
-        'description': '',
+        'description': 'this is test cpd-bot description (later on bot will be able to ask you for the description)',
         'start': {
             'dateTime': startTime,
             'timeZone': config.timeZone,
@@ -331,6 +324,7 @@ function generateEvent(email, startTime, endTime) {
 let generalHelper = {
     getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
     getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance, checkUserAuth, resetAuthSlot,
-    getUserOfficeLocation, saveUserOfficeLocation, saveUserEmail, saveUserName, getFormattedDuration, bookRoom
+    getUserOfficeLocation, saveUserOfficeLocation, saveUserEmail, saveUserName, getFormattedDuration, bookRoom,
+    getHumanizedTime
 };
 export {generalHelper}

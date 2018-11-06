@@ -1100,6 +1100,52 @@
         "text": "i wanna book second room for four hours at 2pm"
       }, 
       {
+        "text": "i want to book room now", 
+        "intent": "book_room"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 8, 
+            "end": 17, 
+            "value": "main room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "book_room", 
+        "text": "book me main room at 3pm"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 9, 
+            "end": 14, 
+            "value": "space", 
+            "entity": "room_name"
+          }, 
+          {
+            "start": 28, 
+            "end": 37, 
+            "value": "two hours", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "book_room", 
+        "text": "order me space at 13:00 for two hours"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 15, 
+            "end": 24, 
+            "value": "main room", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "book_room", 
+        "text": "I want to book main room now"
+      }, 
+      {
         "text": "is it available?", 
         "intent": "get_room_free_slots"
       }, 

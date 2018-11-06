@@ -13,8 +13,6 @@ async function processActionIntent(nextActionData) {
     let events = [];
     let queryData;
 
-    logInfo('processActionIntent');
-
     try {
         switch (nextActionData.nextAction) {
             case actionIntents.action_check_room_available:

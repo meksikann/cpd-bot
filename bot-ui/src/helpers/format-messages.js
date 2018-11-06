@@ -50,8 +50,8 @@ function generateBotResponse(data) {
     } else if (data.template == 'utter_confirm_booking') {
         console.log(data);
         let req = {
-            time: data.slots.time,
-            formatted_duration: data.slots.formatted_duration,
+            time: generalHelper.getHumanizedTime(data.slots.time),
+            formatted_duration: data.slots.formatted_duration || generalHelper.getFormattedDuration(config.minDurationAvailableMin * 60),
             roomName: data.slots.room_name
         };
         response.text = messages.getConfirmBookingMessage(req);

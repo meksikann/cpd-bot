@@ -1,12 +1,13 @@
 import {logInfo, logError} from "../utils/logger";
 import {readFileSync} from "../utils/fileSys";
 import config from "../config";
+const fs = require('fs');
 
 const path = require('path');
 const readline = require('readline');
 const {google} = require('googleapis');
 // If modifying these scopes, delete token.json.
-const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
+const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 const TOKEN_PATH = 'token.json';
 const currentPath = path.dirname(__filename);
 
@@ -38,7 +39,7 @@ async function addGoogleCalendarEvent(data) {
 }
 
 function addEvent(auth, calendarId, event) {
-    const calendar = google.calendar({version: 'v3', auth});
+    const calendar = google.calendar({version: 'v3'});
 
     return  new Promise((resolve, reject) => {
         calendar.events.insert({
@@ -140,13 +141,18 @@ async function listEvents(auth, calendarId, startTime, endTime) {
  */
 async function authorize(credentials) {
     const {client_secret, client_id, redirect_uris} = credentials.installed;
-    const oAuth2Client = new google.auth.OAuth2(
+    let oAuth2Client = new google.auth.OAuth2(
         client_id, client_secret, redirect_uris[0]);
-
-    const token = await readFileSync(`${currentPath}/../creds/${TOKEN_PATH}`);
-    oAuth2Client.setCredentials(JSON.parse(token));
-
-    return oAuth2Client;
+    let token;
+    try{
+        token = await readFileSync(`${currentPath}/../creds/${TOKEN_PATH}`);
+        oAuth2Client.setCredentials(JSON.parse(token));
+        return oAuth2Client;
+    } catch (e) {
+        token = await getAccessToken(oAuth2Client);
+        oAuth2Client.setCredentials(token);
+        return oAuth2Client;
+    }
 }
 
 /**
@@ -179,6 +185,35 @@ async function authorize(credentials) {
 //         });
 //     });
 // }
+
+
+function getAccessToken(oAuth2Client) {
+    return new Promise((resolve, reject)=>{
+        const authUrl = oAuth2Client.generateAuthUrl({
+            access_type: 'offline',
+            scope: SCOPES,
+        });
+        console.log('Authorize this app by visiting this url:', authUrl);
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout,
+        });
+        rl.question('Enter the code from that page here: ', (code) => {
+            rl.close();
+            oAuth2Client.getToken(code, (err, token) => {
+                if (err) reject('Error retrieving access token', err);
+                // oAuth2Client.setCredentials(token);
+                // Store the token to disk for later program executions
+                fs.writeFile(`${currentPath}/../creds/${TOKEN_PATH}`, JSON.stringify(token), (err) => {
+                    if (err) console.error(err);
+                    console.log('Token stored to', `${currentPath}/../creds/${TOKEN_PATH}`);
+                });
+                resolve(token);
+            });
+        });
+    })
+}
+
 
 
 export {getGoogleCalendarEvents, addGoogleCalendarEvent};

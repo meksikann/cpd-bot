@@ -62,7 +62,7 @@ google api used to manege calendar events
 https://developers.google.com/calendar/overview
 
 5. start RASA-CORE server on python hosted on same host (explained below)
-6. start duckling container ``sudo docker run -p 8000:8000 rasa/duckling
+6. start duckling container ``sudo docker run -d -p 8000:8000 rasa/duckling
 ``
 7. if use ngrok ``./ngrok http 5002 -host-header="localhost:5002"  ``
 

@@ -175,6 +175,7 @@ function getFormattedDuration(value) {
 }
 
 function getHumanizedTime(time) {
+    console.log(time);
     return moment(time).format("h:mm a, dddd, MMM Do YYYY");
 }
 
@@ -290,7 +291,13 @@ async function bookRoom(data) {
     let res = await addGoogleCalendarEvent(req);
 
     if (res.event) {
-        return [{"event": "slot", "name": "success_booking", "value": true}]
+        return [
+            {"event": "slot", "name": "success_booking", "value": true},
+            {"event": "slot", "name": "event_name", "value": null},
+            {"event": "slot", "name": "duration", "value":null},
+            {"event": "slot", "name": "normalized_duration", "value":null},
+            {"event": "slot", "name": "formatted_duration", "value":null}
+            ]
     }
 
     return [{"event": "slot", "name": "success_booking", "value": false}]
@@ -311,7 +318,6 @@ function generateEvent(email, startTime, endTime, eventName) {
         },
         'recurrence': [],
         'attendees': [
-            {'email': email}
         ],
         'reminders': {
             'useDefault': false,

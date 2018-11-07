@@ -132,6 +132,7 @@
 - great
 - it's great
 - super got it
+- me too
 
 ## intent:who_are_you
 - who is this
@@ -299,12 +300,17 @@
 - [Victoria](user_name)
 - [serhiy.testitest@testi.com](email)
 - [Chat-bot demo](event_name)
-- It is [Rbro daily meeting](event_name)
-- [Skhole sync-up](event_name)
-- event name is [some planning](event_name)
-- name is [Uprisal review](event_name)
-- [test bot meetup](event_name)
-- [new customer interview](event_name)
+- It is Rbro daily meeting
+- Skhole sync-up
+- event name is some planning
+- name is Uprisal review
+- test bot meetup
+- new customer interview
+- interview
+- meetup
+- test one
+- 123445
+- 334r44
 
 ## intent: check_room_available
 - is [second hall](room_name) free?

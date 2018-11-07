@@ -27,6 +27,7 @@
     "action_listen": {
       "slots": [
         "office_location", 
+        "event_name", 
         "room_name", 
         "time", 
         "duration", 
@@ -34,7 +35,7 @@
         "email"
       ]
     }, 
-    "utter_thank": {
+    "utter_responce_got_it": {
       "slots": []
     }, 
     "action_get_new_slots": {
@@ -42,6 +43,9 @@
         "formatted_duration", 
         "normalized_duration"
       ]
+    }, 
+    "utter_room_not_exists": {
+      "slots": []
     }, 
     "action_get_room_free_slots": {
       "slots": [
@@ -58,9 +62,9 @@
         "success_booking"
       ]
     }, 
-    "action_check_office_location": {
+    "action_check_auth_valid": {
       "slots": [
-        "office_location"
+        "auth_valid"
       ]
     }, 
     "action_save_user_email": {
@@ -88,15 +92,23 @@
     "utter_sure": {
       "slots": []
     }, 
-    "utter_room_not_exists": {
+    "action_extract_free_text_event_name": {
+      "slots": [
+        "event_name"
+      ]
+    }, 
+    "utter_room_booked": {
+      "slots": []
+    }, 
+    "utter_thank": {
       "slots": []
     }, 
     "utter_show_free_slots": {
       "slots": []
     }, 
-    "action_check_auth_valid": {
+    "action_check_office_location": {
       "slots": [
-        "auth_valid"
+        "office_location"
       ]
     }, 
     "utter_help": {
@@ -109,9 +121,6 @@
       "slots": []
     }, 
     "utter_ready_to_proceed": {
-      "slots": []
-    }, 
-    "utter_responce_got_it": {
       "slots": []
     }
   }

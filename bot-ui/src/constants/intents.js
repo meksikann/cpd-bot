@@ -19,7 +19,8 @@ const actionIntents = {
     'action_save_office_location': null,
     'action_save_user_email' : null,
     'action_save_user_name': null,
-    'action_book_room': null
+    'action_book_room': null,
+    'action_extract_free_text_event_name': null
 };
 
 export default keyMirror(actionIntents);

@@ -72,7 +72,6 @@
     "prev_utter_room_not_booked", 
     "prev_action_create_event", 
     "prev_action_remove_event", 
-    "prev_action_show_my_events", 
     "prev_action_check_room_available", 
     "prev_action_check_room_exists", 
     "prev_action_get_room_free_slots", 
@@ -83,6 +82,7 @@
     "prev_action_save_office_location", 
     "prev_action_save_user_email", 
     "prev_action_save_user_name", 
-    "prev_action_book_room"
+    "prev_action_book_room", 
+    "prev_action_extract_free_text_event_name"
   ]
 }

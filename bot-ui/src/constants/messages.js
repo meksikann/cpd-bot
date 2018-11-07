@@ -16,7 +16,7 @@ let messages = {
         utter_greet: 'Hey :)',
         utter_how_can_help: 'How can I help?',
         utter_on_it: "I'm on it.",
-        utter_ask_event_name: `What's event name?`,
+        utter_ask_event_name: `How should I name the booked event?`,
         utter_event_saved: 'Event saved',
         utter_ask_room_name: 'tell me room name which is interesting for you?',
         utter_room_is_free: 'This room is free',

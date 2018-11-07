@@ -77,6 +77,10 @@ async function processActionIntent(nextActionData) {
                 events = generalHelper.bookRoom(nextActionData);
 
                 break;
+            case actionIntents.action_extract_free_text_event_name:
+                logInfo('performing action_extract_free_text_event_name ...');
+                events = generalHelper.extractFreeTextAsEventName(nextActionData);
+                break;
             default:
                 logInfo('performing default action ...');
         }

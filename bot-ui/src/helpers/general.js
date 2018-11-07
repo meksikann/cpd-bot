@@ -278,9 +278,10 @@ async function bookRoom(data) {
 
     let user = await getUserPermissions(data.senderId);
     let calendarId = getCalendarId(data.slots.room_name);
-    let event = generateEvent(user.email, data.slots.time,
-        getDateWithDurationISOString(data.slots.time, data.slots.normalized_duration || config.minDurationAvailableMin * 60,
-            'seconds', true));
+    let time = data.slots.time || getQueriedValidTime();
+    let event = generateEvent(user.email, time,
+        getDateWithDurationISOString(time, data.slots.normalized_duration || config.minDurationAvailableMin * 60,
+            'seconds', true), data.slots.event_name);
     let req = {
         event,
         calendarId
@@ -295,9 +296,9 @@ async function bookRoom(data) {
     return [{"event": "slot", "name": "success_booking", "value": false}]
 }
 
-function generateEvent(email, startTime, endTime) {
+function generateEvent(email, startTime, endTime, eventName) {
     let event = {
-        'summary': email,
+        'summary': eventName,
         'location': '',
         'description': 'this is test cpd-bot description (later on bot will be able to ask you for the description)',
         'start': {
@@ -324,10 +325,18 @@ function generateEvent(email, startTime, endTime) {
     return event;
 }
 
+function extractFreeTextAsEventName(data) {
+    if(data.slots.event_name) {
+        return []
+    }
+    let name = data.latest_message;
+
+    return [{"event": "slot", "name": "event_name", "value": name}]
+}
 let generalHelper = {
     getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
     getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance, checkUserAuth, resetAuthSlot,
     getUserOfficeLocation, saveUserOfficeLocation, saveUserEmail, saveUserName, getFormattedDuration, bookRoom,
-    getHumanizedTime
+    getHumanizedTime, extractFreeTextAsEventName
 };
 export {generalHelper}

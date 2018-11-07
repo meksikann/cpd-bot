@@ -1,20 +1,27 @@
 ## intent:bye
-- Bye
-- Goodbye
-- See you later
-- Bye bot
-- Goodbye friend
-- bye
-- bye for now
-- catch you later
-- gotta go
-- See you
+- goodbye
 - goodnight
-- have a nice day
-- i'm off
-- see you later alligator
-- we'll speak soon
 - good bye
+- good night
+- see ya
+- toodle-oo
+- bye bye
+- gotta go
+- farewell
+- catch you later
+- bye for now
+- bye
+- bye was nice talking to you
+- bye udo
+- bye bye bot
+- bye bot
+- k byyye #slay
+- tlak to you later
+- ciao
+- Bye bye
+- then bye
+- tschüssikowski
+- bye!
 
 ## intent:greet
 - Hi
@@ -32,10 +39,58 @@
 - hello everybody
 - hello is anybody there
 - hello robot
-- hey dude
-- hello my friend
+- hallo
+- heeey
+- hi hi
 - hey
+- hey hey
+- hello there
+- hi
 - hello
+- yo
+- hola
+- hi?
+- hey bot!
+- hello friend
+- good morning
+- hii
+- hello sweet boy
+- yoo
+- hey there
+- hiihihi
+- hello sweatheart
+- hellooo
+- helloooo
+- heyo
+- ayyyy whaddup
+- hello?
+- Hallo
+- heya
+- hey bot
+- howdy
+- Hellllooooooo
+- whats up
+- Hei
+- Well hello there ;)
+- I said, helllllloooooO!!!!
+- Heya
+- Whats up my bot
+- hiii
+- heyho
+- hey, let's talk
+- hey let's talk
+- jojojo
+- hey dude
+- hello it is me again
+- what up
+- hi there
+- hi
+- jop
+- hi friend
+- hi there it's me
+- good evening
+- good morning
+- good afternoon
 
 ## intent:thank
 - Thanks
@@ -53,6 +108,17 @@
 - amazing, thanks
 - cool, thanks
 - cool thank you
+- thanks
+- thanks!
+- Cool. Thanks
+- thanks
+- thanks this is great news
+- thank you
+- great thanks
+- Thanks!
+- cool thanks
+- thanks for forum link, I'll check it out
+- thanks!
 
 ## intent:got_it
 - ok
@@ -68,13 +134,28 @@
 - super got it
 
 ## intent:who_are_you
+- who is this
+- who am i talking to
+- what's your name
+- who am i speaking with
+- who r u
+- what's your name bot
+- whats ur name
+- what are you called?
+- who is talking?
+- who speaks?
+- who talks?
+- who are you and what do you want from me
 - who are you?
-- who're U
-- hey, man who are you
-- tell me please who are you?
-- are you human or bot?
-- who are you ? are you robot?
-- what are you 
+- who is it?
+- who are u?
+- who are you
+- I want to know who you are
+- who are y
+- yes but who are you in your heart
+- are you a bot?
+- who is this?
+- hi! what's your name? 
 
 
 ## intent:how_are_you
@@ -84,6 +165,51 @@
 - are you ok?
 - do you feel good today?
 - hows U today?
+- Ahoy matey how are you?
+- are you alright
+- are you having a good day
+- Are you ok?
+- are you okay
+- Do you feel good?
+- how are things going
+- how are things with you?
+- How are things?
+- how are you
+- how are you doing
+- how are you doing this morning
+- how are you feeling
+- how are you today
+- How are you?
+- how do you do?
+- how have you been
+- how is it going
+- how is your day
+- how is your day going
+- how is your evening
+- How was your day?
+- How's it going
+- How's it hanging?
+- how's life
+- how's life been treating you?
+- How's life treating you friend?
+- how's your day going
+- How've you been?
+- I'm fine and you
+- is everything all right
+- Is everything ok?
+- is everything okay
+- what about your day
+- What's going on?
+- what's good
+- What's new?
+- What's up man
+- What's up
+- how are you?
+- Do you have a great day?
+- how are you doing today my sweet friend
+- how are you doing?
+- how are u
+- How are you?
 
 ## intent:deny
 - no
@@ -101,6 +227,28 @@
 - nah
 - no and no again
 - no go
+- no thanks
+- decline
+- deny
+- i decline
+- never mind
+- I'm not giving you my email address
+- no I haven't decided yet if I want to sign up
+- I don't want to give it to you
+- I'm not going to give it to you
+- no i don't accept
+- no!!!!
+- no you did it wrong
+- no i can't
+- i'm not sure
+- NEIN
+- nein
+- not really
+- i guess it means - no
+- i don't want to
+- i don't want either of those
+- nah thanks
+- neither of these
 
 ## intent:affirm
 - yes
@@ -122,10 +270,6 @@
 - i'm cool with it
 - it's ok
 - no problem
-
-## intent: create_event
-- create new event
-- add new task into calendar
 
 ## intent: inform
 - [factoy](room_name)
@@ -154,16 +298,13 @@
 - [Mike](user_name)
 - [Victoria](user_name)
 - [serhiy.testitest@testi.com](email)
-
-## intent: show_my_events
-- hello can you show me my events please ?
-- events?
-- any stuff for me
-- show me my tasks
-- list events
-- list me please my todos
-- I want to see my events from calendar
-- review my events
+- [Chat-bot demo](event_name)
+- It is [Rbro daily meeting](event_name)
+- [Skhole sync-up](event_name)
+- event name is [some planning](event_name)
+- name is [Uprisal review](event_name)
+- [test bot meetup](event_name)
+- [new customer interview](event_name)
 
 ## intent: check_room_available
 - is [second hall](room_name) free?
@@ -241,16 +382,42 @@
 
 ## intent: help
 - help
-- I need help from you
-- can you provide me with some information what you can do
-- what's your options
-- I require help
-- could you provide me with some guidance?
-- show me your tutorial
-- your documentation
-- show me your manual or instructions
-- hey I don't know nothing about you can you tell me something?
-- show me what can U do
+- help please
+- i don't know what i want
+- I need some help
+- options
+- show me the menu
+- show me what's possible
+- so what can you do
+- so what can you help me with?
+- what are you good at?
+- what can I do here
+- what can I do with this bot
+- what is this bot for
+- cool! can I do something else here?
+- help me
+- talk to me!
+- come back
+- how can you help me
+- what else can i do
+- are there any other options?
+- hm that doesnt quite help me is there anything else you can do?
+- what can i do here
+- what can i do now
+- um what now
+- so now what
+- help?
+- now what?
+- Great, is there anything else you can do, bot?
+- what can you do?
+- how can you help me?
+- can you do anything else?
+- i asked you if you can do anything else
+- anything els
+- so what next?
+- what else can I do here?
+- Can you explain me in one sentence what you are doing?
+- what are the options?
 
 ## synonym:factory
 - factori

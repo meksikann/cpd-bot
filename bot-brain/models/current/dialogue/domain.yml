@@ -31,7 +31,6 @@ actions:
 - utter_room_not_booked
 - action_create_event
 - action_remove_event
-- action_show_my_events
 - action_check_room_available
 - action_check_room_exists
 - action_get_room_free_slots
@@ -43,6 +42,7 @@ actions:
 - action_save_user_email
 - action_save_user_name
 - action_book_room
+- action_extract_free_text_event_name
 config:
   store_entities_as_slots: true
 entities:
@@ -137,7 +137,7 @@ templates:
   utter_ask_email:
   - text: Tell me your email please
   utter_ask_event_name:
-  - text: what is event name
+  - text: how do we call the booking event?
   utter_ask_room_name:
   - text: what is room name
   utter_ask_time:

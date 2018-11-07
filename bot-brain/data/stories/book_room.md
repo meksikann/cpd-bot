@@ -95,8 +95,13 @@
     - action_save_office_location
     - utter_location_saved
     - utter_ready_to_proceed
+    - utter_ask_event_name
+* inform{"event_name": "Test bot meeting"}
+    - slot{"event_name": "Test bot meeting"}
     - utter_confirm_booking
 * affirm
+    - action_check_room_available
+    - slot{"is_room_available": true}
     - action_book_room
     - slot{"success_booking": true}
     - utter_room_booked
@@ -106,17 +111,10 @@
     - utter_thank
 
 
-
-## Generated Story 7764453961516689272
-* greet
-    - utter_how_can_help
-* book_room{"duration": 4, "room_name": "space", "time": "2018-11-02T19:00:00.000+02:00"}
-    - slot{"duration": 4}
-    - slot{"room_name": "space"}
-    - slot{"time": "2018-11-02T19:00:00.000+02:00"}
+## Generated Story -9184593259616674339
+* book_room{"room_name": "factory"}
+    - slot{"room_name": "factory"}
     - action_get_new_slots
-    - slot{"normalized_duration": 14400}
-    - slot{"formatted_duration": "4 hours"}
     - action_check_auth_valid
     - slot{"auth_valid": true}
     - utter_user_authorized
@@ -126,11 +124,65 @@
     - slot{"office_location": "vinnitsia"}
     - action_check_room_exists
     - slot{"is_room_exists": true}
+    - utter_ask_event_name
+* inform{"event_name": "Test bot meeting"}
+    - slot{"event_name": "Test bot meeting"}
     - utter_confirm_booking
 * affirm
+    - action_check_room_available
+    - slot{"is_room_available": true}
     - action_book_room
     - slot{"success_booking": true}
     - utter_room_booked
 * thank
     - utter_thank
+* book_room{"room_name": "factory", "time": "2018-11-07T12:07:12.000+02:00"}
+    - slot{"room_name": "factory"}
+    - slot{"time": "2018-11-07T12:07:12.000+02:00"}
+    - action_get_new_slots
+    - action_check_auth_valid
+    - slot{"auth_valid": true}
+    - utter_user_authorized
+    - action_reset_auth_valid_slot
+    - slot{"auth_valid": false}
+    - action_check_office_location
+    - slot{"office_location": "vinnitsia"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - utter_ask_event_name
+* inform{"event_name": "Second testing"}
+    - slot{"event_name": "Second testing"}
+    - utter_confirm_booking
+* affirm
+    - action_check_room_available
+    - slot{"is_room_available": false}
+    - utter_room_is_busy
+* affirm
+    - utter_responce_got_it
+    
+    action_extract_free_text_event_name
 
+## BOOK ROOM And extract event_name as free text
+* book_room{"room_name": "factory"}
+    - slot{"room_name": "factory"}
+    - action_get_new_slots
+    - action_check_auth_valid
+    - slot{"auth_valid": true}
+    - utter_user_authorized
+    - action_reset_auth_valid_slot
+    - slot{"auth_valid": false}
+    - action_check_office_location
+    - slot{"office_location": "vinnitsia"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - utter_ask_event_name
+* inform
+    - action_extract_free_text_event_name
+    - slot{"event_name": "Test bot meeting"}
+    - utter_confirm_booking
+* affirm
+    - action_check_room_available
+    - slot{"is_room_available": true}
+    - action_book_room
+    - slot{"success_booking": true}
+    - utter_room_booked

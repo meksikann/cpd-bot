@@ -2,43 +2,7 @@
   "rasa_nlu_data": {
     "common_examples": [
       {
-        "text": "Bye", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "Goodbye", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "See you later", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "Bye bot", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "Goodbye friend", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "bye", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "bye for now", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "catch you later", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "gotta go", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "See you", 
+        "text": "goodbye", 
         "intent": "bye"
       }, 
       {
@@ -46,23 +10,87 @@
         "intent": "bye"
       }, 
       {
-        "text": "have a nice day", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "i'm off", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "see you later alligator", 
-        "intent": "bye"
-      }, 
-      {
-        "text": "we'll speak soon", 
-        "intent": "bye"
-      }, 
-      {
         "text": "good bye", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "good night", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "see ya", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "toodle-oo", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "bye bye", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "gotta go", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "farewell", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "catch you later", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "bye for now", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "bye", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "bye was nice talking to you", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "bye udo", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "bye bye bot", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "bye bot", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "k byyye #slay", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "tlak to you later", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "ciao", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "Bye bye", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "then bye", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "tschüssikowski", 
+        "intent": "bye"
+      }, 
+      {
+        "text": "bye!", 
         "intent": "bye"
       }, 
       {
@@ -126,11 +154,15 @@
         "intent": "greet"
       }, 
       {
-        "text": "hey dude", 
+        "text": "hallo", 
         "intent": "greet"
       }, 
       {
-        "text": "hello my friend", 
+        "text": "heeey", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi hi", 
         "intent": "greet"
       }, 
       {
@@ -138,7 +170,195 @@
         "intent": "greet"
       }, 
       {
+        "text": "hey hey", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hello there", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi", 
+        "intent": "greet"
+      }, 
+      {
         "text": "hello", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "yo", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hola", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi?", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hey bot!", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hello friend", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "good morning", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hii", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hello sweet boy", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "yoo", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hey there", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hiihihi", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hello sweatheart", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hellooo", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "helloooo", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "heyo", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "ayyyy whaddup", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hello?", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Hallo", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "heya", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hey bot", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "howdy", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Hellllooooooo", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "whats up", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Hei", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Well hello there ;)", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "I said, helllllloooooO!!!!", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Heya", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "Whats up my bot", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hiii", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "heyho", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hey, let's talk", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hey let's talk", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "jojojo", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hey dude", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hello it is me again", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "what up", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi there", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "jop", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi friend", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "hi there it's me", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "good evening", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "good morning", 
+        "intent": "greet"
+      }, 
+      {
+        "text": "good afternoon", 
         "intent": "greet"
       }, 
       {
@@ -202,6 +422,50 @@
         "intent": "thank"
       }, 
       {
+        "text": "thanks", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "thanks!", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "Cool. Thanks", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "thanks", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "thanks this is great news", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "thank you", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "great thanks", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "Thanks!", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "cool thanks", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "thanks for forum link, I'll check it out", 
+        "intent": "thank"
+      }, 
+      {
+        "text": "thanks!", 
+        "intent": "thank"
+      }, 
+      {
         "text": "ok", 
         "intent": "got_it"
       }, 
@@ -246,31 +510,91 @@
         "intent": "got_it"
       }, 
       {
+        "text": "who is this", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "who am i talking to", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "what's your name", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "who am i speaking with", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "who r u", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "what's your name bot", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "whats ur name", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "what are you called?", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "who is talking?", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "who speaks?", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "who talks?", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "who are you and what do you want from me", 
+        "intent": "who_are_you"
+      }, 
+      {
         "text": "who are you?", 
         "intent": "who_are_you"
       }, 
       {
-        "text": "who're U", 
+        "text": "who is it?", 
         "intent": "who_are_you"
       }, 
       {
-        "text": "hey, man who are you", 
+        "text": "who are u?", 
         "intent": "who_are_you"
       }, 
       {
-        "text": "tell me please who are you?", 
+        "text": "who are you", 
         "intent": "who_are_you"
       }, 
       {
-        "text": "are you human or bot?", 
+        "text": "I want to know who you are", 
         "intent": "who_are_you"
       }, 
       {
-        "text": "who are you ? are you robot?", 
+        "text": "who are y", 
         "intent": "who_are_you"
       }, 
       {
-        "text": "what are you", 
+        "text": "yes but who are you in your heart", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "are you a bot?", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "who is this?", 
+        "intent": "who_are_you"
+      }, 
+      {
+        "text": "hi! what's your name?", 
         "intent": "who_are_you"
       }, 
       {
@@ -295,6 +619,186 @@
       }, 
       {
         "text": "hows U today?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "Ahoy matey how are you?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "are you alright", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "are you having a good day", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "Are you ok?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "are you okay", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "Do you feel good?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how are things going", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how are things with you?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "How are things?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how are you", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how are you doing", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how are you doing this morning", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how are you feeling", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how are you today", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "How are you?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how do you do?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how have you been", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how is it going", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how is your day", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how is your day going", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how is your evening", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "How was your day?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "How's it going", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "How's it hanging?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how's life", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how's life been treating you?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "How's life treating you friend?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how's your day going", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "How've you been?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "I'm fine and you", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "is everything all right", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "Is everything ok?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "is everything okay", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "what about your day", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "What's going on?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "what's good", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "What's new?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "What's up man", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "What's up", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how are you?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "Do you have a great day?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how are you doing today my sweet friend", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how are you doing?", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "how are u", 
+        "intent": "how_are_you"
+      }, 
+      {
+        "text": "How are you?", 
         "intent": "how_are_you"
       }, 
       {
@@ -355,6 +859,94 @@
       }, 
       {
         "text": "no go", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no thanks", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "decline", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "deny", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "i decline", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "never mind", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "I'm not giving you my email address", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no I haven't decided yet if I want to sign up", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "I don't want to give it to you", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "I'm not going to give it to you", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no i don't accept", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no!!!!", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no you did it wrong", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "no i can't", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "i'm not sure", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "NEIN", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "nein", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "not really", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "i guess it means - no", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "i don't want to", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "i don't want either of those", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "nah thanks", 
+        "intent": "deny"
+      }, 
+      {
+        "text": "neither of these", 
         "intent": "deny"
       }, 
       {
@@ -432,14 +1024,6 @@
       {
         "text": "no problem", 
         "intent": "affirm"
-      }, 
-      {
-        "text": "create new event", 
-        "intent": "create_event"
-      }, 
-      {
-        "text": "add new task into calendar", 
-        "intent": "create_event"
       }, 
       {
         "entities": [
@@ -754,36 +1338,88 @@
         "text": "serhiy.testitest@testi.com"
       }, 
       {
-        "text": "hello can you show me my events please ?", 
-        "intent": "show_my_events"
+        "entities": [
+          {
+            "start": 0, 
+            "end": 13, 
+            "value": "Chat-bot demo", 
+            "entity": "event_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "Chat-bot demo"
       }, 
       {
-        "text": "events?", 
-        "intent": "show_my_events"
+        "entities": [
+          {
+            "start": 6, 
+            "end": 24, 
+            "value": "Rbro daily meeting", 
+            "entity": "event_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "It is Rbro daily meeting"
       }, 
       {
-        "text": "any stuff for me", 
-        "intent": "show_my_events"
+        "entities": [
+          {
+            "start": 0, 
+            "end": 14, 
+            "value": "Skhole sync-up", 
+            "entity": "event_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "Skhole sync-up"
       }, 
       {
-        "text": "show me my tasks", 
-        "intent": "show_my_events"
+        "entities": [
+          {
+            "start": 14, 
+            "end": 27, 
+            "value": "some planning", 
+            "entity": "event_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "event name is some planning"
       }, 
       {
-        "text": "list events", 
-        "intent": "show_my_events"
+        "entities": [
+          {
+            "start": 8, 
+            "end": 22, 
+            "value": "Uprisal review", 
+            "entity": "event_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "name is Uprisal review"
       }, 
       {
-        "text": "list me please my todos", 
-        "intent": "show_my_events"
+        "entities": [
+          {
+            "start": 0, 
+            "end": 15, 
+            "value": "test bot meetup", 
+            "entity": "event_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "test bot meetup"
       }, 
       {
-        "text": "I want to see my events from calendar", 
-        "intent": "show_my_events"
-      }, 
-      {
-        "text": "review my events", 
-        "intent": "show_my_events"
+        "entities": [
+          {
+            "start": 0, 
+            "end": 22, 
+            "value": "new customer interview", 
+            "entity": "event_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "new customer interview"
       }, 
       {
         "entities": [
@@ -1346,43 +1982,147 @@
         "intent": "help"
       }, 
       {
-        "text": "I need help from you", 
+        "text": "help please", 
         "intent": "help"
       }, 
       {
-        "text": "can you provide me with some information what you can do", 
+        "text": "i don't know what i want", 
         "intent": "help"
       }, 
       {
-        "text": "what's your options", 
+        "text": "I need some help", 
         "intent": "help"
       }, 
       {
-        "text": "I require help", 
+        "text": "options", 
         "intent": "help"
       }, 
       {
-        "text": "could you provide me with some guidance?", 
+        "text": "show me the menu", 
         "intent": "help"
       }, 
       {
-        "text": "show me your tutorial", 
+        "text": "show me what's possible", 
         "intent": "help"
       }, 
       {
-        "text": "your documentation", 
+        "text": "so what can you do", 
         "intent": "help"
       }, 
       {
-        "text": "show me your manual or instructions", 
+        "text": "so what can you help me with?", 
         "intent": "help"
       }, 
       {
-        "text": "hey I don't know nothing about you can you tell me something?", 
+        "text": "what are you good at?", 
         "intent": "help"
       }, 
       {
-        "text": "show me what can U do", 
+        "text": "what can I do here", 
+        "intent": "help"
+      }, 
+      {
+        "text": "what can I do with this bot", 
+        "intent": "help"
+      }, 
+      {
+        "text": "what is this bot for", 
+        "intent": "help"
+      }, 
+      {
+        "text": "cool! can I do something else here?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "help me", 
+        "intent": "help"
+      }, 
+      {
+        "text": "talk to me!", 
+        "intent": "help"
+      }, 
+      {
+        "text": "come back", 
+        "intent": "help"
+      }, 
+      {
+        "text": "how can you help me", 
+        "intent": "help"
+      }, 
+      {
+        "text": "what else can i do", 
+        "intent": "help"
+      }, 
+      {
+        "text": "are there any other options?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "hm that doesnt quite help me is there anything else you can do?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "what can i do here", 
+        "intent": "help"
+      }, 
+      {
+        "text": "what can i do now", 
+        "intent": "help"
+      }, 
+      {
+        "text": "um what now", 
+        "intent": "help"
+      }, 
+      {
+        "text": "so now what", 
+        "intent": "help"
+      }, 
+      {
+        "text": "help?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "now what?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "Great, is there anything else you can do, bot?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "what can you do?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "how can you help me?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "can you do anything else?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "i asked you if you can do anything else", 
+        "intent": "help"
+      }, 
+      {
+        "text": "anything els", 
+        "intent": "help"
+      }, 
+      {
+        "text": "so what next?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "what else can I do here?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "Can you explain me in one sentence what you are doing?", 
+        "intent": "help"
+      }, 
+      {
+        "text": "what are the options?", 
         "intent": "help"
       }
     ], 

@@ -43,6 +43,7 @@ async function botPerformAction(req, res) {
     logInfo(`Got perform Action request: ${req.body.next_action}`);
     logInfo(`userId: ${req.body.sender_id}`);
     logInfo('Intent: ', req.body.tracker.latest_message.intent);
+    console.log(req.body.tracker);
 
     let dbData = {
         db: req.db,
@@ -55,7 +56,8 @@ async function botPerformAction(req, res) {
         slots: req.body.tracker.slots,
         entities: req.body.tracker.latest_message.entities,
         intent_name: req.body.tracker.latest_message.intent.name,
-        channel: req.body.tracker.latest_input_channel
+        channel: req.body.tracker.latest_input_channel,
+        latest_message: req.body.tracker.latest_message.text
     };
     let response = {};
 

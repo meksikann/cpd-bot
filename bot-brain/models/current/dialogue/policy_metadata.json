@@ -35,7 +35,7 @@
         "email"
       ]
     }, 
-    "utter_responce_got_it": {
+    "utter_thank": {
       "slots": []
     }, 
     "action_get_new_slots": {
@@ -43,9 +43,6 @@
         "formatted_duration", 
         "normalized_duration"
       ]
-    }, 
-    "utter_room_not_exists": {
-      "slots": []
     }, 
     "action_get_room_free_slots": {
       "slots": [
@@ -59,7 +56,11 @@
     }, 
     "action_book_room": {
       "slots": [
-        "success_booking"
+        "event_name", 
+        "duration", 
+        "success_booking", 
+        "normalized_duration", 
+        "formatted_duration"
       ]
     }, 
     "action_check_auth_valid": {
@@ -74,7 +75,9 @@
     }, 
     "action_check_room_available": {
       "slots": [
+        "formatted_duration", 
         "is_room_available", 
+        "normalized_duration", 
         "time"
       ]
     }, 
@@ -97,10 +100,7 @@
         "event_name"
       ]
     }, 
-    "utter_room_booked": {
-      "slots": []
-    }, 
-    "utter_thank": {
+    "utter_room_not_exists": {
       "slots": []
     }, 
     "utter_show_free_slots": {
@@ -121,6 +121,9 @@
       "slots": []
     }, 
     "utter_ready_to_proceed": {
+      "slots": []
+    }, 
+    "utter_responce_got_it": {
       "slots": []
     }
   }

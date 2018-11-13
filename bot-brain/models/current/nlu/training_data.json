@@ -1400,6 +1400,182 @@
       {
         "entities": [
           {
+            "start": 4, 
+            "end": 12, 
+            "value": "one hour", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "for one hour"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 3, 
+            "value": "2 h", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "2 h"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 10, 
+            "value": "30 minutes", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "30 minutes"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 4, 
+            "end": 11, 
+            "value": "30 mins", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "for 30 mins"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 16, 
+            "value": "for half an hour", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "for half an hour"
+      }, 
+      {
+        "text": "5 pm", 
+        "intent": "inform"
+      }, 
+      {
+        "text": "at two pm", 
+        "intent": "inform"
+      }, 
+      {
+        "text": "now", 
+        "intent": "inform"
+      }, 
+      {
+        "text": "at 1am", 
+        "intent": "inform"
+      }, 
+      {
+        "text": "after tomorrow at 4pm", 
+        "intent": "inform"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "15mins", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "15mins"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 3, 
+            "value": "30m", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "30m"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 4, 
+            "end": 10, 
+            "value": "30 min", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "for 30 min"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "1hour", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "1hour"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 3, 
+            "value": "2 h", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "2 h"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 10, 
+            "value": "four hours", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "four hours"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 14, 
+            "end": 20, 
+            "value": "30 min", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "duration is - 30 min"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 7, 
+            "value": "40 mins", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "40 mins"
+      }, 
+      {
+        "entities": [
+          {
             "start": 3, 
             "end": 14, 
             "value": "second hall", 
@@ -1756,6 +1932,18 @@
         ], 
         "intent": "book_room", 
         "text": "I want to book main room now"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 24, 
+            "end": 32, 
+            "value": "one hour", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "book_room", 
+        "text": "I want to book room for one hour"
       }, 
       {
         "text": "is it available?", 

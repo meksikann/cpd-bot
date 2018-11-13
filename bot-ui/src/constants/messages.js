@@ -55,7 +55,7 @@ let messages = {
     getHelpMessage: function (url) {
         let message = `Ok. So first of all remember - I'm just in learning stage, and do not know loads of stuff.
          Our CPD team working on my skills.
-         For now on I can give you information regarding conference rooms(Main conference room and small one) - 
+         For now on I can give you information regarding conference rooms (FACTORY room and SPACE room) - 
          if its available at time you need.
          I am sure - late I will be able even book some time for you etc..
          Also CPD guys working on [manual doc](${url}) 

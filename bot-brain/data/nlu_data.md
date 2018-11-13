@@ -311,6 +311,24 @@
 - test one
 - 123445
 - 334r44
+- for [one hour](duration)
+- [2 h](duration)
+- [30 minutes](duration)
+- for [30 mins](duration)
+- [for half an hour](duration)
+- 5 pm
+- at two pm
+- now
+- at 1am
+- after tomorrow at 4pm
+- [15mins](duration)
+- [30m](duration)
+- for [30 min](duration)
+- [1hour](duration)
+- [2 h](duration)
+- [four hours](duration)
+- duration is - [30 min](duration)
+- [40 mins](duration)
 
 ## intent: check_room_available
 - is [second hall](room_name) free?
@@ -348,6 +366,7 @@
 - book me [main room](room_name) at 3pm
 - order me [space](room_name) at 13:00 for [two hours](duration)
 - I want to book [main room](room_name) now
+- I want to book room for [one hour](duration)
 
 ## intent: get_room_free_slots
 - is it available?

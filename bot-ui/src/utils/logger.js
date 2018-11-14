@@ -12,12 +12,11 @@ const logger = winston.createLogger({
 function logInfo(data, ...rest) {
     if(process.env.LOGS == 1) {
         const message = typeof data == 'object' ?
-            `
-            ${data},
-             =====================================================>,Date: ${new Date()}`
-            : `${data}
+            `DATE: ${new Date()}. LOG: ${data}
+             ----------------------------------------------------------------------->`
+            : `DATE: ${new Date()}. LOG: ${data}
              ${rest.length ? JSON.stringify(rest) : ''}
-             =========================================>,Date: ${new Date()}`;
+             ----------------------------------------------------------------------->`;
 
         logger.log({
             level: 'info',

@@ -17,8 +17,6 @@ let config = {
     minDurationAvailableMin: 30,
     freeSpaceSearchTimeRangeMins: 300,
     nlu_confidence: 0.4,
-    vinLocation: 'vinnitsia',
-    lvLocation: 'lviv',
     slackChannel: 'slack',
     timeZone: 'Europe/Kiev'
 };

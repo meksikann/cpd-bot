@@ -2,8 +2,7 @@ import {generateBotResponse} from './helpers/format-messages';
 import {logError, logInfo} from './utils/logger';
 import {processActionIntent} from './helpers/actionProcessor';
 import {updateDbUserActions} from './helpers/database-queries';
-
-const defaultUser = 'default-user';
+import {generalConstants} from './constants/general';
 
 async function botGenerateUtter(req, res) {
     logInfo(`Got generate Utter template for : ${req.body.template}.`);
@@ -13,7 +12,7 @@ async function botGenerateUtter(req, res) {
     logInfo('latest_message Text: ', req.body.tracker.latest_message.text);
 
     const data = {
-        senderId: req.body.tracker.sender_id || defaultUser,
+        senderId: req.body.tracker.sender_id || generalConstants.defaultUser,
         template: req.body.template,
         slots: req.body.tracker.slots
     };
@@ -24,7 +23,9 @@ async function botGenerateUtter(req, res) {
 
         // add buttons to template
         if (req.body.template == 'utter_provide_office_location') {
-            buttons = [{'title': 'Vinnitsia', 'payload': 'vinnitsia'}, {'title': 'Lviv', 'payload': 'lviv'}];
+            buttons = [
+                {'title': 'Vinnitsia', 'payload': generalConstants.officeLocations.vinnitsia},
+                {'title': 'Lviv', 'payload': generalConstants.officeLocations.lviv}];
         }
 
         res.send({
@@ -46,7 +47,6 @@ async function botPerformAction(req, res) {
     logInfo('Intent: ', req.body.tracker.latest_message.intent);
     logInfo('Slots: ', req.body.tracker.slots);
     logInfo('latest_message Text: ', req.body.tracker.latest_message.text);
-    console.log(JSON.stringify(req.body));
 
     let dbData = {
         db: req.db,
@@ -54,7 +54,7 @@ async function botPerformAction(req, res) {
         userId: req.body.sender_id
     };
     const data = {
-        senderId: req.body.sender_id || defaultUser,
+        senderId: req.body.sender_id || generalConstants.defaultUser,
         nextAction: req.body.next_action,
         slots: req.body.tracker.slots,
         entities: req.body.tracker.latest_message.entities,

@@ -51,6 +51,7 @@ entities:
 - office_location
 - user_name
 - email
+forms: []
 intents:
 - are_you_sure:
     use_entities: true
@@ -90,45 +91,59 @@ intents:
     use_entities: true
 slots:
   auth_valid:
+    auto_fill: true
     initial_value: false
     type: rasa_core.slots.BooleanSlot
   duration:
+    auto_fill: true
     initial_value: null
     type: rasa_core.slots.TextSlot
   email:
+    auto_fill: true
     initial_value: null
     type: rasa_core.slots.TextSlot
   event_name:
+    auto_fill: true
     initial_value: null
     type: rasa_core.slots.TextSlot
   formatted_duration:
+    auto_fill: true
     initial_value: null
     type: rasa_core.slots.TextSlot
   is_room_available:
+    auto_fill: true
     initial_value: false
     type: rasa_core.slots.BooleanSlot
   is_room_exists:
+    auto_fill: true
     initial_value: false
     type: rasa_core.slots.BooleanSlot
   normalized_duration:
+    auto_fill: true
     initial_value: null
     type: rasa_core.slots.TextSlot
   office_location:
+    auto_fill: true
     initial_value: null
     type: rasa_core.slots.TextSlot
   room_name:
+    auto_fill: true
     initial_value: null
     type: rasa_core.slots.TextSlot
   rooms_free_slots:
+    auto_fill: true
     initial_value: []
     type: rasa_core.slots.ListSlot
   success_booking:
+    auto_fill: true
     initial_value: false
     type: rasa_core.slots.BooleanSlot
   time:
+    auto_fill: true
     initial_value: null
     type: rasa_core.slots.TextSlot
   user_name:
+    auto_fill: true
     initial_value: null
     type: rasa_core.slots.TextSlot
 templates:

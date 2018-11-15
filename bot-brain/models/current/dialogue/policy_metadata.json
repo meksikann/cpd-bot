@@ -1,16 +1,19 @@
 {
   "max_histories": [
+    5, 
     null, 
-    3, 
-    3
+    5, 
+    2
   ], 
   "python": "2.7.12", 
   "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
-  "rasa_core": "0.11.6", 
+  "rasa_core": "0.12.0", 
+  "trained_at": "20181115-141016", 
   "policy_names": [
+    "rasa_core.policies.keras_policy.KerasPolicy", 
     "rasa_core.policies.fallback.FallbackPolicy", 
     "rasa_core.policies.memoization.MemoizationPolicy", 
-    "rasa_core.policies.keras_policy.KerasPolicy"
+    "rasa_core.policies.form_policy.FormPolicy"
   ], 
   "action_fingerprints": {
     "utter_room_is_free": {

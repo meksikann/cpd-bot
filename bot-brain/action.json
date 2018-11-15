@@ -1,0 +1,45 @@
+{
+  "actions": [
+    {
+      "description": "Default Welcome Intent",
+      "name": "MAIN",
+      "fulfillment": {
+        "conversationName": "cpd mini bot"
+      },
+      "intent": {
+        "name": "actions.intent.MAIN",
+        "trigger": {
+          "queryPatterns": [
+            "talk to cpd mini bot"
+          ]
+        }
+      }
+    },
+ {
+        "description": "Rasa Intent",
+        "name": "TEXT",
+        "fulfillment": {
+          "conversationName": "rasa_intent"
+        },
+        "intent": {
+          "name": "actions.intent.TEXT",
+          "trigger": {
+            "queryPatterns":[]
+          }
+        }
+      }
+  ],
+  "conversations": {
+    "cpd mini bot": {
+      "name": "cpd mini bot",
+      "url": "https://3ee8291e.ngrok.io/webhooks/google_home/webhook",
+      "fulfillmentApiVersion": 2
+    },
+    "rasa_intent": {
+        "name": "rasa_intent",
+        "url": "https://3ee8291e.ngrok.io/webhooks/google_home/webhook",
+        "fulfillmentApiVersion": 2
+    }
+  },
+  "locale": "en"
+}

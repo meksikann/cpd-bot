@@ -42,7 +42,7 @@ class GoogleConnector(InputChannel):
             intent = payload['inputs'][0]['intent']
             text = payload['inputs'][0]['rawInputs'][0]['query']
             if intent == 'actions.intent.MAIN':
-                message = "<speak>Hello! <break time=\"1\"/> Welcome to the Rasa-powered Google Assistant skill. You can start by saying hi."
+                message = "<speak>Hey! <break time=\"1\"/>How can I help you?"
             else:
                 out = CollectingOutputChannel()
                 on_new_message(UserMessage(text, out, sender_id))

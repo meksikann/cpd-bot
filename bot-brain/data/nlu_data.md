@@ -273,6 +273,7 @@
 - it's ok
 - no problem
 - +
+- good
 
 ## intent: inform
 - [factoy](room_name)
@@ -331,6 +332,11 @@
 - [four hours](duration)
 - duration is - [30 min](duration)
 - [40 mins](duration)
+- now for [30mins](duration)
+- at 5pm for [3 hours](duration)
+- [factory](room_name)
+- [now](time:2018-11-16T17:17:05.000+02:00) for [5 hours](duration)
+- new rass verstion available
 
 ## intent: check_room_available
 - is [second hall](room_name) free?

@@ -1038,6 +1038,10 @@
         "intent": "affirm"
       }, 
       {
+        "text": "good", 
+        "intent": "affirm"
+      }, 
+      {
         "entities": [
           {
             "start": 0, 
@@ -1580,6 +1584,64 @@
         ], 
         "intent": "inform", 
         "text": "40 mins"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 8, 
+            "end": 14, 
+            "value": "30mins", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "now for 30mins"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 18, 
+            "value": "3 hours", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "at 5pm for 3 hours"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 7, 
+            "value": "factory", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "factory"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 3, 
+            "value": "2018-11-16T17:17:05.000+02:00", 
+            "entity": "time"
+          }, 
+          {
+            "start": 8, 
+            "end": 15, 
+            "value": "5 hours", 
+            "entity": "duration"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "now for 5 hours"
+      }, 
+      {
+        "text": "new rass verstion available", 
+        "intent": "inform"
       }, 
       {
         "entities": [
@@ -2309,6 +2371,12 @@
     "entity_synonyms": [
       {
         "synonyms": [
+          "now"
+        ], 
+        "value": "2018-11-16T17:17:05.000+02:00"
+      }, 
+      {
+        "synonyms": [
           "Factory", 
           "main conference room", 
           "Factori", 
@@ -2325,11 +2393,11 @@
       }, 
       {
         "synonyms": [
-          "Space", 
+          "sPace", 
           "second room", 
           "small one", 
           "room two", 
-          "sPace", 
+          "Space", 
           "small room", 
           "room 2", 
           "the space", 

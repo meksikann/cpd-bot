@@ -1,172 +1,188 @@
-intents:
-- greet
-- thank
-- bye
-- deny
-- affirm
-- create_event
-- remove_event
-- inform
-- show_my_events
-- check_room_available
-- are_you_sure
-- get_room_free_slots
-- None
-- help
-- got_it
-- who_are_you
-- how_are_you
-- book_room
-
-entities:
-- event_name
-- room_name
-- office_location
-- user_name
-- email
-
-slots:
-  event_name:
-    type: text
-  room_name:
-    type: text
-  time:
-    type: text
-  duration:
-    type: text
-  normalized_duration:
-    type: text
-  formatted_duration:
-    type: text
-  is_room_available:
-    type: bool
-    initial_value: False
-  is_room_exists:
-    type: bool
-    initial_value: False
-  rooms_free_slots:
-    type: list
-    initial_value: []
-  auth_valid:
-    type: bool
-    initial_value: False
-  office_location:
-    type: text
-  email:
-    type: text
-  user_name:
-    type: text
-  success_booking:
-    type: bool
-    initial_value: False
-
-templates:
-  utter_greet:
-  - "Hey, how can I help you?"
-  utter_thank:
-  - "You're welcome!"
-  utter_bye:
-  - "Goodbye"
-  utter_how_can_help:
-  - "how can i helps"
-  utter_on_it:
-  - "I am on it"
-  utter_ask_event_name:
-  - "how do we call the booking event?"
-  utter_event_saved:
-  - "event saved"
-  utter_ask_room_name:
-  - "what is room name"
-  utter_room_is_free:
-  - "room is free"
-  utter_room_is_busy:
-  - "room is busy"
-  utter_fallback:
-  - "sorry, I did not get you..."
-  utter_room_not_exists:
-  - "room not exists"
-  utter_sure:
-  - "yeah pal, i'm sure"
-  utter_show_free_slots:
-  - 'the {room_name} is free/busy at (todo:make sure real bot receive free time)'
-  utter_help:
-  - 'Here is what I can do pal...'
-  utter_responce_got_it:
-  - 'great, dude!:)'
-  utter_responce_who_are_you:
-  - 'I am bot. Called to help you with conference rooms'
-  utter_responce_how_are_you:
-  - 'I am fine, thanks! Learning new stuff every day'
-  utter_user_not_authorized:
-  - 'O-o-o-p-s... Cannot make the action.You need to authorize first.'
-  utter_user_authorized:
-  - 'You authorized, so I can make action you asked for.'
-  utter_provide_office_location:
-  - 'Please click  your office location button'
-  utter_location_saved:
-  - 'Great! I have remembered your location:)'
-  utter_ready_to_proceed:
-  - 'Ready to continue'
-  utter_ask_email:
-  - "Tell me your email please"
-  utter_ask_user_name:
-  - "Your user name please."
-  utter_ask_time:
-  - "At what time?"
-  utter_ask_duration:
-  - "For how long should I book it?"
-  utter_confirm_booking:
-  - "I will book {room_name} at {time} for {formatted_duration}. Correct ?"
-  utter_room_booked:
-  - "I have booked room"
-  utter_room_not_booked:
-  - "Failed to book room"
-  utter_no_problem:
-  - "Sure. No problem..."
-
 actions:
-- utter_greet
-- utter_thank
-- utter_bye
-- utter_how_can_help
-- utter_on_it
-- utter_ask_event_name
-- utter_event_saved
-- utter_ask_room_name
-- utter_room_is_free
-- utter_room_is_busy
-- utter_fallback
-- utter_room_not_exists
-- utter_sure
-- utter_show_free_slots
-- utter_help
-- utter_responce_got_it
 - utter_responce_who_are_you
-- utter_responce_how_are_you
-- utter_user_not_authorized
-- utter_user_authorized
 - utter_provide_office_location
-- utter_location_saved
-- utter_ready_to_proceed
-- utter_ask_email
-- utter_ask_user_name
-- utter_ask_time
-- utter_ask_duration
-- utter_confirm_booking
-- utter_room_booked
-- utter_room_not_booked
-- utter_no_problem
-- action_create_event
-- action_remove_event
-- action_check_room_available
-- action_check_room_exists
-- action_get_room_free_slots
-- action_get_new_slots
-- action_check_auth_valid
+- utter_room_is_free
+- utter_how_can_help
 - action_reset_auth_valid_slot
-- action_check_office_location
+- utter_confirm_booking
+- utter_location_saved
+- action_listen
+- utter_thank
+- utter_ask_time
+- action_get_new_slots
+- utter_ask_email
+- utter_room_not_exists
+- action_get_room_free_slots
+- action_check_room_exists
+- utter_room_not_booked
+- action_book_room
+- utter_user_not_authorized
 - action_save_office_location
 - action_save_user_email
-- action_save_user_name
-- action_book_room
+- action_check_room_available
+- utter_greet
+- utter_ask_event_name
+- utter_event_saved
+- utter_on_it
+- utter_ask_user_name
+- action_create_event
+- action_remove_event
+- action_check_office_location
+- utter_user_authorized
+- utter_room_is_busy
+- utter_sure
 - action_extract_free_text_event_name
+- utter_room_booked
+- utter_ask_room_name
+- utter_show_free_slots
+- utter_responce_how_are_you
+- utter_no_problem
+- action_save_user_name
+- action_check_auth_valid
+- utter_ask_duration
+- utter_help
+- utter_fallback
+- utter_bye
+- utter_ready_to_proceed
+- utter_responce_got_it
+config:
+  store_entities_as_slots: true
+entities:
+- office_location
+- event_name
+- room_name
+- time
+- duration
+- user_name
+- email
+forms: []
+intents:
+- None
+- create_event
+- greet
+- affirm
+- get_room_free_slots
+- deny
+- are_you_sure
+- inform
+- thank
+- show_my_events
+- how_are_you
+- who_are_you
+- remove_event
+- bye
+- got_it
+- book_room
+- check_room_available
+- help
+slots:
+  auth_valid:
+    auto_fill: true
+    initial_value: false
+    type: rasa_core.slots.BooleanSlot
+  duration:
+    auto_fill: true
+    type: rasa_core.slots.TextSlot
+  email:
+    auto_fill: true
+    type: rasa_core.slots.TextSlot
+  event_name:
+    auto_fill: true
+    type: rasa_core.slots.TextSlot
+  formatted_duration:
+    auto_fill: true
+    type: rasa_core.slots.TextSlot
+  is_room_available:
+    auto_fill: true
+    initial_value: false
+    type: rasa_core.slots.BooleanSlot
+  is_room_exists:
+    auto_fill: true
+    initial_value: false
+    type: rasa_core.slots.BooleanSlot
+  normalized_duration:
+    auto_fill: true
+    type: rasa_core.slots.TextSlot
+  office_location:
+    auto_fill: true
+    type: rasa_core.slots.TextSlot
+  room_name:
+    auto_fill: true
+    type: rasa_core.slots.TextSlot
+  rooms_free_slots:
+    auto_fill: true
+    initial_value: []
+    type: rasa_core.slots.ListSlot
+  success_booking:
+    auto_fill: true
+    initial_value: false
+    type: rasa_core.slots.BooleanSlot
+  time:
+    auto_fill: true
+    type: rasa_core.slots.TextSlot
+  user_name:
+    auto_fill: true
+    type: rasa_core.slots.TextSlot
+templates:
+  utter_ask_duration:
+  - text: For how long should I book it?
+  utter_ask_email:
+  - text: Tell me your email please
+  utter_ask_event_name:
+  - text: how do we call the booking event?
+  utter_ask_room_name:
+  - text: what is room name
+  utter_ask_time:
+  - text: At what time?
+  utter_ask_user_name:
+  - text: Your user name please.
+  utter_bye:
+  - text: Goodbye
+  utter_confirm_booking:
+  - text: I will book {room_name} at {time} for {formatted_duration}. Correct ?
+  utter_event_saved:
+  - text: event saved
+  utter_fallback:
+  - text: sorry, I did not get you...
+  utter_greet:
+  - text: Hey, how can I help you?
+  utter_help:
+  - text: Here is what I can do pal...
+  utter_how_can_help:
+  - text: how can i helps
+  utter_location_saved:
+  - text: Great! I have remembered your location:)
+  utter_no_problem:
+  - text: Sure. No problem...
+  utter_on_it:
+  - text: I am on it
+  utter_provide_office_location:
+  - text: Please click  your office location button
+  utter_ready_to_proceed:
+  - text: Ready to continue
+  utter_responce_got_it:
+  - text: great, dude!:)
+  utter_responce_how_are_you:
+  - text: I am fine, thanks! Learning new stuff every day
+  utter_responce_who_are_you:
+  - text: I am bot. Called to help you with conference rooms
+  utter_room_booked:
+  - text: I have booked room
+  utter_room_is_busy:
+  - text: room is busy
+  utter_room_is_free:
+  - text: room is free
+  utter_room_not_booked:
+  - text: Failed to book room
+  utter_room_not_exists:
+  - text: room not exists
+  utter_show_free_slots:
+  - text: the {room_name} is free/busy at (todo:make sure real bot receive free time)
+  utter_sure:
+  - text: yeah pal, i'm sure
+  utter_thank:
+  - text: You're welcome!
+  utter_user_authorized:
+  - text: You authorized, so I can make action you asked for.
+  utter_user_not_authorized:
+  - text: O-o-o-p-s... Cannot make the action.You need to authorize first.

@@ -8,7 +8,7 @@
   "python": "2.7.12", 
   "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
   "rasa_core": "0.12.0", 
-  "trained_at": "20181115-142538", 
+  "trained_at": "20181116-142630", 
   "policy_names": [
     "rasa_core.policies.keras_policy.KerasPolicy", 
     "rasa_core.policies.fallback.FallbackPolicy", 
@@ -52,11 +52,6 @@
         "rooms_free_slots"
       ]
     }, 
-    "action_check_room_exists": {
-      "slots": [
-        "is_room_exists"
-      ]
-    }, 
     "action_book_room": {
       "slots": [
         "event_name", 
@@ -66,9 +61,9 @@
         "formatted_duration"
       ]
     }, 
-    "action_check_office_location": {
+    "action_check_auth_valid": {
       "slots": [
-        "office_location"
+        "auth_valid"
       ]
     }, 
     "action_save_user_email": {
@@ -87,6 +82,9 @@
     "utter_greet": {
       "slots": []
     }, 
+    "utter_show_free_slots": {
+      "slots": []
+    }, 
     "action_save_user_name": {
       "slots": [
         "user_name"
@@ -103,15 +101,20 @@
         "event_name"
       ]
     }, 
+    "action_check_room_exists": {
+      "slots": [
+        "is_room_exists"
+      ]
+    }, 
     "utter_room_not_exists": {
       "slots": []
     }, 
-    "utter_show_free_slots": {
+    "utter_no_problem": {
       "slots": []
     }, 
-    "action_check_auth_valid": {
+    "action_check_office_location": {
       "slots": [
-        "auth_valid"
+        "office_location"
       ]
     }, 
     "utter_help": {
@@ -121,9 +124,6 @@
       "slots": []
     }, 
     "utter_bye": {
-      "slots": []
-    }, 
-    "utter_ready_to_proceed": {
       "slots": []
     }, 
     "utter_responce_got_it": {

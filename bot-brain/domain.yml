@@ -106,7 +106,7 @@ templates:
   utter_location_saved:
     - 'Great! I have remembered your location:)'
   utter_ready_to_proceed:
-    - 'Reade to continue'
+    - 'Ready to continue'
   utter_ask_email:
     - "Tell me your email please"
   utter_ask_user_name:
@@ -121,6 +121,8 @@ templates:
     - "I have booked room"
   utter_room_not_booked:
     - "Failed to book room"
+  utter_no_problem:
+    - "Sure. No problem..."
 
 actions:
   - utter_greet
@@ -153,6 +155,7 @@ actions:
   - utter_confirm_booking
   - utter_room_booked
   - utter_room_not_booked
+  - utter_no_problem
   - action_create_event
   - action_remove_event
   - action_check_room_available

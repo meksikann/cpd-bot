@@ -29,6 +29,7 @@ actions:
 - utter_confirm_booking
 - utter_room_booked
 - utter_room_not_booked
+- utter_no_problem
 - action_create_event
 - action_remove_event
 - action_check_room_available
@@ -175,12 +176,14 @@ templates:
   - text: how can i helps
   utter_location_saved:
   - text: Great! I have remembered your location:)
+  utter_no_problem:
+  - text: Sure. No problem...
   utter_on_it:
   - text: I am on it
   utter_provide_office_location:
   - text: Please click  your office location button
   utter_ready_to_proceed:
-  - text: Reade to continue
+  - text: Ready to continue
   utter_responce_got_it:
   - text: great, dude!:)
   utter_responce_how_are_you:

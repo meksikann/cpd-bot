@@ -249,6 +249,7 @@
 - i don't want to
 - i don't want either of those
 - nah thanks
+- -
 - neither of these
 
 ## intent:affirm
@@ -271,6 +272,7 @@
 - i'm cool with it
 - it's ok
 - no problem
+- +
 
 ## intent: inform
 - [factoy](room_name)

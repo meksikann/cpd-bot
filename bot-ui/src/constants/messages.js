@@ -44,6 +44,7 @@ let messages = {
         utter_ask_duration: "For how long should I book it?",
         utter_room_booked: "I have booked room for you.",
         utter_room_not_booked: "Failed to book room",
+        utter_no_problem: "Sure. No problem, my friend.",
 
         /* ************************* custom ***************************************************************************/
         defaultmessage: 'default dialog goes here...Man!!....It means that you or bot screwed up conversation...:)',

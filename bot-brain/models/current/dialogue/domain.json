@@ -75,6 +75,7 @@
     "prev_utter_confirm_booking", 
     "prev_utter_room_booked", 
     "prev_utter_room_not_booked", 
+    "prev_utter_no_problem", 
     "prev_action_create_event", 
     "prev_action_remove_event", 
     "prev_action_check_room_available", 

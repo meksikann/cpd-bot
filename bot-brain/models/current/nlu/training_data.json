@@ -1954,6 +1954,14 @@
         "text": "I want to book room for one hour"
       }, 
       {
+        "text": "book me room", 
+        "intent": "book_room"
+      }, 
+      {
+        "text": "book room", 
+        "intent": "book_room"
+      }, 
+      {
         "text": "is it available?", 
         "intent": "get_room_free_slots"
       }, 

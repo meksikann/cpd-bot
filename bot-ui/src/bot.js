@@ -28,10 +28,11 @@ async function botGenerateUtter(req, res) {
                 {'title': 'Lviv', 'payload': generalConstants.officeLocations.lviv}];
         }
 
+        console.log(utterance.text);
         res.send({
             "text": utterance.text,
             "buttons": buttons,
-            "image": utterance.image,
+            "image": null,
             "elements": [],
             "attachments": []
         })

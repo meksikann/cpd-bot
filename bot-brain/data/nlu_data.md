@@ -369,6 +369,8 @@
 - order me [space](room_name) at 13:00 for [two hours](duration)
 - I want to book [main room](room_name) now
 - I want to book room for [one hour](duration)
+- book me room
+- book room
 
 ## intent: get_room_free_slots
 - is it available?

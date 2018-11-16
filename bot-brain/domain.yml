@@ -1,29 +1,29 @@
 intents:
-  - greet
-  - thank
-  - bye
-  - deny
-  - affirm
-  - create_event
-  - remove_event
-  - inform
-  - show_my_events
-  - check_room_available
-  - are_you_sure
-  - get_room_free_slots
-  - None
-  - help
-  - got_it
-  - who_are_you
-  - how_are_you
-  - book_room
+- greet
+- thank
+- bye
+- deny
+- affirm
+- create_event
+- remove_event
+- inform
+- show_my_events
+- check_room_available
+- are_you_sure
+- get_room_free_slots
+- None
+- help
+- got_it
+- who_are_you
+- how_are_you
+- book_room
 
 entities:
-  - event_name
-  - room_name
-  - office_location
-  - user_name
-  - email
+- event_name
+- room_name
+- office_location
+- user_name
+- email
 
 slots:
   event_name:
@@ -62,111 +62,111 @@ slots:
 
 templates:
   utter_greet:
-    - "Hey, how can I help you?"
+  - "Hey, how can I help you?"
   utter_thank:
-    - "You're welcome!"
+  - "You're welcome!"
   utter_bye:
-    - "Goodbye"
+  - "Goodbye"
   utter_how_can_help:
-    - "how can i helps"
+  - "how can i helps"
   utter_on_it:
-    - "I am on it"
+  - "I am on it"
   utter_ask_event_name:
-    - "how do we call the booking event?"
+  - "how do we call the booking event?"
   utter_event_saved:
-    - "event saved"
+  - "event saved"
   utter_ask_room_name:
-    - "what is room name"
+  - "what is room name"
   utter_room_is_free:
-    - "room is free"
+  - "room is free"
   utter_room_is_busy:
-    - "room is busy"
+  - "room is busy"
   utter_fallback:
-    - "sorry, I did not get you..."
+  - "sorry, I did not get you..."
   utter_room_not_exists:
-    - "room not exists"
+  - "room not exists"
   utter_sure:
-    - "yeah pal, i'm sure"
+  - "yeah pal, i'm sure"
   utter_show_free_slots:
-    - 'the {room_name} is free/busy at (todo:make sure real bot receive free time)'
+  - 'the {room_name} is free/busy at (todo:make sure real bot receive free time)'
   utter_help:
-    - 'Here is what I can do pal...'
+  - 'Here is what I can do pal...'
   utter_responce_got_it:
-    - 'great, dude!:)'
+  - 'great, dude!:)'
   utter_responce_who_are_you:
-    - 'I am bot. Called to help you with conference rooms'
+  - 'I am bot. Called to help you with conference rooms'
   utter_responce_how_are_you:
-    - 'I am fine, thanks! Learning new stuff every day'
+  - 'I am fine, thanks! Learning new stuff every day'
   utter_user_not_authorized:
-    - 'O-o-o-p-s... Cannot make the action.You need to authorize first.'
+  - 'O-o-o-p-s... Cannot make the action.You need to authorize first.'
   utter_user_authorized:
-    - 'You authorized, so I can make action you asked for.'
+  - 'You authorized, so I can make action you asked for.'
   utter_provide_office_location:
-    - 'Please click  your office location button'
+  - 'Please click  your office location button'
   utter_location_saved:
-    - 'Great! I have remembered your location:)'
+  - 'Great! I have remembered your location:)'
   utter_ready_to_proceed:
-    - 'Ready to continue'
+  - 'Ready to continue'
   utter_ask_email:
-    - "Tell me your email please"
+  - "Tell me your email please"
   utter_ask_user_name:
-    - "Your user name please."
+  - "Your user name please."
   utter_ask_time:
-    - "At what time?"
+  - "At what time?"
   utter_ask_duration:
-    - "For how long should I book it?"
+  - "For how long should I book it?"
   utter_confirm_booking:
-    - "I will book {room_name} at {time} for {formatted_duration}. Correct ?"
+  - "I will book {room_name} at {time} for {formatted_duration}. Correct ?"
   utter_room_booked:
-    - "I have booked room"
+  - "I have booked room"
   utter_room_not_booked:
-    - "Failed to book room"
+  - "Failed to book room"
   utter_no_problem:
-    - "Sure. No problem..."
+  - "Sure. No problem..."
 
 actions:
-  - utter_greet
-  - utter_thank
-  - utter_bye
-  - utter_how_can_help
-  - utter_on_it
-  - utter_ask_event_name
-  - utter_event_saved
-  - utter_ask_room_name
-  - utter_room_is_free
-  - utter_room_is_busy
-  - utter_fallback
-  - utter_room_not_exists
-  - utter_sure
-  - utter_show_free_slots
-  - utter_help
-  - utter_responce_got_it
-  - utter_responce_who_are_you
-  - utter_responce_how_are_you
-  - utter_user_not_authorized
-  - utter_user_authorized
-  - utter_provide_office_location
-  - utter_location_saved
-  - utter_ready_to_proceed
-  - utter_ask_email
-  - utter_ask_user_name
-  - utter_ask_time
-  - utter_ask_duration
-  - utter_confirm_booking
-  - utter_room_booked
-  - utter_room_not_booked
-  - utter_no_problem
-  - action_create_event
-  - action_remove_event
-  - action_check_room_available
-  - action_check_room_exists
-  - action_get_room_free_slots
-  - action_get_new_slots
-  - action_check_auth_valid
-  - action_reset_auth_valid_slot
-  - action_check_office_location
-  - action_save_office_location
-  - action_save_user_email
-  - action_save_user_name
-  - action_book_room
-  - action_extract_free_text_event_name
+- utter_greet
+- utter_thank
+- utter_bye
+- utter_how_can_help
+- utter_on_it
+- utter_ask_event_name
+- utter_event_saved
+- utter_ask_room_name
+- utter_room_is_free
+- utter_room_is_busy
+- utter_fallback
+- utter_room_not_exists
+- utter_sure
+- utter_show_free_slots
+- utter_help
+- utter_responce_got_it
+- utter_responce_who_are_you
+- utter_responce_how_are_you
+- utter_user_not_authorized
+- utter_user_authorized
+- utter_provide_office_location
+- utter_location_saved
+- utter_ready_to_proceed
+- utter_ask_email
+- utter_ask_user_name
+- utter_ask_time
+- utter_ask_duration
+- utter_confirm_booking
+- utter_room_booked
+- utter_room_not_booked
+- utter_no_problem
+- action_create_event
+- action_remove_event
+- action_check_room_available
+- action_check_room_exists
+- action_get_room_free_slots
+- action_get_new_slots
+- action_check_auth_valid
+- action_reset_auth_valid_slot
+- action_check_office_location
+- action_save_office_location
+- action_save_user_email
+- action_save_user_name
+- action_book_room
+- action_extract_free_text_event_name

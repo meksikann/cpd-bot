@@ -292,12 +292,8 @@ async function bookRoom(data) {
 
     if (res.event) {
         return [
-            {"event": "slot", "name": "success_booking", "value": true},
-            {"event": "slot", "name": "event_name", "value": null},
-            {"event": "slot", "name": "duration", "value":null},
-            {"event": "slot", "name": "normalized_duration", "value":null},
-            {"event": "slot", "name": "formatted_duration", "value":null}
-            ]
+            {"event": "slot", "name": "success_booking", "value": true}
+        ]
     }
 
     return [{"event": "slot", "name": "success_booking", "value": false}]
@@ -317,8 +313,7 @@ function generateEvent(email, startTime, endTime, eventName) {
             'timeZone': config.timeZone,
         },
         'recurrence': [],
-        'attendees': [
-        ],
+        'attendees': [],
         'reminders': {
             'useDefault': false,
             'overrides': [
@@ -332,17 +327,22 @@ function generateEvent(email, startTime, endTime, eventName) {
 }
 
 function extractFreeTextAsEventName(data) {
-    if(data.slots.event_name) {
+    if (data.slots.event_name) {
         return []
     }
     let name = data.latest_message;
 
     return [{"event": "slot", "name": "event_name", "value": name}]
 }
+
+function resetSlots() {
+    return [{'event': 'reset_slots'}]
+}
+
 let generalHelper = {
     getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
     getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance, checkUserAuth, resetAuthSlot,
     getUserOfficeLocation, saveUserOfficeLocation, saveUserEmail, saveUserName, getFormattedDuration, bookRoom,
-    getHumanizedTime, extractFreeTextAsEventName
+    getHumanizedTime, extractFreeTextAsEventName, resetSlots
 };
 export {generalHelper}

@@ -1354,18 +1354,6 @@
         "text": "serhiy.testitest@testi.com"
       }, 
       {
-        "entities": [
-          {
-            "start": 0, 
-            "end": 13, 
-            "value": "Chat-bot demo", 
-            "entity": "event_name"
-          }
-        ], 
-        "intent": "inform", 
-        "text": "Chat-bot demo"
-      }, 
-      {
         "text": "It is Rbro daily meeting", 
         "intent": "inform"
       }, 
@@ -2020,7 +2008,19 @@
         "intent": "book_room"
       }, 
       {
-        "text": "book room", 
+        "entities": [
+          {
+            "start": 13, 
+            "end": 18, 
+            "value": "space", 
+            "entity": "room_name"
+          }
+        ], 
+        "intent": "book_room", 
+        "text": "can you book space for me?"
+      }, 
+      {
+        "text": "i wanna book room", 
         "intent": "book_room"
       }, 
       {

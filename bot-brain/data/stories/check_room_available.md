@@ -299,8 +299,6 @@
     - slot{"is_room_available": true}
     - slot{"time": "2018-10-05T17:00:00.000+03:00"}
     - utter_room_is_free
-* greet
-    - utter_greet
 * bye
     - utter_bye
 
@@ -408,10 +406,6 @@
     - slot{"is_room_available": false}
     - utter_room_is_busy
     
-## Generated Story 7010713489214373364
-* greet
-    - utter_greet
-    - utter_how_can_help
     
 ## Generated Story -623317588899375065
 * greet

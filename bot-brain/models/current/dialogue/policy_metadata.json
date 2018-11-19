@@ -8,7 +8,7 @@
   "python": "2.7.12", 
   "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
   "rasa_core": "0.12.1", 
-  "trained_at": "20181116-172859", 
+  "trained_at": "20181119-230510", 
   "policy_names": [
     "rasa_core.policies.keras_policy.KerasPolicy", 
     "rasa_core.policies.fallback.FallbackPolicy", 
@@ -38,7 +38,7 @@
         "email"
       ]
     }, 
-    "utter_thank": {
+    "utter_responce_got_it": {
       "slots": []
     }, 
     "action_get_new_slots": {
@@ -46,6 +46,9 @@
         "formatted_duration", 
         "normalized_duration"
       ]
+    }, 
+    "utter_room_not_exists": {
+      "slots": []
     }, 
     "action_get_room_free_slots": {
       "slots": [
@@ -59,11 +62,7 @@
     }, 
     "action_book_room": {
       "slots": [
-        "event_name", 
-        "duration", 
-        "success_booking", 
-        "normalized_duration", 
-        "formatted_duration"
+        "success_booking"
       ]
     }, 
     "action_check_auth_valid": {
@@ -103,7 +102,7 @@
         "event_name"
       ]
     }, 
-    "utter_room_not_exists": {
+    "utter_thank": {
       "slots": []
     }, 
     "utter_show_free_slots": {
@@ -124,9 +123,6 @@
       "slots": []
     }, 
     "utter_bye": {
-      "slots": []
-    }, 
-    "utter_responce_got_it": {
       "slots": []
     }
   }

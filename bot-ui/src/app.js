@@ -1,4 +1,5 @@
 //setup builder global variable
+require('dotenv').config();
 let express = require('express');
 let monk = require('monk');
 import {logInfo} from "./utils/logger";
@@ -6,7 +7,7 @@ import HttpStatus from 'http-status-codes'
 import bodyParser from 'body-parser';
 import {generalConstants} from './constants/general';
 import {botGenerateUtter, botPerformAction} from './bot.js';
-require('dotenv').config();
+
 
 let db = monk('localhost:27017/cpd-bot');
 const server = express();

@@ -80,6 +80,12 @@ async function processActionIntent(nextActionData) {
             case actionIntents.action_extract_free_text_event_name:
                 logInfo('performing action_extract_free_text_event_name ...');
                 events = generalHelper.extractFreeTextAsEventName(nextActionData);
+
+                break;
+            case actionIntents.action_reset_slots:
+                logInfo('performint action_reset_slots .....');
+                events = generalHelper.resetSlots();
+
                 break;
             default:
                 logInfo('performing default action ...');

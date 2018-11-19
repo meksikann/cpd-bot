@@ -3,6 +3,7 @@ actions:
 - utter_provide_office_location
 - utter_room_is_free
 - utter_how_can_help
+- utter_no_problem
 - action_reset_auth_valid_slot
 - utter_confirm_booking
 - utter_location_saved
@@ -36,7 +37,7 @@ actions:
 - utter_ask_room_name
 - utter_show_free_slots
 - utter_responce_how_are_you
-- utter_no_problem
+- action_reset_slots
 - action_save_user_name
 - action_check_auth_valid
 - utter_ask_duration

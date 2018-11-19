@@ -29,4 +29,4 @@ core-server:
 core-learn:
 	python -m rasa_core.train interactive -o models/current/dialogue -d domain.yml -s data/stories --nlu models/current/nlu --endpoints endpoints.yml -c default_config.yml
 core-graph:
-	python -m rasa_core.visualize -d domain.yml -s data/stories -o graph.png
+	python -m rasa_core.visualize -d domain.yml -s data/stories -o graph.html -c default_config.yml

@@ -302,7 +302,6 @@
 - [Mike](user_name)
 - [Victoria](user_name)
 - [serhiy.testitest@testi.com](email)
-- [Chat-bot demo](event_name)
 - It is Rbro daily meeting
 - Skhole sync-up
 - event name is some planning
@@ -376,7 +375,8 @@
 - I want to book [main room](room_name) now
 - I want to book room for [one hour](duration)
 - book me room
-- book room
+- can you book [space](room_name) for me?
+- i wanna book room
 
 ## intent: get_room_free_slots
 - is it available?

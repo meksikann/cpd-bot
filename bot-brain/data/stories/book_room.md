@@ -41,6 +41,7 @@
     - action_book_room
     - slot{"success_booking": true}
     - utter_room_booked
+    - action_reset_slots
 * affirm
     - utter_responce_got_it
 * thank
@@ -88,11 +89,8 @@
     - slot{"is_room_available": true}
     - action_book_room
     - slot{"success_booking": true}
-    - slot{"event_name": null}
-    - slot{"duration": null}
-    - slot{"normalized_duration": null}
-    - slot{"formatted_duration": null}
     - utter_room_booked
+    - action_reset_slots
 * got_it
     - utter_responce_got_it
 
@@ -131,56 +129,8 @@
     - slot{"is_room_available": true}
     - action_book_room
     - slot{"success_booking": true}
-    - slot{"event_name": null}
-    - slot{"duration": null}
-    - slot{"normalized_duration": null}
-    - slot{"formatted_duration": null}
     - utter_room_booked
-* thank
-    - utter_thank
-
-## Generated Story -5464511403901105039 - ask time and room name
-* greet
-    - utter_greet
-    - utter_how_can_help
-* check_room_available{"duration": 1}
-    - slot{"duration": 1}
-    - action_get_new_slots
-    - slot{"normalized_duration": 3600}
-    - slot{"formatted_duration": "an hour"}
-    - action_check_auth_valid
-    - slot{"auth_valid": true}
-    - utter_user_authorized
-    - action_reset_auth_valid_slot
-    - slot{"auth_valid": false}
-    - action_check_office_location
-    - slot{"office_location": "vinnitsia"}
-    - utter_ask_room_name
-* inform{"room_name": "space"}
-    - slot{"room_name": "space"}
-    - action_check_room_exists
-    - slot{"is_room_exists": true}
-    - utter_ask_time
-* inform{"time": "2018-11-13T20:23:20.000+02:00"}
-    - slot{"time": "2018-11-13T20:23:20.000+02:00"}
-    - action_check_room_available
-    - slot{"is_room_available": true}
-    - utter_room_is_free
-    - utter_ask_event_name
-* inform
-    - action_extract_free_text_event_name
-    - slot{"event_name": "cw testing"}
-    - utter_confirm_booking
-* affirm
-    - action_check_room_available
-    - slot{"is_room_available": true}
-    - action_book_room
-    - slot{"success_booking": true}
-    - slot{"event_name": null}
-    - slot{"duration": null}
-    - slot{"normalized_duration": null}
-    - slot{"formatted_duration": null}
-    - utter_room_booked
+    - action_reset_slots
 * thank
     - utter_thank
     
@@ -241,11 +191,8 @@
 * affirm
     - action_book_room
     - slot{"success_booking": true}
-    - slot{"event_name": null}
-    - slot{"duration": null}
-    - slot{"normalized_duration": null}
-    - slot{"formatted_duration": null}
     - utter_room_booked
+    - action_reset_slots
 * got_it
     - utter_responce_got_it
 
@@ -293,11 +240,8 @@
     - slot{"is_room_available": true}
     - action_book_room
     - slot{"success_booking": true}
-    - slot{"event_name": null}
-    - slot{"duration": null}
-    - slot{"normalized_duration": null}
-    - slot{"formatted_duration": null}
     - utter_room_booked
+    - action_reset_slots
 * thank
     - utter_thank
 * bye
@@ -317,7 +261,12 @@
     - action_reset_auth_valid_slot
     - slot{"auth_valid": false}
     - action_check_office_location
-    - slot{"office_location": "vinnitsia"}
+    - utter_provide_office_location
+* inform{"office_location": "lviv"}
+    - slot{"office_location": "lviv"}
+    - action_save_office_location
+    - utter_location_saved
+    - utter_ready_to_proceed
     - utter_ask_room_name
 * inform
     - action_check_room_exists
@@ -338,11 +287,8 @@
     - slot{"is_room_available": true}
     - action_book_room
     - slot{"success_booking": true}
-    - slot{"event_name": null}
-    - slot{"duration": null}
-    - slot{"normalized_duration": null}
-    - slot{"formatted_duration": null}
     - utter_room_booked
+    - action_reset_slots
 * thank
     - utter_thank
 
@@ -386,7 +332,6 @@
     - utter_no_problem
 
 
-    
 ## deny confirm but with more data
 ## Generated Story -7490739042947398003
 * greet
@@ -421,15 +366,44 @@
     - action_save_office_location
     - utter_location_saved
     - utter_ready_to_proceed
-    - utter_ask_event_name
-* inform{"event_name": "Test bot meeting"}
-    - slot{"event_name": "Test bot meeting"}
-    - utter_confirm_booking
-* affirm
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
     - action_check_room_available
     - slot{"is_room_available": true}
-    - action_book_room
-    - slot{"success_booking": true}
-    - utter_room_booked
+    - utter_room_is_free
+    - utter_ask_event_name
+* inform
+    - action_extract_free_text_event_name
+    - slot{"event_name": "Test bot meeting"}
+    - utter_confirm_booking
+* deny
+    - utter_no_problem
+
+## book room with room_name, time  and duration in one sentence
+* book_room{"duration": 2, "room_name": "factory", "time": "2018-11-02T15:00:00.000+02:00"}
+    - slot{"duration": 2}
+    - slot{"room_name": "factory"}
+    - slot{"time": "2018-11-02T15:00:00.000+02:00"}
+    - action_get_new_slots
+    - slot{"normalized_duration": 7200}
+    - slot{"formatted_duration": "2 hours"}
+    - action_check_auth_valid
+    - slot{"auth_valid": true}
+    - utter_user_authorized
+    - action_reset_auth_valid_slot
+    - slot{"auth_valid": false}
+    - action_check_office_location
+    - slot{"office_location": "vinnitsia"}
+    - utter_on_it
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - action_check_room_available
+    - slot{"is_room_available": true}
+    - utter_room_is_free
+    - utter_ask_event_name
+* inform
+    - action_extract_free_text_event_name
+    - slot{"event_name": "Test bot meeting"}
+    - utter_confirm_booking
 * deny
     - utter_no_problem

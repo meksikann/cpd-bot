@@ -8,7 +8,7 @@
   "python": "2.7.12", 
   "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
   "rasa_core": "0.12.1", 
-  "trained_at": "20181119-230510", 
+  "trained_at": "20181122-135041", 
   "policy_names": [
     "rasa_core.policies.keras_policy.KerasPolicy", 
     "rasa_core.policies.fallback.FallbackPolicy", 
@@ -38,7 +38,7 @@
         "email"
       ]
     }, 
-    "utter_responce_got_it": {
+    "utter_thank": {
       "slots": []
     }, 
     "action_get_new_slots": {
@@ -46,9 +46,6 @@
         "formatted_duration", 
         "normalized_duration"
       ]
-    }, 
-    "utter_room_not_exists": {
-      "slots": []
     }, 
     "action_get_room_free_slots": {
       "slots": [
@@ -65,9 +62,9 @@
         "success_booking"
       ]
     }, 
-    "action_check_auth_valid": {
+    "action_check_office_location": {
       "slots": [
-        "auth_valid"
+        "office_location"
       ]
     }, 
     "action_save_user_email": {
@@ -102,7 +99,7 @@
         "event_name"
       ]
     }, 
-    "utter_thank": {
+    "utter_room_not_exists": {
       "slots": []
     }, 
     "utter_show_free_slots": {
@@ -111,9 +108,9 @@
     "utter_no_problem": {
       "slots": []
     }, 
-    "action_check_office_location": {
+    "action_check_auth_valid": {
       "slots": [
-        "office_location"
+        "auth_valid"
       ]
     }, 
     "utter_help": {
@@ -123,6 +120,9 @@
       "slots": []
     }, 
     "utter_bye": {
+      "slots": []
+    }, 
+    "utter_responce_got_it": {
       "slots": []
     }
   }

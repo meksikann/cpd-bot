@@ -1,7 +1,7 @@
 import {generateBotResponse} from './helpers/format-messages';
 import {logError, logInfo} from './utils/logger';
 import {processActionIntent} from './helpers/actionProcessor';
-import {updateDbUserActions} from './helpers/database-queries';
+import {updateDbUserActions, getUserPermissions} from './helpers/database-queries';
 import {generalConstants} from './constants/general';
 
 async function botGenerateUtter(req, res) {
@@ -11,15 +11,17 @@ async function botGenerateUtter(req, res) {
     logInfo(`userId: ${req.body.tracker.sender_id}`);
     logInfo('latest_message Text: ', req.body.tracker.latest_message.text);
 
-    const data = {
-        senderId: req.body.tracker.sender_id || generalConstants.defaultUser,
-        template: req.body.template,
-        slots: req.body.tracker.slots
-    };
-
     try {
-        const utterance = generateBotResponse(data);
+        // get user data from db if user exists (use his name for some utterances)
+        let user = await getUserPermissions(req.body.tracker.sender_id);
         let buttons = [];
+        let data = {
+            senderId: req.body.tracker.sender_id || generalConstants.defaultUser,
+            template: req.body.template,
+            slots: req.body.tracker.slots,
+            userName: user ? user.name: ''
+        };
+        const utterance = generateBotResponse(data);
 
         // add buttons to template
         if (req.body.template == 'utter_provide_office_location') {
@@ -28,7 +30,7 @@ async function botGenerateUtter(req, res) {
                 {'title': 'Lviv', 'payload': generalConstants.officeLocations.lviv}];
         }
 
-        console.log(utterance.text);
+        logInfo(utterance.text);
         res.send({
             "text": utterance.text,
             "buttons": buttons,

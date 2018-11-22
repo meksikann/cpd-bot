@@ -1,6 +1,6 @@
-import {messages} from "../constants/messages";
+import {getBotUtterance} from "../constants/messages";
 import {generalHelper} from './general';
-import config from  '../config';
+import config from '../config';
 
 const fs = require('fs');
 
@@ -13,11 +13,19 @@ function generateBotResponse(data) {
     let response = {
         text: ''
     };
-
     let message = '';
-    //return messages, which require to paste data in it.
+    let opts = {
+        time: generalHelper.getHumanizedTime(data.slots.time || generalHelper.getQueriedValidTime()),
+        formatted_duration: data.slots.formatted_duration || generalHelper.getFormattedDuration(config.minDurationAvailableMin * 60),
+        roomName: data.slots.room_name,
+        userName: data.userName || '',
+        template: data.template,
+        url: process.env.BOT_MANUAL
+    };
+
+    //  generate custom bot utterance  ----------------------------
     if (data.template == 'utter_show_free_slots') {
-         message = `Ok! so what we've got here...
+        message = `Ok! so what we've got here...
         Free time available on ${generalHelper.getDate(data.slots.time)} :\n`;
 
         const slots = data.slots.rooms_free_slots;
@@ -31,7 +39,7 @@ function generateBotResponse(data) {
                 });
 
             } else {
-                roomMessage = messages.noFreeSpace;
+                roomMessage = getBotUtterance(opts);
             }
 
             message += roomMessage;
@@ -39,29 +47,12 @@ function generateBotResponse(data) {
 
         response.text = message;
         return response;
-    } else if (data.template == 'utter_help') {
-        message = `${messages.heroCard.subtitle}.
-        ${messages.getHelpMessage(process.env.BOT_MANUAL)}
-        `;
-
-        response.text = message;
-        response.image = getBotImage();
-        return response;
-    } else if (data.template == 'utter_confirm_booking') {
-        console.log(data);
-        let req = {
-            time: generalHelper.getHumanizedTime(data.slots.time || generalHelper.getQueriedValidTime()),
-            formatted_duration: data.slots.formatted_duration || generalHelper.getFormattedDuration(config.minDurationAvailableMin * 60),
-            roomName: data.slots.room_name
-        };
-        response.text = messages.getConfirmBookingMessage(req);
-        return response;
     }
 
-    //return constant messages, which not require to paste data in it.
-    response.text = messages.bot_response[data.template];
+    // get bot responses with variables
+    response.text = getBotUtterance(opts);
     return response;
 }
 
 
-export { generateBotResponse};
+export {generateBotResponse};

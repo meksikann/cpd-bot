@@ -189,6 +189,8 @@
     - slot{"event_name": "cw testing"}
     - utter_confirm_booking
 * affirm
+    - action_check_room_available
+    - slot{"is_room_available": true}
     - action_book_room
     - slot{"success_booking": true}
     - utter_room_booked
@@ -404,6 +406,50 @@
 * inform
     - action_extract_free_text_event_name
     - slot{"event_name": "Test bot meeting"}
+    - utter_confirm_booking
+* deny
+    - utter_no_problem
+    
+    
+## ask location and other stuff
+* greet
+    - utter_how_can_help
+* book_room
+    - action_get_new_slots
+    - action_check_auth_valid
+    - slot{"auth_valid": true}
+    - utter_user_authorized
+    - action_reset_auth_valid_slot
+    - slot{"auth_valid": false}
+    - action_check_office_location
+    - utter_provide_office_location
+* inform{"office_location": "vinnitsia"}
+    - slot{"office_location": "vinnitsia"}
+    - action_save_office_location
+    - utter_location_saved
+    - utter_ready_to_proceed
+    - utter_ask_room_name
+* inform{"room_name": "factory"}
+    - slot{"room_name": "factory"}
+    - action_check_room_exists
+    - slot{"is_room_exists": true}
+    - utter_ask_time
+* inform{"time": "2018-11-14T14:00:00.000+02:00"}
+    - slot{"time": "2018-11-14T14:00:00.000+02:00"}
+    - utter_ask_duration
+* inform{"duration": 3}
+    - slot{"duration": 3}
+    - action_get_new_slots
+    - slot{"normalized_duration": 10800}
+    - slot{"formatted_duration": "3 hours"}
+    - utter_on_it
+    - action_check_room_available
+    - slot{"is_room_available": true}
+    - utter_room_is_free
+    - utter_ask_event_name
+* inform
+    - action_extract_free_text_event_name
+    - slot{"event_name": "Classwallet meeting"}
     - utter_confirm_booking
 * deny
     - utter_no_problem

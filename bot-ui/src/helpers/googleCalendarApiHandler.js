@@ -1,5 +1,6 @@
 import {logInfo, logError} from "../utils/logger";
 import {readFileSync, writeFileSync} from "../utils/fileSys";
+
 const fs = require('fs');
 
 const path = require('path');
@@ -13,7 +14,7 @@ const currentPath = path.dirname(__filename);
 async function getGoogleCalendarEvents(calendarId, startTime, endTime) {
     logInfo('In googleCalendarApiHandler: get all events');
 
-    let content = await readFileSync(`${currentPath}/../creds/credentials.json`);
+    let content = process.env.google_creds;
 
     // Authorize a client with credentials, then call the Google Calendar API.
     const oAuth2Client = await authorize(JSON.parse(content));
@@ -27,8 +28,7 @@ async function addGoogleCalendarEvent(data) {
         event: null
     };
 
-
-    let content = await readFileSync(`${currentPath}/../creds/credentials.json`);
+    let content = process.env.google_creds;
     // Authorize a client with credentials, then call the Google Calendar API.
     const oAuth2Client = await authorize(JSON.parse(content));
 
@@ -95,12 +95,11 @@ async function authorize(credentials) {
         client_id, client_secret, redirect_uris[0]);
     let token;
     try {
-        token = await readFileSync(`${currentPath}/../creds/${TOKEN_PATH}`);
+        token = process.env.google_token;
         oAuth2Client.setCredentials(JSON.parse(token));
         return oAuth2Client;
     } catch (e) {
-        token = await getAccessToken(oAuth2Client);
-        oAuth2Client.setCredentials(token);
+        console.error(e);
         return oAuth2Client;
     }
 }
@@ -124,7 +123,7 @@ function getAccessToken(oAuth2Client) {
         });
         rl.question('Enter the code from that page here: ', (code) => {
             rl.close();
-            oAuth2Client.getToken(code, async(err, token) => {
+            oAuth2Client.getToken(code, async (err, token) => {
                 if (err) reject('Error retrieving access token', err);
                 // Store the token to disk for later program executions
                 let res = await writeFileSync(`${currentPath}/../creds/${TOKEN_PATH}`, JSON.stringify(token));

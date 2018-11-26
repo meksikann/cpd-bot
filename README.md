@@ -43,19 +43,20 @@ For slack
 3. insert  .env file with next variables:
 NOTE: slack_token needed to get user profile data from slack (if slack channel used) https://api.slack.com/custom-integrations/legacy-tokens()
 NOTE: MicrosoftAppId and MicrosoftAppPassword needed if you connect bot via MS Bot-Framework channel
+NOTE: google_creds and google_token - get from google api auth page (authUrl = oAuth2Client.generateAuthUrl)
 ```bash
 MicrosoftAppId=<YOUR_MS_ID>
 MicrosoftAppPassword=<YOUR_MS_PASSWORD>>
 BOT_MANUAL=<URL_TO_MANUAL>>
 NODE_ENV=development
 slack_token
+google_token
+google_creds
 ```
 4. install dependencies
 ```
 npm install
 ```
-
-4.1 Place `credentials.json` and `token.json` file (with google api creds) into src/creds folder
 
 NOTE:
 google api used to manege calendar events

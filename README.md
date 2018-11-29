@@ -146,6 +146,13 @@ run:
 python -m rasa_core.visualize -d domain.yml -s data/stories -o graph.png
 ```
 
+## Using bot with Google Assistant
+1. cd to ``cpd-bot/bot-brain``, start app with google channel `python run_app.py`.
+2. cd to `cpd-bot` Edit `action.json` - replce bot url with existing ones
+3. `./gactions update --action_package action.json --project mini-me-8e06e`
+1.At https://console.actions.google.com/u/1/project/mini-me-8e06e/invocation/
+
+
 
 
 

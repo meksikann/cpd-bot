@@ -7,8 +7,8 @@
   ], 
   "python": "2.7.12", 
   "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
-  "rasa_core": "0.12.1", 
-  "trained_at": "20181122-135041", 
+  "rasa_core": "0.12.2", 
+  "trained_at": "20181129-153658", 
   "policy_names": [
     "rasa_core.policies.keras_policy.KerasPolicy", 
     "rasa_core.policies.fallback.FallbackPolicy", 
@@ -62,9 +62,9 @@
         "success_booking"
       ]
     }, 
-    "action_check_office_location": {
+    "action_check_auth_valid": {
       "slots": [
-        "office_location"
+        "auth_valid"
       ]
     }, 
     "action_save_user_email": {
@@ -108,9 +108,9 @@
     "utter_no_problem": {
       "slots": []
     }, 
-    "action_check_auth_valid": {
+    "action_check_office_location": {
       "slots": [
-        "auth_valid"
+        "office_location"
       ]
     }, 
     "utter_help": {

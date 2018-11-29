@@ -339,10 +339,14 @@ function resetSlots() {
     return [{'event': 'reset_slots'}]
 }
 
+function removeExtraTextMarkup(string) {
+    return string.replace(/[*+_^${:)}|[\]\\]/g, '');
+}
+
 let generalHelper = {
     getQueriedValidTime, getDateWithDurationISOString, getCalendarId, aggregateCalendarIds, getTimeRangeFreeSlots,
     getDate, getTime, getTimeStamp, geterateQueryData, getNewsSlotsFromUtterance, checkUserAuth, resetAuthSlot,
     getUserOfficeLocation, saveUserOfficeLocation, saveUserEmail, saveUserName, getFormattedDuration, bookRoom,
-    getHumanizedTime, extractFreeTextAsEventName, resetSlots
+    getHumanizedTime, extractFreeTextAsEventName, resetSlots, removeExtraTextMarkup
 };
 export {generalHelper}

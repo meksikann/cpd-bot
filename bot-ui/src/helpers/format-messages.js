@@ -45,12 +45,21 @@ function generateBotResponse(data) {
             message += roomMessage;
         });
 
+        // remove extra text formatting when no chat channel defined
+        if(!data.inputChannel) {
+            message = generalHelper.removeExtraTextMarkup(message);
+        }
         response.text = message;
         return response;
     }
 
+    message = getBotUtterance(opts);
+    // remove extra text formatting when no chat channel defined
+    if(!data.inputChannel) {
+        message = generalHelper.removeExtraTextMarkup(message);
+    }
     // get bot responses with variables
-    response.text = getBotUtterance(opts);
+    response.text = message;
     return response;
 }
 

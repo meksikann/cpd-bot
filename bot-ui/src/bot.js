@@ -10,21 +10,25 @@ async function botGenerateUtter(req, res) {
     logInfo('Intent: ', req.body.tracker.latest_message.intent);
     logInfo(`userId: ${req.body.tracker.sender_id}`);
     logInfo('latest_message Text: ', req.body.tracker.latest_message.text);
+    logInfo('Input channel: ', req.body.tracker.latest_input_channel);
 
     try {
         // get user data from db if user exists (use his name for some utterances)
         let user = await getUserPermissions(req.body.tracker.sender_id);
         let buttons = [];
+        let inputChannel = req.body.tracker.latest_input_channel;
+
         let data = {
             senderId: req.body.tracker.sender_id || generalConstants.defaultUser,
             template: req.body.template,
             slots: req.body.tracker.slots,
-            userName: user ? user.name: ''
+            userName: user ? user.name: '',
+            inputChannel
         };
         const utterance = generateBotResponse(data);
 
-        // add buttons to template
-        if (req.body.template == 'utter_provide_office_location') {
+        // add buttons to template if input channel is defined
+        if (req.body.template == 'utter_provide_office_location' && inputChannel) {
             buttons = [
                 {'title': 'Vinnitsia', 'payload': generalConstants.officeLocations.vinnitsia},
                 {'title': 'Lviv', 'payload': generalConstants.officeLocations.lviv}];

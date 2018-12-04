@@ -8,7 +8,7 @@
   "python": "2.7.12", 
   "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
   "rasa_core": "0.12.2", 
-  "trained_at": "20181129-153658", 
+  "trained_at": "20181204-191915", 
   "policy_names": [
     "rasa_core.policies.keras_policy.KerasPolicy", 
     "rasa_core.policies.fallback.FallbackPolicy", 
@@ -29,13 +29,9 @@
     }, 
     "action_listen": {
       "slots": [
-        "office_location", 
-        "event_name", 
-        "room_name", 
-        "time", 
         "duration", 
-        "user_name", 
-        "email"
+        "room_name", 
+        "time"
       ]
     }, 
     "utter_thank": {
@@ -67,11 +63,6 @@
         "auth_valid"
       ]
     }, 
-    "action_save_user_email": {
-      "slots": [
-        "email"
-      ]
-    }, 
     "action_check_room_available": {
       "slots": [
         "formatted_duration", 
@@ -82,11 +73,6 @@
     }, 
     "utter_greet": {
       "slots": []
-    }, 
-    "action_save_user_name": {
-      "slots": [
-        "user_name"
-      ]
     }, 
     "utter_room_is_busy": {
       "slots": []

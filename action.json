@@ -32,12 +32,12 @@
   "conversations": {
     "cpd mini bot": {
       "name": "cpd mini bot",
-      "url": "https://04024d36.ngrok.io/webhooks/google_home/webhook",
+      "url": "https://0304b3b8.ngrok.io/webhooks/google_home/webhook",
       "fulfillmentApiVersion": 2
     },
     "rasa_intent": {
         "name": "rasa_intent",
-        "url": "https://04024d36.ngrok.io/webhooks/google_home/webhook",
+        "url": "https://0304b3b8.ngrok.io/webhooks/google_home/webhook",
         "fulfillmentApiVersion": 2
     }
   },

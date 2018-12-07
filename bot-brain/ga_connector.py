@@ -14,14 +14,7 @@ import json
 logger = logging.getLogger(__name__)
 
 
-
-
 class GoogleConnector(InputChannel):
-    """A custom http input channel.
-
-    This implementation is the basis for a custom implementation of a chat
-    frontend. You can customize this to send messages to Rasa Core and
-    retrieve responses from the agent."""
 
     @classmethod
     def name(cls):

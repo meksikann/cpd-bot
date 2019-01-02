@@ -1,5 +1,5 @@
 {
-    "trained_at": "20181119-205206", 
+    "trained_at": "20181207-115004", 
     "pipeline": [
         {
             "class": "rasa_nlu.utils.spacy_utils.SpacyNLP", 
@@ -88,7 +88,7 @@
             "name": "ner_duckling_http"
         }
     ], 
-    "rasa_nlu_version": "0.13.7", 
+    "rasa_nlu_version": "0.13.8", 
     "training_data": "training_data.json", 
     "language": "en"
 }

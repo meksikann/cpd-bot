@@ -29,8 +29,7 @@ let getBotUtterance = function (data) {
         utter_action_not_succeed: 'Hm...last action not succeeded. Would you please try again now.',
         utter_responce_got_it: 'Great.',
         utter_responce_who_are_you: 'Well... At the moment I am *chat-bot* called to help you with some conference-' +
-            'room activities. But in future I am sure I will be able to manage some more stuff..And you know..maybe I could even have' +
-            'some voice interface. Who knows!? :)',
+            'room activities.',
         utter_responce_how_are_you: `I'm fine. Thanks:) Learning new stuff every day. And you?`,
         utter_user_not_authorized: `Darn! Can't make the action. Need to get few details about your profile. 
         Don't you mind for few quick questions?`,

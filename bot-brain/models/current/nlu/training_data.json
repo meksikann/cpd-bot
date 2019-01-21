@@ -1634,6 +1634,42 @@
       {
         "entities": [
           {
+            "start": 0, 
+            "end": 4, 
+            "value": "rump", 
+            "entity": "steak_type"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "rump steak"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "fillet", 
+            "entity": "steak_type"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "fillet"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 4, 
+            "value": "rare", 
+            "entity": "steak_done"
+          }
+        ], 
+        "intent": "inform", 
+        "text": "rare"
+      }, 
+      {
+        "entities": [
+          {
             "start": 3, 
             "end": 14, 
             "value": "second hall", 
@@ -2366,6 +2402,76 @@
       {
         "text": "what are the options?", 
         "intent": "help"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 15, 
+            "end": 20, 
+            "value": "steak", 
+            "entity": "food_type"
+          }
+        ], 
+        "intent": "order_food", 
+        "text": "I would have a steak"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 7, 
+            "end": 12, 
+            "value": "steak", 
+            "entity": "food_type"
+          }
+        ], 
+        "intent": "order_food", 
+        "text": "make a steak for me"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 14, 
+            "end": 18, 
+            "value": "rump", 
+            "entity": "steak_type"
+          }, 
+          {
+            "start": 19, 
+            "end": 24, 
+            "value": "steak", 
+            "entity": "food_type"
+          }
+        ], 
+        "intent": "order_food", 
+        "text": "I want medium rump steak"
+      }, 
+      {
+        "text": "I wanna make an order", 
+        "intent": "order_food"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 10, 
+            "end": 15, 
+            "value": "steak", 
+            "entity": "food_type"
+          }
+        ], 
+        "intent": "order_food", 
+        "text": "have some steak for me"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 20, 
+            "end": 25, 
+            "value": "steak", 
+            "entity": "food_type"
+          }
+        ], 
+        "intent": "order_food", 
+        "text": "hey I want to order steak"
       }
     ], 
     "entity_synonyms": [

@@ -8,6 +8,9 @@ let getBotUtterance = function (data) {
     let formattedDuration = data.formatted_duration;
     let userName = data.userName;
     let template = data.template;
+    let foodType = data.food_type;
+    let steakType = data.steak_type;
+    let steakDone = data.steak_done;
 
     let botResponses = {
         /* ************************* rasa-core utter messages *********************************************************/
@@ -47,7 +50,7 @@ let getBotUtterance = function (data) {
         utter_no_free_space: 'There is no free space',
         utter_what_steak_part: 'What part do you prefer?',
         utter_how_steak_done: 'How it should be done?',
-        utter_submit_order: `Great. Here is your order: Medium rump steak. Costs 5$. Is everything correct?`,
+        utter_submit_order: `Great. Here is your order: ${steakDone} ${steakType} ${foodType}. Costs 5$. Is everything correct?`,
         utter_make_payment: `Good. Please make a payment and we'll start prepare this delicious steak for you`,
         utter_confirm_booking: `So ${userName},I will book *${roomName}* at ${time} for next *${formattedDuration}*. _Correct_ ?`,
         utter_help: `

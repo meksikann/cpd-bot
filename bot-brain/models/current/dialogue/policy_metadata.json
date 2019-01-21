@@ -8,7 +8,7 @@
   "python": "2.7.12", 
   "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
   "rasa_core": "0.12.2", 
-  "trained_at": "20181204-191915", 
+  "trained_at": "20190121-183927", 
   "policy_names": [
     "rasa_core.policies.keras_policy.KerasPolicy", 
     "rasa_core.policies.fallback.FallbackPolicy", 
@@ -16,99 +16,14 @@
     "rasa_core.policies.form_policy.FormPolicy"
   ], 
   "action_fingerprints": {
-    "utter_room_is_free": {
-      "slots": []
-    }, 
-    "utter_how_can_help": {
-      "slots": []
-    }, 
-    "action_reset_auth_valid_slot": {
-      "slots": [
-        "auth_valid"
-      ]
-    }, 
     "action_listen": {
       "slots": [
-        "duration", 
-        "room_name", 
-        "time"
+        "food_type", 
+        "steak_done", 
+        "steak_type"
       ]
     }, 
     "utter_thank": {
-      "slots": []
-    }, 
-    "action_get_new_slots": {
-      "slots": [
-        "formatted_duration", 
-        "normalized_duration"
-      ]
-    }, 
-    "action_get_room_free_slots": {
-      "slots": [
-        "rooms_free_slots"
-      ]
-    }, 
-    "action_check_room_exists": {
-      "slots": [
-        "is_room_exists"
-      ]
-    }, 
-    "action_book_room": {
-      "slots": [
-        "success_booking"
-      ]
-    }, 
-    "action_check_auth_valid": {
-      "slots": [
-        "auth_valid"
-      ]
-    }, 
-    "action_check_room_available": {
-      "slots": [
-        "formatted_duration", 
-        "is_room_available", 
-        "normalized_duration", 
-        "time"
-      ]
-    }, 
-    "utter_greet": {
-      "slots": []
-    }, 
-    "utter_room_is_busy": {
-      "slots": []
-    }, 
-    "utter_sure": {
-      "slots": []
-    }, 
-    "action_extract_free_text_event_name": {
-      "slots": [
-        "event_name"
-      ]
-    }, 
-    "utter_room_not_exists": {
-      "slots": []
-    }, 
-    "utter_show_free_slots": {
-      "slots": []
-    }, 
-    "utter_no_problem": {
-      "slots": []
-    }, 
-    "action_check_office_location": {
-      "slots": [
-        "office_location"
-      ]
-    }, 
-    "utter_help": {
-      "slots": []
-    }, 
-    "utter_fallback": {
-      "slots": []
-    }, 
-    "utter_bye": {
-      "slots": []
-    }, 
-    "utter_responce_got_it": {
       "slots": []
     }
   }

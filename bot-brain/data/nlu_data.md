@@ -463,6 +463,7 @@
 - I want medium [rump](steak_type) [steak](food_type)
 - I wanna make an order
 - have some [steak](food_type) for me 
+- hey I want to order [steak](food_type)
 
 ## synonym:factory
 - factori

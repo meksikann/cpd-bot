@@ -20,7 +20,10 @@ function generateBotResponse(data) {
         roomName: data.slots.room_name,
         userName: data.userName || '',
         template: data.template,
-        url: process.env.BOT_MANUAL
+        url: process.env.BOT_MANUAL,
+        food_type: data.slots.food_type,
+        steak_type: data.slots.steak_type,
+        steak_done: data.slots.steak_done
     };
 
     //  generate custom bot utterance  ----------------------------

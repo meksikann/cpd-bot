@@ -46,6 +46,10 @@ actions:
 - utter_bye
 - utter_ready_to_proceed
 - utter_responce_got_it
+- utter_what_steak_part
+- utter_how_steak_done
+- utter_submit_order
+- utter_make_payment
 config:
   store_entities_as_slots: true
 entities:
@@ -56,6 +60,9 @@ entities:
 - duration
 - user_name
 - email
+- food_type
+- steak_type
+- steak_done
 forms: []
 intents:
 - None
@@ -76,7 +83,26 @@ intents:
 - book_room
 - check_room_available
 - help
+- order_food
 slots:
+  food_type:
+    type: categorical
+    values:
+      - steak
+      - chicken
+  steak_type:
+    type: categorical
+    values:
+      - rump
+      - fillet
+      - flank
+  steak_done:
+    type: categorical
+    values:
+      - rare
+      - medium rare
+      - meduim
+      - well done
   auth_valid:
     auto_fill: true
     initial_value: false
@@ -187,3 +213,11 @@ templates:
   - text: You authorized, so I can make action you asked for.
   utter_user_not_authorized:
   - text: O-o-o-p-s... Cannot make the action.You need to authorize first.
+  utter_what_steak_part:
+  - text: What part do you prefer?
+  utter_how_steak_done:
+  - text: How it should be done?
+  utter_submit_order:
+  - text: This part should be done at Node.js by Serhiy
+  utter_make_payment:
+  - text: Make a payment please at the terminal. And will start prepare your delicious steak

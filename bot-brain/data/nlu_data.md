@@ -336,6 +336,9 @@
 - [factory](room_name)
 - [now](time:2018-11-16T17:17:05.000+02:00) for [5 hours](duration)
 - new rass verstion available
+- [rump](steak_type) steak
+- [fillet](steak_type)
+- [rare](steak_done)
 
 ## intent: check_room_available
 - is [second hall](room_name) free?
@@ -453,6 +456,13 @@
 - what else can I do here?
 - Can you explain me in one sentence what you are doing?
 - what are the options?
+
+## intent: order_food
+- I would have a [steak](food_type)
+- make a [steak](food_type) for me
+- I want medium [rump](steak_type) [steak](food_type)
+- I wanna make an order
+- have some [steak](food_type) for me 
 
 ## synonym:factory
 - factori

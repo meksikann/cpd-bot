@@ -45,6 +45,10 @@ let getBotUtterance = function (data) {
         utter_room_not_booked: "Failed to book room",
         utter_no_problem: "Sure. No problem, my friend.",
         utter_no_free_space: 'There is no free space',
+        utter_what_steak_part: 'What part do you prefer?',
+        utter_how_steak_done: 'How it should be done?',
+        utter_submit_order: `Great. Here is your order: Medium rump steak. Costs 5$. Is everything correct?`,
+        utter_make_payment: `Good. Please make a payment and we'll start prepare this delicious steak for you`,
         utter_confirm_booking: `So ${userName},I will book *${roomName}* at ${time} for next *${formattedDuration}*. _Correct_ ?`,
         utter_help: `
         Ok ${userName}. So first of all remember - I'm just in learning stage, and do not know loads of stuff. Our CPD team working on my skills.

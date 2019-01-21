@@ -158,20 +158,11 @@ slots:
   steak_done:
     auto_fill: true
     initial_value: null
-    type: rasa_core.slots.CategoricalSlot
-    values:
-    - rare
-    - medium rare
-    - meduim
-    - well done
+    type: rasa_core.slots.TextSlot
   steak_type:
     auto_fill: true
     initial_value: null
-    type: rasa_core.slots.CategoricalSlot
-    values:
-    - rump
-    - fillet
-    - flank
+    type: rasa_core.slots.TextSlot
   success_booking:
     auto_fill: true
     initial_value: false

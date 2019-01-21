@@ -8,7 +8,7 @@
   "python": "2.7.12", 
   "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
   "rasa_core": "0.12.2", 
-  "trained_at": "20190121-183927", 
+  "trained_at": "20190121-192413", 
   "policy_names": [
     "rasa_core.policies.keras_policy.KerasPolicy", 
     "rasa_core.policies.fallback.FallbackPolicy", 
@@ -22,6 +22,9 @@
         "steak_done", 
         "steak_type"
       ]
+    }, 
+    "utter_no_problem": {
+      "slots": []
     }, 
     "utter_thank": {
       "slots": []

@@ -1,6 +1,6 @@
 policies:
 - name: KerasPolicy
-  epochs: 100
+  epochs: 1000
   max_history: 5
 - name: FallbackPolicy
   fallback_action_name: 'action_default_fallback'

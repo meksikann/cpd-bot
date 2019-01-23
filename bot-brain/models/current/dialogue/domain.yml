@@ -45,11 +45,16 @@ actions:
 - action_check_office_location
 - utter_ask_duration
 - utter_help
-- utter_make_payment
 - utter_fallback
 - utter_bye
 - utter_ready_to_proceed
 - utter_responce_got_it
+- utter_ask_meat_type
+- utter_ask_beef_type
+- utter_added_to_cart
+- utter_verify_order
+- utter_make_payment
+- utter_take_your_order
 config:
   store_entities_as_slots: true
 entities:
@@ -80,6 +85,8 @@ intents:
 - are_you_sure:
     use_entities: true
 - inform:
+    use_entities: true
+- payment_done:
     use_entities: true
 - greet:
     use_entities: true
@@ -176,12 +183,18 @@ slots:
     initial_value: null
     type: rasa_core.slots.TextSlot
 templates:
+  utter_added_to_cart:
+  - text: Done! Added to your cart. Do you want add some more stuff?
+  utter_ask_beef_type:
+  - text: What kind of beef you want?
   utter_ask_duration:
   - text: For how long should I book it?
   utter_ask_email:
   - text: Tell me your email please
   utter_ask_event_name:
   - text: how do we call the booking event?
+  utter_ask_meat_type:
+  - text: Whould you like to have a beef, lamb, pork or something else?
   utter_ask_room_name:
   - text: what is room name
   utter_ask_time:
@@ -207,8 +220,7 @@ templates:
   utter_location_saved:
   - text: Great! I have remembered your location:)
   utter_make_payment:
-  - text: Make a payment please at the terminal. And will start prepare your delicious
-      steak
+  - text: Please make a payment and we are ready
   utter_no_problem:
   - text: Sure. No problem...
   utter_on_it:
@@ -239,11 +251,14 @@ templates:
   - text: This part should be done at Node.js by Serhiy
   utter_sure:
   - text: yeah pal, i'm sure
+  utter_take_your_order:
+  - text: What kind of beef you want?
   utter_thank:
   - text: You're welcome!
   utter_user_authorized:
   - text: You authorized, so I can make action you asked for.
   utter_user_not_authorized:
   - text: O-o-o-p-s... Cannot make the action.You need to authorize first.
-  utter_what_steak_part:
-  - text: What part do you prefer?
+  utter_verify_order:
+  - text: Ok. Let me verify your order - you have one steak, 19.99 dolars to pay.
+      Whould you like to proceed to checkout?

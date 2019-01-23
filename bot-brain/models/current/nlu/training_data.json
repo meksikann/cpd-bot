@@ -610,10 +610,6 @@
         "intent": "deny"
       }, 
       {
-        "text": "-", 
-        "intent": "deny"
-      }, 
-      {
         "text": "neither of these", 
         "intent": "deny"
       }, 
@@ -694,130 +690,84 @@
         "intent": "affirm"
       }, 
       {
-        "text": "+", 
-        "intent": "affirm"
-      }, 
-      {
         "text": "good", 
         "intent": "affirm"
       }, 
       {
-        "entities": [
-          {
-            "start": 0, 
-            "end": 4, 
-            "value": "rump", 
-            "entity": "steak_type"
-          }
-        ], 
-        "intent": "inform", 
-        "text": "rump steak"
+        "text": "i want beef", 
+        "intent": "inform"
       }, 
       {
-        "entities": [
-          {
-            "start": 7, 
-            "end": 13, 
-            "value": "fillet", 
-            "entity": "steak_type"
-          }
-        ], 
-        "intent": "inform", 
-        "text": "i want fillet"
+        "text": "pork", 
+        "intent": "inform"
       }, 
       {
-        "entities": [
-          {
-            "start": 0, 
-            "end": 4, 
-            "value": "rare", 
-            "entity": "steak_done"
-          }
-        ], 
-        "intent": "inform", 
-        "text": "rare"
+        "text": "i would have a beef", 
+        "intent": "inform"
       }, 
       {
-        "entities": [
-          {
-            "start": 0, 
-            "end": 11, 
-            "value": "medium rare", 
-            "entity": "steak_done"
-          }
-        ], 
-        "intent": "inform", 
-        "text": "medium rare"
+        "text": "chicken", 
+        "intent": "inform"
       }, 
       {
-        "entities": [
-          {
-            "start": 15, 
-            "end": 20, 
-            "value": "steak", 
-            "entity": "food_type"
-          }
-        ], 
-        "intent": "order_food", 
-        "text": "I would have a steak"
+        "text": "i'll have a beef", 
+        "intent": "inform"
       }, 
       {
-        "entities": [
-          {
-            "start": 7, 
-            "end": 12, 
-            "value": "steak", 
-            "entity": "food_type"
-          }
-        ], 
-        "intent": "order_food", 
-        "text": "make a steak for me"
+        "text": "ribeye steak", 
+        "intent": "inform"
       }, 
       {
-        "entities": [
-          {
-            "start": 14, 
-            "end": 18, 
-            "value": "rump", 
-            "entity": "steak_type"
-          }, 
-          {
-            "start": 19, 
-            "end": 24, 
-            "value": "steak", 
-            "entity": "food_type"
-          }
-        ], 
-        "intent": "order_food", 
-        "text": "I want medium rump steak"
+        "text": "beef ribeye steak", 
+        "intent": "inform"
+      }, 
+      {
+        "text": "ribeye", 
+        "intent": "inform"
+      }, 
+      {
+        "text": "hey I wanna make some order", 
+        "intent": "order_food"
+      }, 
+      {
+        "text": "make an order", 
+        "intent": "order_food"
+      }, 
+      {
+        "text": "i want some meat", 
+        "intent": "order_food"
+      }, 
+      {
+        "text": "I would like to bye some stuff", 
+        "intent": "order_food"
+      }, 
+      {
+        "text": "get me some meat", 
+        "intent": "order_food"
       }, 
       {
         "text": "I wanna make an order", 
         "intent": "order_food"
       }, 
       {
-        "entities": [
-          {
-            "start": 10, 
-            "end": 15, 
-            "value": "steak", 
-            "entity": "food_type"
-          }
-        ], 
-        "intent": "order_food", 
-        "text": "have some steak for me"
+        "text": "payment done", 
+        "intent": "payment_done"
       }, 
       {
-        "entities": [
-          {
-            "start": 20, 
-            "end": 25, 
-            "value": "steak", 
-            "entity": "food_type"
-          }
-        ], 
-        "intent": "order_food", 
-        "text": "hey I want to order steak"
+        "text": "done payment", 
+        "intent": "payment_done"
+      }, 
+      {
+        "text": "payment finished", 
+        "intent": "payment_done"
+      }, 
+      {
+        "text": "payment proceeded", 
+        "intent": "payment_done"
+      }, 
+      {
+        "text": "finished with payment", 
+        "intent": "payment_done"
       }
     ], 
     "entity_synonyms": [], 

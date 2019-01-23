@@ -157,7 +157,6 @@
 - i don't want to
 - i don't want either of those
 - nah thanks
-- -
 - neither of these
 
 ## intent:affirm
@@ -180,19 +179,29 @@
 - i'm cool with it
 - it's ok
 - no problem
-- +
 - good
 
 ## intent: inform
-- [rump](steak_type) steak
-- i want [fillet](steak_type)
-- [rare](steak_done)
-- [medium rare](steak_done)
+- i want beef
+- pork
+- i would have a beef
+- chicken
+- i'll have a beef
+- ribeye steak one inch
+- beef ribeye steak
+- ribeye
 
 ## intent: order_food
-- I would have a [steak](food_type)
-- make a [steak](food_type) for me
-- I want medium [rump](steak_type) [steak](food_type)
+- hey I wanna make some order
+- make an order
+- i want some meat
+- I would like to bye some stuff
+- get me some meat
 - I wanna make an order
-- have some [steak](food_type) for me 
-- hey I want to order [steak](food_type)
+
+## intent: payment_done
+- payment done
+- done payment
+- payment finished
+- payment proceeded
+- finished with payment

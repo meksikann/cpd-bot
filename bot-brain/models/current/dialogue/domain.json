@@ -15,6 +15,7 @@
     "intent_how_are_you", 
     "intent_inform", 
     "intent_order_food", 
+    "intent_payment_done", 
     "intent_remove_event", 
     "intent_show_my_events", 
     "intent_thank", 
@@ -100,10 +101,15 @@
     "prev_action_check_office_location", 
     "prev_utter_ask_duration", 
     "prev_utter_help", 
-    "prev_utter_make_payment", 
     "prev_utter_fallback", 
     "prev_utter_bye", 
     "prev_utter_ready_to_proceed", 
-    "prev_utter_responce_got_it"
+    "prev_utter_responce_got_it", 
+    "prev_utter_ask_meat_type", 
+    "prev_utter_ask_beef_type", 
+    "prev_utter_added_to_cart", 
+    "prev_utter_verify_order", 
+    "prev_utter_make_payment", 
+    "prev_utter_take_your_order"
   ]
 }

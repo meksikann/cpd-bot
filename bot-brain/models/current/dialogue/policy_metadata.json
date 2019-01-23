@@ -8,7 +8,7 @@
   "python": "2.7.12", 
   "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
   "rasa_core": "0.12.2", 
-  "trained_at": "20190121-192413", 
+  "trained_at": "20190123-135505", 
   "policy_names": [
     "rasa_core.policies.keras_policy.KerasPolicy", 
     "rasa_core.policies.fallback.FallbackPolicy", 
@@ -16,17 +16,10 @@
     "rasa_core.policies.form_policy.FormPolicy"
   ], 
   "action_fingerprints": {
-    "action_listen": {
-      "slots": [
-        "food_type", 
-        "steak_done", 
-        "steak_type"
-      ]
-    }, 
-    "utter_no_problem": {
+    "utter_take_your_order": {
       "slots": []
     }, 
-    "utter_thank": {
+    "action_listen": {
       "slots": []
     }
   }

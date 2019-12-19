@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/meksikann/cpd-bot#readme",
   "dependencies": {
+    "@google-cloud/language": "^3.6.3",
     "axios": "^0.18.0",
     "babel-runtime": "^6.26.0",
     "botbuilder": "^3.15.0",

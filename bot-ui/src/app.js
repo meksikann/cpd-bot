@@ -7,6 +7,7 @@ import HttpStatus from 'http-status-codes'
 import bodyParser from 'body-parser';
 import {generalConstants} from './constants/general';
 import {botGenerateUtter, botPerformAction} from './bot.js';
+import {startSentimentor} from "./sentiment";
 
 
 let db = monk('localhost:27017/cpd-bot');
@@ -29,6 +30,14 @@ server.listen(port, () => {
 server.post('/webhook', botPerformAction);
 // generate bot messages
 server.post('/nlg', botGenerateUtter);
+server.get('/sentiment/:text', async (req, res)=> {
+    const reqText = req.params.text;
+    const sentimentResult = await startSentimentor(reqText);
+    console.log(sentimentResult);
+
+    res.send(sentimentResult)
+    }
+);
 
 // simple request for balancer
 server.post('/', (req, res, next) => {

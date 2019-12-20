@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05ace490-61a7-4244-9f58-babee04ef7d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sentiment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sentiment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sentiment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -69,7 +67,11 @@
       <workItem from="1538039028973" duration="323000" />
       <workItem from="1544716754990" duration="671000" />
       <workItem from="1555315920527" duration="19000" />
-      <workItem from="1576756688153" duration="2902000" />
+      <workItem from="1576756688153" duration="3137000" />
+      <workItem from="1576764024257" duration="19000" />
+      <workItem from="1576767689683" duration="2295000" />
+      <workItem from="1576828345120" duration="25000" />
+      <workItem from="1576830711469" duration="2251000" />
     </task>
     <servers />
   </component>
@@ -77,9 +79,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="127" key="FileChooserDialogImpl" timestamp="1576757263406">
-      <screen x="57" y="24" width="1309" height="744" />
+    <state x="461" y="418" width="424" height="482" key="FileChooserDialogImpl" timestamp="1576828369008">
+      <screen x="0" y="312" width="1366" height="768" />
     </state>
+    <state x="461" y="418" width="424" height="482" key="FileChooserDialogImpl/0.312.1366.768/1366.0.1920.1080@0.312.1366.768" timestamp="1576828369008" />
     <state x="499" y="127" key="FileChooserDialogImpl/57.24.1309.744@57.24.1309.744" timestamp="1576757263406" />
   </component>
 </project>

@@ -37,7 +37,7 @@
     "http-status-codes": "^1.3.0",
     "keymirror": "^0.1.1",
     "lodash": "^4.17.10",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "mongoist": "^1.7.2",
     "monk": "^6.0.6",
     "request": "^2.88.0",
